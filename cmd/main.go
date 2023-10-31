@@ -23,7 +23,7 @@ import (
 )
 
 func main() {
-	refreshFlag := flag.Bool("refresh", false, "Refresh Aws schema")
+	refreshFlag := flag.Bool("refresh", false, "Refresh Alicloud schema")
 	commitFlag := flag.String("commit", "", "Commit schema with specified version")
 
 	// Parse flags

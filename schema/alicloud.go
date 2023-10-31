@@ -132,15 +132,15 @@ func ExtractAliCloudProviderSchema() (*ProviderSchema, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error running providers: %w", err)
 	}
-	r := schema.Schemas["registry.terraform.io/hashicorp/aws"]
+	r := schema.Schemas["registry.terraform.io/aliyun/alicloud"]
 
 	_, versions, err := tf.Version(context.Background(), true)
 	if err != nil {
 		return nil, fmt.Errorf("error running version: %w", err)
 	}
-	v, ok := versions["registry.terraform.io/hashicorp/aws"]
+	v, ok := versions["registry.terraform.io/aliyun/alicloud"]
 	if !ok {
-		return nil, fmt.Errorf("error getting azurerm version")
+		return nil, fmt.Errorf("error getting alicloud version")
 	}
 
 	return &ProviderSchema{
@@ -234,11 +234,13 @@ func buildRegisterParameter(s *tfjson.ProviderSchema) RegisterParameter {
 	}
 	linq.From(s.ResourceSchemas).OrderBy(byKey).ToMapBy(&parameter.ResourceSchemas, byKey, func(i interface{}) interface{} {
 		pair := i.(linq.KeyValue)
-		return fmt.Sprintf("resource.%sSchema()", strcase.ToCamel(pair.Key.(string)))
+		name := strcase.ToCamel(pair.Key.(string))
+		return fmt.Sprintf("resource.%sSchema()", name)
 	})
 	linq.From(s.DataSourceSchemas).OrderBy(byKey).ToMapBy(&parameter.DataSourceSchemas, byKey, func(i interface{}) interface{} {
 		pair := i.(linq.KeyValue)
-		return fmt.Sprintf("data.%sSchema()", strcase.ToCamel(pair.Key.(string)))
+		name := strcase.ToCamel(pair.Key.(string))
+		return fmt.Sprintf("data.%sSchema()", name)
 	})
 	return parameter
 }
@@ -297,7 +299,7 @@ func saveSchema(name, folder string, s *tfjson.Schema, pkg Package) error {
 	if err != nil {
 		return fmt.Errorf("error generating go file content: %s", err)
 	}
-	fileName := strcase.ToLowerCamel(name)
+	fileName := name
 	err = save(filepath.Join(folder, string(pkg), fmt.Sprintf("%s.go", fileName)), []byte(content))
 	if err != nil {
 		return fmt.Errorf("error saving file generated/%s/%s.go: %s", pkg, fileName, err)
