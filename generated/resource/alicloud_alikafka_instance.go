@@ -1,0 +1,180 @@
+package resource
+
+import (
+	"encoding/json"
+
+	tfjson "github.com/hashicorp/terraform-json"
+)
+
+const alicloudAlikafkaInstance = `{
+  "block": {
+    "attributes": {
+      "config": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "deploy_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "disk_size": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "disk_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "eip_max": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "end_point": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "io_max": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "io_max_spec": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "kms_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "paid_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "partition_num": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "security_group": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "selected_zones": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "service_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "spec_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "topic_quota": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "vpc_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "zone_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
+      }
+    },
+    "description_kind": "plain"
+  },
+  "version": 0
+}`
+
+func AlicloudAlikafkaInstanceSchema() *tfjson.Schema {
+	var result tfjson.Schema
+	_ = json.Unmarshal([]byte(alicloudAlikafkaInstance), &result)
+	return &result
+}
