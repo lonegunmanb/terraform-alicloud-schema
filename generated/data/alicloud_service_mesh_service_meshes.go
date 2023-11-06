@@ -58,6 +58,7 @@ const alicloudServiceMeshServiceMeshes = `{
               "error_message": "string",
               "id": "string",
               "istio_operator_version": "string",
+              "kube_config": "string",
               "load_balancer": [
                 "list",
                 [

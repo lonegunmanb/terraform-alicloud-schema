@@ -6,37 +6,35 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDdoscooInstance = `{
+const alicloudThreatDetectionClientUserDefineRule = `{
   "block": {
     "attributes": {
-      "address_type": {
-        "computed": true,
+      "action_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "client_user_define_rule_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "cmdline": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "bandwidth": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "bandwidth_mode": {
+      "file_path": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "base_bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "domain_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "edition_sale": {
-        "computed": true,
+      "hash": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -48,34 +46,55 @@ const alicloudDdoscooInstance = `{
         "type": "string"
       },
       "ip": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "new_file_path": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "parent_cmdline": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "parent_proc_path": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "platform": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "port_str": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "period": {
+      "proc_path": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "registry_content": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "registry_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "type": {
+        "description_kind": "plain",
+        "required": true,
         "type": "number"
-      },
-      "port_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "product_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "service_bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
@@ -91,6 +110,11 @@ const alicloudDdoscooInstance = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -103,8 +127,8 @@ const alicloudDdoscooInstance = `{
   "version": 0
 }`
 
-func AlicloudDdoscooInstanceSchema() *tfjson.Schema {
+func AlicloudThreatDetectionClientUserDefineRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDdoscooInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionClientUserDefineRule), &result)
 	return &result
 }

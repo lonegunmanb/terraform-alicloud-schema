@@ -80,17 +80,18 @@ const alicloudCsManagedKubernetes = `{
         ]
       },
       "control_plane_log_project": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "control_plane_log_ttl": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "cpu_policy": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -111,7 +112,6 @@ const alicloudCsManagedKubernetes = `{
         "type": "bool"
       },
       "enable_ssh": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -123,7 +123,6 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "exclude_autoscaler_nodes": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -140,14 +139,12 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "image_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "install_cloud_monitor": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -159,19 +156,16 @@ const alicloudCsManagedKubernetes = `{
         "type": "bool"
       },
       "key_name": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "kms_encrypted_password": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "kms_encryption_context": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -180,7 +174,6 @@ const alicloudCsManagedKubernetes = `{
         ]
       },
       "kube_config": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -217,26 +210,22 @@ const alicloudCsManagedKubernetes = `{
         "type": "number"
       },
       "node_name_mode": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "node_port_range": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "os_type": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "password": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "sensitive": true,
@@ -244,7 +233,6 @@ const alicloudCsManagedKubernetes = `{
       },
       "platform": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -268,7 +256,6 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "rds_instances": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -290,8 +277,23 @@ const alicloudCsManagedKubernetes = `{
           "string"
         ]
       },
+      "rrsa_metadata": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "enabled": "bool",
+              "ram_oidc_provider_arn": "string",
+              "ram_oidc_provider_name": "string",
+              "rrsa_oidc_issuer_url": "string"
+            }
+          ]
+        ]
+      },
       "runtime": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -355,7 +357,6 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "user_data": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -380,58 +381,49 @@ const alicloudCsManagedKubernetes = `{
         ]
       },
       "worker_auto_renew": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "worker_auto_renew_period": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_data_disk_category": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_data_disk_size": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_disk_category": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_disk_performance_level": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_disk_size": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_disk_snapshot_policy_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_instance_charge_type": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -442,7 +434,6 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "worker_instance_types": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -450,24 +441,7 @@ const alicloudCsManagedKubernetes = `{
           "string"
         ]
       },
-      "worker_nodes": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "id": "string",
-              "name": "string",
-              "private_ip": "string"
-            }
-          ]
-        ]
-      },
       "worker_number": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -482,14 +456,12 @@ const alicloudCsManagedKubernetes = `{
       },
       "worker_period": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_period_unit": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -523,6 +495,11 @@ const alicloudCsManagedKubernetes = `{
               "type": "bool"
             },
             "name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "version": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -580,35 +557,6 @@ const alicloudCsManagedKubernetes = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "rrsa_metadata": {
-        "block": {
-          "attributes": {
-            "enabled": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "bool"
-            },
-            "ram_oidc_provider_arn": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "ram_oidc_provider_name": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "rrsa_oidc_issuer_url": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "taints": {
         "block": {
           "attributes": {
@@ -628,7 +576,6 @@ const alicloudCsManagedKubernetes = `{
               "type": "string"
             }
           },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "list"
@@ -705,7 +652,29 @@ const alicloudCsManagedKubernetes = `{
               "type": "string"
             }
           },
-          "deprecated": true,
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "worker_nodes": {
+        "block": {
+          "attributes": {
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "name": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "private_ip": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            }
+          },
           "description_kind": "plain"
         },
         "nesting_mode": "list"

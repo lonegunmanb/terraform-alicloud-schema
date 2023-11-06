@@ -6,45 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCmsGroupMetricRule = `{
+const alicloudRocketmqInstance = `{
   "block": {
     "attributes": {
-      "category": {
+      "auto_renew": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "contact_groups": {
+      "auto_renew_period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "auto_renew_period_unit": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "dimensions": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "effective_interval": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "email_subject": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_metric_rule_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -53,179 +36,209 @@ const alicloudCmsGroupMetricRule = `{
         "optional": true,
         "type": "string"
       },
-      "interval": {
+      "instance_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "metric_name": {
+      "payment_type": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "namespace": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "no_effective_interval": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "period": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "rule_id": {
+      "period_unit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "remark": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "series_code": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "silence_time": {
-        "computed": true,
+      "service_code": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "webhook": {
+      "sub_series_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "escalations": {
+      "network_info": {
         "block": {
+          "attributes": {
+            "endpoints": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                [
+                  "object",
+                  {
+                    "endpoint_type": "string",
+                    "endpoint_url": "string",
+                    "ip_white_list": [
+                      "list",
+                      "string"
+                    ]
+                  }
+                ]
+              ]
+            }
+          },
           "block_types": {
-            "critical": {
+            "internet_info": {
               "block": {
                 "attributes": {
-                  "comparison_operator": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "statistics": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "threshold": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "times": {
+                  "flow_out_bandwidth": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
+                  },
+                  "flow_out_type": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "internet_spec": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "ip_whitelist": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
                   }
                 },
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "nesting_mode": "set"
+              "min_items": 1,
+              "nesting_mode": "list"
             },
-            "info": {
+            "vpc_info": {
               "block": {
                 "attributes": {
-                  "comparison_operator": {
+                  "vpc_id": {
                     "description_kind": "plain",
-                    "optional": true,
+                    "required": true,
                     "type": "string"
                   },
-                  "statistics": {
+                  "vswitch_id": {
                     "description_kind": "plain",
-                    "optional": true,
+                    "required": true,
                     "type": "string"
-                  },
-                  "threshold": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "times": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "number"
                   }
                 },
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "nesting_mode": "set"
-            },
-            "warn": {
-              "block": {
-                "attributes": {
-                  "comparison_operator": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "statistics": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "threshold": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "times": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "number"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "set"
+              "min_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
         "min_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
-      "targets": {
+      "product_info": {
         "block": {
           "attributes": {
-            "arn": {
+            "auto_scaling": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "message_retention_time": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "msg_process_spec": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "send_receive_ratio": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "support_auto_scaling": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "software": {
+        "block": {
+          "attributes": {
+            "maintain_time": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "id": {
+            "software_version": {
+              "computed": true,
               "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
-            "json_params": {
+            "upgrade_method": {
+              "computed": true,
               "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "level": {
-              "description_kind": "plain",
-              "optional": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "max_items": 1,
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -256,8 +269,8 @@ const alicloudCmsGroupMetricRule = `{
   "version": 0
 }`
 
-func AlicloudCmsGroupMetricRuleSchema() *tfjson.Schema {
+func AlicloudRocketmqInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCmsGroupMetricRule), &result)
+	_ = json.Unmarshal([]byte(alicloudRocketmqInstance), &result)
 	return &result
 }

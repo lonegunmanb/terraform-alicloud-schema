@@ -6,40 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDdoscooInstance = `{
+const alicloudThreatDetectionClientFileProtect = `{
   "block": {
     "attributes": {
-      "address_type": {
-        "computed": true,
+      "alert_level": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "bandwidth": {
+      "file_ops": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "bandwidth_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "base_bandwidth": {
+      "file_paths": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "domain_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "edition_sale": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -47,34 +36,33 @@ const alicloudDdoscooInstance = `{
         "optional": true,
         "type": "string"
       },
-      "ip": {
-        "computed": true,
+      "proc_paths": {
         "description_kind": "plain",
-        "type": "string"
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "name": {
+      "rule_action": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "period": {
+      "rule_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "port_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "product_type": {
+      "switch_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "service_bandwidth": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -91,6 +79,11 @@ const alicloudDdoscooInstance = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -103,8 +96,8 @@ const alicloudDdoscooInstance = `{
   "version": 0
 }`
 
-func AlicloudDdoscooInstanceSchema() *tfjson.Schema {
+func AlicloudThreatDetectionClientFileProtectSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDdoscooInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionClientFileProtect), &result)
 	return &result
 }

@@ -6,37 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDdoscooInstance = `{
+const alicloudDmsEnterpriseAuthorityTemplate = `{
   "block": {
     "attributes": {
-      "address_type": {
+      "authority_template_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "bandwidth": {
+      "authority_template_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "bandwidth_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "base_bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "domain_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "edition_sale": {
+      "create_time": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -47,35 +35,10 @@ const alicloudDdoscooInstance = `{
         "optional": true,
         "type": "string"
       },
-      "ip": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
+      "tid": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "period": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "number"
-      },
-      "port_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "product_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "service_bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
@@ -91,6 +54,11 @@ const alicloudDdoscooInstance = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -103,8 +71,8 @@ const alicloudDdoscooInstance = `{
   "version": 0
 }`
 
-func AlicloudDdoscooInstanceSchema() *tfjson.Schema {
+func AlicloudDmsEnterpriseAuthorityTemplateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDdoscooInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudDmsEnterpriseAuthorityTemplate), &result)
 	return &result
 }

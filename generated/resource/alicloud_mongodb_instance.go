@@ -20,6 +20,12 @@ const alicloudMongodbInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "backup_interval": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "backup_period": {
         "computed": true,
         "description_kind": "plain",
@@ -35,6 +41,11 @@ const alicloudMongodbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "cloud_disk_encryption_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_instance_class": {
         "description_kind": "plain",
         "required": true,
@@ -44,6 +55,23 @@ const alicloudMongodbInstance = `{
         "description_kind": "plain",
         "required": true,
         "type": "number"
+      },
+      "encrypted": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "encryption_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encryptor_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "engine_version": {
         "description_kind": "plain",
@@ -62,6 +90,7 @@ const alicloudMongodbInstance = `{
         "type": "string"
       },
       "instance_charge_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -128,7 +157,7 @@ const alicloudMongodbInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": [
-          "list",
+          "set",
           [
             "object",
             {
@@ -160,13 +189,18 @@ const alicloudMongodbInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "role_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "secondary_zone_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "security_group_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -180,8 +214,13 @@ const alicloudMongodbInstance = `{
           "string"
         ]
       },
-      "ssl_action": {
+      "snapshot_backup_type": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ssl_action": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -212,6 +251,7 @@ const alicloudMongodbInstance = `{
         ]
       },
       "tde_status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -34,6 +34,7 @@ const alicloudServiceMeshServiceMesh = `{
         "type": "bool"
       },
       "edition": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -73,6 +74,7 @@ const alicloudServiceMeshServiceMesh = `{
         ]
       },
       "version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -126,6 +128,7 @@ const alicloudServiceMeshServiceMesh = `{
         "block": {
           "attributes": {
             "customized_zipkin": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -176,11 +179,13 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "enabled": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
                   },
                   "project": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -216,11 +221,13 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "enabled": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
                   },
                   "project": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -293,6 +300,7 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "http10_enabled": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
@@ -346,6 +354,7 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "auto_injection_policy_enabled": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
@@ -356,21 +365,25 @@ const alicloudServiceMeshServiceMesh = `{
                     "type": "bool"
                   },
                   "limit_cpu": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "limit_memory": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "request_cpu": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "request_memory": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"

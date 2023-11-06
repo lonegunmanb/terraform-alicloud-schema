@@ -66,7 +66,6 @@ const alicloudCsKubernetes = `{
         ]
       },
       "cpu_policy": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -87,7 +86,6 @@ const alicloudCsKubernetes = `{
         "type": "bool"
       },
       "exclude_autoscaler_nodes": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -104,6 +102,7 @@ const alicloudCsKubernetes = `{
         "type": "string"
       },
       "image_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -138,7 +137,6 @@ const alicloudCsKubernetes = `{
         ]
       },
       "kube_config": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -257,13 +255,13 @@ const alicloudCsKubernetes = `{
         "type": "number"
       },
       "node_name_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "node_port_range": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -397,7 +395,6 @@ const alicloudCsKubernetes = `{
         "type": "string"
       },
       "user_data": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -427,58 +424,49 @@ const alicloudCsKubernetes = `{
         ]
       },
       "worker_auto_renew": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "worker_auto_renew_period": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_data_disk_category": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_data_disk_size": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_disk_category": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_disk_performance_level": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_disk_size": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_disk_snapshot_policy_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "worker_instance_charge_type": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -489,7 +477,6 @@ const alicloudCsKubernetes = `{
         "type": "string"
       },
       "worker_instance_types": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -497,24 +484,7 @@ const alicloudCsKubernetes = `{
           "string"
         ]
       },
-      "worker_nodes": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "id": "string",
-              "name": "string",
-              "private_ip": "string"
-            }
-          ]
-        ]
-      },
       "worker_number": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -529,14 +499,12 @@ const alicloudCsKubernetes = `{
       },
       "worker_period": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "worker_period_unit": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -547,7 +515,6 @@ const alicloudCsKubernetes = `{
         "type": "string"
       },
       "worker_vswitch_ids": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -571,6 +538,11 @@ const alicloudCsKubernetes = `{
               "type": "bool"
             },
             "name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "version": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -618,7 +590,6 @@ const alicloudCsKubernetes = `{
               "type": "string"
             }
           },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "nesting_mode": "list"
@@ -695,7 +666,29 @@ const alicloudCsKubernetes = `{
               "type": "string"
             }
           },
-          "deprecated": true,
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "worker_nodes": {
+        "block": {
+          "attributes": {
+            "id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "name": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "private_ip": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            }
+          },
           "description_kind": "plain"
         },
         "nesting_mode": "list"

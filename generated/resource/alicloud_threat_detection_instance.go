@@ -15,6 +15,12 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "container_image_scan": {
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "container_image_scan_new": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,17 +36,12 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "honeypot_switch": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -61,7 +62,13 @@ const alicloudThreatDetectionInstance = `{
         "optional": true,
         "type": "number"
       },
+      "rasp_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "renew_period": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -73,12 +80,22 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "renewal_status": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "sas_anti_ransomware": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sas_cspm": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sas_cspm_switch": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -94,6 +111,7 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "sas_sdk_switch": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -104,6 +122,7 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "sas_webguard_boolean": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -124,6 +143,7 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "threat_analysis_switch": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -137,6 +157,42 @@ const alicloudThreatDetectionInstance = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "vul_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vul_switch": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

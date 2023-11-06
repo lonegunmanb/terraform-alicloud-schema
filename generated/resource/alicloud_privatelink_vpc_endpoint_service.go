@@ -20,6 +20,11 @@ const alicloudPrivatelinkVpcEndpointService = `{
         "optional": true,
         "type": "number"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "dry_run": {
         "description_kind": "plain",
         "optional": true,
@@ -32,6 +37,13 @@ const alicloudPrivatelinkVpcEndpointService = `{
         "type": "string"
       },
       "payer": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -51,10 +63,39 @@ const alicloudPrivatelinkVpcEndpointService = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "service_resource_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "service_support_ipv6": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "vpc_endpoint_service_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "zone_affinity_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

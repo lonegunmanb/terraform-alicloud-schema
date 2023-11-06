@@ -6,61 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudLogProject = `{
+const alicloudCloudMonitorServiceMonitoringAgentProcess = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "instance_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "policy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "project_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
+      "process_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "process_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "process_user": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -76,11 +49,6 @@ const alicloudLogProject = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -93,8 +61,8 @@ const alicloudLogProject = `{
   "version": 0
 }`
 
-func AlicloudLogProjectSchema() *tfjson.Schema {
+func AlicloudCloudMonitorServiceMonitoringAgentProcessSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudLogProject), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudMonitorServiceMonitoringAgentProcess), &result)
 	return &result
 }

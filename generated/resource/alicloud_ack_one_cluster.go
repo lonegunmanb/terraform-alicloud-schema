@@ -6,39 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDdoscooInstance = `{
+const alicloudAckOneCluster = `{
   "block": {
     "attributes": {
-      "address_type": {
+      "cluster_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "bandwidth_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "base_bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "domain_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "edition_sale": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -47,38 +26,50 @@ const alicloudDdoscooInstance = `{
         "optional": true,
         "type": "string"
       },
-      "ip": {
+      "profile": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "port_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "product_type": {
-        "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "service_bandwidth": {
+      "status": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "network": {
+        "block": {
+          "attributes": {
+            "security_group_ids": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "vpc_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "vswitches": {
+              "description_kind": "plain",
+              "required": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -103,8 +94,8 @@ const alicloudDdoscooInstance = `{
   "version": 0
 }`
 
-func AlicloudDdoscooInstanceSchema() *tfjson.Schema {
+func AlicloudAckOneClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDdoscooInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudAckOneCluster), &result)
 	return &result
 }
