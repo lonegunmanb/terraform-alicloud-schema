@@ -6,13 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpointServiceResource = `{
+const alicloudEnsDisk = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "category": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "disk_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encrypted": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "ens_region_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,25 +40,30 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "zone_id": {
+      "kms_key_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "payment_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "snapshot_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -72,8 +97,8 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointServiceResourceSchema() *tfjson.Schema {
+func AlicloudEnsDiskSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpointServiceResource), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsDisk), &result)
 	return &result
 }

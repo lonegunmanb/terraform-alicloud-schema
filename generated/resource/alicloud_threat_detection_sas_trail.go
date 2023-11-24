@@ -6,13 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpointServiceResource = `{
+const alicloudThreatDetectionSasTrail = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -20,26 +20,19 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "zone_id": {
+      "service_trail": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "config": "string",
+              "update_time": "number"
+            }
+          ]
+        ]
       }
     },
     "block_types": {
@@ -55,11 +48,6 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -72,8 +60,8 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointServiceResourceSchema() *tfjson.Schema {
+func AlicloudThreatDetectionSasTrailSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpointServiceResource), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionSasTrail), &result)
 	return &result
 }

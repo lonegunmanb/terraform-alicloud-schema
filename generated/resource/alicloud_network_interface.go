@@ -20,6 +20,21 @@ const alicloudNetworkInterface = `{
         "optional": true,
         "type": "string"
       },
+      "ipv4_prefix_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "ipv4_prefixes": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "ipv6_address_count": {
         "computed": true,
         "description_kind": "plain",

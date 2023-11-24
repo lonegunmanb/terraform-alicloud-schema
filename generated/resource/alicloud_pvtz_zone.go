@@ -53,6 +53,7 @@ const alicloudPvtzZone = `{
         "type": "string"
       },
       "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -61,6 +62,14 @@ const alicloudPvtzZone = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "update_time": {
         "computed": true,

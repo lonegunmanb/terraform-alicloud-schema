@@ -44,6 +44,7 @@ const alicloudNlbLoadBalancer = `{
         "type": "bool"
       },
       "deletion_protection_reason": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -82,6 +83,7 @@ const alicloudNlbLoadBalancer = `{
         "type": "string"
       },
       "modification_protection_reason": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

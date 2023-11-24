@@ -56,6 +56,14 @@ const alicloudFcService = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "version": {
         "computed": true,
         "description_kind": "plain",

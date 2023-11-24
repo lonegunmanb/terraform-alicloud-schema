@@ -19,6 +19,14 @@ const alicloudGaEndpointGroup = `{
         "optional": true,
         "type": "string"
       },
+      "endpoint_group_ip_list": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "endpoint_group_region": {
         "description_kind": "plain",
         "required": true,

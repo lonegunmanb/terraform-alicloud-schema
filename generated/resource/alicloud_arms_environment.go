@@ -6,13 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpointServiceResource = `{
+const alicloudArmsEnvironment = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "aliyun_lang": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "bind_resource_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "environment_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "environment_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "environment_sub_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "environment_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,26 +45,19 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "zone_id": {
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -72,8 +90,8 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointServiceResourceSchema() *tfjson.Schema {
+func AlicloudArmsEnvironmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpointServiceResource), &result)
+	_ = json.Unmarshal([]byte(alicloudArmsEnvironment), &result)
 	return &result
 }

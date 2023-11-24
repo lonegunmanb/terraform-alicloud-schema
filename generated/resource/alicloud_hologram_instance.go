@@ -6,49 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpoint = `{
+const alicloudHologramInstance = `{
   "block": {
     "attributes": {
-      "bandwidth": {
-        "computed": true,
+      "auto_pay": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "cold_storage_size": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "number"
       },
-      "connection_status": {
+      "cpu": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "dry_run": {
+      "duration": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
-      "endpoint_business_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "endpoint_description": {
+      "gateway_count": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "endpoint_domain": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "endpoint_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -56,10 +46,35 @@ const alicloudPrivatelinkVpcEndpoint = `{
         "optional": true,
         "type": "string"
       },
-      "protected_enabled": {
+      "initial_databases": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "instance_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "instance_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "leader_instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "payment_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "pricing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "resource_group_id": {
         "computed": true,
@@ -67,21 +82,7 @@ const alicloudPrivatelinkVpcEndpoint = `{
         "optional": true,
         "type": "string"
       },
-      "security_group_ids": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "service_name": {
-        "computed": true,
+      "scale_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -89,7 +90,13 @@ const alicloudPrivatelinkVpcEndpoint = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "storage_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "tags": {
         "description_kind": "plain",
@@ -99,24 +106,59 @@ const alicloudPrivatelinkVpcEndpoint = `{
           "string"
         ]
       },
-      "vpc_endpoint_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vpc_id": {
+      "zone_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "zone_private_ip_address_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "block_types": {
+      "endpoints": {
+        "block": {
+          "attributes": {
+            "alternative_endpoints": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "bool"
+            },
+            "endpoint": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "vpc_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "vpc_instance_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "vswitch_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -146,8 +188,8 @@ const alicloudPrivatelinkVpcEndpoint = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointSchema() *tfjson.Schema {
+func AlicloudHologramInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpoint), &result)
+	_ = json.Unmarshal([]byte(alicloudHologramInstance), &result)
 	return &result
 }

@@ -86,7 +86,6 @@ const alicloudVpc = `{
       "route_table_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "router_id": {
@@ -98,7 +97,6 @@ const alicloudVpc = `{
         "computed": true,
         "deprecated": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "secondary_cidr_blocks": {

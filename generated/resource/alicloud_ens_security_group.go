@@ -6,13 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpointServiceResource = `{
+const alicloudEnsSecurityGroup = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,23 +20,7 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "zone_id": {
-        "computed": true,
+      "security_group_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -72,8 +56,8 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointServiceResourceSchema() *tfjson.Schema {
+func AlicloudEnsSecurityGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpointServiceResource), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsSecurityGroup), &result)
 	return &result
 }

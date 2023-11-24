@@ -6,13 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpointServiceResource = `{
+const alicloudArmsEnvCustomJob = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "aliyun_lang": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "config_yaml": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "env_custom_job_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "environment_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,22 +35,7 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "zone_id": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -72,8 +72,8 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointServiceResourceSchema() *tfjson.Schema {
+func AlicloudArmsEnvCustomJobSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpointServiceResource), &result)
+	_ = json.Unmarshal([]byte(alicloudArmsEnvCustomJob), &result)
 	return &result
 }

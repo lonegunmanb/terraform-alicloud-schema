@@ -6,13 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpointServiceResource = `{
+const alicloudThreatDetectionImageEventOperation = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "conditions": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "event_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "event_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "event_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,23 +36,12 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
+      "operation_code": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "service_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "zone_id": {
-        "computed": true,
+      "scenarios": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -72,8 +77,8 @@ const alicloudPrivatelinkVpcEndpointServiceResource = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointServiceResourceSchema() *tfjson.Schema {
+func AlicloudThreatDetectionImageEventOperationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpointServiceResource), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionImageEventOperation), &result)
 	return &result
 }

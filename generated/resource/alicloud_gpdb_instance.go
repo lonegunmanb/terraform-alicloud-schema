@@ -109,7 +109,14 @@ const alicloudGpdbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "master_cu": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "master_node_num": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -131,17 +138,18 @@ const alicloudGpdbInstance = `{
         "type": "string"
       },
       "private_ip_address": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "security_ip_list": {
-        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,

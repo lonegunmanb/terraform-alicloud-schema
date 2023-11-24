@@ -70,6 +70,7 @@ const alicloudPrivatelinkVpcEndpointService = `{
         "type": "string"
       },
       "service_support_ipv6": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -93,6 +94,7 @@ const alicloudPrivatelinkVpcEndpointService = `{
         "type": "string"
       },
       "zone_affinity_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

@@ -10,7 +10,6 @@ const alicloudCenTransitRouterVpcAttachment = `{
   "block": {
     "attributes": {
       "auto_publish_route_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -38,6 +37,7 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "type": "string"
       },
       "resource_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -83,6 +83,7 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "type": "string"
       },
       "transit_router_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

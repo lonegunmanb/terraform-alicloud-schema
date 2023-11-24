@@ -19,6 +19,12 @@ const alicloudPrivatelinkVpcEndpointZone = `{
         "required": true,
         "type": "string"
       },
+      "eni_ip": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -36,7 +42,6 @@ const alicloudPrivatelinkVpcEndpointZone = `{
         "type": "string"
       },
       "zone_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -52,6 +57,11 @@ const alicloudPrivatelinkVpcEndpointZone = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

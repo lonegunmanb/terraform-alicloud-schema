@@ -9,10 +9,20 @@ import (
 const alicloudDbfsInstance = `{
   "block": {
     "attributes": {
-      "category": {
+      "advanced_features": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "category": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "delete_snapshot": {
@@ -30,6 +40,12 @@ const alicloudDbfsInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "fs_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -37,8 +53,15 @@ const alicloudDbfsInstance = `{
         "type": "string"
       },
       "instance_name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "instance_type": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "kms_key_id": {
@@ -55,7 +78,7 @@ const alicloudDbfsInstance = `{
       "raid_stripe_unit_number": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "size": {
         "description_kind": "plain",
@@ -63,6 +86,7 @@ const alicloudDbfsInstance = `{
         "type": "number"
       },
       "snapshot_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -79,6 +103,11 @@ const alicloudDbfsInstance = `{
           "map",
           "string"
         ]
+      },
+      "used_scene": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "zone_id": {
         "description_kind": "plain",
