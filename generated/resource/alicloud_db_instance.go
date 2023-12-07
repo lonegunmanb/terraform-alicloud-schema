@@ -148,6 +148,11 @@ const alicloudDbInstance = `{
         "required": true,
         "type": "string"
       },
+      "force": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "force_restart": {
         "description_kind": "plain",
         "optional": true,
@@ -211,6 +216,12 @@ const alicloudDbInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "node_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "period": {
         "description_kind": "plain",

@@ -15,6 +15,11 @@ const alicloudDtsSynchronizationJob = `{
         "optional": true,
         "type": "string"
       },
+      "data_check_configure": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "data_initialization": {
         "description_kind": "plain",
         "required": true,
@@ -28,6 +33,11 @@ const alicloudDtsSynchronizationJob = `{
       "db_list": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "dedicated_cluster_id": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "delay_notice": {
@@ -75,6 +85,11 @@ const alicloudDtsSynchronizationJob = `{
         "optional": true,
         "type": "string"
       },
+      "destination_endpoint_owner_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "destination_endpoint_password": {
         "description_kind": "plain",
         "optional": true,
@@ -90,7 +105,17 @@ const alicloudDtsSynchronizationJob = `{
         "optional": true,
         "type": "string"
       },
+      "destination_endpoint_role": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "destination_endpoint_user_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dts_bis_label": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -189,6 +214,11 @@ const alicloudDtsSynchronizationJob = `{
         "type": "string"
       },
       "source_endpoint_user_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source_endpoint_vswitch_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

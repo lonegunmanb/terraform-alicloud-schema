@@ -288,6 +288,16 @@ const alicloudAlbListener = `{
               "optional": true,
               "type": "bool"
             },
+            "x_forwarded_for_client_source_ips_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "x_forwarded_for_client_source_ips_trusted": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "x_forwarded_for_client_src_port_enabled": {
               "computed": true,
               "description_kind": "plain",

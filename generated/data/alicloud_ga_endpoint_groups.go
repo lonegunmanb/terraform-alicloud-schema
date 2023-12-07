@@ -43,6 +43,10 @@ const alicloudGaEndpointGroups = `{
                 ]
               ],
               "endpoint_group_id": "string",
+              "endpoint_group_ip_list": [
+                "list",
+                "string"
+              ],
               "endpoint_group_region": "string",
               "health_check_interval_seconds": "number",
               "health_check_path": "string",

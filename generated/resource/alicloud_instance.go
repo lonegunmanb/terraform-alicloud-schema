@@ -63,6 +63,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "description": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -113,8 +114,9 @@ const alicloudInstance = `{
         "type": "string"
       },
       "image_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "include_data_disks": {
@@ -123,21 +125,25 @@ const alicloudInstance = `{
         "type": "bool"
       },
       "instance_charge_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "instance_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "instance_type": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "internet_charge_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -150,11 +156,13 @@ const alicloudInstance = `{
         "type": "number"
       },
       "internet_max_bandwidth_out": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "io_optimized": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
@@ -199,6 +207,21 @@ const alicloudInstance = `{
           "string"
         ]
       },
+      "launch_template_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "launch_template_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "launch_template_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "maintenance_action": {
         "computed": true,
         "description_kind": "plain",
@@ -242,6 +265,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "period": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -273,6 +297,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -299,13 +324,15 @@ const alicloudInstance = `{
         ]
       },
       "security_enhancement_strategy": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "security_groups": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "set",
           "string"
@@ -318,6 +345,7 @@ const alicloudInstance = `{
         "type": "number"
       },
       "spot_price_limit": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -352,11 +380,13 @@ const alicloudInstance = `{
         "type": "string"
       },
       "system_disk_category": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "system_disk_description": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -367,6 +397,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "system_disk_encrypted": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -382,6 +413,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "system_disk_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -393,6 +425,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "system_disk_size": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -425,6 +458,7 @@ const alicloudInstance = `{
         ]
       },
       "vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

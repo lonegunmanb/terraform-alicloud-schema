@@ -250,6 +250,20 @@ const alicloudAlbRule = `{
               "max_items": 1,
               "nesting_mode": "set"
             },
+            "remove_header_config": {
+              "block": {
+                "attributes": {
+                  "key": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "set"
+            },
             "rewrite_config": {
               "block": {
                 "attributes": {
@@ -277,6 +291,11 @@ const alicloudAlbRule = `{
             "traffic_limit_config": {
               "block": {
                 "attributes": {
+                  "per_ip_qps": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
                   "qps": {
                     "description_kind": "plain",
                     "optional": true,
@@ -462,6 +481,45 @@ const alicloudAlbRule = `{
                       "description_kind": "plain"
                     },
                     "nesting_mode": "set"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "set"
+            },
+            "response_header_config": {
+              "block": {
+                "attributes": {
+                  "key": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "values": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "set",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "set"
+            },
+            "response_status_code_config": {
+              "block": {
+                "attributes": {
+                  "values": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "set",
+                      "string"
+                    ]
                   }
                 },
                 "description_kind": "plain"

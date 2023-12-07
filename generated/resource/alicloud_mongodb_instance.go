@@ -35,6 +35,12 @@ const alicloudMongodbInstance = `{
           "string"
         ]
       },
+      "backup_retention_period": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "backup_time": {
         "computed": true,
         "description_kind": "plain",
