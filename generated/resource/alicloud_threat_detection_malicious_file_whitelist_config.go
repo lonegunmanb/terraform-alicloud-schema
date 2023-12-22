@@ -6,10 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSecurityGroup = `{
+const alicloudThreatDetectionMaliciousFileWhitelistConfig = `{
   "block": {
     "attributes": {
-      "description": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "event_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "field": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "field_value": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -20,44 +35,22 @@ const alicloudSecurityGroup = `{
         "optional": true,
         "type": "string"
       },
-      "inner_access": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "inner_access_policy": {
-        "computed": true,
+      "operator": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "source": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
+      "target_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "security_group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
+      "target_value": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -67,7 +60,17 @@ const alicloudSecurityGroup = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -83,8 +86,8 @@ const alicloudSecurityGroup = `{
   "version": 0
 }`
 
-func AlicloudSecurityGroupSchema() *tfjson.Schema {
+func AlicloudThreatDetectionMaliciousFileWhitelistConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSecurityGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionMaliciousFileWhitelistConfig), &result)
 	return &result
 }

@@ -87,7 +87,6 @@ const alicloudPolardbBackupPolicy = `{
       "enable_backup_log": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "number"
       },
       "id": {

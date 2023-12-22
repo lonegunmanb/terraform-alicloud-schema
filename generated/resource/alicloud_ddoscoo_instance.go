@@ -16,8 +16,9 @@ const alicloudDdoscooInstance = `{
         "type": "string"
       },
       "bandwidth": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "bandwidth_mode": {
@@ -26,8 +27,9 @@ const alicloudDdoscooInstance = `{
         "type": "string"
       },
       "base_bandwidth": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "domain_count": {
@@ -36,6 +38,12 @@ const alicloudDdoscooInstance = `{
         "type": "string"
       },
       "edition_sale": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "function_version": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -57,6 +65,18 @@ const alicloudDdoscooInstance = `{
         "required": true,
         "type": "string"
       },
+      "normal_bandwidth": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "normal_qps": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "period": {
         "description_kind": "plain",
         "optional": true,
@@ -67,14 +87,21 @@ const alicloudDdoscooInstance = `{
         "required": true,
         "type": "string"
       },
+      "product_plan": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "product_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "service_bandwidth": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },

@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsPrometheis = `{
+const alicloudArmsPrometheus = `{
   "block": {
     "attributes": {
       "enable_details": {
@@ -101,8 +101,8 @@ const alicloudArmsPrometheis = `{
   "version": 0
 }`
 
-func AlicloudArmsPrometheisSchema() *tfjson.Schema {
+func AlicloudArmsPrometheusSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsPrometheis), &result)
+	_ = json.Unmarshal([]byte(alicloudArmsPrometheus), &result)
 	return &result
 }
