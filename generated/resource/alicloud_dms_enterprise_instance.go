@@ -161,6 +161,7 @@ const alicloudDmsEnterpriseInstance = `{
         "type": "number"
       },
       "use_dsql": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

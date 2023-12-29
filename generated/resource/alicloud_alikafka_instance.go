@@ -41,6 +41,16 @@ const alicloudAlikafkaInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "group_left": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "group_used": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -59,6 +69,11 @@ const alicloudAlikafkaInstance = `{
         "optional": true,
         "type": "string"
       },
+      "is_partition_buy": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "kms_key_id": {
         "description_kind": "plain",
         "optional": true,
@@ -75,9 +90,19 @@ const alicloudAlikafkaInstance = `{
         "optional": true,
         "type": "string"
       },
+      "partition_left": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "partition_num": {
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "partition_used": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "number"
       },
       "security_group": {
@@ -118,11 +143,26 @@ const alicloudAlikafkaInstance = `{
           "string"
         ]
       },
+      "topic_left": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "topic_num_of_buy": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "topic_quota": {
         "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "topic_used": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "number"
       },
       "vpc_id": {

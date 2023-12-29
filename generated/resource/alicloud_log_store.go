@@ -19,6 +19,11 @@ const alicloudLogStore = `{
         "optional": true,
         "type": "bool"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "enable_web_tracking": {
         "description_kind": "plain",
         "optional": true,
@@ -35,24 +40,41 @@ const alicloudLogStore = `{
         "optional": true,
         "type": "string"
       },
+      "logstore_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "max_split_shard_count": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "project": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "project_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "retention_period": {
@@ -92,11 +114,13 @@ const alicloudLogStore = `{
         "block": {
           "attributes": {
             "enable": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "encrypt_type": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -107,31 +131,34 @@ const alicloudLogStore = `{
               "block": {
                 "attributes": {
                   "arn": {
+                    "computed": true,
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": "string"
                   },
                   "cmk_key_id": {
+                    "computed": true,
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": "string"
                   },
                   "region_id": {
+                    "computed": true,
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": "string"
                   }
                 },
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -146,7 +173,7 @@ const alicloudLogStore = `{
               "optional": true,
               "type": "string"
             },
-            "read": {
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
