@@ -9,6 +9,11 @@ import (
 const alicloudCddcDedicatedPropreHost = `{
   "block": {
     "attributes": {
+      "auto_pay": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "auto_renew": {
         "description_kind": "plain",
         "optional": true,
@@ -66,6 +71,16 @@ const alicloudCddcDedicatedPropreHost = `{
         "optional": true,
         "type": "string"
       },
+      "internet_charge_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "internet_max_bandwidth_out": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "key_pair_name": {
         "description_kind": "plain",
         "optional": true,
@@ -96,10 +111,34 @@ const alicloudCddcDedicatedPropreHost = `{
         "optional": true,
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "security_group_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "user_data": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "user_data_encoded": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "vpc_id": {
         "description_kind": "plain",

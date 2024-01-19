@@ -51,6 +51,12 @@ const alicloudLogStore = `{
         "optional": true,
         "type": "number"
       },
+      "metering_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "mode": {
         "computed": true,
         "description_kind": "plain",

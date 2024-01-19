@@ -40,7 +40,7 @@ const alicloudAlbServerGroup = `{
       },
       "server_group_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "server_group_type": {
@@ -89,7 +89,7 @@ const alicloudAlbServerGroup = `{
             },
             "health_check_enabled": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "bool"
             },
             "health_check_host": {
@@ -150,6 +150,7 @@ const alicloudAlbServerGroup = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "set"
       },
       "servers": {

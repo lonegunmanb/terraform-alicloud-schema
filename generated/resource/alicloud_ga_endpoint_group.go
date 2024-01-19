@@ -44,6 +44,11 @@ const alicloudGaEndpointGroup = `{
         "optional": true,
         "type": "string"
       },
+      "health_check_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "health_check_interval_seconds": {
         "description_kind": "plain",
         "optional": true,

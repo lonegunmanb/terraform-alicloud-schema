@@ -15,6 +15,7 @@ const alicloudGaAccelerator = `{
         "type": "string"
       },
       "auto_renew_duration": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

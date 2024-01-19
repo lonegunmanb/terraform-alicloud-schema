@@ -9,6 +9,11 @@ import (
 const alicloudPolardbDatabase = `{
   "block": {
     "attributes": {
+      "account_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "character_set_name": {
         "description_kind": "plain",
         "optional": true,

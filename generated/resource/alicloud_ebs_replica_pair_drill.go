@@ -6,28 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCdnDomainConfig = `{
+const alicloudEbsReplicaPairDrill = `{
   "block": {
     "attributes": {
-      "config_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "domain_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "function_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "pair_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "replica_pair_drill_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {
@@ -37,25 +32,6 @@ const alicloudCdnDomainConfig = `{
       }
     },
     "block_types": {
-      "function_args": {
-        "block": {
-          "attributes": {
-            "arg_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "arg_value": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -65,11 +41,6 @@ const alicloudCdnDomainConfig = `{
               "type": "string"
             },
             "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -85,8 +56,8 @@ const alicloudCdnDomainConfig = `{
   "version": 0
 }`
 
-func AlicloudCdnDomainConfigSchema() *tfjson.Schema {
+func AlicloudEbsReplicaPairDrillSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCdnDomainConfig), &result)
+	_ = json.Unmarshal([]byte(alicloudEbsReplicaPairDrill), &result)
 	return &result
 }

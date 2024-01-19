@@ -154,6 +154,7 @@ const alicloudMongodbShardingInstance = `{
         ]
       },
       "tde_status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -171,6 +172,7 @@ const alicloudMongodbShardingInstance = `{
         "type": "string"
       },
       "zone_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

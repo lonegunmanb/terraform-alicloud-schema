@@ -6,28 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEcsImageComponent = `{
+const alicloudEbsReplicaGroupDrill = `{
   "block": {
     "attributes": {
-      "component_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "content": {
+      "group_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -36,31 +20,15 @@ const alicloudEcsImageComponent = `{
         "optional": true,
         "type": "string"
       },
-      "image_component_name": {
+      "replica_group_drill_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
-      },
-      "system_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -76,11 +44,6 @@ const alicloudEcsImageComponent = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -93,8 +56,8 @@ const alicloudEcsImageComponent = `{
   "version": 0
 }`
 
-func AlicloudEcsImageComponentSchema() *tfjson.Schema {
+func AlicloudEbsReplicaGroupDrillSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEcsImageComponent), &result)
+	_ = json.Unmarshal([]byte(alicloudEbsReplicaGroupDrill), &result)
 	return &result
 }

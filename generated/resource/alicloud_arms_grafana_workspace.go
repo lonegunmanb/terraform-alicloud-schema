@@ -6,20 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEcsImageComponent = `{
+const alicloudArmsGrafanaWorkspace = `{
   "block": {
     "attributes": {
-      "component_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "content": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -30,13 +19,22 @@ const alicloudEcsImageComponent = `{
         "optional": true,
         "type": "string"
       },
-      "id": {
-        "computed": true,
+      "grafana_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "image_component_name": {
+      "grafana_workspace_edition": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "grafana_workspace_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -48,10 +46,9 @@ const alicloudEcsImageComponent = `{
         "optional": true,
         "type": "string"
       },
-      "system_type": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -93,8 +90,8 @@ const alicloudEcsImageComponent = `{
   "version": 0
 }`
 
-func AlicloudEcsImageComponentSchema() *tfjson.Schema {
+func AlicloudArmsGrafanaWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEcsImageComponent), &result)
+	_ = json.Unmarshal([]byte(alicloudArmsGrafanaWorkspace), &result)
 	return &result
 }

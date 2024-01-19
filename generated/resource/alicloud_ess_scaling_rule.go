@@ -74,6 +74,25 @@ const alicloudEssScalingRule = `{
       }
     },
     "block_types": {
+      "alarm_dimension": {
+        "block": {
+          "attributes": {
+            "dimension_key": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "dimension_value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "step_adjustment": {
         "block": {
           "attributes": {

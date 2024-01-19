@@ -236,6 +236,21 @@ const alicloudEciContainerGroup = `{
                     "type": "string"
                   }
                 },
+                "block_types": {
+                  "field_ref": {
+                    "block": {
+                      "attributes": {
+                        "field_path": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
                 "description_kind": "plain"
               },
               "nesting_mode": "list"
@@ -421,6 +436,37 @@ const alicloudEciContainerGroup = `{
                           "description_kind": "plain",
                           "optional": true,
                           "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "security_context": {
+              "block": {
+                "attributes": {
+                  "run_as_user": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "block_types": {
+                  "capability": {
+                    "block": {
+                      "attributes": {
+                        "add": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "list",
+                            "string"
+                          ]
                         }
                       },
                       "description_kind": "plain"
@@ -657,6 +703,21 @@ const alicloudEciContainerGroup = `{
                     "type": "string"
                   }
                 },
+                "block_types": {
+                  "field_ref": {
+                    "block": {
+                      "attributes": {
+                        "field_path": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
                 "description_kind": "plain"
               },
               "nesting_mode": "list"
@@ -673,6 +734,37 @@ const alicloudEciContainerGroup = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "security_context": {
+              "block": {
+                "attributes": {
+                  "run_as_user": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "block_types": {
+                  "capability": {
+                    "block": {
+                      "attributes": {
+                        "add": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
                   }
                 },
                 "description_kind": "plain"
@@ -706,6 +798,33 @@ const alicloudEciContainerGroup = `{
           "description_kind": "plain"
         },
         "nesting_mode": "list"
+      },
+      "security_context": {
+        "block": {
+          "block_types": {
+            "sysctl": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {

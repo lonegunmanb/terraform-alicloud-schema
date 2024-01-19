@@ -62,6 +62,11 @@ const alicloudMongodbInstance = `{
         "required": true,
         "type": "number"
       },
+      "effective_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "encrypted": {
         "description_kind": "plain",
         "optional": true,
