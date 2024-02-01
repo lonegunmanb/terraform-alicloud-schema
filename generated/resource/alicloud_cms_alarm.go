@@ -72,7 +72,6 @@ const alicloudCmsAlarm = `{
       },
       "operator": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -100,7 +99,6 @@ const alicloudCmsAlarm = `{
       },
       "statistics": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -120,14 +118,12 @@ const alicloudCmsAlarm = `{
       },
       "threshold": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "triggered_count": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -238,6 +234,7 @@ const alicloudCmsAlarm = `{
               ]
             },
             "level": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -248,9 +245,38 @@ const alicloudCmsAlarm = `{
               "type": "string"
             },
             "times": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
+      "targets": {
+        "block": {
+          "attributes": {
+            "arn": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "json_params": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "level": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "target_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

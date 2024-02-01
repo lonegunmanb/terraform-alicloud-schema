@@ -35,6 +35,23 @@ const alicloudKmsInstance = `{
         "required": true,
         "type": "number"
       },
+      "log": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "log_storage": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "product_version": {
         "description_kind": "plain",
         "optional": true,

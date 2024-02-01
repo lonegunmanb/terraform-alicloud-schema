@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAlikafkaSaslUser = `{
+const alicloudVpnGatewayZones = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,40 +15,38 @@ const alicloudAlikafkaSaslUser = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "kms_encrypted_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "kms_encryption_context": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "type": {
+      "ids": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "output_file": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "username": {
+      "spec": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "zones": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "zone_id": "string",
+              "zone_name": "string"
+            }
+          ]
+        ]
       }
     },
     "description_kind": "plain"
@@ -56,8 +54,8 @@ const alicloudAlikafkaSaslUser = `{
   "version": 0
 }`
 
-func AlicloudAlikafkaSaslUserSchema() *tfjson.Schema {
+func AlicloudVpnGatewayZonesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAlikafkaSaslUser), &result)
+	_ = json.Unmarshal([]byte(alicloudVpnGatewayZones), &result)
 	return &result
 }

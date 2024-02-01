@@ -6,26 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpnCustomerGateway = `{
+const alicloudEnsImage = `{
   "block": {
     "attributes": {
-      "asn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
-      },
-      "customer_gateway_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "description": {
+      "delete_after_image_upload": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -36,25 +25,20 @@ const alicloudVpnCustomerGateway = `{
         "optional": true,
         "type": "string"
       },
-      "ip_address": {
+      "image_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "instance_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "tags": {
+      "status": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -87,8 +71,8 @@ const alicloudVpnCustomerGateway = `{
   "version": 0
 }`
 
-func AlicloudVpnCustomerGatewaySchema() *tfjson.Schema {
+func AlicloudEnsImageSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpnCustomerGateway), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsImage), &result)
 	return &result
 }

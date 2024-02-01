@@ -9,10 +9,25 @@ import (
 const alicloudEnsInstance = `{
   "block": {
     "attributes": {
+      "amount": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "auto_renew": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "auto_use_coupon": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "billing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "carrier": {
         "description_kind": "plain",
@@ -20,6 +35,12 @@ const alicloudEnsInstance = `{
         "type": "string"
       },
       "ens_region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "force_stop": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -41,12 +62,18 @@ const alicloudEnsInstance = `{
         "optional": true,
         "type": "string"
       },
+      "include_data_disks": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "instance_charge_strategy": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "instance_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -66,7 +93,18 @@ const alicloudEnsInstance = `{
         "required": true,
         "type": "number"
       },
+      "ip_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "net_district_code": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "net_work_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -97,15 +135,16 @@ const alicloudEnsInstance = `{
         "optional": true,
         "type": "string"
       },
+      "private_ip_address": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "public_ip_identification": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
-      },
-      "quantity": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       },
       "schedule_area_level": {
         "description_kind": "plain",
@@ -122,9 +161,16 @@ const alicloudEnsInstance = `{
         "optional": true,
         "type": "string"
       },
+      "security_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "unique_suffix": {
@@ -133,6 +179,12 @@ const alicloudEnsInstance = `{
         "type": "bool"
       },
       "user_data": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -160,7 +212,14 @@ const alicloudEnsInstance = `{
       "system_disk": {
         "block": {
           "attributes": {
+            "category": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "size": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -180,6 +239,11 @@ const alicloudEnsInstance = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

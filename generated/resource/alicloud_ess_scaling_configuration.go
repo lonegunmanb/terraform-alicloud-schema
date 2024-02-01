@@ -325,6 +325,25 @@ const alicloudEssScalingConfiguration = `{
         },
         "nesting_mode": "set"
       },
+      "instance_type_override": {
+        "block": {
+          "attributes": {
+            "instance_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "weighted_capacity": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 10,
+        "nesting_mode": "set"
+      },
       "spot_price_limit": {
         "block": {
           "attributes": {

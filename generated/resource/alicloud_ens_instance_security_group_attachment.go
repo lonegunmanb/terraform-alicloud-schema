@@ -6,55 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpnCustomerGateway = `{
+const alicloudEnsInstanceSecurityGroupAttachment = `{
   "block": {
     "attributes": {
-      "asn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "customer_gateway_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ip_address": {
+      "instance_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "security_group_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -70,11 +40,6 @@ const alicloudVpnCustomerGateway = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -87,8 +52,8 @@ const alicloudVpnCustomerGateway = `{
   "version": 0
 }`
 
-func AlicloudVpnCustomerGatewaySchema() *tfjson.Schema {
+func AlicloudEnsInstanceSecurityGroupAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpnCustomerGateway), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsInstanceSecurityGroupAttachment), &result)
 	return &result
 }

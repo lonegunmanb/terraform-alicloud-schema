@@ -75,6 +75,7 @@ const alicloudEip = `{
       "ip_address": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "isp": {

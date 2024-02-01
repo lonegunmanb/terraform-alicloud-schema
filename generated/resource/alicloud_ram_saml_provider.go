@@ -21,7 +21,7 @@ const alicloudRamSamlProvider = `{
       },
       "encodedsaml_metadata_document": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {

@@ -29,7 +29,18 @@ const alicloudVpnGateway = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "disaster_recovery_vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -51,6 +62,8 @@ const alicloudVpnGateway = `{
         "type": "string"
       },
       "instance_charge_type": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -62,6 +75,7 @@ const alicloudVpnGateway = `{
       },
       "name": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -72,12 +86,25 @@ const alicloudVpnGateway = `{
         "optional": true,
         "type": "string"
       },
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "period": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "ssl_connections": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -100,6 +127,18 @@ const alicloudVpnGateway = `{
         "required": true,
         "type": "string"
       },
+      "vpn_gateway_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpn_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vswitch_id": {
         "computed": true,
         "description_kind": "plain",
@@ -117,6 +156,11 @@ const alicloudVpnGateway = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

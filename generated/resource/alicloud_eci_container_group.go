@@ -52,6 +52,7 @@ const alicloudEciContainerGroup = `{
         "type": "string"
       },
       "instance_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -99,6 +100,18 @@ const alicloudEciContainerGroup = `{
         "required": true,
         "type": "string"
       },
+      "spot_price_limit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "spot_strategy": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
@@ -111,6 +124,11 @@ const alicloudEciContainerGroup = `{
           "map",
           "string"
         ]
+      },
+      "termination_grace_period_seconds": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "vswitch_id": {
         "description_kind": "plain",
@@ -194,6 +212,14 @@ const alicloudEciContainerGroup = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "lifecycle_pre_stop_handler_exec": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "memory": {
               "description_kind": "plain",

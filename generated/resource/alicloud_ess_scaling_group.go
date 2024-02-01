@@ -152,6 +152,31 @@ const alicloudEssScalingGroup = `{
         ]
       }
     },
+    "block_types": {
+      "launch_template_override": {
+        "block": {
+          "attributes": {
+            "instance_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "spot_price_limit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "weighted_capacity": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      }
+    },
     "description_kind": "plain"
   },
   "version": 0

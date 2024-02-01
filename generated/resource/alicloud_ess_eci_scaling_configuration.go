@@ -236,6 +236,14 @@ const alicloudEssEciScalingConfiguration = `{
               "optional": true,
               "type": "string"
             },
+            "lifecycle_pre_stop_handler_execs": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "liveness_probe_exec_commands": {
               "description_kind": "plain",
               "optional": true,

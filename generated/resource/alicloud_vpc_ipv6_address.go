@@ -6,28 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpnCustomerGateway = `{
+const alicloudVpcIpv6Address = `{
   "block": {
     "attributes": {
-      "asn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
-      },
-      "customer_gateway_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -36,16 +20,31 @@ const alicloudVpnCustomerGateway = `{
         "optional": true,
         "type": "string"
       },
-      "ip_address": {
+      "ipv6_address": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "name": {
+      "ipv6_address_description": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "ipv6_address_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "tags": {
@@ -55,6 +54,11 @@ const alicloudVpnCustomerGateway = `{
           "map",
           "string"
         ]
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -87,8 +91,8 @@ const alicloudVpnCustomerGateway = `{
   "version": 0
 }`
 
-func AlicloudVpnCustomerGatewaySchema() *tfjson.Schema {
+func AlicloudVpcIpv6AddressSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpnCustomerGateway), &result)
+	_ = json.Unmarshal([]byte(alicloudVpcIpv6Address), &result)
 	return &result
 }

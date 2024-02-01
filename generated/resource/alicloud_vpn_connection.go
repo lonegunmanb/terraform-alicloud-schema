@@ -9,9 +9,19 @@ import (
 const alicloudVpnConnection = `{
   "block": {
     "attributes": {
+      "auto_config_route": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "customer_gateway_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "effect_immediately": {
@@ -26,6 +36,12 @@ const alicloudVpnConnection = `{
         "type": "bool"
       },
       "enable_nat_traversal": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "enable_tunnels_bgp": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -46,6 +62,13 @@ const alicloudVpnConnection = `{
         ]
       },
       "name": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "network_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -58,9 +81,28 @@ const alicloudVpnConnection = `{
           "string"
         ]
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "vpn_connection_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "vpn_gateway_id": {
@@ -89,6 +131,11 @@ const alicloudVpnConnection = `{
               "computed": true,
               "description_kind": "plain",
               "optional": true,
+              "type": "string"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
               "type": "string"
             },
             "tunnel_cidr": {
@@ -152,11 +199,13 @@ const alicloudVpnConnection = `{
               "type": "string"
             },
             "ike_enc_alg": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "ike_lifetime": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -168,11 +217,13 @@ const alicloudVpnConnection = `{
               "type": "string"
             },
             "ike_mode": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "ike_pfs": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -184,11 +235,13 @@ const alicloudVpnConnection = `{
               "type": "string"
             },
             "ike_version": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "psk": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -203,21 +256,25 @@ const alicloudVpnConnection = `{
         "block": {
           "attributes": {
             "ipsec_auth_alg": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "ipsec_enc_alg": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "ipsec_lifetime": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "ipsec_pfs": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -250,6 +307,183 @@ const alicloudVpnConnection = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "tunnel_options_specification": {
+        "block": {
+          "attributes": {
+            "customer_gateway_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "enable_dpd": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "enable_nat_traversal": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "internet_ip": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "role": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "state": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "tunnel_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "zone_no": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "tunnel_bgp_config": {
+              "block": {
+                "attributes": {
+                  "bgp_status": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
+                  "local_asn": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "local_bgp_ip": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "peer_asn": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
+                  "peer_bgp_ip": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
+                  "tunnel_cidr": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "tunnel_ike_config": {
+              "block": {
+                "attributes": {
+                  "ike_auth_alg": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ike_enc_alg": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ike_lifetime": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "ike_mode": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ike_pfs": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ike_version": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "local_id": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "psk": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "remote_id": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "tunnel_ipsec_config": {
+              "block": {
+                "attributes": {
+                  "ipsec_auth_alg": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ipsec_enc_alg": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ipsec_lifetime": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "ipsec_pfs": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

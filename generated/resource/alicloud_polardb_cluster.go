@@ -79,6 +79,22 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "number"
       },
+      "db_revision_version_list": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "release_note": "string",
+              "release_type": "string",
+              "revision_version_code": "string",
+              "revision_version_name": "string"
+            }
+          ]
+        ]
+      },
       "db_type": {
         "description_kind": "plain",
         "required": true,
@@ -337,6 +353,11 @@ const alicloudPolardbCluster = `{
           "map",
           "string"
         ]
+      },
+      "target_db_revision_version_code": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "tde_region": {
         "computed": true,
