@@ -36,8 +36,13 @@ const alicloudEipAssociation = `{
         "optional": true,
         "type": "string"
       },
-      "private_ip_address": {
+      "mode": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "private_ip_address": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

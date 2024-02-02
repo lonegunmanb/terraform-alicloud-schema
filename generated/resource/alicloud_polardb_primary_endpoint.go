@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPolardbEndpointAddress = `{
+const alicloudPolardbPrimaryEndpoint = `{
   "block": {
     "attributes": {
       "connection_prefix": {
@@ -15,30 +15,30 @@ const alicloudPolardbEndpointAddress = `{
         "optional": true,
         "type": "string"
       },
-      "connection_string": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "db_cluster_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "db_endpoint_id": {
+      "db_endpoint_description": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "db_endpoint_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "endpoint_type": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "ip_address": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "net_type": {
@@ -51,6 +51,31 @@ const alicloudPolardbEndpointAddress = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "ssl_auto_rotate": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ssl_certificate_url": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ssl_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ssl_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ssl_expire_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "description_kind": "plain"
@@ -58,8 +83,8 @@ const alicloudPolardbEndpointAddress = `{
   "version": 0
 }`
 
-func AlicloudPolardbEndpointAddressSchema() *tfjson.Schema {
+func AlicloudPolardbPrimaryEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPolardbEndpointAddress), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbPrimaryEndpoint), &result)
 	return &result
 }

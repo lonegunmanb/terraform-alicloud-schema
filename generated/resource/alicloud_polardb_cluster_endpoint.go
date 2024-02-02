@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPolardbEndpoint = `{
+const alicloudPolardbClusterEndpoint = `{
   "block": {
     "attributes": {
       "auto_add_new_nodes": {
@@ -46,8 +46,8 @@ const alicloudPolardbEndpoint = `{
         ]
       },
       "endpoint_type": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -113,8 +113,8 @@ const alicloudPolardbEndpoint = `{
   "version": 0
 }`
 
-func AlicloudPolardbEndpointSchema() *tfjson.Schema {
+func AlicloudPolardbClusterEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPolardbEndpoint), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbClusterEndpoint), &result)
 	return &result
 }
