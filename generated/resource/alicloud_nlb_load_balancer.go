@@ -63,6 +63,7 @@ const alicloudNlbLoadBalancer = `{
       "ipv6_address_type": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "load_balancer_business_status": {
@@ -71,7 +72,6 @@ const alicloudNlbLoadBalancer = `{
         "type": "string"
       },
       "load_balancer_name": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -100,6 +100,15 @@ const alicloudNlbLoadBalancer = `{
         "optional": true,
         "type": "string"
       },
+      "security_group_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
@@ -120,6 +129,58 @@ const alicloudNlbLoadBalancer = `{
       }
     },
     "block_types": {
+      "deletion_protection_config": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "enabled_time": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "reason": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "modification_protection_config": {
+        "block": {
+          "attributes": {
+            "enabled_time": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "reason": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -171,6 +232,12 @@ const alicloudNlbLoadBalancer = `{
             "public_ipv4_address": {
               "computed": true,
               "description_kind": "plain",
+              "type": "string"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "vswitch_id": {

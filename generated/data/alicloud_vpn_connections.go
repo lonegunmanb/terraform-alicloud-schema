@@ -22,6 +22,7 @@ const alicloudVpnConnections = `{
               "effect_immediately": "bool",
               "enable_dpd": "bool",
               "enable_nat_traversal": "bool",
+              "enable_tunnels_bgp": "bool",
               "id": "string",
               "ike_config": [
                 "list",
@@ -56,6 +57,66 @@ const alicloudVpnConnections = `{
               "name": "string",
               "remote_subnet": "string",
               "status": "string",
+              "tunnel_options_specification": [
+                "list",
+                [
+                  "object",
+                  {
+                    "customer_gateway_id": "string",
+                    "enable_dpd": "bool",
+                    "enable_nat_traversal": "bool",
+                    "internet_ip": "string",
+                    "role": "string",
+                    "state": "string",
+                    "status": "string",
+                    "tunnel_bgp_config": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "bgp_status": "string",
+                          "local_asn": "string",
+                          "local_bgp_ip": "string",
+                          "peer_asn": "string",
+                          "peer_bgp_ip": "string",
+                          "tunnel_cidr": "string"
+                        }
+                      ]
+                    ],
+                    "tunnel_id": "string",
+                    "tunnel_ike_config": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "ike_auth_alg": "string",
+                          "ike_enc_alg": "string",
+                          "ike_lifetime": "number",
+                          "ike_mode": "string",
+                          "ike_pfs": "string",
+                          "ike_version": "string",
+                          "local_id": "string",
+                          "psk": "string",
+                          "remote_id": "string"
+                        }
+                      ]
+                    ],
+                    "tunnel_ipsec_config": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "ipsec_auth_alg": "string",
+                          "ipsec_enc_alg": "string",
+                          "ipsec_lifetime": "number",
+                          "ipsec_pfs": "string"
+                        }
+                      ]
+                    ],
+                    "zone_no": "string"
+                  }
+                ]
+              ],
               "vco_health_check": [
                 "list",
                 [

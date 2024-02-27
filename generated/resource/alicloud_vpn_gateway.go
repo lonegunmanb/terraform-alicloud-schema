@@ -109,6 +109,11 @@ const alicloudVpnGateway = `{
         "optional": true,
         "type": "number"
       },
+      "ssl_vpn_internet_ip": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

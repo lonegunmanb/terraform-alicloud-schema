@@ -32,6 +32,7 @@ const alicloudVpnGateways = `{
               "business_status": "string",
               "create_time": "string",
               "description": "string",
+              "disaster_recovery_vswitch_id": "string",
               "enable_ipsec": "string",
               "enable_ssl": "string",
               "end_time": "string",
@@ -40,10 +41,18 @@ const alicloudVpnGateways = `{
               "internet_ip": "string",
               "name": "string",
               "network_type": "string",
+              "resource_group_id": "string",
               "specification": "string",
               "ssl_connections": "number",
+              "ssl_vpn_internet_ip": "string",
               "status": "string",
-              "vpc_id": "string"
+              "tags": [
+                "map",
+                "string"
+              ],
+              "vpc_id": "string",
+              "vpn_type": "string",
+              "vswitch_id": "string"
             }
           ]
         ]

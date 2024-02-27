@@ -15,6 +15,7 @@ const alicloudEciContainerGroup = `{
         "type": "bool"
       },
       "auto_match_image_cache": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

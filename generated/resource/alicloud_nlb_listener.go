@@ -122,6 +122,14 @@ const alicloudNlbListener = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -133,7 +141,7 @@ const alicloudNlbListener = `{
               "optional": true,
               "type": "string"
             },
-            "default": {
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

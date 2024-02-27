@@ -21,8 +21,9 @@ const alicloudNlbServerGroupServerAttachment = `{
         "type": "string"
       },
       "port": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "server_group_id": {

@@ -132,6 +132,7 @@ const alicloudSlb = `{
         "type": "string"
       },
       "tags": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
