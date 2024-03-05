@@ -9,6 +9,16 @@ import (
 const alicloudDfsFileSystem = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "data_redundancy_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -25,6 +35,11 @@ const alicloudDfsFileSystem = `{
         "optional": true,
         "type": "string"
       },
+      "partition_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "protocol_type": {
         "description_kind": "plain",
         "required": true,
@@ -40,21 +55,51 @@ const alicloudDfsFileSystem = `{
         "required": true,
         "type": "number"
       },
+      "storage_set_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "storage_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
       "throughput_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": "string"
       },
       "zone_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

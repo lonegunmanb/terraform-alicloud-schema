@@ -32,6 +32,7 @@ const alicloudVpnGateways = `{
               "business_status": "string",
               "create_time": "string",
               "description": "string",
+              "disaster_recovery_internet_ip": "string",
               "disaster_recovery_vswitch_id": "string",
               "enable_ipsec": "string",
               "enable_ssl": "string",

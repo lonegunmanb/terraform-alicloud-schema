@@ -6,32 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDfsMountPoint = `{
+const alicloudWafv3DefenseTemplate = `{
   "block": {
     "attributes": {
-      "access_group_id": {
+      "defense_scene": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "alias_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
+      "defense_template_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "number"
+      },
+      "defense_template_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "file_system_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -40,28 +35,27 @@ const alicloudDfsMountPoint = `{
         "optional": true,
         "type": "string"
       },
-      "mount_point_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "network_type": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "resource_manager_resource_group_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "vpc_id": {
+      "status": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "vswitch_id": {
+      "template_origin": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "template_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -97,8 +91,8 @@ const alicloudDfsMountPoint = `{
   "version": 0
 }`
 
-func AlicloudDfsMountPointSchema() *tfjson.Schema {
+func AlicloudWafv3DefenseTemplateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDfsMountPoint), &result)
+	_ = json.Unmarshal([]byte(alicloudWafv3DefenseTemplate), &result)
 	return &result
 }

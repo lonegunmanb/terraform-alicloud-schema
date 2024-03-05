@@ -39,6 +39,11 @@ const alicloudVpnGateway = `{
         "optional": true,
         "type": "string"
       },
+      "disaster_recovery_internet_ip": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "disaster_recovery_vswitch_id": {
         "computed": true,
         "description_kind": "plain",

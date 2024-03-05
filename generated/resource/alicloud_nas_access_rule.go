@@ -19,8 +19,19 @@ const alicloudNasAccessRule = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "file_system_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ipv6_source_cidr_ip": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -31,19 +42,46 @@ const alicloudNasAccessRule = `{
         "type": "number"
       },
       "rw_access_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "source_cidr_ip": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "user_access_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

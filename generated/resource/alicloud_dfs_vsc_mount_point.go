@@ -6,22 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDfsMountPoint = `{
+const alicloudDfsVscMountPoint = `{
   "block": {
     "attributes": {
-      "access_group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "alias_prefix": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "description": {
@@ -40,30 +30,34 @@ const alicloudDfsMountPoint = `{
         "optional": true,
         "type": "string"
       },
+      "instances": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "instance_id": "string",
+              "status": "string",
+              "vscs": [
+                "list",
+                [
+                  "object",
+                  {
+                    "vsc_id": "string",
+                    "vsc_status": "string",
+                    "vsc_type": "string"
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
       "mount_point_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "network_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vpc_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "vswitch_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -97,8 +91,8 @@ const alicloudDfsMountPoint = `{
   "version": 0
 }`
 
-func AlicloudDfsMountPointSchema() *tfjson.Schema {
+func AlicloudDfsVscMountPointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDfsMountPoint), &result)
+	_ = json.Unmarshal([]byte(alicloudDfsVscMountPoint), &result)
 	return &result
 }

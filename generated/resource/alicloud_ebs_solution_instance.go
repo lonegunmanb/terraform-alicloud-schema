@@ -6,19 +6,9 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDfsMountPoint = `{
+const alicloudEbsSolutionInstance = `{
   "block": {
     "attributes": {
-      "access_group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "alias_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -29,45 +19,54 @@ const alicloudDfsMountPoint = `{
         "optional": true,
         "type": "string"
       },
-      "file_system_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "mount_point_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "network_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "vpc_id": {
+      "solution_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "vswitch_id": {
+      "solution_instance_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       }
     },
     "block_types": {
+      "parameters": {
+        "block": {
+          "attributes": {
+            "parameter_key": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "parameter_value": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -97,8 +96,8 @@ const alicloudDfsMountPoint = `{
   "version": 0
 }`
 
-func AlicloudDfsMountPointSchema() *tfjson.Schema {
+func AlicloudEbsSolutionInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDfsMountPoint), &result)
+	_ = json.Unmarshal([]byte(alicloudEbsSolutionInstance), &result)
 	return &result
 }

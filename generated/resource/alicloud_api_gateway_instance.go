@@ -6,30 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDfsMountPoint = `{
+const alicloudApiGatewayInstance = `{
   "block": {
     "attributes": {
-      "access_group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "alias_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "description": {
+      "duration": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "file_system_id": {
+      "egress_ipv6_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "https_policy": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -40,30 +35,56 @@ const alicloudDfsMountPoint = `{
         "optional": true,
         "type": "string"
       },
-      "mount_point_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "network_type": {
+      "instance_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
+      "instance_spec": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "instance_type": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "vpc_id": {
+      "payment_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "vswitch_id": {
+      "pricing_cycle": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "support_ipv6": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "user_vpc_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_slb_intranet_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "zone_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -97,8 +118,8 @@ const alicloudDfsMountPoint = `{
   "version": 0
 }`
 
-func AlicloudDfsMountPointSchema() *tfjson.Schema {
+func AlicloudApiGatewayInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDfsMountPoint), &result)
+	_ = json.Unmarshal([]byte(alicloudApiGatewayInstance), &result)
 	return &result
 }
