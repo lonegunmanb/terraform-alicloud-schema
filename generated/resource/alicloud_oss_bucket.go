@@ -76,6 +76,12 @@ const alicloudOssBucket = `{
         "optional": true,
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "storage_class": {
         "description_kind": "plain",
         "optional": true,

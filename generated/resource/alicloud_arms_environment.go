@@ -19,6 +19,11 @@ const alicloudArmsEnvironment = `{
         "optional": true,
         "type": "string"
       },
+      "drop_metrics": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "environment_id": {
         "computed": true,
         "description_kind": "plain",
@@ -40,6 +45,12 @@ const alicloudArmsEnvironment = `{
         "type": "string"
       },
       "id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "managed_type": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

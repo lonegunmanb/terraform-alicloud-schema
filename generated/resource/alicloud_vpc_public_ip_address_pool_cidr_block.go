@@ -15,6 +15,11 @@ const alicloudVpcPublicIpAddressPoolCidrBlock = `{
         "optional": true,
         "type": "string"
       },
+      "cidr_mask": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -47,6 +52,11 @@ const alicloudVpcPublicIpAddressPoolCidrBlock = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

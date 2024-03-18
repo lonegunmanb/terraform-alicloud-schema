@@ -9,6 +9,16 @@ import (
 const alicloudAmqpInstance = `{
   "block": {
     "attributes": {
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -22,14 +32,16 @@ const alicloudAmqpInstance = `{
         "type": "string"
       },
       "instance_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "logistics": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "max_connections": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "max_eip_tps": {
         "description_kind": "plain",
@@ -37,8 +49,9 @@ const alicloudAmqpInstance = `{
         "type": "string"
       },
       "max_tps": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "modify_type": {
@@ -56,17 +69,25 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "number"
       },
-      "queue_capacity": {
+      "period_cycle": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "queue_capacity": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "renewal_duration": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "renewal_duration_unit": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -77,20 +98,38 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "serverless_charge_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
       "storage_size": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "support_eip": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "bool"
+      },
+      "support_tracing": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "tracing_storage_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -98,6 +137,16 @@ const alicloudAmqpInstance = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

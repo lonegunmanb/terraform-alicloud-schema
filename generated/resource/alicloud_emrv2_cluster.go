@@ -39,6 +39,12 @@ const alicloudEmrv2Cluster = `{
         "optional": true,
         "type": "string"
       },
+      "log_collect_strategy": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "payment_type": {
         "computed": true,
         "description_kind": "plain",
@@ -258,6 +264,12 @@ const alicloudEmrv2Cluster = `{
                 "string"
               ]
             },
+            "deployment_set_strategy": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "graceful_shutdown": {
               "computed": true,
               "description_kind": "plain",
@@ -285,6 +297,12 @@ const alicloudEmrv2Cluster = `{
             "node_group_type": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "node_resize_strategy": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "payment_type": {
@@ -391,6 +409,11 @@ const alicloudEmrv2Cluster = `{
             "subscription_config": {
               "block": {
                 "attributes": {
+                  "auto_pay_order": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
                   "auto_renew": {
                     "description_kind": "plain",
                     "optional": true,
@@ -463,6 +486,11 @@ const alicloudEmrv2Cluster = `{
       "subscription_config": {
         "block": {
           "attributes": {
+            "auto_pay_order": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "auto_renew": {
               "description_kind": "plain",
               "optional": true,

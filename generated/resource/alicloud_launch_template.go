@@ -372,6 +372,7 @@ const alicloudLaunchTemplate = `{
               "type": "string"
             },
             "performance_level": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

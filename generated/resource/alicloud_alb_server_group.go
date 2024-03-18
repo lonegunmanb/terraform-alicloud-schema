@@ -151,7 +151,7 @@ const alicloudAlbServerGroup = `{
         },
         "max_items": 1,
         "min_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "servers": {
         "block": {

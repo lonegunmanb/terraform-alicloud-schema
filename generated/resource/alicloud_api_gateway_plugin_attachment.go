@@ -6,51 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudLogtailConfig = `{
+const alicloudApiGatewayPluginAttachment = `{
   "block": {
     "attributes": {
+      "api_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "input_detail": {
+      "plugin_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "input_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "last_modify_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "log_sample": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "logstore": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "output_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "project": {
+      "stage_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -61,8 +41,8 @@ const alicloudLogtailConfig = `{
   "version": 0
 }`
 
-func AlicloudLogtailConfigSchema() *tfjson.Schema {
+func AlicloudApiGatewayPluginAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudLogtailConfig), &result)
+	_ = json.Unmarshal([]byte(alicloudApiGatewayPluginAttachment), &result)
 	return &result
 }

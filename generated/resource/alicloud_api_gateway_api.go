@@ -94,12 +94,43 @@ const alicloudApiGatewayApi = `{
           "attributes": {
             "arn_role": {
               "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "function_base_url": {
+              "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "function_name": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "type": "string"
+            },
+            "function_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "method": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "only_business_path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "qualifier": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "region": {
@@ -109,7 +140,7 @@ const alicloudApiGatewayApi = `{
             },
             "service_name": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "timeout": {

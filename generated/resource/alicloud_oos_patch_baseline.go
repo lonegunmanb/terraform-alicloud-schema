@@ -14,6 +14,19 @@ const alicloudOosPatchBaseline = `{
         "required": true,
         "type": "string"
       },
+      "approved_patches": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "approved_patches_enable_non_security": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -53,6 +66,28 @@ const alicloudOosPatchBaseline = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sources": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {

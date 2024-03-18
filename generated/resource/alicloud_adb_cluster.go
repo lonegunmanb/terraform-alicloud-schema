@@ -65,6 +65,11 @@ const alicloudAdbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "disk_encryption": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "disk_performance_level": {
         "computed": true,
         "description_kind": "plain",
@@ -85,6 +90,11 @@ const alicloudAdbCluster = `{
       },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "kms_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

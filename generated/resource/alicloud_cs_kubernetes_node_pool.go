@@ -29,22 +29,31 @@ const alicloudCsKubernetesNodePool = `{
         "required": true,
         "type": "string"
       },
+      "compensate_with_on_demand": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "cpu_policy": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "deployment_set_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "desired_size": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "force_delete": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "format_disk": {
         "computed": true,
@@ -97,13 +106,11 @@ const alicloudCsKubernetesNodePool = `{
         ]
       },
       "internet_charge_type": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "internet_max_bandwidth_out": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -122,6 +129,7 @@ const alicloudCsKubernetesNodePool = `{
       "kms_encrypted_password": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "kms_encryption_context": {
@@ -132,9 +140,22 @@ const alicloudCsKubernetesNodePool = `{
           "string"
         ]
       },
-      "name": {
+      "login_as_non_root": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "bool"
+      },
+      "multi_az_policy": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "name": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "node_count": {
@@ -149,6 +170,27 @@ const alicloudCsKubernetesNodePool = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "node_pool_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "node_pool_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "on_demand_base_capacity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "on_demand_percentage_above_base_capacity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "password": {
         "description_kind": "plain",
@@ -172,14 +214,6 @@ const alicloudCsKubernetesNodePool = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "polardb_ids": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "rds_instances": {
         "description_kind": "plain",
@@ -205,11 +239,6 @@ const alicloudCsKubernetesNodePool = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "scaling_group_id": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "scaling_policy": {
@@ -239,13 +268,38 @@ const alicloudCsKubernetesNodePool = `{
         "optional": true,
         "type": "bool"
       },
+      "spot_instance_pools": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "spot_instance_remedy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "spot_strategy": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "system_disk_bursting_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "system_disk_categories": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "system_disk_category": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -269,6 +323,11 @@ const alicloudCsKubernetesNodePool = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "system_disk_provisioned_iops": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "system_disk_size": {
         "description_kind": "plain",
@@ -321,6 +380,11 @@ const alicloudCsKubernetesNodePool = `{
               "optional": true,
               "type": "string"
             },
+            "bursting_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "category": {
               "description_kind": "plain",
               "optional": true,
@@ -351,6 +415,11 @@ const alicloudCsKubernetesNodePool = `{
               "optional": true,
               "type": "string"
             },
+            "provisioned_iops": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "size": {
               "description_kind": "plain",
               "optional": true,
@@ -369,6 +438,24 @@ const alicloudCsKubernetesNodePool = `{
       "kubelet_configuration": {
         "block": {
           "attributes": {
+            "allowed_unsafe_sysctls": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "container_log_max_files": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "container_log_max_size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "cpu_manager_policy": {
               "description_kind": "plain",
               "optional": true,
@@ -408,6 +495,14 @@ const alicloudCsKubernetesNodePool = `{
                 "string"
               ]
             },
+            "feature_gates": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "map",
+                "bool"
+              ]
+            },
             "kube_api_burst": {
               "description_kind": "plain",
               "optional": true,
@@ -425,6 +520,16 @@ const alicloudCsKubernetesNodePool = `{
                 "map",
                 "string"
               ]
+            },
+            "max_pods": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "read_only_port": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "registry_burst": {
               "description_kind": "plain",
@@ -477,29 +582,116 @@ const alicloudCsKubernetesNodePool = `{
         "block": {
           "attributes": {
             "auto_repair": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "auto_upgrade": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "auto_vul_fix": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "enable": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "max_unavailable": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "surge": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "surge_percentage": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            }
+          },
+          "block_types": {
+            "auto_repair_policy": {
+              "block": {
+                "attributes": {
+                  "restart_node": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "auto_upgrade_policy": {
+              "block": {
+                "attributes": {
+                  "auto_upgrade_kubelet": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "auto_vul_fix_policy": {
+              "block": {
+                "attributes": {
+                  "restart_node": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "vul_level": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "private_pool_options": {
+        "block": {
+          "attributes": {
+            "private_pool_options_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "private_pool_options_match_criteria": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -530,7 +722,6 @@ const alicloudCsKubernetesNodePool = `{
               "type": "number"
             }
           },
-          "deprecated": true,
           "description_kind": "plain"
         },
         "max_items": 1,
@@ -549,6 +740,11 @@ const alicloudCsKubernetesNodePool = `{
               "optional": true,
               "type": "string"
             },
+            "enable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "is_bond_eip": {
               "description_kind": "plain",
               "optional": true,
@@ -556,12 +752,12 @@ const alicloudCsKubernetesNodePool = `{
             },
             "max_size": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "min_size": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "number"
             },
             "type": {
@@ -614,6 +810,20 @@ const alicloudCsKubernetesNodePool = `{
           },
           "description_kind": "plain"
         },
+        "nesting_mode": "list"
+      },
+      "tee_config": {
+        "block": {
+          "attributes": {
+            "tee_enable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
