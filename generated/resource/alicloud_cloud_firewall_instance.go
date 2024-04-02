@@ -87,7 +87,7 @@ const alicloudCloudFirewallInstance = `{
       },
       "period": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "release_time": {

@@ -6,20 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerResourceGroup = `{
+const alicloudOssBucketReferer = `{
   "block": {
     "attributes": {
-      "account_id": {
+      "allow_empty_referer": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "bool"
+      },
+      "allow_truncate_query_string": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "bool"
       },
-      "create_date": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "display_name": {
+      "bucket": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,45 +31,26 @@ const alicloudResourceManagerResourceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_statuses": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "region_id": "string",
-              "status": "string"
-            }
-          ]
-        ]
-      },
-      "resource_group_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
+      "referer_blacklist": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
+          "set",
           "string"
         ]
+      },
+      "referer_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "truncate_path": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {
@@ -76,6 +58,16 @@ const alicloudResourceManagerResourceGroup = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -91,8 +83,8 @@ const alicloudResourceManagerResourceGroup = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerResourceGroupSchema() *tfjson.Schema {
+func AlicloudOssBucketRefererSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerResourceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketReferer), &result)
 	return &result
 }

@@ -300,10 +300,32 @@ const alicloudEssScalingConfiguration = `{
       "instance_pattern_info": {
         "block": {
           "attributes": {
+            "architectures": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "burstable_performance": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "cores": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "excluded_instance_types": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "instance_family_level": {
               "description_kind": "plain",

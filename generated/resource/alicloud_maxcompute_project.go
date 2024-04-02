@@ -152,7 +152,7 @@ const alicloudMaxcomputeProject = `{
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             },
             "table_lifecycle": {
               "block": {
@@ -173,13 +173,13 @@ const alicloudMaxcomputeProject = `{
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "security_properties": {
         "block": {
@@ -241,13 +241,13 @@ const alicloudMaxcomputeProject = `{
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {

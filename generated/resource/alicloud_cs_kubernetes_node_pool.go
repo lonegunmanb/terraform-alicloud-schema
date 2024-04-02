@@ -241,6 +241,11 @@ const alicloudCsKubernetesNodePool = `{
         "optional": true,
         "type": "string"
       },
+      "scaling_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "scaling_policy": {
         "computed": true,
         "description_kind": "plain",

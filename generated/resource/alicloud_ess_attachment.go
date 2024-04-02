@@ -9,6 +9,11 @@ import (
 const alicloudEssAttachment = `{
   "block": {
     "attributes": {
+      "entrusted": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "force": {
         "description_kind": "plain",
         "optional": true,
@@ -26,6 +31,20 @@ const alicloudEssAttachment = `{
         "type": [
           "set",
           "string"
+        ]
+      },
+      "lifecycle_hook": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "load_balancer_weights": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "number"
         ]
       },
       "scaling_group_id": {

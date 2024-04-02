@@ -38,6 +38,11 @@ const alicloudNetworkAcl = `{
         "optional": true,
         "type": "string"
       },
+      "source_network_acl_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
@@ -71,6 +76,18 @@ const alicloudNetworkAcl = `{
               "optional": true,
               "type": "string"
             },
+            "entry_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ip_version": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "network_acl_entry_name": {
               "description_kind": "plain",
               "optional": true,
@@ -100,6 +117,18 @@ const alicloudNetworkAcl = `{
         "block": {
           "attributes": {
             "description": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "entry_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ip_version": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

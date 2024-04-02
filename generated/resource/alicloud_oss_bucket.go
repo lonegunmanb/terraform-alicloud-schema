@@ -10,6 +10,8 @@ const alicloudOssBucket = `{
   "block": {
     "attributes": {
       "acl": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

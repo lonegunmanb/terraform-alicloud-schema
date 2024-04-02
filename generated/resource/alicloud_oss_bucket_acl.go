@@ -6,20 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCdnDomainConfig = `{
+const alicloudOssBucketAcl = `{
   "block": {
     "attributes": {
-      "config_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "domain_name": {
+      "acl": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "function_name": {
+      "bucket": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -29,39 +24,9 @@ const alicloudCdnDomainConfig = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "parent_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       }
     },
     "block_types": {
-      "function_args": {
-        "block": {
-          "attributes": {
-            "arg_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "arg_value": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -91,8 +56,8 @@ const alicloudCdnDomainConfig = `{
   "version": 0
 }`
 
-func AlicloudCdnDomainConfigSchema() *tfjson.Schema {
+func AlicloudOssBucketAclSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCdnDomainConfig), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketAcl), &result)
 	return &result
 }

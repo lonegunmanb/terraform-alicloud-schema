@@ -14,6 +14,11 @@ const alicloudCsKubernetesAddon = `{
         "description_kind": "plain",
         "type": "bool"
       },
+      "cleanup_cloud_resources": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "cluster_id": {
         "description_kind": "plain",
         "required": true,
@@ -47,8 +52,9 @@ const alicloudCsKubernetesAddon = `{
         "type": "bool"
       },
       "version": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },

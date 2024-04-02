@@ -80,6 +80,12 @@ const alicloudMseCluster = `{
         "required": true,
         "type": "string"
       },
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "private_slb_specification": {
         "description_kind": "plain",
         "optional": true,
@@ -100,10 +106,24 @@ const alicloudMseCluster = `{
         "optional": true,
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "vpc_id": {
         "computed": true,

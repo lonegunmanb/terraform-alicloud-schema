@@ -24,6 +24,12 @@ const alicloudGaListener = `{
         "optional": true,
         "type": "string"
       },
+      "http_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -31,7 +37,6 @@ const alicloudGaListener = `{
         "type": "string"
       },
       "listener_type": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

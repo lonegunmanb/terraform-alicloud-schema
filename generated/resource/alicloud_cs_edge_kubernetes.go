@@ -303,6 +303,11 @@ const alicloudCsEdgeKubernetes = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
