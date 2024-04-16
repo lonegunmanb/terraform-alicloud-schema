@@ -420,6 +420,11 @@ const alicloudKvstoreInstance = `{
               "optional": true,
               "type": "string"
             },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "update": {
               "description_kind": "plain",
               "optional": true,

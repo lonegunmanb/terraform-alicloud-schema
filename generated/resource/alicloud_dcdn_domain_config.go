@@ -30,6 +30,12 @@ const alicloudDcdnDomainConfig = `{
         "optional": true,
         "type": "string"
       },
+      "parent_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

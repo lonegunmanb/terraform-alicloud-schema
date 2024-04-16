@@ -39,14 +39,24 @@ const alicloudOtsInstances = `{
               "id": "string",
               "name": "string",
               "network": "string",
-              "read_capacity": "number",
+              "network_source_acl": [
+                "set",
+                "string"
+              ],
+              "network_type_acl": [
+                "set",
+                "string"
+              ],
+              "policy": "string",
+              "policy_version": "number",
+              "resource_group_id": "string",
               "status": "string",
+              "table_quota": "number",
               "tags": [
                 "map",
                 "string"
               ],
-              "user_id": "string",
-              "write_capacity": "number"
+              "user_id": "string"
             }
           ]
         ]

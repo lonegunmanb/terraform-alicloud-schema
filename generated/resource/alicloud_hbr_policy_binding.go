@@ -6,39 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssScalingRule = `{
+const alicloudHbrPolicyBinding = `{
   "block": {
     "attributes": {
-      "adjustment_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "adjustment_value": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "ari": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "cooldown": {
+      "data_source_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "disable_scale_in": {
+      "disabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "estimated_instance_warmup": {
-        "computed": true,
+      "exclude": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -46,63 +36,72 @@ const alicloudEssScalingRule = `{
         "optional": true,
         "type": "string"
       },
-      "metric_name": {
+      "include": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "min_adjustment_magnitude": {
+      "policy_binding_description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "scale_in_evaluation_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "scale_out_evaluation_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "scaling_group_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "scaling_rule_name": {
+      "policy_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "scaling_rule_type": {
+      "source": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "target_value": {
+      "source_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "speed_limit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "alarm_dimension": {
+      "advanced_options": {
         "block": {
-          "attributes": {
-            "dimension_key": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "dimension_value": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
+          "block_types": {
+            "udm_detail": {
+              "block": {
+                "attributes": {
+                  "destination_kms_key_id": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "disk_id_list": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "exclude_disk_id_list": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
@@ -110,28 +109,28 @@ const alicloudEssScalingRule = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "step_adjustment": {
+      "timeouts": {
         "block": {
           "attributes": {
-            "metric_interval_lower_bound": {
+            "create": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "metric_interval_upper_bound": {
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "scaling_adjustment": {
+            "update": {
               "description_kind": "plain",
               "optional": true,
-              "type": "number"
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "list"
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"
@@ -139,8 +138,8 @@ const alicloudEssScalingRule = `{
   "version": 0
 }`
 
-func AlicloudEssScalingRuleSchema() *tfjson.Schema {
+func AlicloudHbrPolicyBindingSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssScalingRule), &result)
+	_ = json.Unmarshal([]byte(alicloudHbrPolicyBinding), &result)
 	return &result
 }

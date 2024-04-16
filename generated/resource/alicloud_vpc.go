@@ -46,6 +46,11 @@ const alicloudVpc = `{
         "optional": true,
         "type": "string"
       },
+      "ipv4_ipam_pool_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "ipv6_cidr_block": {
         "computed": true,
         "description_kind": "plain",

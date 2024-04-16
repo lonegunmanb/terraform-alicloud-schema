@@ -486,6 +486,8 @@ func init() {
 	resources["alicloud_hbr_nas_backup_plan"] = resource.AlicloudHbrNasBackupPlanSchema()  
 	resources["alicloud_hbr_oss_backup_plan"] = resource.AlicloudHbrOssBackupPlanSchema()  
 	resources["alicloud_hbr_ots_backup_plan"] = resource.AlicloudHbrOtsBackupPlanSchema()  
+	resources["alicloud_hbr_policy"] = resource.AlicloudHbrPolicySchema()  
+	resources["alicloud_hbr_policy_binding"] = resource.AlicloudHbrPolicyBindingSchema()  
 	resources["alicloud_hbr_replication_vault"] = resource.AlicloudHbrReplicationVaultSchema()  
 	resources["alicloud_hbr_restore_job"] = resource.AlicloudHbrRestoreJobSchema()  
 	resources["alicloud_hbr_server_backup_plan"] = resource.AlicloudHbrServerBackupPlanSchema()  

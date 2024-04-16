@@ -123,6 +123,7 @@ const alicloudNlbServerGroup = `{
               "type": "string"
             },
             "health_check_enabled": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
