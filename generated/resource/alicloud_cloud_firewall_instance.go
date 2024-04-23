@@ -16,7 +16,7 @@ const alicloudCloudFirewallInstance = `{
       },
       "band_width": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "cfw_account": {
@@ -26,7 +26,7 @@ const alicloudCloudFirewallInstance = `{
       },
       "cfw_log": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "bool"
       },
       "cfw_log_storage": {
@@ -67,7 +67,7 @@ const alicloudCloudFirewallInstance = `{
       },
       "ip_number": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "logistics": {
@@ -121,7 +121,7 @@ const alicloudCloudFirewallInstance = `{
       },
       "spec": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "status": {

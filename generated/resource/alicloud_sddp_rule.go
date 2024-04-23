@@ -28,7 +28,6 @@ const alicloudSddpRule = `{
       "custom_type": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "number"
       },
       "description": {

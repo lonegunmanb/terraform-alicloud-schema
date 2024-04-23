@@ -46,12 +46,42 @@ const alicloudEssScalingRule = `{
         "optional": true,
         "type": "string"
       },
+      "initial_max_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "metric_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "min_adjustment_magnitude": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "predictive_scaling_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "predictive_task_buffer_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "predictive_value_behavior": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "predictive_value_buffer": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

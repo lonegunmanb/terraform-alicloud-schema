@@ -58,6 +58,11 @@ const alicloudInstanceTypes = `{
         "optional": true,
         "type": "string"
       },
+      "instance_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instance_type_family": {
         "description_kind": "plain",
         "optional": true,

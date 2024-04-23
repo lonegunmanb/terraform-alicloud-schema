@@ -112,6 +112,11 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "db_param_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_time_zone": {
         "computed": true,
         "description_kind": "plain",
