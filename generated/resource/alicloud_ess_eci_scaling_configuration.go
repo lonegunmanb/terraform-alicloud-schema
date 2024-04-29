@@ -95,6 +95,14 @@ const alicloudEssEciScalingConfiguration = `{
         "optional": true,
         "type": "number"
       },
+      "instance_types": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "ipv6_address_count": {
         "description_kind": "plain",
         "optional": true,

@@ -20,6 +20,12 @@ const alicloudEcsNetworkInterface = `{
         "optional": true,
         "type": "string"
       },
+      "instance_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "ipv4_prefix_count": {
         "computed": true,
         "description_kind": "plain",
@@ -63,6 +69,12 @@ const alicloudEcsNetworkInterface = `{
         "type": "string"
       },
       "network_interface_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "network_interface_traffic_mode": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

@@ -35,26 +35,6 @@ const alicloudMongodbShardingInstance = `{
         "optional": true,
         "type": "string"
       },
-      "config_server_list": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "connect_string": "string",
-              "max_connections": "number",
-              "max_iops": "number",
-              "node_class": "string",
-              "node_description": "string",
-              "node_id": "string",
-              "node_storage": "number",
-              "port": "number"
-            }
-          ]
-        ]
-      },
       "engine_version": {
         "description_kind": "plain",
         "required": true,
@@ -179,6 +159,57 @@ const alicloudMongodbShardingInstance = `{
       }
     },
     "block_types": {
+      "config_server_list": {
+        "block": {
+          "attributes": {
+            "connect_string": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "max_connections": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            },
+            "max_iops": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            },
+            "node_class": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "node_description": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "node_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "node_storage": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "port": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "mongo_list": {
         "block": {
           "attributes": {
@@ -238,7 +269,7 @@ const alicloudMongodbShardingInstance = `{
         },
         "max_items": 32,
         "min_items": 2,
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {

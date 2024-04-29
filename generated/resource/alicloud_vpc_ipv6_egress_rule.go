@@ -31,6 +31,11 @@ const alicloudVpcIpv6EgressRule = `{
         "optional": true,
         "type": "string"
       },
+      "ipv6_egress_rule_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "ipv6_egress_rule_name": {
         "description_kind": "plain",
         "optional": true,
