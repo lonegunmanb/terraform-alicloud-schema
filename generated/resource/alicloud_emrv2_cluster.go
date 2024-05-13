@@ -205,7 +205,7 @@ const alicloudEmrv2Cluster = `{
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "node_attributes": {
         "block": {

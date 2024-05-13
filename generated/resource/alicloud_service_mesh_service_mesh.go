@@ -179,16 +179,38 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "gateway_enabled": {
                     "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
                   },
-                  "project": {
+                  "gateway_lifecycle": {
                     "computed": true,
                     "description_kind": "plain",
                     "optional": true,
+                    "type": "number"
+                  },
+                  "project": {
+                    "description_kind": "plain",
+                    "optional": true,
                     "type": "string"
+                  },
+                  "sidecar_enabled": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "sidecar_lifecycle": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
                   }
                 },
                 "description_kind": "plain"
@@ -221,13 +243,17 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "enabled": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "bool"
+                  },
+                  "log_ttl_in_day": {
                     "computed": true,
                     "description_kind": "plain",
                     "optional": true,
-                    "type": "bool"
+                    "type": "number"
                   },
                   "project": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -300,7 +326,6 @@ const alicloudServiceMeshServiceMesh = `{
               "block": {
                 "attributes": {
                   "http10_enabled": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"

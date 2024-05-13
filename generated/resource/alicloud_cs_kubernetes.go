@@ -357,7 +357,6 @@ const alicloudCsKubernetes = `{
       },
       "slb_id": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "type": "string"
       },

@@ -20,6 +20,7 @@ const alicloudCsKubernetesNodePool = `{
         "type": "number"
       },
       "cis_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -268,6 +269,11 @@ const alicloudCsKubernetesNodePool = `{
           "string"
         ]
       },
+      "security_hardening_os": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "soc_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -353,6 +359,11 @@ const alicloudCsKubernetesNodePool = `{
         ]
       },
       "unschedulable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "update_nodes": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

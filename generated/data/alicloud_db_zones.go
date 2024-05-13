@@ -14,11 +14,6 @@ const alicloudDbZones = `{
         "optional": true,
         "type": "string"
       },
-      "db_instance_class": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "db_instance_storage_type": {
         "description_kind": "plain",
         "optional": true,
@@ -54,6 +49,7 @@ const alicloudDbZones = `{
         "type": "string"
       },
       "multi": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

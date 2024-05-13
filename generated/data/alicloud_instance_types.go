@@ -123,6 +123,11 @@ const alicloudInstanceTypes = `{
         "optional": true,
         "type": "number"
       },
+      "minimum_eni_private_ip_address_quantity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "network_type": {
         "description_kind": "plain",
         "optional": true,

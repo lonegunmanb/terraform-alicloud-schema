@@ -35,6 +35,17 @@ const alicloudCenTransitRouterPeerAttachment = `{
         "required": true,
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "default_link_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "dry_run": {
         "description_kind": "plain",
         "optional": true,

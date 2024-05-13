@@ -66,19 +66,21 @@ const alicloudClickHouseAccount = `{
       },
       "total_databases": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "total_dictionaries": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "type": {
-        "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },

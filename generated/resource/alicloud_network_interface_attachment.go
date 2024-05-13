@@ -20,6 +20,11 @@ const alicloudNetworkInterfaceAttachment = `{
         "required": true,
         "type": "string"
       },
+      "network_card_index": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "network_interface_id": {
         "description_kind": "plain",
         "required": true,
