@@ -56,6 +56,12 @@ const alicloudPrivatelinkVpcEndpoint = `{
         "optional": true,
         "type": "string"
       },
+      "policy_document": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "protected_enabled": {
         "description_kind": "plain",
         "optional": true,

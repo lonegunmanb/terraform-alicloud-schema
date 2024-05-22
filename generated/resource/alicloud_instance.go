@@ -73,6 +73,12 @@ const alicloudInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "enable_jumbo_frame": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "force_delete": {
         "description_kind": "plain",
         "optional": true,
@@ -553,6 +559,27 @@ const alicloudInstance = `{
         "block": {
           "attributes": {
             "network_interface_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "network_interface_traffic_mode": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "security_group_ids": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "vswitch_id": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,

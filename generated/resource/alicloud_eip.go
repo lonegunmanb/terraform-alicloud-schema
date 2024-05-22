@@ -20,6 +20,11 @@ const alicloudEip = `{
         "optional": true,
         "type": "string"
       },
+      "allocation_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "auto_pay": {
         "description_kind": "plain",
         "optional": true,
@@ -90,6 +95,12 @@ const alicloudEip = `{
         "type": "string"
       },
       "log_store": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

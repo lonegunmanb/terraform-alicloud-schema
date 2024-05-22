@@ -9,6 +9,11 @@ import (
 const alicloudMessageServiceQueue = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "delay_seconds": {
         "computed": true,
         "description_kind": "plain",

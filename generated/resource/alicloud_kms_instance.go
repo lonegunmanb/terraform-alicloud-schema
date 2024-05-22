@@ -19,6 +19,11 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "force_delete_without_backup": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -32,7 +37,7 @@ const alicloudKmsInstance = `{
       },
       "key_num": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "log": {
@@ -46,6 +51,12 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "period": {
         "description_kind": "plain",
@@ -69,12 +80,12 @@ const alicloudKmsInstance = `{
       },
       "secret_num": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "spec": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "status": {
@@ -89,7 +100,7 @@ const alicloudKmsInstance = `{
       },
       "vpc_num": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "vswitch_ids": {

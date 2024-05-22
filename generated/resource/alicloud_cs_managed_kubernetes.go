@@ -508,6 +508,24 @@ const alicloudCsManagedKubernetes = `{
         },
         "nesting_mode": "list"
       },
+      "delete_options": {
+        "block": {
+          "attributes": {
+            "delete_mode": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "resource_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "log_config": {
         "block": {
           "attributes": {
