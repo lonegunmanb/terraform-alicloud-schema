@@ -112,6 +112,12 @@ const alicloudEssScalingGroup = `{
           "string"
         ]
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "scaling_group_name": {
         "description_kind": "plain",
         "optional": true,
@@ -153,6 +159,29 @@ const alicloudEssScalingGroup = `{
       }
     },
     "block_types": {
+      "alb_server_group": {
+        "block": {
+          "attributes": {
+            "alb_server_group_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "port": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "weight": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "launch_template_override": {
         "block": {
           "attributes": {

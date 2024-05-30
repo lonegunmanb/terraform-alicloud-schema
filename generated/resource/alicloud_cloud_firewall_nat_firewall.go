@@ -6,48 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudKmsSecret = `{
+const alicloudCloudFirewallNatFirewall = `{
   "block": {
     "attributes": {
-      "arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
+      "firewall_switch": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "dkms_instance_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_automatic_rotation": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "encryption_key_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "extended_config": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "force_delete_without_recovery": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -55,73 +20,88 @@ const alicloudKmsSecret = `{
         "optional": true,
         "type": "string"
       },
-      "planned_delete_time": {
-        "computed": true,
+      "lang": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "policy": {
+      "nat_gateway_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "proxy_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_no": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "recovery_window_in_days": {
+      "strict_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "rotation_interval": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "secret_data": {
-        "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "secret_data_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "secret_name": {
+      "vpc_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "secret_type": {
-        "computed": true,
+      "vswitch_auto": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "tags": {
+      "vswitch_cidr": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "version_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "version_stages": {
-        "computed": true,
+      "vswitch_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
+      "nat_route_entry_list": {
+        "block": {
+          "attributes": {
+            "destination_cidr": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "nexthop_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "nexthop_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "route_table_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -151,8 +131,8 @@ const alicloudKmsSecret = `{
   "version": 0
 }`
 
-func AlicloudKmsSecretSchema() *tfjson.Schema {
+func AlicloudCloudFirewallNatFirewallSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudKmsSecret), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallNatFirewall), &result)
 	return &result
 }

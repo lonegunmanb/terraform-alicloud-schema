@@ -17,6 +17,8 @@ const alicloudCenTransitRouterVpcAttachments = `{
           [
             "object",
             {
+              "auto_publish_route_enabled": "bool",
+              "cen_id": "string",
               "id": "string",
               "payment_type": "string",
               "resource_type": "string",
@@ -24,6 +26,7 @@ const alicloudCenTransitRouterVpcAttachments = `{
               "transit_router_attachment_description": "string",
               "transit_router_attachment_id": "string",
               "transit_router_attachment_name": "string",
+              "transit_router_id": "string",
               "vpc_id": "string",
               "vpc_owner_id": "string",
               "zone_mappings": [
@@ -60,6 +63,19 @@ const alicloudCenTransitRouterVpcAttachments = `{
           "string"
         ]
       },
+      "name_regex": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "names": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "output_file": {
         "description_kind": "plain",
         "optional": true,
@@ -70,7 +86,17 @@ const alicloudCenTransitRouterVpcAttachments = `{
         "optional": true,
         "type": "string"
       },
+      "transit_router_attachment_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "transit_router_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

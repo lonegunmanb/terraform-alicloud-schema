@@ -6,17 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApiGatewayPlugin = `{
+const alicloudOssBucketMetaQuery = `{
   "block": {
     "attributes": {
+      "bucket": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -25,28 +25,10 @@ const alicloudApiGatewayPlugin = `{
         "optional": true,
         "type": "string"
       },
-      "plugin_data": {
+      "status": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
-      },
-      "plugin_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -62,11 +44,6 @@ const alicloudApiGatewayPlugin = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -79,8 +56,8 @@ const alicloudApiGatewayPlugin = `{
   "version": 0
 }`
 
-func AlicloudApiGatewayPluginSchema() *tfjson.Schema {
+func AlicloudOssBucketMetaQuerySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApiGatewayPlugin), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketMetaQuery), &result)
 	return &result
 }

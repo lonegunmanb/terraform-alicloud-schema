@@ -6,15 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApiGatewayPlugin = `{
+const alicloudApiGatewayAccessControlList = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "access_control_list_name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "description": {
+      "address_ip_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -24,32 +25,27 @@ const alicloudApiGatewayPlugin = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "plugin_data": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
+      "acl_entrys": {
+        "block": {
+          "attributes": {
+            "acl_entry_comment": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "acl_entry_ip": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -79,8 +75,8 @@ const alicloudApiGatewayPlugin = `{
   "version": 0
 }`
 
-func AlicloudApiGatewayPluginSchema() *tfjson.Schema {
+func AlicloudApiGatewayAccessControlListSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApiGatewayPlugin), &result)
+	_ = json.Unmarshal([]byte(alicloudApiGatewayAccessControlList), &result)
 	return &result
 }

@@ -10,7 +10,6 @@ const alicloudApiGatewayApis = `{
   "block": {
     "attributes": {
       "api_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -23,6 +22,7 @@ const alicloudApiGatewayApis = `{
           [
             "object",
             {
+              "api_id": "string",
               "description": "string",
               "group_id": "string",
               "group_name": "string",

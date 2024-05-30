@@ -19,6 +19,11 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "cluster_backup_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -56,6 +61,12 @@ const alicloudRedisTairInstance = `{
         "required": true,
         "type": "string"
       },
+      "node_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "password": {
         "description_kind": "plain",
         "optional": true,
@@ -79,6 +90,11 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "number"
       },
+      "read_only_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -92,6 +108,11 @@ const alicloudRedisTairInstance = `{
       },
       "shard_count": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "slave_read_only_count": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"

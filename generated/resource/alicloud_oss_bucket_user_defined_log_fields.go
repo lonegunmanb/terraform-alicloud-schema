@@ -6,18 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApiGatewayPlugin = `{
+const alicloudOssBucketUserDefinedLogFields = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "bucket": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "description": {
+      "header_set": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -25,26 +28,11 @@ const alicloudApiGatewayPlugin = `{
         "optional": true,
         "type": "string"
       },
-      "plugin_data": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
+      "param_set": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
+          "set",
           "string"
         ]
       }
@@ -79,8 +67,8 @@ const alicloudApiGatewayPlugin = `{
   "version": 0
 }`
 
-func AlicloudApiGatewayPluginSchema() *tfjson.Schema {
+func AlicloudOssBucketUserDefinedLogFieldsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApiGatewayPlugin), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketUserDefinedLogFields), &result)
 	return &result
 }

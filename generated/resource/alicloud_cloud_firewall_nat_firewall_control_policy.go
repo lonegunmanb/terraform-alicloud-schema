@@ -6,50 +6,78 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudKmsKey = `{
+const alicloudCloudFirewallNatFirewallControlPolicy = `{
   "block": {
     "attributes": {
-      "arn": {
+      "acl_action": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "acl_uuid": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "automatic_rotation": {
+      "application_name_list": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "creation_date": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "creator": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "delete_date": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "deletion_window_in_days": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "number"
       },
       "description": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "dkms_instance_id": {
+      "dest_port": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "dest_port_group": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dest_port_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "destination": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "destination_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "direction": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "domain_resolve_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "end_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -57,92 +85,70 @@ const alicloudKmsKey = `{
         "optional": true,
         "type": "string"
       },
-      "is_enabled": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "key_spec": {
-        "computed": true,
+      "ip_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "key_state": {
-        "computed": true,
-        "deprecated": true,
+      "nat_gateway_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "key_usage": {
-        "computed": true,
+      "new_order": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "last_rotation_date": {
-        "computed": true,
+      "proto": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "material_expire_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "next_rotation_date": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "origin": {
+      "release": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "pending_window_in_days": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "policy": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "primary_key_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "protection_level": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "rotation_interval": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
+      "repeat_days": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
-          "string"
+          "list",
+          "number"
         ]
+      },
+      "repeat_end_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "repeat_start_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "repeat_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "source_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "start_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -175,8 +181,8 @@ const alicloudKmsKey = `{
   "version": 0
 }`
 
-func AlicloudKmsKeySchema() *tfjson.Schema {
+func AlicloudCloudFirewallNatFirewallControlPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudKmsKey), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallNatFirewallControlPolicy), &result)
 	return &result
 }

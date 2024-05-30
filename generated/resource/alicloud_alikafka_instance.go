@@ -105,6 +105,12 @@ const alicloudAlikafkaInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "security_group": {
         "computed": true,
         "description_kind": "plain",

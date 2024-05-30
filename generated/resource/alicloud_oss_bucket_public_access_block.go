@@ -6,17 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApiGatewayPlugin = `{
+const alicloudOssBucketPublicAccessBlock = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "block_public_access": {
         "description_kind": "plain",
-        "type": "string"
+        "required": true,
+        "type": "bool"
       },
-      "description": {
+      "bucket": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -24,29 +24,6 @@ const alicloudApiGatewayPlugin = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "plugin_data": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "plugin_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -79,8 +56,8 @@ const alicloudApiGatewayPlugin = `{
   "version": 0
 }`
 
-func AlicloudApiGatewayPluginSchema() *tfjson.Schema {
+func AlicloudOssBucketPublicAccessBlockSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApiGatewayPlugin), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketPublicAccessBlock), &result)
 	return &result
 }
