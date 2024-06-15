@@ -6,28 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcBgpPeer = `{
+const alicloudGpdbDbResourceGroup = `{
   "block": {
     "attributes": {
-      "bfd_multi_hop": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "bgp_group_id": {
+      "db_instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "bgp_peer_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "enable_bfd": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -35,20 +20,14 @@ const alicloudVpcBgpPeer = `{
         "optional": true,
         "type": "string"
       },
-      "ip_version": {
-        "computed": true,
+      "resource_group_config": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "peer_ip_address": {
+      "resource_group_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -82,8 +61,8 @@ const alicloudVpcBgpPeer = `{
   "version": 0
 }`
 
-func AlicloudVpcBgpPeerSchema() *tfjson.Schema {
+func AlicloudGpdbDbResourceGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcBgpPeer), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbDbResourceGroup), &result)
 	return &result
 }

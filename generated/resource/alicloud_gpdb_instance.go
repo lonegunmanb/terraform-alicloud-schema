@@ -149,6 +149,12 @@ const alicloudGpdbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "resource_management_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "security_ip_list": {
         "deprecated": true,
         "description_kind": "plain",

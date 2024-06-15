@@ -6,21 +6,11 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudImageImport = `{
+const alicloudExpressConnectTrafficQosQueue = `{
   "block": {
     "attributes": {
-      "architecture": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "boot_mode": {
+      "bandwidth_percent": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -31,66 +21,38 @@ const alicloudImageImport = `{
         "optional": true,
         "type": "string"
       },
-      "image_name": {
+      "qos_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "queue_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "queue_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "license_type": {
+      "queue_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "os_type": {
+      "queue_type": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "platform": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "disk_device_mapping": {
-        "block": {
-          "attributes": {
-            "device": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "disk_image_size": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "format": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "oss_bucket": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "oss_object": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -100,6 +62,11 @@ const alicloudImageImport = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -115,8 +82,8 @@ const alicloudImageImport = `{
   "version": 0
 }`
 
-func AlicloudImageImportSchema() *tfjson.Schema {
+func AlicloudExpressConnectTrafficQosQueueSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudImageImport), &result)
+	_ = json.Unmarshal([]byte(alicloudExpressConnectTrafficQosQueue), &result)
 	return &result
 }

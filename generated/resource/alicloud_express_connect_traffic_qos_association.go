@@ -6,44 +6,30 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcBgpPeer = `{
+const alicloudExpressConnectTrafficQosAssociation = `{
   "block": {
     "attributes": {
-      "bfd_multi_hop": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "bgp_group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "bgp_peer_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "enable_bfd": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ip_version": {
+      "instance_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "peer_ip_address": {
+      "instance_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "qos_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "status": {
@@ -65,11 +51,6 @@ const alicloudVpcBgpPeer = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -82,8 +63,8 @@ const alicloudVpcBgpPeer = `{
   "version": 0
 }`
 
-func AlicloudVpcBgpPeerSchema() *tfjson.Schema {
+func AlicloudExpressConnectTrafficQosAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcBgpPeer), &result)
+	_ = json.Unmarshal([]byte(alicloudExpressConnectTrafficQosAssociation), &result)
 	return &result
 }

@@ -9,6 +9,11 @@ import (
 const alicloudOtsTable = `{
   "block": {
     "attributes": {
+      "allow_update": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "deviation_cell_version_in_sec": {
         "description_kind": "plain",
         "optional": true,
@@ -35,7 +40,17 @@ const alicloudOtsTable = `{
         "required": true,
         "type": "number"
       },
+      "sse_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sse_key_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sse_role_arn": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

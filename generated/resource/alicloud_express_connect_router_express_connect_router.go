@@ -6,21 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudImageImport = `{
+const alicloudExpressConnectRouterExpressConnectRouter = `{
   "block": {
     "attributes": {
-      "architecture": {
+      "alibaba_side_asn": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
-      "boot_mode": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ecr_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -31,56 +35,37 @@ const alicloudImageImport = `{
         "optional": true,
         "type": "string"
       },
-      "image_name": {
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "license_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "os_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "platform": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "disk_device_mapping": {
+      "regions": {
         "block": {
           "attributes": {
-            "device": {
+            "region_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "transit_mode": {
               "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "disk_image_size": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "format": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "oss_bucket": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "oss_object": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -88,7 +73,6 @@ const alicloudImageImport = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -100,6 +84,11 @@ const alicloudImageImport = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -115,8 +104,8 @@ const alicloudImageImport = `{
   "version": 0
 }`
 
-func AlicloudImageImportSchema() *tfjson.Schema {
+func AlicloudExpressConnectRouterExpressConnectRouterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudImageImport), &result)
+	_ = json.Unmarshal([]byte(alicloudExpressConnectRouterExpressConnectRouter), &result)
 	return &result
 }

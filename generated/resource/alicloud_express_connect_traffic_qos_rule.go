@@ -6,21 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudImageImport = `{
+const alicloudExpressConnectTrafficQosRule = `{
   "block": {
     "attributes": {
-      "architecture": {
+      "dst_cidr": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "boot_mode": {
+      "dst_ipv6_cidr": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dst_port_range": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -31,66 +31,76 @@ const alicloudImageImport = `{
         "optional": true,
         "type": "string"
       },
-      "image_name": {
+      "match_dscp": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "priority": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "protocol": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "qos_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "queue_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "remarking_dscp": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "rule_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_cidr": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_ipv6_cidr": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_port_range": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "license_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "os_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "platform": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "disk_device_mapping": {
-        "block": {
-          "attributes": {
-            "device": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "disk_image_size": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "format": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "oss_bucket": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "oss_object": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -100,6 +110,11 @@ const alicloudImageImport = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -115,8 +130,8 @@ const alicloudImageImport = `{
   "version": 0
 }`
 
-func AlicloudImageImportSchema() *tfjson.Schema {
+func AlicloudExpressConnectTrafficQosRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudImageImport), &result)
+	_ = json.Unmarshal([]byte(alicloudExpressConnectTrafficQosRule), &result)
 	return &result
 }

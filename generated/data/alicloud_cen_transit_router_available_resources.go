@@ -28,6 +28,10 @@ const alicloudCenTransitRouterAvailableResources = `{
           [
             "object",
             {
+              "available_zones": [
+                "list",
+                "string"
+              ],
               "master_zones": [
                 "list",
                 "string"
@@ -35,10 +39,16 @@ const alicloudCenTransitRouterAvailableResources = `{
               "slave_zones": [
                 "list",
                 "string"
-              ]
+              ],
+              "support_multicast": "bool"
             }
           ]
         ]
+      },
+      "support_multicast": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "description_kind": "plain"
