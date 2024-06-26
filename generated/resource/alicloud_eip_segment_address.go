@@ -45,9 +45,25 @@ const alicloudEipSegmentAddress = `{
         "optional": true,
         "type": "string"
       },
+      "resource_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "segment_address_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "zone": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -61,6 +77,11 @@ const alicloudEipSegmentAddress = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

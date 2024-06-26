@@ -125,6 +125,12 @@ const alicloudMongodbShardingInstance = `{
         "optional": true,
         "type": "string"
       },
+      "storage_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -269,7 +275,7 @@ const alicloudMongodbShardingInstance = `{
         },
         "max_items": 32,
         "min_items": 2,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {

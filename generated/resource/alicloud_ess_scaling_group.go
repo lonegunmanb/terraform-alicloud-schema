@@ -9,6 +9,17 @@ import (
 const alicloudEssScalingGroup = `{
   "block": {
     "attributes": {
+      "allocation_strategy": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "az_balance": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "db_instance_ids": {
         "description_kind": "plain",
         "optional": true,
@@ -119,6 +130,12 @@ const alicloudEssScalingGroup = `{
         "type": "string"
       },
       "scaling_group_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "spot_allocation_strategy": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

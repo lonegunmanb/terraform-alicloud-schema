@@ -23,6 +23,7 @@ const alicloudEssAlarm = `{
         "type": "number"
       },
       "comparison_operator": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -51,6 +52,12 @@ const alicloudEssAlarm = `{
         "optional": true,
         "type": "number"
       },
+      "expressions_logic_operator": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -58,8 +65,9 @@ const alicloudEssAlarm = `{
         "type": "string"
       },
       "metric_name": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "metric_type": {
@@ -74,6 +82,7 @@ const alicloudEssAlarm = `{
         "type": "string"
       },
       "period": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -89,14 +98,56 @@ const alicloudEssAlarm = `{
         "type": "string"
       },
       "statistics": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "threshold": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      }
+    },
+    "block_types": {
+      "expressions": {
+        "block": {
+          "attributes": {
+            "comparison_operator": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "metric_name": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "period": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "statistics": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "threshold": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"

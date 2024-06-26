@@ -25,6 +25,11 @@ const alicloudDdosbgpIp = `{
         "required": true,
         "type": "string"
       },
+      "member_uid": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_id": {
         "description_kind": "plain",
         "optional": true,

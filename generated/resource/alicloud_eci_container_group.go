@@ -477,6 +477,11 @@ const alicloudEciContainerGroup = `{
             "security_context": {
               "block": {
                 "attributes": {
+                  "privileged": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
                   "run_as_user": {
                     "description_kind": "plain",
                     "optional": true,
