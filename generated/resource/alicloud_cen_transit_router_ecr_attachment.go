@@ -6,87 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudGaAccelerator = `{
+const alicloudCenTransitRouterEcrAttachment = `{
   "block": {
     "attributes": {
-      "accelerator_name": {
+      "cen_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "auto_renew_duration": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "auto_use_coupon": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "bandwidth_billing_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "cross_border_mode": {
-        "computed": true,
+      "ecr_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "cross_border_status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "duration": {
+      "ecr_owner_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "id": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "pricing_cycle": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "promotion_option_no": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "renewal_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "spec": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -103,6 +47,21 @@ const alicloudGaAccelerator = `{
           "map",
           "string"
         ]
+      },
+      "transit_router_attachment_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_ecr_attachment_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -135,8 +94,8 @@ const alicloudGaAccelerator = `{
   "version": 0
 }`
 
-func AlicloudGaAcceleratorSchema() *tfjson.Schema {
+func AlicloudCenTransitRouterEcrAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudGaAccelerator), &result)
+	_ = json.Unmarshal([]byte(alicloudCenTransitRouterEcrAttachment), &result)
 	return &result
 }

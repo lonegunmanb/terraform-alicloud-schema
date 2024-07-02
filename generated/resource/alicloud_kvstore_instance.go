@@ -290,6 +290,11 @@ const alicloudKvstoreInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "read_only_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -339,6 +344,11 @@ const alicloudKvstoreInstance = `{
       },
       "shard_count": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "slave_read_only_count": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"

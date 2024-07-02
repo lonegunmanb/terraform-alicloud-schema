@@ -15,6 +15,7 @@ const alicloudGaBandwidthPackage = `{
         "type": "bool"
       },
       "auto_renew_duration": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -88,6 +89,12 @@ const alicloudGaBandwidthPackage = `{
         "type": "number"
       },
       "renewal_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

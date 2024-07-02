@@ -14,6 +14,18 @@ const alicloudLaunchTemplate = `{
         "optional": true,
         "type": "string"
       },
+      "auto_renew": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_renew_period": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "deployment_set_id": {
         "description_kind": "plain",
         "optional": true,
@@ -115,9 +127,16 @@ const alicloudLaunchTemplate = `{
         "type": "bool"
       },
       "period": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "period_unit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "private_ip_address": {
         "description_kind": "plain",
