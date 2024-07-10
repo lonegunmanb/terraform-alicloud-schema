@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAdbResourceGroup = `{
+const alicloudGpdbExternalDataService = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,20 +14,9 @@ const alicloudAdbResourceGroup = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "db_cluster_id": {
+      "db_instance_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -36,28 +25,30 @@ const alicloudAdbResourceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "node_num": {
+      "service_description": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "service_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "number"
       },
-      "update_time": {
+      "service_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "service_spec": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "user": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "users": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -90,8 +81,8 @@ const alicloudAdbResourceGroup = `{
   "version": 0
 }`
 
-func AlicloudAdbResourceGroupSchema() *tfjson.Schema {
+func AlicloudGpdbExternalDataServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAdbResourceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbExternalDataService), &result)
 	return &result
 }

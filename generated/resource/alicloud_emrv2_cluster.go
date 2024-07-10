@@ -140,6 +140,7 @@ const alicloudEmrv2Cluster = `{
               "type": "string"
             },
             "priority": {
+              "deprecated": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -165,14 +166,32 @@ const alicloudEmrv2Cluster = `{
               "block": {
                 "attributes": {
                   "node_group_id": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
+                  "node_group_ids": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
                   "node_group_name": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
+                  },
+                  "node_group_names": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
                   },
                   "node_group_types": {
                     "description_kind": "plain",
@@ -333,6 +352,210 @@ const alicloudEmrv2Cluster = `{
             }
           },
           "block_types": {
+            "auto_scaling_policy": {
+              "block": {
+                "block_types": {
+                  "constraints": {
+                    "block": {
+                      "attributes": {
+                        "max_capacity": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "min_capacity": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "scaling_rules": {
+                    "block": {
+                      "attributes": {
+                        "activity_type": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "adjustment_type": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "adjustment_value": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "number"
+                        },
+                        "min_adjustment_value": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "rule_name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "trigger_type": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "block_types": {
+                        "metrics_trigger": {
+                          "block": {
+                            "attributes": {
+                              "condition_logic_operator": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "cool_down_interval": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "evaluation_count": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "number"
+                              },
+                              "time_window": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "number"
+                              }
+                            },
+                            "block_types": {
+                              "conditions": {
+                                "block": {
+                                  "attributes": {
+                                    "comparison_operator": {
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    },
+                                    "metric_name": {
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    },
+                                    "statistics": {
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "string"
+                                    },
+                                    "threshold": {
+                                      "description_kind": "plain",
+                                      "required": true,
+                                      "type": "number"
+                                    }
+                                  },
+                                  "block_types": {
+                                    "tags": {
+                                      "block": {
+                                        "attributes": {
+                                          "key": {
+                                            "description_kind": "plain",
+                                            "required": true,
+                                            "type": "string"
+                                          },
+                                          "value": {
+                                            "description_kind": "plain",
+                                            "optional": true,
+                                            "type": "string"
+                                          }
+                                        },
+                                        "description_kind": "plain"
+                                      },
+                                      "nesting_mode": "list"
+                                    }
+                                  },
+                                  "description_kind": "plain"
+                                },
+                                "nesting_mode": "list"
+                              },
+                              "time_constraints": {
+                                "block": {
+                                  "attributes": {
+                                    "end_time": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    },
+                                    "start_time": {
+                                      "description_kind": "plain",
+                                      "optional": true,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "description_kind": "plain"
+                                },
+                                "nesting_mode": "list"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        },
+                        "time_trigger": {
+                          "block": {
+                            "attributes": {
+                              "end_time": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "launch_expiration_time": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "launch_time": {
+                                "description_kind": "plain",
+                                "required": true,
+                                "type": "string"
+                              },
+                              "recurrence_type": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "recurrence_value": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              },
+                              "start_time": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "max_items": 1,
+                          "nesting_mode": "list"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "cost_optimized_config": {
               "block": {
                 "attributes": {
@@ -481,7 +704,7 @@ const alicloudEmrv2Cluster = `{
           "description_kind": "plain"
         },
         "min_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "subscription_config": {
         "block": {

@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAdbResourceGroup = `{
+const alicloudEnsNatGateway = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,20 +14,9 @@ const alicloudAdbResourceGroup = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "db_cluster_id": {
+      "ens_region_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -36,28 +25,26 @@ const alicloudAdbResourceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "node_num": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "update_time": {
+      "instance_type": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "user": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "users": {
+      "nat_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
+      },
+      "network_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -90,8 +77,8 @@ const alicloudAdbResourceGroup = `{
   "version": 0
 }`
 
-func AlicloudAdbResourceGroupSchema() *tfjson.Schema {
+func AlicloudEnsNatGatewaySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAdbResourceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsNatGateway), &result)
 	return &result
 }

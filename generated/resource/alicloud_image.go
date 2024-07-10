@@ -14,12 +14,28 @@ const alicloudImage = `{
         "optional": true,
         "type": "string"
       },
+      "boot_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "delete_auto_snapshot": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "detection_strategy": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,13 +51,28 @@ const alicloudImage = `{
         "optional": true,
         "type": "string"
       },
+      "image_family": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "image_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "image_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "license_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -60,6 +91,7 @@ const alicloudImage = `{
         "type": "string"
       },
       "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -67,6 +99,11 @@ const alicloudImage = `{
       "snapshot_id": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "tags": {
@@ -94,6 +131,31 @@ const alicloudImage = `{
               "optional": true,
               "type": "string"
             },
+            "format": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "import_oss_bucket": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "import_oss_object": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "progress": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "remain_time": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            },
             "size": {
               "computed": true,
               "description_kind": "plain",
@@ -111,6 +173,21 @@ const alicloudImage = `{
         },
         "nesting_mode": "list"
       },
+      "features": {
+        "block": {
+          "attributes": {
+            "nvme_support": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -120,6 +197,11 @@ const alicloudImage = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

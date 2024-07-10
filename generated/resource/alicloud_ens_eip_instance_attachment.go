@@ -6,28 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAdbResourceGroup = `{
+const alicloudEnsEipInstanceAttachment = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "db_cluster_id": {
+      "allocation_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -36,28 +20,26 @@ const alicloudAdbResourceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "node_num": {
+      "instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "instance_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "update_time": {
+      "standby": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "user": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "users": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -73,11 +55,6 @@ const alicloudAdbResourceGroup = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -90,8 +67,8 @@ const alicloudAdbResourceGroup = `{
   "version": 0
 }`
 
-func AlicloudAdbResourceGroupSchema() *tfjson.Schema {
+func AlicloudEnsEipInstanceAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAdbResourceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsEipInstanceAttachment), &result)
 	return &result
 }

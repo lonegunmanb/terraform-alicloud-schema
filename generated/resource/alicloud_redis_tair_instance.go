@@ -106,6 +106,11 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "security_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "shard_count": {
         "computed": true,
         "description_kind": "plain",
@@ -116,6 +121,12 @@ const alicloudRedisTairInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "ssl_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "status": {
         "computed": true,

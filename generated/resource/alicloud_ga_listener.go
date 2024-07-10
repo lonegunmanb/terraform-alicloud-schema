@@ -36,6 +36,12 @@ const alicloudGaListener = `{
         "optional": true,
         "type": "string"
       },
+      "idle_timeout": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "listener_type": {
         "description_kind": "plain",
         "optional": true,
@@ -55,6 +61,12 @@ const alicloudGaListener = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "request_timeout": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "security_policy_id": {
         "computed": true,

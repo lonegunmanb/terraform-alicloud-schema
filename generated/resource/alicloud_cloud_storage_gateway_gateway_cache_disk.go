@@ -41,6 +41,11 @@ const alicloudCloudStorageGatewayGatewayCacheDisk = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "performance_level": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

@@ -89,8 +89,9 @@ const alicloudEnsInstance = `{
         "type": "string"
       },
       "internet_max_bandwidth_out": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "ip_type": {

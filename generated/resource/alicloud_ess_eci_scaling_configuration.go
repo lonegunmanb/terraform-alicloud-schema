@@ -39,6 +39,16 @@ const alicloudEssEciScalingConfiguration = `{
         "optional": true,
         "type": "number"
       },
+      "cpu_options_core": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "cpu_options_threads_per_core": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,

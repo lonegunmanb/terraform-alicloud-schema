@@ -19,6 +19,11 @@ const alicloudDfsFileSystem = `{
         "optional": true,
         "type": "string"
       },
+      "dedicated_cluster_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -73,7 +78,7 @@ const alicloudDfsFileSystem = `{
       },
       "zone_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },

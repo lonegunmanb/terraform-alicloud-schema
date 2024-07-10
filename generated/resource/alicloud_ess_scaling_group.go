@@ -79,6 +79,11 @@ const alicloudEssScalingGroup = `{
           "string"
         ]
       },
+      "max_instance_lifetime": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "max_size": {
         "description_kind": "plain",
         "required": true,
@@ -130,6 +135,12 @@ const alicloudEssScalingGroup = `{
         "type": "string"
       },
       "scaling_group_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "scaling_policy": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -6,26 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAdbResourceGroup = `{
+const alicloudGpdbRemoteAdbDataSource = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "db_cluster_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_type": {
-        "computed": true,
+      "data_source_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -36,28 +20,57 @@ const alicloudAdbResourceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "node_num": {
+      "local_database": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
+        "type": "string"
+      },
+      "local_db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "manager_user_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "manager_user_password": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "remote_adb_data_source_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "number"
       },
-      "update_time": {
+      "remote_database": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "remote_db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "user": {
-        "computed": true,
+      "user_name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "users": {
+      "user_password": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "required": true,
+        "sensitive": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -90,8 +103,8 @@ const alicloudAdbResourceGroup = `{
   "version": 0
 }`
 
-func AlicloudAdbResourceGroupSchema() *tfjson.Schema {
+func AlicloudGpdbRemoteAdbDataSourceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAdbResourceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbRemoteAdbDataSource), &result)
 	return &result
 }
