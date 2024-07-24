@@ -9,13 +9,26 @@ import (
 const alicloudDcdnDomain = `{
   "block": {
     "attributes": {
+      "cert_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cert_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "cert_region": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cert_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,12 +43,22 @@ const alicloudDcdnDomain = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "domain_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "force_set": {
+      "env": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "function_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -52,12 +75,12 @@ const alicloudDcdnDomain = `{
         "optional": true,
         "type": "string"
       },
-      "scope": {
+      "scene": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "security_token": {
+      "scope": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -65,6 +88,7 @@ const alicloudDcdnDomain = `{
       "ssl_pri": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "ssl_protocol": {
@@ -73,11 +97,13 @@ const alicloudDcdnDomain = `{
         "type": "string"
       },
       "ssl_pub": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -102,25 +128,28 @@ const alicloudDcdnDomain = `{
           "attributes": {
             "content": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "port": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "priority": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "type": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "weight": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -128,7 +157,6 @@ const alicloudDcdnDomain = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "set"
       },
       "timeouts": {

@@ -54,6 +54,7 @@ const alicloudVpc = `{
       "ipv6_cidr_block": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "ipv6_cidr_blocks": {
@@ -74,6 +75,11 @@ const alicloudVpc = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "is_default": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "name": {
         "computed": true,
@@ -117,6 +123,16 @@ const alicloudVpc = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "system_route_table_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "system_route_table_name": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tags": {

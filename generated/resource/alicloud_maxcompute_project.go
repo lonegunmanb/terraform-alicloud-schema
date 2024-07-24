@@ -14,6 +14,11 @@ const alicloudMaxcomputeProject = `{
         "optional": true,
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "default_quota": {
         "description_kind": "plain",
         "optional": true,
@@ -25,12 +30,7 @@ const alicloudMaxcomputeProject = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "order_type": {
+      "is_logical": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -46,11 +46,7 @@ const alicloudMaxcomputeProject = `{
         "type": "string"
       },
       "project_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "specification_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -58,7 +54,16 @@ const alicloudMaxcomputeProject = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "type": {
         "computed": true,
@@ -84,31 +89,27 @@ const alicloudMaxcomputeProject = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "properties": {
         "block": {
           "attributes": {
             "allow_full_scan": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "enable_decimal2": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "retention_days": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "sql_metering_max": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -120,7 +121,6 @@ const alicloudMaxcomputeProject = `{
               "type": "string"
             },
             "type_system": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -131,19 +131,16 @@ const alicloudMaxcomputeProject = `{
               "block": {
                 "attributes": {
                   "algorithm": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "enable": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
                   },
                   "key": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -185,37 +182,31 @@ const alicloudMaxcomputeProject = `{
         "block": {
           "attributes": {
             "enable_download_privilege": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "label_security": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "object_creator_has_access_permission": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "object_creator_has_grant_permission": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "using_acl": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
             },
             "using_policy": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -226,13 +217,11 @@ const alicloudMaxcomputeProject = `{
               "block": {
                 "attributes": {
                   "exception_policy": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "protected": {
-                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
@@ -252,7 +241,17 @@ const alicloudMaxcomputeProject = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

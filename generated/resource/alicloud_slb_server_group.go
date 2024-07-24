@@ -29,6 +29,14 @@ const alicloudSlbServerGroup = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {

@@ -27,7 +27,7 @@ const alicloudCloudFirewallControlPolicyOrder = `{
       },
       "order": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       }
     },

@@ -244,9 +244,20 @@ const alicloudInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "network_card_index": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "network_interface_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "network_interface_traffic_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "operator_type": {
@@ -296,6 +307,11 @@ const alicloudInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "queue_pair_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "renewal_status": {
         "description_kind": "plain",
@@ -463,6 +479,12 @@ const alicloudInstance = `{
           "string"
         ]
       },
+      "vpc_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vswitch_id": {
         "computed": true,
         "description_kind": "plain",
@@ -558,6 +580,12 @@ const alicloudInstance = `{
       "network_interfaces": {
         "block": {
           "attributes": {
+            "network_card_index": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "network_interface_id": {
               "computed": true,
               "description_kind": "plain",
@@ -569,6 +597,12 @@ const alicloudInstance = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "queue_pair_number": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             },
             "security_group_ids": {
               "computed": true,

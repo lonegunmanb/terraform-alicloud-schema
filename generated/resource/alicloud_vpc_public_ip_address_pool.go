@@ -9,6 +9,12 @@ import (
 const alicloudVpcPublicIpAddressPool = `{
   "block": {
     "attributes": {
+      "biz_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -51,6 +57,14 @@ const alicloudVpcPublicIpAddressPool = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "security_protection_types": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "status": {
         "computed": true,
