@@ -6,28 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcBgpPeer = `{
+const alicloudFcv3ConcurrencyConfig = `{
   "block": {
     "attributes": {
-      "bfd_multi_hop": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "bgp_group_id": {
+      "function_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "bgp_peer_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "enable_bfd": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -35,22 +20,10 @@ const alicloudVpcBgpPeer = `{
         "optional": true,
         "type": "string"
       },
-      "ip_version": {
-        "computed": true,
+      "reserved_concurrency": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "peer_ip_address": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
@@ -83,8 +56,8 @@ const alicloudVpcBgpPeer = `{
   "version": 0
 }`
 
-func AlicloudVpcBgpPeerSchema() *tfjson.Schema {
+func AlicloudFcv3ConcurrencyConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcBgpPeer), &result)
+	_ = json.Unmarshal([]byte(alicloudFcv3ConcurrencyConfig), &result)
 	return &result
 }

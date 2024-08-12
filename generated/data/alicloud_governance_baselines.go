@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,19 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApiGatewayGroup = `{
+const alicloudGovernanceBaselines = `{
   "block": {
     "attributes": {
-      "base_path": {
+      "baselines": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "baseline_id": "string",
+              "baseline_name": "string",
+              "description": "string"
+            }
+          ]
+        ]
       },
       "id": {
         "computed": true,
@@ -26,25 +30,31 @@ const alicloudApiGatewayGroup = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "ids": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "name_regex": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "sub_domain": {
+      "names": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "vpc_domain": {
-        "computed": true,
+      "output_file": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -53,8 +63,8 @@ const alicloudApiGatewayGroup = `{
   "version": 0
 }`
 
-func AlicloudApiGatewayGroupSchema() *tfjson.Schema {
+func AlicloudGovernanceBaselinesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApiGatewayGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudGovernanceBaselines), &result)
 	return &result
 }

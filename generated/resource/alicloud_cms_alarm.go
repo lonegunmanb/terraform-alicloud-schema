@@ -135,6 +135,70 @@ const alicloudCmsAlarm = `{
       }
     },
     "block_types": {
+      "composite_expression": {
+        "block": {
+          "attributes": {
+            "expression_list_join": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "expression_raw": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "level": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "times": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "block_types": {
+            "expression_list": {
+              "block": {
+                "attributes": {
+                  "comparison_operator": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "metric_name": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "period": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "statistics": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "threshold": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "escalations_critical": {
         "block": {
           "attributes": {

@@ -6,62 +6,63 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssScalingGroup = `{
+const alicloudAligreenOssStockTask = `{
   "block": {
     "attributes": {
-      "allocation_strategy": {
-        "computed": true,
+      "audio_antispam_freeze_config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "az_balance": {
+      "audio_auto_freeze_opened": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "db_instance_ids": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "default_cooldown": {
+      "audio_max_size": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "desired_capacity": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "group_deletion_protection": {
+      "audio_opened": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "group_type": {
-        "computed": true,
+      "audio_scan_limit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "audio_scenes": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "health_check_type": {
-        "computed": true,
+      "auto_freeze_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "health_check_types": {
+      "biz_type": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
+      },
+      "buckets": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "callback_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "end_date": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -69,71 +70,37 @@ const alicloudEssScalingGroup = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "image_ad_freeze_config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "launch_template_id": {
+      "image_auto_freeze_opened": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "image_live_freeze_config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "launch_template_version": {
+      "image_opened": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "image_porn_freeze_config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "loadbalancer_ids": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "max_instance_lifetime": {
+      "image_scan_limit": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "max_size": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "min_size": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "multi_az_policy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "on_demand_base_capacity": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "on_demand_percentage_above_base_capacity": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "protected_instances": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "removal_policies": {
-        "computed": true,
+      "image_scenes": {
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -141,110 +108,100 @@ const alicloudEssScalingGroup = `{
           "string"
         ]
       },
-      "resource_group_id": {
-        "computed": true,
+      "image_terrorism_freeze_config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "scaling_group_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "scaling_policy": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "spot_allocation_strategy": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "spot_instance_pools": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "spot_instance_remedy": {
-        "computed": true,
+      "scan_image_no_file_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vswitch_id": {
-        "deprecated": true,
+      "start_date": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "vswitch_ids": {
+      "video_ad_freeze_config": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
+      },
+      "video_auto_freeze_opened": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "video_frame_interval": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "video_live_freeze_config": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "video_max_frames": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "video_max_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "video_opened": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "video_porn_freeze_config": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "video_scan_limit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "video_scenes": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "video_terrorism_freeze_config": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "video_voice_antispam_freeze_config": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "alb_server_group": {
+      "timeouts": {
         "block": {
           "attributes": {
-            "alb_server_group_id": {
+            "create": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "port": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "weight": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
-      "launch_template_override": {
-        "block": {
-          "attributes": {
-            "instance_type": {
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "spot_price_limit": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "weighted_capacity": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"
@@ -252,8 +209,8 @@ const alicloudEssScalingGroup = `{
   "version": 0
 }`
 
-func AlicloudEssScalingGroupSchema() *tfjson.Schema {
+func AlicloudAligreenOssStockTaskSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssScalingGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudAligreenOssStockTask), &result)
 	return &result
 }

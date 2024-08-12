@@ -51,8 +51,9 @@ const alicloudMaxcomputeProjects = `{
             "object",
             {
               "comment": "string",
+              "cost_storage": "string",
+              "create_time": "string",
               "default_quota": "string",
-              "id": "string",
               "ip_white_list": [
                 "list",
                 [
@@ -83,7 +84,7 @@ const alicloudMaxcomputeProjects = `{
                         }
                       ]
                     ],
-                    "retention_days": "string",
+                    "retention_days": "number",
                     "sql_metering_max": "string",
                     "table_lifecycle": [
                       "list",

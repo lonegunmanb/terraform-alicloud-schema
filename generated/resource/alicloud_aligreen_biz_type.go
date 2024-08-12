@@ -6,38 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudAligreenBizType = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
+      "biz_type_import": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
+      "biz_type_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "delivery_channel_type": {
+      "cite_template": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "bool"
       },
       "description": {
         "description_kind": "plain",
@@ -50,21 +35,10 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "oversized_data_oss_target_arn": {
+      "industry_info": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "block_types": {
@@ -97,8 +71,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudAligreenBizTypeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudAligreenBizType), &result)
 	return &result
 }

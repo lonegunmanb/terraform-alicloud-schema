@@ -26,7 +26,6 @@ const alicloudAlbLoadBalancer = `{
         "type": "string"
       },
       "bandwidth_package_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -85,7 +84,6 @@ const alicloudAlbLoadBalancer = `{
         "type": "string"
       },
       "tags": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [

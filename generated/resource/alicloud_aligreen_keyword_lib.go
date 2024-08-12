@@ -6,43 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudAligreenKeywordLib = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
+      "biz_types": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "category": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "enable": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
-      },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "delivery_channel_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       },
       "id": {
         "computed": true,
@@ -50,21 +35,38 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
+      "keyword_lib_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
-      "oversized_data_oss_target_arn": {
+      "lang": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
+      "language": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "lib_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "match_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -97,8 +99,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudAligreenKeywordLibSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudAligreenKeywordLib), &result)
 	return &result
 }

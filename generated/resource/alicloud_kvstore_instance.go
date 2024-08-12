@@ -204,6 +204,12 @@ const alicloudKvstoreInstance = `{
         "optional": true,
         "type": "string"
       },
+      "is_auto_upgrade_open": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "kms_encrypted_password": {
         "description_kind": "plain",
         "optional": true,

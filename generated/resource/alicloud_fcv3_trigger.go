@@ -6,42 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudFcv3Trigger = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "delivery_channel_type": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "description": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "function_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -50,12 +30,17 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
+      "invocation_role": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "oversized_data_oss_target_arn": {
+      "qualifier": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "source_arn": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -63,8 +48,23 @@ const alicloudConfigDelivery = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "trigger_config": {
+        "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "trigger_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "trigger_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -97,8 +97,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudFcv3TriggerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudFcv3Trigger), &result)
 	return &result
 }

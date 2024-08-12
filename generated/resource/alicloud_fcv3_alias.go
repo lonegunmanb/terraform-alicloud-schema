@@ -6,42 +6,36 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudFcv3Alias = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
+      "additional_version_weight": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "map",
+          "number"
+        ]
       },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_name": {
+      "alias_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "delivery_channel_target_arn": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "delivery_channel_type": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "description": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "function_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -50,21 +44,10 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "oversized_data_oss_target_arn": {
+      "version_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "block_types": {
@@ -97,8 +80,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudFcv3AliasSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudFcv3Alias), &result)
 	return &result
 }

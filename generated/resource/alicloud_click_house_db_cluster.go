@@ -151,6 +151,25 @@ const alicloudClickHouseDbCluster = `{
         },
         "nesting_mode": "set"
       },
+      "multi_zone_vswitch_list": {
+        "block": {
+          "attributes": {
+            "vswitch_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "zone_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

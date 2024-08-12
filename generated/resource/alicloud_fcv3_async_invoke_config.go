@@ -6,52 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigAggregateDelivery = `{
+const alicloudFcv3AsyncInvokeConfig = `{
   "block": {
     "attributes": {
-      "aggregator_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "configuration_item_change_notification": {
+      "async_task": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_id": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
+      "function_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "delivery_channel_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -60,24 +30,60 @@ const alicloudConfigAggregateDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "oversized_data_oss_target_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
+      "max_async_event_age_in_seconds": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "max_async_retry_attempts": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "qualifier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
+      "destination_config": {
+        "block": {
+          "block_types": {
+            "on_failure": {
+              "block": {
+                "attributes": {
+                  "destination": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "on_success": {
+              "block": {
+                "attributes": {
+                  "destination": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +113,8 @@ const alicloudConfigAggregateDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigAggregateDeliverySchema() *tfjson.Schema {
+func AlicloudFcv3AsyncInvokeConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigAggregateDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudFcv3AsyncInvokeConfig), &result)
 	return &result
 }

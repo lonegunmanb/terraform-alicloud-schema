@@ -36,7 +36,6 @@ const alicloudCloudFirewallControlPolicy = `{
         "type": "string"
       },
       "dest_port_group": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -69,6 +68,7 @@ const alicloudCloudFirewallControlPolicy = `{
         "type": "string"
       },
       "ip_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -95,7 +95,6 @@ const alicloudCloudFirewallControlPolicy = `{
         "type": "string"
       },
       "source_ip": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -53,7 +53,6 @@ const alicloudCmsMetricRuleTemplate = `{
       "rest_version": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "silence_time": {

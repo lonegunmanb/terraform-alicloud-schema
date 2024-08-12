@@ -16,6 +16,7 @@ const alicloudRamLoginProfile = `{
         "type": "string"
       },
       "mfa_bind_required": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

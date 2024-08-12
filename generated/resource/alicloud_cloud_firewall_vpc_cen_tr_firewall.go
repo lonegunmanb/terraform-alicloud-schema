@@ -6,42 +6,32 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudCloudFirewallVpcCenTrFirewall = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
+      "cen_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "delivery_channel_type": {
+      "firewall_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "firewall_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "description": {
+      "firewall_subnet_cidr": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
+        "type": "string"
+      },
+      "firewall_vpc_cidr": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -50,21 +40,45 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
+      "region_no": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
-      "oversized_data_oss_target_arn": {
+      "route_mode": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "tr_attachment_master_cidr": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tr_attachment_master_zone": {
+        "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "tr_attachment_slave_cidr": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "tr_attachment_slave_zone": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -97,8 +111,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudCloudFirewallVpcCenTrFirewallSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallVpcCenTrFirewall), &result)
 	return &result
 }

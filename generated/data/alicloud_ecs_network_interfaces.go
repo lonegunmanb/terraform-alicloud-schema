@@ -50,6 +50,10 @@ const alicloudEcsNetworkInterfaces = `{
               "description": "string",
               "id": "string",
               "instance_id": "string",
+              "ipv6_sets": [
+                "list",
+                "string"
+              ],
               "mac": "string",
               "name": "string",
               "network_interface_id": "string",

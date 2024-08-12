@@ -6,42 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudApiGatewayInstanceAclAttachment = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
+      "acl_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "delivery_channel_type": {
+      "acl_type": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -50,21 +25,10 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
+      "instance_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "oversized_data_oss_target_arn": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "block_types": {
@@ -97,8 +61,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudApiGatewayInstanceAclAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudApiGatewayInstanceAclAttachment), &result)
 	return &result
 }

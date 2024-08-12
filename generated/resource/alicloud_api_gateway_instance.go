@@ -9,9 +9,19 @@ import (
 const alicloudApiGatewayInstance = `{
   "block": {
     "attributes": {
+      "connect_cidr_blocks": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "delete_vpc_ip_block": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "duration": {
@@ -35,6 +45,12 @@ const alicloudApiGatewayInstance = `{
         "optional": true,
         "type": "string"
       },
+      "instance_cidr": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instance_name": {
         "description_kind": "plain",
         "required": true,
@@ -50,6 +66,11 @@ const alicloudApiGatewayInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "ipv6_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "payment_type": {
         "description_kind": "plain",
@@ -67,9 +88,17 @@ const alicloudApiGatewayInstance = `{
         "type": "string"
       },
       "support_ipv6": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "to_connect_vpc_ip_block": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "user_vpc_id": {
         "description_kind": "plain",
@@ -111,6 +140,34 @@ const alicloudApiGatewayInstance = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "zone_vswitch_security_group": {
+        "block": {
+          "attributes": {
+            "cidr_block": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "security_group": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "vswitch_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "zone_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

@@ -167,6 +167,18 @@ const alicloudApiGatewayApi = `{
               "optional": true,
               "type": "string"
             },
+            "content_type_category": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "content_type_value": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "method": {
               "description_kind": "plain",
               "required": true,
@@ -196,6 +208,18 @@ const alicloudApiGatewayApi = `{
               "optional": true,
               "type": "string"
             },
+            "content_type_category": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "content_type_value": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "method": {
               "description_kind": "plain",
               "required": true,
@@ -215,6 +239,11 @@ const alicloudApiGatewayApi = `{
               "description_kind": "plain",
               "required": true,
               "type": "number"
+            },
+            "vpc_scheme": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"

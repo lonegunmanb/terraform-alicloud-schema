@@ -6,43 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigDelivery = `{
+const alicloudAligreenImageLib = `{
   "block": {
     "attributes": {
-      "configuration_item_change_notification": {
+      "biz_types": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "configuration_snapshot": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "delivery_channel_condition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "delivery_channel_target_arn": {
+      "category": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "delivery_channel_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
+      "enable": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -50,21 +34,15 @@ const alicloudConfigDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "non_compliant_notification": {
+      "image_lib_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "oversized_data_oss_target_arn": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "scene": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -97,8 +75,8 @@ const alicloudConfigDelivery = `{
   "version": 0
 }`
 
-func AlicloudConfigDeliverySchema() *tfjson.Schema {
+func AlicloudAligreenImageLibSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudAligreenImageLib), &result)
 	return &result
 }

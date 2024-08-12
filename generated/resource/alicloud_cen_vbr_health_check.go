@@ -20,6 +20,7 @@ const alicloudCenVbrHealthCheck = `{
         "type": "number"
       },
       "health_check_source_ip": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
