@@ -93,6 +93,11 @@ const alicloudMongodbShardingInstance = `{
         "optional": true,
         "type": "string"
       },
+      "provisioned_iops": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",

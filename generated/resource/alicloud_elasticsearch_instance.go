@@ -107,6 +107,11 @@ const alicloudElasticsearchInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "kibana_private_security_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "kibana_private_whitelist": {
         "computed": true,
         "description_kind": "plain",
@@ -243,6 +248,31 @@ const alicloudElasticsearchInstance = `{
       "vswitch_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "warm_node_amount": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "warm_node_disk_encrypted": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "warm_node_disk_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "warm_node_disk_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "warm_node_spec": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "zone_count": {

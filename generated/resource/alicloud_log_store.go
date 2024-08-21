@@ -40,6 +40,11 @@ const alicloudLogStore = `{
         "optional": true,
         "type": "string"
       },
+      "infrequent_access_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "logstore_name": {
         "computed": true,
         "description_kind": "plain",

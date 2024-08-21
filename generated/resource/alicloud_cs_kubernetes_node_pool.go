@@ -391,6 +391,11 @@ const alicloudCsKubernetesNodePool = `{
       "data_disks": {
         "block": {
           "attributes": {
+            "auto_format": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "auto_snapshot_policy_id": {
               "description_kind": "plain",
               "optional": true,
@@ -416,12 +421,23 @@ const alicloudCsKubernetesNodePool = `{
               "optional": true,
               "type": "string"
             },
+            "file_system": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "kms_key_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
+            "mount_target": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "name": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
