@@ -52,6 +52,7 @@ const alicloudDbInstance = `{
       "client_ca_cert": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "client_ca_enabled": {
@@ -307,6 +308,7 @@ const alicloudDbInstance = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "server_key": {

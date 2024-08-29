@@ -33,6 +33,12 @@ const alicloudDbBackupPolicy = `{
         "optional": true,
         "type": "string"
       },
+      "backup_method": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "backup_period": {
         "computed": true,
         "deprecated": true,
@@ -42,6 +48,11 @@ const alicloudDbBackupPolicy = `{
           "set",
           "string"
         ]
+      },
+      "backup_priority": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "backup_retention_period": {
         "description_kind": "plain",
@@ -68,6 +79,12 @@ const alicloudDbBackupPolicy = `{
         "type": "string"
       },
       "enable_backup_log": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "enable_increment_data_backup": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -113,6 +130,12 @@ const alicloudDbBackupPolicy = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "log_backup_local_retention_number": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "log_backup_retention_period": {
         "computed": true,

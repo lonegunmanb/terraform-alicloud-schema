@@ -11,12 +11,13 @@ const alicloudCrEeNamespace = `{
     "attributes": {
       "auto_create": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "bool"
       },
       "default_visibility": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {

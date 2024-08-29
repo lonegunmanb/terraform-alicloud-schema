@@ -90,6 +90,11 @@ const alicloudCenTransitRouterRouteTables = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "transit_router_route_table_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "description_kind": "plain"

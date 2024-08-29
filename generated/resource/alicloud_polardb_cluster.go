@@ -219,6 +219,12 @@ const alicloudPolardbCluster = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "provisioned_iops": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "proxy_class": {
         "description_kind": "plain",
         "optional": true,

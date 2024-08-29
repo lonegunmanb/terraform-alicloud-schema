@@ -36,6 +36,11 @@ const alicloudCsServerlessKubernetes = `{
         "optional": true,
         "type": "bool"
       },
+      "custom_san": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "deletion_protection": {
         "description_kind": "plain",
         "optional": true,
@@ -70,11 +75,13 @@ const alicloudCsServerlessKubernetes = `{
       },
       "load_balancer_spec": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "logging_type": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -115,6 +122,22 @@ const alicloudCsServerlessKubernetes = `{
           "string"
         ]
       },
+      "rrsa_metadata": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "enabled": "bool",
+              "ram_oidc_provider_arn": "string",
+              "ram_oidc_provider_name": "string",
+              "rrsa_oidc_issuer_url": "string"
+            }
+          ]
+        ]
+      },
       "security_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -136,6 +159,7 @@ const alicloudCsServerlessKubernetes = `{
       },
       "sls_project_name": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -161,13 +185,13 @@ const alicloudCsServerlessKubernetes = `{
         "type": "string"
       },
       "vpc_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "vswitch_id": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -205,39 +229,33 @@ const alicloudCsServerlessKubernetes = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "nesting_mode": "list"
       },
-      "rrsa_metadata": {
+      "delete_options": {
         "block": {
           "attributes": {
-            "enabled": {
-              "computed": true,
+            "delete_mode": {
               "description_kind": "plain",
-              "type": "bool"
-            },
-            "ram_oidc_provider_arn": {
-              "computed": true,
-              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
-            "ram_oidc_provider_name": {
-              "computed": true,
+            "resource_type": {
               "description_kind": "plain",
-              "type": "string"
-            },
-            "rrsa_oidc_issuer_url": {
-              "computed": true,
-              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
