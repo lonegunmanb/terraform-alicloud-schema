@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEnsLoadBalancer = `{
+const alicloudGpdbJdbcDataSource = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,7 +14,27 @@ const alicloudEnsLoadBalancer = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "ens_region_id": {
+      "data_source_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "data_source_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "data_source_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "data_source_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "db_instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -25,22 +45,17 @@ const alicloudEnsLoadBalancer = `{
         "optional": true,
         "type": "string"
       },
-      "load_balancer_name": {
+      "jdbc_connection_string": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "load_balancer_spec": {
+      "jdbc_password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "network_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "payment_type": {
+      "jdbc_user_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -49,48 +64,9 @@ const alicloudEnsLoadBalancer = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "vswitch_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "backend_servers": {
-        "block": {
-          "attributes": {
-            "ip": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "port": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "server_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "weight": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -120,8 +96,8 @@ const alicloudEnsLoadBalancer = `{
   "version": 0
 }`
 
-func AlicloudEnsLoadBalancerSchema() *tfjson.Schema {
+func AlicloudGpdbJdbcDataSourceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEnsLoadBalancer), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbJdbcDataSource), &result)
 	return &result
 }

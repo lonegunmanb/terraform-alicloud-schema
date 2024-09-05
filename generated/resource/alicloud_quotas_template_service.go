@@ -6,51 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudGpdbAccount = `{
+const alicloudQuotasTemplateService = `{
   "block": {
     "attributes": {
-      "account_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "account_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "account_password": {
-        "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "account_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "database_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "service_status": {
         "description_kind": "plain",
-        "type": "string"
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -83,8 +51,8 @@ const alicloudGpdbAccount = `{
   "version": 0
 }`
 
-func AlicloudGpdbAccountSchema() *tfjson.Schema {
+func AlicloudQuotasTemplateServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudGpdbAccount), &result)
+	_ = json.Unmarshal([]byte(alicloudQuotasTemplateService), &result)
 	return &result
 }

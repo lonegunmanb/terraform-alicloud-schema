@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudHbrPolicyBinding = `{
+const alicloudGpdbHadoopDataSource = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,34 +14,57 @@ const alicloudHbrPolicyBinding = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "cross_account_role_name": {
+      "data_source_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "cross_account_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cross_account_user_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       },
       "data_source_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "number"
+      },
+      "data_source_name": {
+        "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "disabled": {
+      "data_source_type": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "exclude": {
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "emr_instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hadoop_core_conf": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hadoop_create_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hadoop_hosts_address": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hdfs_conf": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hive_conf": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -52,79 +75,23 @@ const alicloudHbrPolicyBinding = `{
         "optional": true,
         "type": "string"
       },
-      "include": {
+      "map_reduce_conf": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_binding_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_id": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "source": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "speed_limit": {
+      "yarn_conf": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "advanced_options": {
-        "block": {
-          "block_types": {
-            "udm_detail": {
-              "block": {
-                "attributes": {
-                  "destination_kms_key_id": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "disk_id_list": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": [
-                      "list",
-                      "string"
-                    ]
-                  },
-                  "exclude_disk_id_list": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": [
-                      "list",
-                      "string"
-                    ]
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "max_items": 1,
-              "nesting_mode": "list"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -154,8 +121,8 @@ const alicloudHbrPolicyBinding = `{
   "version": 0
 }`
 
-func AlicloudHbrPolicyBindingSchema() *tfjson.Schema {
+func AlicloudGpdbHadoopDataSourceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudHbrPolicyBinding), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbHadoopDataSource), &result)
 	return &result
 }

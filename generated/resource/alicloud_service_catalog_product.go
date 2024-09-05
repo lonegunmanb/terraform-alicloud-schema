@@ -6,39 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudGpdbAccount = `{
+const alicloudServiceCatalogProduct = `{
   "block": {
     "attributes": {
-      "account_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "account_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "account_password": {
-        "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "account_type": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "database_name": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "db_instance_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -47,9 +25,19 @@ const alicloudGpdbAccount = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "product_name": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "product_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "provider_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -83,8 +71,8 @@ const alicloudGpdbAccount = `{
   "version": 0
 }`
 
-func AlicloudGpdbAccountSchema() *tfjson.Schema {
+func AlicloudServiceCatalogProductSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudGpdbAccount), &result)
+	_ = json.Unmarshal([]byte(alicloudServiceCatalogProduct), &result)
 	return &result
 }

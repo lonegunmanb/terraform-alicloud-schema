@@ -53,6 +53,12 @@ const alicloudRdsDbProxy = `{
         "required": true,
         "type": "number"
       },
+      "db_proxy_instance_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_proxy_ssl_enabled": {
         "computed": true,
         "description_kind": "plain",

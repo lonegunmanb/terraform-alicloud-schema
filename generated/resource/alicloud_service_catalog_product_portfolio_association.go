@@ -6,37 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudGpdbDbResourceGroup = `{
+const alicloudServiceCatalogProductPortfolioAssociation = `{
   "block": {
     "attributes": {
-      "db_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_config": {
+      "portfolio_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_group_name": {
+      "product_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "role_list": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -52,11 +39,6 @@ const alicloudGpdbDbResourceGroup = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -69,8 +51,8 @@ const alicloudGpdbDbResourceGroup = `{
   "version": 0
 }`
 
-func AlicloudGpdbDbResourceGroupSchema() *tfjson.Schema {
+func AlicloudServiceCatalogProductPortfolioAssociationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudGpdbDbResourceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudServiceCatalogProductPortfolioAssociation), &result)
 	return &result
 }

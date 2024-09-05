@@ -73,11 +73,13 @@ const alicloudCenTransitRouterPeerAttachment = `{
         "type": "string"
       },
       "route_table_association_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "route_table_propagation_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

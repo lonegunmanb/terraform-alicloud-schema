@@ -6,17 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEnsLoadBalancer = `{
+const alicloudFcv3LayerVersion = `{
   "block": {
     "attributes": {
+      "acl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "compatible_runtime": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "ens_region_id": {
+      "description": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -25,70 +39,50 @@ const alicloudEnsLoadBalancer = `{
         "optional": true,
         "type": "string"
       },
-      "load_balancer_name": {
+      "layer_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "license": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "load_balancer_spec": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "network_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
+      "version": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "vswitch_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "backend_servers": {
+      "code": {
         "block": {
           "attributes": {
-            "ip": {
+            "checksum": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "port": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "server_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "type": {
+            "oss_bucket_name": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "weight": {
+            "oss_object_name": {
               "description_kind": "plain",
               "optional": true,
-              "type": "number"
+              "type": "string"
+            },
+            "zip_file": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -120,8 +114,8 @@ const alicloudEnsLoadBalancer = `{
   "version": 0
 }`
 
-func AlicloudEnsLoadBalancerSchema() *tfjson.Schema {
+func AlicloudFcv3LayerVersionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEnsLoadBalancer), &result)
+	_ = json.Unmarshal([]byte(alicloudFcv3LayerVersion), &result)
 	return &result
 }

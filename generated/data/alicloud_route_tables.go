@@ -62,6 +62,11 @@ const alicloudRouteTables = `{
         "optional": true,
         "type": "string"
       },
+      "route_table_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "router_id": {
         "description_kind": "plain",
         "optional": true,

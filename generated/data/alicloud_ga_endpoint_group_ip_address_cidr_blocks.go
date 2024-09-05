@@ -9,6 +9,11 @@ import (
 const alicloudGaEndpointGroupIpAddressCidrBlocks = `{
   "block": {
     "attributes": {
+      "accelerator_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "endpoint_group_ip_address_cidr_blocks": {
         "computed": true,
         "description_kind": "plain",
