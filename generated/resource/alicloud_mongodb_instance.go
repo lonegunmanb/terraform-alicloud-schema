@@ -67,6 +67,12 @@ const alicloudMongodbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "enable_backup_log": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "encrypted": {
         "description_kind": "plain",
         "optional": true,
@@ -118,6 +124,12 @@ const alicloudMongodbInstance = `{
           "map",
           "string"
         ]
+      },
+      "log_backup_retention_period": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "maintain_end_time": {
         "computed": true,

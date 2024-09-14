@@ -14,6 +14,11 @@ const alicloudEnsInstance = `{
         "optional": true,
         "type": "number"
       },
+      "auto_release_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "auto_renew": {
         "description_kind": "plain",
         "optional": true,
@@ -99,6 +104,11 @@ const alicloudEnsInstance = `{
         "optional": true,
         "type": "string"
       },
+      "key_pair_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "net_district_code": {
         "description_kind": "plain",
         "optional": true,
@@ -168,11 +178,24 @@ const alicloudEnsInstance = `{
         "optional": true,
         "type": "string"
       },
+      "spot_strategy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "unique_suffix": {
         "description_kind": "plain",
@@ -199,6 +222,21 @@ const alicloudEnsInstance = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "disk_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "encrypt_key_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "encrypted": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "size": {
               "description_kind": "plain",

@@ -16,10 +16,20 @@ const alicloudCenTransitRouterVpcAttachment = `{
       },
       "cen_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "dry_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "force_delete": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -78,6 +88,8 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "type": "string"
       },
       "transit_router_attachment_name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -88,6 +100,21 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "optional": true,
         "type": "string"
       },
+      "transit_router_vpc_attachment_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_vpc_attachment_options": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "vpc_id": {
         "description_kind": "plain",
         "required": true,
@@ -97,7 +124,7 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
@@ -129,12 +156,12 @@ const alicloudCenTransitRouterVpcAttachment = `{
           "attributes": {
             "vswitch_id": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "zone_id": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             }
           },

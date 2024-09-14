@@ -34,6 +34,12 @@ const alicloudOceanBaseInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "cpu_arch": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -94,6 +100,16 @@ const alicloudOceanBaseInstance = `{
         "optional": true,
         "type": "string"
       },
+      "primary_instance": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "primary_region": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -109,6 +125,11 @@ const alicloudOceanBaseInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "upgrade_spec_native": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "zones": {
         "description_kind": "plain",

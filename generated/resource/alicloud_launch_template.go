@@ -290,6 +290,11 @@ const alicloudLaunchTemplate = `{
               "optional": true,
               "type": "string"
             },
+            "device": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "encrypted": {
               "description_kind": "plain",
               "optional": true,

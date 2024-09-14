@@ -38,6 +38,12 @@ const alicloudGaEndpointGroup = `{
         "optional": true,
         "type": "string"
       },
+      "endpoint_protocol_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "endpoint_request_protocol": {
         "computed": true,
         "description_kind": "plain",

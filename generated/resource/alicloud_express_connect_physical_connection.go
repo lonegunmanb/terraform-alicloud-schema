@@ -41,10 +41,21 @@ const alicloudExpressConnectPhysicalConnection = `{
         "required": true,
         "type": "string"
       },
+      "order_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "peer_location": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "physical_connection_name": {
         "description_kind": "plain",
@@ -52,6 +63,11 @@ const alicloudExpressConnectPhysicalConnection = `{
         "type": "string"
       },
       "port_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "pricing_cycle": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
