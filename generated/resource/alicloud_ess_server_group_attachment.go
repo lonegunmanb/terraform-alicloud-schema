@@ -6,39 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudGovernanceAccount = `{
+const alicloudEssServerGroupAttachment = `{
   "block": {
     "attributes": {
-      "account_id": {
-        "computed": true,
+      "force_attach": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "account_name_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "baseline_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "default_domain_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "folder_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -46,15 +20,30 @@ const alicloudGovernanceAccount = `{
         "optional": true,
         "type": "string"
       },
-      "payer_account_id": {
+      "port": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       },
-      "status": {
-        "computed": true,
+      "scaling_group_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
+      },
+      "server_group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "weight": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -70,11 +59,6 @@ const alicloudGovernanceAccount = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -87,8 +71,8 @@ const alicloudGovernanceAccount = `{
   "version": 0
 }`
 
-func AlicloudGovernanceAccountSchema() *tfjson.Schema {
+func AlicloudEssServerGroupAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudGovernanceAccount), &result)
+	_ = json.Unmarshal([]byte(alicloudEssServerGroupAttachment), &result)
 	return &result
 }

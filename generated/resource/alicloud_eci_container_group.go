@@ -31,6 +31,12 @@ const alicloudEciContainerGroup = `{
         "optional": true,
         "type": "number"
       },
+      "dns_policy": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "eip_bandwidth": {
         "description_kind": "plain",
         "optional": true,

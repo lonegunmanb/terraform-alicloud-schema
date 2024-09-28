@@ -10,6 +10,7 @@ const alicloudSnapshot = `{
   "block": {
     "attributes": {
       "category": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -36,11 +37,13 @@ const alicloudSnapshot = `{
         "type": "string"
       },
       "instant_access": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "instant_access_retention_days": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -92,6 +95,11 @@ const alicloudSnapshot = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

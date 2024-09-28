@@ -80,6 +80,11 @@ const alicloudGpdbDbInstancePlan = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
+                  },
+                  "plan_task_status": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"
@@ -100,6 +105,41 @@ const alicloudGpdbDbInstancePlan = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
+                  },
+                  "plan_task_status": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "scale_down": {
+              "block": {
+                "attributes": {
+                  "execute_time": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "instance_spec": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "plan_cron_time": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "plan_task_status": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"
@@ -119,6 +159,11 @@ const alicloudGpdbDbInstancePlan = `{
                   "plan_cron_time": {
                     "description_kind": "plain",
                     "optional": true,
+                    "type": "string"
+                  },
+                  "plan_task_status": {
+                    "computed": true,
+                    "description_kind": "plain",
                     "type": "string"
                   },
                   "segment_node_num": {
@@ -146,9 +191,44 @@ const alicloudGpdbDbInstancePlan = `{
                     "optional": true,
                     "type": "string"
                   },
+                  "plan_task_status": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
                   "segment_node_num": {
                     "description_kind": "plain",
                     "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "scale_up": {
+              "block": {
+                "attributes": {
+                  "execute_time": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "instance_spec": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "plan_cron_time": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "plan_task_status": {
+                    "computed": true,
+                    "description_kind": "plain",
                     "type": "string"
                   }
                 },
@@ -160,7 +240,6 @@ const alicloudGpdbDbInstancePlan = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "min_items": 1,
         "nesting_mode": "list"
       },

@@ -104,6 +104,11 @@ const alicloudGaForwardingRule = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "rule_condition_value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "block_types": {

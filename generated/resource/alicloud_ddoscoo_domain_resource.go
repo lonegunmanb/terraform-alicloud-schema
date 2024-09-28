@@ -9,6 +9,29 @@ import (
 const alicloudDdoscooDomainResource = `{
   "block": {
     "attributes": {
+      "cert": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "cert_identifier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cert_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cert_region": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "cname": {
         "computed": true,
         "description_kind": "plain",
@@ -39,6 +62,12 @@ const alicloudDdoscooDomainResource = `{
           "string"
         ]
       },
+      "key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "ocsp_enabled": {
         "description_kind": "plain",
         "optional": true,
@@ -48,7 +77,7 @@ const alicloudDdoscooDomainResource = `{
         "description_kind": "plain",
         "required": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
@@ -64,9 +93,9 @@ const alicloudDdoscooDomainResource = `{
           "attributes": {
             "proxy_ports": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": [
-                "list",
+                "set",
                 "number"
               ]
             },
@@ -80,6 +109,29 @@ const alicloudDdoscooDomainResource = `{
         },
         "min_items": 1,
         "nesting_mode": "set"
+      },
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

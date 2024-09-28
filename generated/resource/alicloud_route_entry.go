@@ -9,6 +9,11 @@ import (
 const alicloudRouteEntry = `{
   "block": {
     "attributes": {
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "destination_cidrblock": {
         "description_kind": "plain",
         "optional": true,
@@ -44,7 +49,6 @@ const alicloudRouteEntry = `{
         "computed": true,
         "deprecated": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },

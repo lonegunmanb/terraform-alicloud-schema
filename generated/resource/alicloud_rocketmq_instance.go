@@ -25,6 +25,12 @@ const alicloudRocketmqInstance = `{
         "optional": true,
         "type": "string"
       },
+      "commodity_code": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -157,15 +163,37 @@ const alicloudRocketmqInstance = `{
             "vpc_info": {
               "block": {
                 "attributes": {
+                  "security_group_ids": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "vpc_id": {
                     "description_kind": "plain",
                     "required": true,
                     "type": "string"
                   },
                   "vswitch_id": {
+                    "computed": true,
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": "string"
+                  }
+                },
+                "block_types": {
+                  "vswitches": {
+                    "block": {
+                      "attributes": {
+                        "vswitch_id": {
+                          "computed": true,
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
                   }
                 },
                 "description_kind": "plain"

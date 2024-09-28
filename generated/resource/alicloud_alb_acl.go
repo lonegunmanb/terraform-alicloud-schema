@@ -11,7 +11,7 @@ const alicloudAlbAcl = `{
     "attributes": {
       "acl_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "dry_run": {

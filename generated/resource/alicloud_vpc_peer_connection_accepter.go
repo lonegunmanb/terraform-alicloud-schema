@@ -27,14 +27,26 @@ const alicloudVpcPeerConnectionAccepter = `{
       "bandwidth": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "number"
       },
-      "description": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "dry_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "force_delete": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -53,6 +65,13 @@ const alicloudVpcPeerConnectionAccepter = `{
       "peer_connection_accepter_name": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "status": {
@@ -76,6 +95,11 @@ const alicloudVpcPeerConnectionAccepter = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

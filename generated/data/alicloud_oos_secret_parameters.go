@@ -72,7 +72,8 @@ const alicloudOosSecretParameters = `{
               ],
               "type": "string",
               "updated_by": "string",
-              "updated_date": "string"
+              "updated_date": "string",
+              "value": "string"
             }
           ]
         ]
@@ -104,6 +105,11 @@ const alicloudOosSecretParameters = `{
           "map",
           "string"
         ]
+      },
+      "with_decryption": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "description_kind": "plain"

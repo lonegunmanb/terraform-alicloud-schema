@@ -6,60 +6,68 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssAlarm = `{
+const alicloudGpdbStreamingJob = `{
   "block": {
     "attributes": {
-      "alarm_actions": {
+      "account": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "consistency": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "data_source_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "dest_columns": {
+        "description_kind": "plain",
+        "optional": true,
         "type": [
-          "set",
+          "list",
           "string"
         ]
       },
-      "cloud_monitor_group_id": {
+      "dest_database": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dest_schema": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dest_table": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "error_limit_count": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "comparison_operator": {
-        "computed": true,
+      "fallback_offset": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "dimensions": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "effective": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "evaluation_count": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "expressions_logic_operator": {
-        "computed": true,
+      "group_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -70,90 +78,99 @@ const alicloudEssAlarm = `{
         "optional": true,
         "type": "string"
       },
-      "metric_name": {
-        "computed": true,
+      "job_config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "metric_type": {
+      "job_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "job_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "period": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "scaling_group_id": {
+      "job_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "state": {
-        "computed": true,
+      "match_columns": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "statistics": {
-        "computed": true,
+      "mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "threshold": {
+      "password": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_columns": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "status": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "try_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "update_columns": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "write_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "expressions": {
+      "timeouts": {
         "block": {
           "attributes": {
-            "comparison_operator": {
-              "computed": true,
+            "create": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "metric_name": {
-              "computed": true,
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "period": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "statistics": {
-              "computed": true,
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "threshold": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"
@@ -161,8 +178,8 @@ const alicloudEssAlarm = `{
   "version": 0
 }`
 
-func AlicloudEssAlarmSchema() *tfjson.Schema {
+func AlicloudGpdbStreamingJobSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssAlarm), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbStreamingJob), &result)
 	return &result
 }

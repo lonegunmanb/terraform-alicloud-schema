@@ -256,6 +256,49 @@ const alicloudGpdbInstance = `{
         },
         "nesting_mode": "list"
       },
+      "parameters": {
+        "block": {
+          "attributes": {
+            "default_value": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "force_restart_instance": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "is_changeable_config": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "optional_range": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "parameter_description": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

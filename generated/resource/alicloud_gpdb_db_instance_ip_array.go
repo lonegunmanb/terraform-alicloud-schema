@@ -6,50 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcPeerConnection = `{
+const alicloudGpdbDbInstanceIpArray = `{
   "block": {
     "attributes": {
-      "accepting_ali_uid": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "accepting_region_id": {
+      "db_instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "accepting_vpc_id": {
+      "db_instance_ip_array_attribute": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "db_instance_ip_array_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "bandwidth": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "dry_run": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "force_delete": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -57,36 +30,18 @@ const alicloudVpcPeerConnection = `{
         "optional": true,
         "type": "string"
       },
-      "peer_connection_name": {
-        "computed": true,
+      "modify_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
+      "security_ip_list": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -119,8 +74,8 @@ const alicloudVpcPeerConnection = `{
   "version": 0
 }`
 
-func AlicloudVpcPeerConnectionSchema() *tfjson.Schema {
+func AlicloudGpdbDbInstanceIpArraySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcPeerConnection), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbDbInstanceIpArray), &result)
 	return &result
 }
