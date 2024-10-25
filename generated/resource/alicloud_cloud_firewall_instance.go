@@ -66,6 +66,7 @@ const alicloudCloudFirewallInstance = `{
         "type": "number"
       },
       "ip_number": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -120,6 +121,7 @@ const alicloudCloudFirewallInstance = `{
         "type": "string"
       },
       "spec": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -128,6 +130,11 @@ const alicloudCloudFirewallInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "user_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "description_kind": "plain"

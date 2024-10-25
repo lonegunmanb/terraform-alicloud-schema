@@ -68,6 +68,10 @@ const alicloudPrivatelinkVpcEndpointServices = `{
               "service_domain": "string",
               "service_id": "string",
               "status": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "vpc_endpoint_service_name": "string"
             }
           ]
@@ -77,6 +81,14 @@ const alicloudPrivatelinkVpcEndpointServices = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "vpc_endpoint_service_name": {
         "description_kind": "plain",

@@ -20,6 +20,11 @@ const alicloudEssScalingConfiguration = `{
         "optional": true,
         "type": "string"
       },
+      "deletion_protection": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "enable": {
         "description_kind": "plain",
         "optional": true,
@@ -47,6 +52,16 @@ const alicloudEssScalingConfiguration = `{
         "type": "string"
       },
       "image_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "image_options_login_as_non_root": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "instance_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -159,6 +174,11 @@ const alicloudEssScalingConfiguration = `{
         "required": true,
         "type": "string"
       },
+      "security_enhancement_strategy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "security_group_id": {
         "description_kind": "plain",
         "optional": true,
@@ -171,6 +191,11 @@ const alicloudEssScalingConfiguration = `{
           "list",
           "string"
         ]
+      },
+      "spot_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "spot_strategy": {
         "description_kind": "plain",
@@ -198,10 +223,20 @@ const alicloudEssScalingConfiguration = `{
         "optional": true,
         "type": "string"
       },
+      "system_disk_encrypt_algorithm": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "system_disk_encrypted": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "system_disk_kms_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "system_disk_name": {
         "description_kind": "plain",
@@ -212,6 +247,11 @@ const alicloudEssScalingConfiguration = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "system_disk_provisioned_iops": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "system_disk_size": {
         "description_kind": "plain",
@@ -281,6 +321,11 @@ const alicloudEssScalingConfiguration = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "provisioned_iops": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             },
             "size": {
               "description_kind": "plain",

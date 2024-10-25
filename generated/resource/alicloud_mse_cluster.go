@@ -23,6 +23,7 @@ const alicloudMseCluster = `{
         "type": "string"
       },
       "cluster_alias_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

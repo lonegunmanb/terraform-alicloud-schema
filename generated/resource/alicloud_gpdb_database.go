@@ -6,13 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEaisInstance = `{
+const alicloudGpdbDatabase = `{
   "block": {
     "attributes": {
-      "force": {
+      "character_set_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "collate": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ctype": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "database_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,28 +45,7 @@ const alicloudEaisInstance = `{
         "optional": true,
         "type": "string"
       },
-      "instance_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "instance_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "security_group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "vswitch_id": {
+      "owner": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -72,8 +76,8 @@ const alicloudEaisInstance = `{
   "version": 0
 }`
 
-func AlicloudEaisInstanceSchema() *tfjson.Schema {
+func AlicloudGpdbDatabaseSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEaisInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbDatabase), &result)
 	return &result
 }

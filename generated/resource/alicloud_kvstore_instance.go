@@ -54,6 +54,7 @@ const alicloudKvstoreInstance = `{
       "bandwidth": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "number"
       },
       "business_info": {

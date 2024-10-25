@@ -36,6 +36,11 @@ const alicloudInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "credit_specification": {
         "computed": true,
         "description_kind": "plain",
@@ -78,6 +83,11 @@ const alicloudInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "expired_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "force_delete": {
         "description_kind": "plain",
@@ -281,6 +291,11 @@ const alicloudInstance = `{
         "sensitive": true,
         "type": "string"
       },
+      "password_inherit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "period": {
         "computed": true,
         "description_kind": "plain",
@@ -376,6 +391,11 @@ const alicloudInstance = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "start_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {

@@ -70,6 +70,7 @@ const alicloudDisk = `{
         "type": "string"
       },
       "encrypted": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -123,6 +124,7 @@ const alicloudDisk = `{
         "type": "number"
       },
       "snapshot_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

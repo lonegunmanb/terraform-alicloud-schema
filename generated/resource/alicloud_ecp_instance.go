@@ -46,6 +46,7 @@ const alicloudEcpInstance = `{
         "type": "string"
       },
       "instance_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -61,6 +62,7 @@ const alicloudEcpInstance = `{
         "type": "string"
       },
       "payment_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -109,6 +111,11 @@ const alicloudEcpInstance = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

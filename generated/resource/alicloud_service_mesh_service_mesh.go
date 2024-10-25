@@ -49,6 +49,11 @@ const alicloudServiceMeshServiceMesh = `{
         "optional": true,
         "type": "string"
       },
+      "kubeconfig": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "prometheus_url": {
         "description_kind": "plain",
         "optional": true,
@@ -107,9 +112,15 @@ const alicloudServiceMeshServiceMesh = `{
               "type": "bool"
             },
             "pilot_public_eip": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
+            },
+            "pilot_public_eip_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "pilot_public_loadbalancer_id": {
               "computed": true,
@@ -262,15 +273,139 @@ const alicloudServiceMeshServiceMesh = `{
             "kiali": {
               "block": {
                 "attributes": {
+                  "aggregated_kiali_address": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
+                  "auth_strategy": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "custom_prometheus_url": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "distributed_kiali_access_tokens": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
+                  "distributed_kiali_addresses": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
                   "enabled": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
                   },
+                  "integrate_clb": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "kiali_arms_auth_tokens": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "kiali_service_annotations": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "url": {
                     "computed": true,
                     "description_kind": "plain",
                     "type": "string"
+                  },
+                  "use_populated_arms_prometheus": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "bool"
+                  }
+                },
+                "block_types": {
+                  "open_id_config": {
+                    "block": {
+                      "attributes": {
+                        "client_id": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "client_secret": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "issuer_uri": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "scopes": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": [
+                            "list",
+                            "string"
+                          ]
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "ram_oauth_config": {
+                    "block": {
+                      "attributes": {
+                        "redirect_uris": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "server_config": {
+                    "block": {
+                      "attributes": {
+                        "web_fqdn": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "web_port": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "web_root": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "web_schema": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
                   }
                 },
                 "description_kind": "plain"

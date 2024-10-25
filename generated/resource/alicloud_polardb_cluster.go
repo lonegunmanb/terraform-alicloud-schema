@@ -36,6 +36,12 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "compress_storage": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "connection_string": {
         "computed": true,
         "description_kind": "plain",
@@ -171,6 +177,18 @@ const alicloudPolardbCluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "loose_xengine": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "loose_xengine_use_memory_pct": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "lower_case_table_names": {
         "computed": true,

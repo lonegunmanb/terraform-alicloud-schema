@@ -136,6 +136,12 @@ const alicloudGaEndpointGroup = `{
               "required": true,
               "type": "string"
             },
+            "sub_address": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "type": {
               "description_kind": "plain",
               "required": true,

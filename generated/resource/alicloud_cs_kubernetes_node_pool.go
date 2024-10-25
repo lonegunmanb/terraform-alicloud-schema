@@ -216,6 +216,11 @@ const alicloudCsKubernetesNodePool = `{
         "optional": true,
         "type": "string"
       },
+      "pre_user_data": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "rds_instances": {
         "description_kind": "plain",
         "optional": true,

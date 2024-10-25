@@ -142,6 +142,7 @@ const alicloudCsKubernetes = `{
         "type": "string"
       },
       "load_balancer_spec": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

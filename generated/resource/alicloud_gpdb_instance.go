@@ -44,6 +44,7 @@ const alicloudGpdbInstance = `{
         "type": "string"
       },
       "description": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

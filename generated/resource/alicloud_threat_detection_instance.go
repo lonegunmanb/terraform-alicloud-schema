@@ -142,7 +142,23 @@ const alicloudThreatDetectionInstance = `{
         "optional": true,
         "type": "string"
       },
+      "threat_analysis_flow": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "threat_analysis_sls_storage": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "threat_analysis_switch": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "threat_analysis_switch1": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

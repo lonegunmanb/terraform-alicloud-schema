@@ -16,7 +16,7 @@ const alicloudMseEngineNamespaces = `{
       },
       "cluster_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -33,6 +33,11 @@ const alicloudMseEngineNamespaces = `{
           "list",
           "string"
         ]
+      },
+      "instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "namespaces": {
         "computed": true,

@@ -46,6 +46,24 @@ const alicloudLaunchTemplate = `{
         "optional": true,
         "type": "string"
       },
+      "http_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "http_put_response_hop_limit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "http_tokens": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

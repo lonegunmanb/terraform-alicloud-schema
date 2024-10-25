@@ -179,6 +179,7 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "load_balancer_spec": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -549,24 +550,56 @@ const alicloudCsManagedKubernetes = `{
         "block": {
           "attributes": {
             "duration": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "enable": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "bool"
             },
             "maintenance_time": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "weekly_period": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "operation_policy": {
+        "block": {
+          "block_types": {
+            "cluster_auto_upgrade": {
+              "block": {
+                "attributes": {
+                  "channel": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

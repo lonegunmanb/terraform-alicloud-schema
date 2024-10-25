@@ -25,6 +25,11 @@ const alicloudPrivatelinkVpcEndpointServiceUser = `{
         "required": true,
         "type": "string"
       },
+      "user_arn": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "user_id": {
         "description_kind": "plain",
         "required": true,

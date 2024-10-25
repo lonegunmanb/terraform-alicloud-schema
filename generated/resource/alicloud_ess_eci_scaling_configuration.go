@@ -34,6 +34,11 @@ const alicloudEssEciScalingConfiguration = `{
         "optional": true,
         "type": "string"
       },
+      "cost_optimization": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "cpu": {
         "description_kind": "plain",
         "optional": true,
@@ -104,6 +109,11 @@ const alicloudEssEciScalingConfiguration = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "instance_family_level": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "instance_types": {
         "description_kind": "plain",
@@ -396,6 +406,16 @@ const alicloudEssEciScalingConfiguration = `{
               "optional": true,
               "type": "number"
             },
+            "stdin": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "tty": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "working_dir": {
               "description_kind": "plain",
               "optional": true,
@@ -452,6 +472,12 @@ const alicloudEssEciScalingConfiguration = `{
                     "optional": true,
                     "type": "string"
                   },
+                  "mount_propagation": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "name": {
                     "description_kind": "plain",
                     "optional": true,
@@ -461,6 +487,11 @@ const alicloudEssEciScalingConfiguration = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
+                  },
+                  "sub_path": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"
@@ -471,6 +502,24 @@ const alicloudEssEciScalingConfiguration = `{
           "description_kind": "plain"
         },
         "nesting_mode": "list"
+      },
+      "dns_config_options": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       },
       "host_aliases": {
         "block": {
@@ -639,6 +688,12 @@ const alicloudEssEciScalingConfiguration = `{
                     "optional": true,
                     "type": "string"
                   },
+                  "mount_propagation": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
                   "name": {
                     "description_kind": "plain",
                     "optional": true,
@@ -648,6 +703,11 @@ const alicloudEssEciScalingConfiguration = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "bool"
+                  },
+                  "sub_path": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"
@@ -658,6 +718,24 @@ const alicloudEssEciScalingConfiguration = `{
           "description_kind": "plain"
         },
         "nesting_mode": "list"
+      },
+      "security_context_sysctls": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {
@@ -680,6 +758,11 @@ const alicloudEssEciScalingConfiguration = `{
       "volumes": {
         "block": {
           "attributes": {
+            "config_file_volume_default_mode": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "disk_volume_disk_id": {
               "description_kind": "plain",
               "optional": true,
@@ -695,6 +778,17 @@ const alicloudEssEciScalingConfiguration = `{
               "optional": true,
               "type": "string"
             },
+            "empty_dir_volume_medium": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "empty_dir_volume_size_limit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "flex_volume_driver": {
               "description_kind": "plain",
               "optional": true,
@@ -706,6 +800,16 @@ const alicloudEssEciScalingConfiguration = `{
               "type": "string"
             },
             "flex_volume_options": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "host_path_volume_path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "host_path_volume_type": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -744,6 +848,11 @@ const alicloudEssEciScalingConfiguration = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
+                  },
+                  "mode": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
                   },
                   "path": {
                     "description_kind": "plain",

@@ -44,6 +44,7 @@ const alicloudAmqpInstance = `{
         "type": "number"
       },
       "max_eip_tps": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

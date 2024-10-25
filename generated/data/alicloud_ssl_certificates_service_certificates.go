@@ -59,7 +59,13 @@ const alicloudSslCertificatesServiceCertificates = `{
           "string"
         ]
       },
+      "keyword": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "lang": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
