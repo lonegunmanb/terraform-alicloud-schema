@@ -20,6 +20,11 @@ const alicloudEssScalingGroup = `{
         "optional": true,
         "type": "bool"
       },
+      "container_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_instance_ids": {
         "description_kind": "plain",
         "optional": true,

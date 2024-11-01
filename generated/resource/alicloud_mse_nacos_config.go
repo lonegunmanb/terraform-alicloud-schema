@@ -6,20 +6,46 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudStorageGatewayGateway = `{
+const alicloudMseNacosConfig = `{
   "block": {
     "attributes": {
-      "description": {
+      "accept_language": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "gateway_class": {
+      "app_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "gateway_name": {
+      "beta_ips": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "content": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "data_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "desc": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encrypted_data_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "group": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,53 +56,23 @@ const alicloudCloudStorageGatewayGateway = `{
         "optional": true,
         "type": "string"
       },
-      "location": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "payment_type": {
+      "namespace_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "public_network_bandwidth": {
-        "computed": true,
+      "tags": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "reason_detail": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "reason_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "release_after_expiration": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "storage_bundle_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -112,8 +108,8 @@ const alicloudCloudStorageGatewayGateway = `{
   "version": 0
 }`
 
-func AlicloudCloudStorageGatewayGatewaySchema() *tfjson.Schema {
+func AlicloudMseNacosConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudStorageGatewayGateway), &result)
+	_ = json.Unmarshal([]byte(alicloudMseNacosConfig), &result)
 	return &result
 }

@@ -17,8 +17,9 @@ const alicloudSubnet = `{
         "type": "string"
       },
       "cidr_block": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "create_time": {
@@ -53,6 +54,11 @@ const alicloudSubnet = `{
         "optional": true,
         "type": "number"
       },
+      "is_default": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "name": {
         "computed": true,
         "deprecated": true,
@@ -74,8 +80,9 @@ const alicloudSubnet = `{
         ]
       },
       "vpc_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "vswitch_name": {

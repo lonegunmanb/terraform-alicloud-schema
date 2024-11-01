@@ -99,7 +99,6 @@ const alicloudEssScalingConfiguration = `{
         "type": "string"
       },
       "internet_max_bandwidth_in": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
