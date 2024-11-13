@@ -27,6 +27,12 @@ const alicloudGpdbInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "data_share_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_instance_category": {
         "computed": true,
         "description_kind": "plain",
@@ -144,6 +150,12 @@ const alicloudGpdbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "prod_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -165,6 +177,12 @@ const alicloudGpdbInstance = `{
           "string"
         ]
       },
+      "seg_disk_performance_level": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "seg_node_num": {
         "computed": true,
         "description_kind": "plain",
@@ -172,6 +190,13 @@ const alicloudGpdbInstance = `{
         "type": "number"
       },
       "seg_storage_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "serverless_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

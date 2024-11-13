@@ -9,6 +9,11 @@ import (
 const alicloudRedisTairInstance = `{
   "block": {
     "attributes": {
+      "architecture_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "auto_renew": {
         "description_kind": "plain",
         "optional": true,
@@ -19,9 +24,19 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "backup_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cluster_backup_id": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "connection_domain": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "create_time": {
@@ -45,6 +60,11 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "global_instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -61,8 +81,52 @@ const alicloudRedisTairInstance = `{
         "required": true,
         "type": "string"
       },
+      "intranet_bandwidth": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "max_connections": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "modify_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "network_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "node_type": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "param_no_loose_sentinel_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "param_repl_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "param_semisync_repl_timeout": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "param_sentinel_compat_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -95,6 +159,11 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "number"
       },
+      "recover_config_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -111,6 +180,18 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "security_ip_group_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "security_ips": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "shard_count": {
         "computed": true,
         "description_kind": "plain",
@@ -121,6 +202,11 @@ const alicloudRedisTairInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "src_db_instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "ssl_enabled": {
         "computed": true,
@@ -152,7 +238,18 @@ const alicloudRedisTairInstance = `{
           "string"
         ]
       },
+      "tair_instance_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "tair_instance_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_auth_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

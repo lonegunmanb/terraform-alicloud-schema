@@ -58,6 +58,24 @@ const alicloudGovernanceAccount = `{
       }
     },
     "block_types": {
+      "account_tags": {
+        "block": {
+          "attributes": {
+            "tag_key": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "tag_value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
