@@ -30,6 +30,11 @@ const alicloudAlikafkaInstance = `{
         "required": true,
         "type": "number"
       },
+      "domain_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "eip_max": {
         "computed": true,
         "description_kind": "plain",
@@ -111,6 +116,11 @@ const alicloudAlikafkaInstance = `{
         "optional": true,
         "type": "string"
       },
+      "sasl_domain_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "security_group": {
         "computed": true,
         "description_kind": "plain",
@@ -134,6 +144,16 @@ const alicloudAlikafkaInstance = `{
       "spec_type": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "ssl_domain_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ssl_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {

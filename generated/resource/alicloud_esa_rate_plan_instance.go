@@ -6,33 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudSsoAccessConfiguration = `{
+const alicloudEsaRatePlanInstance = `{
   "block": {
     "attributes": {
-      "access_configuration_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "access_configuration_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "directory_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "force_remove_permission_policies": {
+      "auto_pay": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "coverage": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -40,42 +35,39 @@ const alicloudCloudSsoAccessConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "relay_state": {
+      "instance_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "payment_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "session_duration": {
-        "computed": true,
+      "period": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "plan_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "permission_policies": {
-        "block": {
-          "attributes": {
-            "permission_policy_document": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "permission_policy_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "permission_policy_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -105,8 +97,8 @@ const alicloudCloudSsoAccessConfiguration = `{
   "version": 0
 }`
 
-func AlicloudCloudSsoAccessConfigurationSchema() *tfjson.Schema {
+func AlicloudEsaRatePlanInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudSsoAccessConfiguration), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaRatePlanInstance), &result)
 	return &result
 }

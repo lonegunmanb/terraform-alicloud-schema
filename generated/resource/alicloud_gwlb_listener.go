@@ -6,30 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudSsoAccessConfiguration = `{
+const alicloudGwlbListener = `{
   "block": {
     "attributes": {
-      "access_configuration_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "access_configuration_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "directory_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "force_remove_permission_policies": {
+      "dry_run": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -40,42 +20,41 @@ const alicloudCloudSsoAccessConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "relay_state": {
+      "listener_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "session_duration": {
+      "load_balancer_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "server_group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "permission_policies": {
-        "block": {
-          "attributes": {
-            "permission_policy_document": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "permission_policy_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "permission_policy_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -105,8 +84,8 @@ const alicloudCloudSsoAccessConfiguration = `{
   "version": 0
 }`
 
-func AlicloudCloudSsoAccessConfigurationSchema() *tfjson.Schema {
+func AlicloudGwlbListenerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudSsoAccessConfiguration), &result)
+	_ = json.Unmarshal([]byte(alicloudGwlbListener), &result)
 	return &result
 }

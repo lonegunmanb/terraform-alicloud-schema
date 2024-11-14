@@ -6,20 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudFcv3FunctionVersion = `{
+const alicloudVpcIpamIpamPoolCidr = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "function_name": {
+      "cidr": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,7 +20,12 @@ const alicloudFcv3FunctionVersion = `{
         "optional": true,
         "type": "string"
       },
-      "last_modified_time": {
+      "ipam_pool_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -61,8 +56,8 @@ const alicloudFcv3FunctionVersion = `{
   "version": 0
 }`
 
-func AlicloudFcv3FunctionVersionSchema() *tfjson.Schema {
+func AlicloudVpcIpamIpamPoolCidrSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudFcv3FunctionVersion), &result)
+	_ = json.Unmarshal([]byte(alicloudVpcIpamIpamPoolCidr), &result)
 	return &result
 }

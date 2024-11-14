@@ -6,38 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudFcv3ProvisionConfig = `{
+const alicloudGwlbServerGroup = `{
   "block": {
     "attributes": {
-      "always_allocate_cpu": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "dry_run": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
-      },
-      "always_allocate_gpu": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "current": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "current_error": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "function_arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "function_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       },
       "id": {
         "computed": true,
@@ -45,103 +25,185 @@ const alicloudFcv3ProvisionConfig = `{
         "optional": true,
         "type": "string"
       },
-      "qualifier": {
+      "protocol": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "target": {
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "scheduler": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "server_group_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "server_group_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "scheduled_actions": {
+      "connection_drain_config": {
         "block": {
           "attributes": {
-            "end_time": {
+            "connection_drain_enabled": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": "bool"
             },
-            "name": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "schedule_expression": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "start_time": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "target": {
+            "connection_drain_timeout": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
-            },
-            "time_zone": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
-      "target_tracking_policies": {
+      "health_check_config": {
         "block": {
           "attributes": {
-            "end_time": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "max_capacity": {
+            "health_check_connect_port": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "metric_target": {
+            "health_check_connect_timeout": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "metric_type": {
+            "health_check_domain": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "min_capacity": {
+            "health_check_enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "health_check_http_code": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "health_check_interval": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "name": {
+            "health_check_path": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "start_time": {
+            "health_check_protocol": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "time_zone": {
+            "healthy_threshold": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
+              "type": "number"
+            },
+            "unhealthy_threshold": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "servers": {
+        "block": {
+          "attributes": {
+            "port": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            },
+            "server_group_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "server_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "server_ip": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "server_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {
@@ -172,8 +234,8 @@ const alicloudFcv3ProvisionConfig = `{
   "version": 0
 }`
 
-func AlicloudFcv3ProvisionConfigSchema() *tfjson.Schema {
+func AlicloudGwlbServerGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudFcv3ProvisionConfig), &result)
+	_ = json.Unmarshal([]byte(alicloudGwlbServerGroup), &result)
 	return &result
 }

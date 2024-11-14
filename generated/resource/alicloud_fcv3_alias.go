@@ -44,6 +44,11 @@ const alicloudFcv3Alias = `{
         "optional": true,
         "type": "string"
       },
+      "last_modified_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "version_id": {
         "description_kind": "plain",
         "optional": true,

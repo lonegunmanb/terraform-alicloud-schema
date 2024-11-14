@@ -9,6 +9,16 @@ import (
 const alicloudFcv3CustomDomain = `{
   "block": {
     "attributes": {
+      "account_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "api_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -26,9 +36,19 @@ const alicloudFcv3CustomDomain = `{
         "optional": true,
         "type": "string"
       },
+      "last_modified_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "protocol": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "subdomain_count": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       }
     },

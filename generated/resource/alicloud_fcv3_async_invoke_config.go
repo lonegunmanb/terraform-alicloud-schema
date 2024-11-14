@@ -19,6 +19,11 @@ const alicloudFcv3AsyncInvokeConfig = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "function_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "function_name": {
         "description_kind": "plain",
         "required": true,
@@ -28,6 +33,11 @@ const alicloudFcv3AsyncInvokeConfig = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "last_modified_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "max_async_event_age_in_seconds": {

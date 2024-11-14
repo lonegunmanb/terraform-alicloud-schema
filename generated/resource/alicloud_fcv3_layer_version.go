@@ -14,6 +14,11 @@ const alicloudFcv3LayerVersion = `{
         "optional": true,
         "type": "string"
       },
+      "code_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "compatible_runtime": {
         "computed": true,
         "description_kind": "plain",
@@ -44,7 +49,17 @@ const alicloudFcv3LayerVersion = `{
         "required": true,
         "type": "string"
       },
+      "layer_version_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "license": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "public": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

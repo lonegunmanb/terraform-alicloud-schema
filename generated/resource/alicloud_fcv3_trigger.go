@@ -24,6 +24,20 @@ const alicloudFcv3Trigger = `{
         "required": true,
         "type": "string"
       },
+      "http_trigger": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "url_internet": "string",
+              "url_intranet": "string"
+            }
+          ]
+        ]
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -33,6 +47,11 @@ const alicloudFcv3Trigger = `{
       "invocation_role": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "last_modified_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "qualifier": {
@@ -50,9 +69,19 @@ const alicloudFcv3Trigger = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "target_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "trigger_config": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "trigger_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "trigger_name": {

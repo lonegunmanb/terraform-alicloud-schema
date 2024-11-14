@@ -6,30 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudSsoAccessConfiguration = `{
+const alicloudOssBucketCname = `{
   "block": {
     "attributes": {
-      "access_configuration_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "access_configuration_name": {
+      "bucket": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "description": {
+      "delete_certificate": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "directory_id": {
+      "domain": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "force_remove_permission_policies": {
+      "force": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -40,41 +35,74 @@ const alicloudCloudSsoAccessConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "relay_state": {
+      "previous_cert_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "session_duration": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {
-      "permission_policies": {
+      "certificate": {
         "block": {
           "attributes": {
-            "permission_policy_document": {
+            "cert_id": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "permission_policy_name": {
+            "certificate": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
+              "sensitive": true,
               "type": "string"
             },
-            "permission_policy_type": {
+            "creation_date": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "type": "string"
+            },
+            "fingerprint": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "private_key": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "valid_end_date": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "valid_start_date": {
+              "computed": true,
+              "description_kind": "plain",
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "max_items": 1,
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -105,8 +133,8 @@ const alicloudCloudSsoAccessConfiguration = `{
   "version": 0
 }`
 
-func AlicloudCloudSsoAccessConfigurationSchema() *tfjson.Schema {
+func AlicloudOssBucketCnameSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudSsoAccessConfiguration), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketCname), &result)
 	return &result
 }

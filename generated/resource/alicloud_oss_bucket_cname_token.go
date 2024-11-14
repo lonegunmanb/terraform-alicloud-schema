@@ -6,20 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudFcv3FunctionVersion = `{
+const alicloudOssBucketCnameToken = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "bucket": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "function_name": {
+      "domain": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -30,7 +25,7 @@ const alicloudFcv3FunctionVersion = `{
         "optional": true,
         "type": "string"
       },
-      "last_modified_time": {
+      "token": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -61,8 +56,8 @@ const alicloudFcv3FunctionVersion = `{
   "version": 0
 }`
 
-func AlicloudFcv3FunctionVersionSchema() *tfjson.Schema {
+func AlicloudOssBucketCnameTokenSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudFcv3FunctionVersion), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketCnameToken), &result)
 	return &result
 }

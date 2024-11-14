@@ -6,30 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudSsoAccessConfiguration = `{
+const alicloudGwlbLoadBalancer = `{
   "block": {
     "attributes": {
-      "access_configuration_id": {
+      "address_ip_version": {
         "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "access_configuration_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "directory_id": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "force_remove_permission_policies": {
+      "dry_run": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -40,42 +31,37 @@ const alicloudCloudSsoAccessConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "relay_state": {
+      "load_balancer_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "session_duration": {
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "permission_policies": {
-        "block": {
-          "attributes": {
-            "permission_policy_document": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "permission_policy_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "permission_policy_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -98,6 +84,39 @@ const alicloudCloudSsoAccessConfiguration = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "zone_mappings": {
+        "block": {
+          "attributes": {
+            "load_balancer_addresses": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": [
+                "list",
+                [
+                  "object",
+                  {
+                    "eni_id": "string",
+                    "private_ipv4_address": "string"
+                  }
+                ]
+              ]
+            },
+            "vswitch_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "zone_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"
@@ -105,8 +124,8 @@ const alicloudCloudSsoAccessConfiguration = `{
   "version": 0
 }`
 
-func AlicloudCloudSsoAccessConfigurationSchema() *tfjson.Schema {
+func AlicloudGwlbLoadBalancerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudSsoAccessConfiguration), &result)
+	_ = json.Unmarshal([]byte(alicloudGwlbLoadBalancer), &result)
 	return &result
 }

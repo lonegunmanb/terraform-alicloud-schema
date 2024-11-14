@@ -6,33 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudSsoAccessConfiguration = `{
+const alicloudVpcIpamIpamPool = `{
   "block": {
     "attributes": {
-      "access_configuration_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "access_configuration_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
+      "allocation_default_cidr_mask": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "directory_id": {
+      "allocation_max_cidr_mask": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "force_remove_permission_policies": {
+      "allocation_min_cidr_mask": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "auto_import": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "clear_allocation_default_cidr_mask": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -40,42 +46,59 @@ const alicloudCloudSsoAccessConfiguration = `{
         "optional": true,
         "type": "string"
       },
-      "relay_state": {
+      "ip_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "session_duration": {
+      "ipam_pool_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ipam_pool_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "ipam_scope_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "pool_region_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "source_ipam_pool_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "permission_policies": {
-        "block": {
-          "attributes": {
-            "permission_policy_document": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "permission_policy_name": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "permission_policy_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -105,8 +128,8 @@ const alicloudCloudSsoAccessConfiguration = `{
   "version": 0
 }`
 
-func AlicloudCloudSsoAccessConfigurationSchema() *tfjson.Schema {
+func AlicloudVpcIpamIpamPoolSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudSsoAccessConfiguration), &result)
+	_ = json.Unmarshal([]byte(alicloudVpcIpamIpamPool), &result)
 	return &result
 }

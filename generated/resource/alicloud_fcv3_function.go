@@ -9,6 +9,11 @@ import (
 const alicloudFcv3Function = `{
   "block": {
     "attributes": {
+      "code_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "cpu": {
         "computed": true,
         "description_kind": "plain",
@@ -39,6 +44,16 @@ const alicloudFcv3Function = `{
           "string"
         ]
       },
+      "function_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "function_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "function_name": {
         "computed": true,
         "description_kind": "plain",
@@ -68,6 +83,26 @@ const alicloudFcv3Function = `{
         "optional": true,
         "type": "bool"
       },
+      "last_modified_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "last_update_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "last_update_status_reason": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "last_update_status_reason_code": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "layers": {
         "description_kind": "plain",
         "optional": true,
@@ -93,11 +128,43 @@ const alicloudFcv3Function = `{
         "required": true,
         "type": "string"
       },
+      "state": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "state_reason": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "state_reason_code": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "timeout": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "tracing_config": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "params": [
+                "map",
+                "string"
+              ],
+              "type": "string"
+            }
+          ]
+        ]
       }
     },
     "block_types": {
