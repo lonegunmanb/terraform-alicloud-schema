@@ -9,12 +9,23 @@ import (
 const alicloudCrEeInstance = `{
   "block": {
     "attributes": {
-      "created_time": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
+      "created_time": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "custom_oss_bucket": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "default_oss_bucket": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -26,6 +37,11 @@ const alicloudCrEeInstance = `{
       },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "image_scanner": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -61,7 +77,7 @@ const alicloudCrEeInstance = `{
       },
       "payment_type": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "period": {
@@ -69,12 +85,24 @@ const alicloudCrEeInstance = `{
         "optional": true,
         "type": "number"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "renew_period": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "renewal_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -90,6 +118,16 @@ const alicloudCrEeInstance = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

@@ -6,28 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpnGatewayVcoRoute = `{
+const alicloudRdsCustomDeploymentSet = `{
   "block": {
     "attributes": {
+      "custom_deployment_set_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "group_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "next_hop": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "overlay_mode": {
+      "on_unable_to_redeploy_failed_instance": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "route_dest": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "status": {
@@ -35,15 +40,11 @@ const alicloudVpnGatewayVcoRoute = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "vpn_connection_id": {
+      "strategy": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
-      },
-      "weight": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
       }
     },
     "block_types": {
@@ -59,6 +60,11 @@ const alicloudVpnGatewayVcoRoute = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -71,8 +77,8 @@ const alicloudVpnGatewayVcoRoute = `{
   "version": 0
 }`
 
-func AlicloudVpnGatewayVcoRouteSchema() *tfjson.Schema {
+func AlicloudRdsCustomDeploymentSetSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpnGatewayVcoRoute), &result)
+	_ = json.Unmarshal([]byte(alicloudRdsCustomDeploymentSet), &result)
 	return &result
 }

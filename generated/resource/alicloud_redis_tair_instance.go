@@ -39,6 +39,11 @@ const alicloudRedisTairInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "connection_string_prefix": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -127,6 +132,7 @@ const alicloudRedisTairInstance = `{
         "type": "string"
       },
       "param_sentinel_compat_enable": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -162,6 +168,11 @@ const alicloudRedisTairInstance = `{
       "recover_config_mode": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_id": {

@@ -47,6 +47,7 @@ const alicloudKmsKey = `{
         "type": "string"
       },
       "dkms_instance_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -410,6 +410,39 @@ const alicloudEssScalingConfiguration = `{
         "max_items": 10,
         "nesting_mode": "set"
       },
+      "network_interfaces": {
+        "block": {
+          "attributes": {
+            "instance_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ipv6_address_count": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "network_interface_traffic_mode": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "security_group_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "spot_price_limit": {
         "block": {
           "attributes": {

@@ -737,6 +737,8 @@ func init() {
 	resources["alicloud_rds_account"] = resource.AlicloudRdsAccountSchema()  
 	resources["alicloud_rds_backup"] = resource.AlicloudRdsBackupSchema()  
 	resources["alicloud_rds_clone_db_instance"] = resource.AlicloudRdsCloneDbInstanceSchema()  
+	resources["alicloud_rds_custom"] = resource.AlicloudRdsCustomSchema()  
+	resources["alicloud_rds_custom_deployment_set"] = resource.AlicloudRdsCustomDeploymentSetSchema()  
 	resources["alicloud_rds_db_instance_endpoint"] = resource.AlicloudRdsDbInstanceEndpointSchema()  
 	resources["alicloud_rds_db_instance_endpoint_address"] = resource.AlicloudRdsDbInstanceEndpointAddressSchema()  
 	resources["alicloud_rds_db_node"] = resource.AlicloudRdsDbNodeSchema()  

@@ -15,6 +15,12 @@ const alicloudEcsImageComponent = `{
         "optional": true,
         "type": "string"
       },
+      "component_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "content": {
         "description_kind": "plain",
         "required": true,

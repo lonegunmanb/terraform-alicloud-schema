@@ -41,6 +41,11 @@ const alicloudMongodbInstance = `{
         "optional": true,
         "type": "number"
       },
+      "backup_retention_policy_on_cluster_deletion": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "backup_time": {
         "computed": true,
         "description_kind": "plain",

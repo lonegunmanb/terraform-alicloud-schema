@@ -15,6 +15,7 @@ const alicloudExpressConnectRouterVbrChildInstance = `{
         "type": "string"
       },
       "child_instance_owner_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -32,6 +33,11 @@ const alicloudExpressConnectRouterVbrChildInstance = `{
       "create_time": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "ecr_id": {
@@ -61,6 +67,11 @@ const alicloudExpressConnectRouterVbrChildInstance = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
