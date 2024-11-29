@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCdnRealTimeLogDelivery = `{
+const alicloudPaiWorkspaceRun = `{
   "block": {
     "attributes": {
-      "domain": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "experiment_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -20,23 +25,17 @@ const alicloudCdnRealTimeLogDelivery = `{
         "optional": true,
         "type": "string"
       },
-      "logstore": {
+      "run_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "project": {
+      "source_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "sls_region": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
+      "source_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -72,8 +71,8 @@ const alicloudCdnRealTimeLogDelivery = `{
   "version": 0
 }`
 
-func AlicloudCdnRealTimeLogDeliverySchema() *tfjson.Schema {
+func AlicloudPaiWorkspaceRunSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCdnRealTimeLogDelivery), &result)
+	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceRun), &result)
 	return &result
 }

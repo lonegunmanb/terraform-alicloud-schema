@@ -6,30 +6,53 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSnapshotPolicy = `{
+const alicloudPaiWorkspaceCodeSource = `{
   "block": {
     "attributes": {
-      "auto_snapshot_policy_name": {
-        "computed": true,
+      "accessibility": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "code_branch": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "copied_snapshots_retention_days": {
-        "computed": true,
+      "code_commit": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "code_repo": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "code_repo_access_token": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "code_repo_user_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "enable_cross_region_copy": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "display_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -37,86 +60,18 @@ const alicloudSnapshotPolicy = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "repeat_weekdays": {
+      "mount_path": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "resource_group_id": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "retention_days": {
+      "workspace_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "target_copy_regions": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "time_points": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "copy_encryption_configuration": {
-        "block": {
-          "attributes": {
-            "encrypted": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "kms_key_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -146,8 +101,8 @@ const alicloudSnapshotPolicy = `{
   "version": 0
 }`
 
-func AlicloudSnapshotPolicySchema() *tfjson.Schema {
+func AlicloudPaiWorkspaceCodeSourceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSnapshotPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceCodeSource), &result)
 	return &result
 }

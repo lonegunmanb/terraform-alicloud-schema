@@ -15,6 +15,11 @@ const alicloudNasFileSystem = `{
         "optional": true,
         "type": "number"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -26,6 +31,7 @@ const alicloudNasFileSystem = `{
         "type": "number"
       },
       "file_system_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -45,6 +51,22 @@ const alicloudNasFileSystem = `{
       "protocol_type": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "snapshot_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "storage_type": {
@@ -78,6 +100,56 @@ const alicloudNasFileSystem = `{
       }
     },
     "block_types": {
+      "nfs_acl": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "recycle_bin": {
+        "block": {
+          "attributes": {
+            "enable_time": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "reserved_days": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "secondary_size": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            },
+            "size": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "number"
+            },
+            "status": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

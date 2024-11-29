@@ -29,6 +29,11 @@ const alicloudCdnDomainNew = `{
         "required": true,
         "type": "string"
       },
+      "env": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -50,6 +55,7 @@ const alicloudCdnDomainNew = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -89,11 +95,6 @@ const alicloudCdnDomainNew = `{
               "optional": true,
               "type": "string"
             },
-            "force_set": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "private_key": {
               "description_kind": "plain",
               "optional": true,
@@ -104,6 +105,7 @@ const alicloudCdnDomainNew = `{
               "computed": true,
               "description_kind": "plain",
               "optional": true,
+              "sensitive": true,
               "type": "string"
             },
             "server_certificate_status": {

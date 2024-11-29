@@ -6,30 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSnapshotPolicy = `{
+const alicloudPaiWorkspaceDatasetversion = `{
   "block": {
     "attributes": {
-      "auto_snapshot_policy_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "copied_snapshots_retention_days": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "enable_cross_region_copy": {
+      "data_count": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
+      },
+      "data_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "data_source_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "dataset_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -37,76 +45,47 @@ const alicloudSnapshotPolicy = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "options": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "repeat_weekdays": {
+      "property": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       },
-      "resource_group_id": {
+      "source_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "retention_days": {
+      "source_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "uri": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "status": {
+      "version_name": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "target_copy_regions": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
-      "time_points": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "copy_encryption_configuration": {
+      "labels": {
         "block": {
           "attributes": {
-            "encrypted": {
+            "key": {
               "description_kind": "plain",
               "optional": true,
-              "type": "bool"
+              "type": "string"
             },
-            "kms_key_id": {
+            "value": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -114,7 +93,6 @@ const alicloudSnapshotPolicy = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -146,8 +124,8 @@ const alicloudSnapshotPolicy = `{
   "version": 0
 }`
 
-func AlicloudSnapshotPolicySchema() *tfjson.Schema {
+func AlicloudPaiWorkspaceDatasetversionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSnapshotPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceDatasetversion), &result)
 	return &result
 }

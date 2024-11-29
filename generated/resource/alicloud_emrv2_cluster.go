@@ -27,6 +27,11 @@ const alicloudEmrv2Cluster = `{
         "required": true,
         "type": "string"
       },
+      "deletion_protection": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "deploy_mode": {
         "computed": true,
         "description_kind": "plain",
@@ -336,6 +341,11 @@ const alicloudEmrv2Cluster = `{
               "optional": true,
               "type": "bool"
             },
+            "spot_strategy": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "vswitch_ids": {
               "description_kind": "plain",
               "optional": true,
@@ -352,6 +362,221 @@ const alicloudEmrv2Cluster = `{
             }
           },
           "block_types": {
+            "ack_config": {
+              "block": {
+                "attributes": {
+                  "ack_instance_id": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "limit_cpu": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "limit_memory": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "namespace": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  },
+                  "node_affinity": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "pod_affinity": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "pod_anti_affinity": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "pre_start_command": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "request_cpu": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "request_memory": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  }
+                },
+                "block_types": {
+                  "custom_annotations": {
+                    "block": {
+                      "attributes": {
+                        "key": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "set"
+                  },
+                  "custom_labels": {
+                    "block": {
+                      "attributes": {
+                        "key": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "set"
+                  },
+                  "node_selectors": {
+                    "block": {
+                      "attributes": {
+                        "key": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "set"
+                  },
+                  "pvcs": {
+                    "block": {
+                      "attributes": {
+                        "data_disk_size": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "number"
+                        },
+                        "data_disk_storage_class": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "path": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  },
+                  "tolerations": {
+                    "block": {
+                      "attributes": {
+                        "effect": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "key": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "operator": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "value": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  },
+                  "volume_mounts": {
+                    "block": {
+                      "attributes": {
+                        "name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "path": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  },
+                  "volumes": {
+                    "block": {
+                      "attributes": {
+                        "name": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "path": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        },
+                        "type": {
+                          "description_kind": "plain",
+                          "required": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "auto_scaling_policy": {
               "block": {
                 "block_types": {

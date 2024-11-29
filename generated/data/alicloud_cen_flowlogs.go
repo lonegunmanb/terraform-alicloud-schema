@@ -19,6 +19,21 @@ const alicloudCenFlowlogs = `{
         "optional": true,
         "type": "string"
       },
+      "flow_log_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "flow_log_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "flow_log_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "flowlogs": {
         "computed": true,
         "description_kind": "plain",
@@ -28,13 +43,25 @@ const alicloudCenFlowlogs = `{
             "object",
             {
               "cen_id": "string",
+              "create_time": "string",
               "description": "string",
               "flow_log_id": "string",
               "flow_log_name": "string",
+              "flow_log_version": "string",
               "id": "string",
+              "interval": "number",
+              "log_format_string": "string",
               "log_store_name": "string",
               "project_name": "string",
-              "status": "string"
+              "record_total": "string",
+              "region_id": "string",
+              "status": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
+              "transit_router_attachment_id": "string",
+              "transit_router_id": "string"
             }
           ]
         ]
@@ -53,6 +80,11 @@ const alicloudCenFlowlogs = `{
           "list",
           "string"
         ]
+      },
+      "interval": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "log_store_name": {
         "description_kind": "plain",
@@ -77,12 +109,32 @@ const alicloudCenFlowlogs = `{
         "optional": true,
         "type": "string"
       },
+      "page_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "page_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "project_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
