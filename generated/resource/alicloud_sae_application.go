@@ -162,6 +162,7 @@ const alicloudSaeApplication = `{
         "type": "number"
       },
       "micro_registration": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

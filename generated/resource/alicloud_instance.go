@@ -578,6 +578,20 @@ const alicloudInstance = `{
         "max_items": 16,
         "nesting_mode": "list"
       },
+      "image_options": {
+        "block": {
+          "attributes": {
+            "login_as_non_root": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "set"
+      },
       "maintenance_time": {
         "block": {
           "attributes": {

@@ -68,7 +68,6 @@ const alicloudArmsDispatchRules = `{
                 [
                   "object",
                   {
-                    "group_id": "number",
                     "group_interval": "number",
                     "group_wait_time": "number",
                     "grouping_fields": [
@@ -116,6 +115,7 @@ const alicloudArmsDispatchRules = `{
                       "list",
                       "string"
                     ],
+                    "notify_end_time": "string",
                     "notify_objects": [
                       "list",
                       [
@@ -126,7 +126,8 @@ const alicloudArmsDispatchRules = `{
                           "notify_type": "string"
                         }
                       ]
-                    ]
+                    ],
+                    "notify_start_time": "string"
                   }
                 ]
               ],

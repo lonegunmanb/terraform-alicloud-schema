@@ -6,69 +6,55 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudKeyPair = `{
+const alicloudDataWorksProjectMember = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "finger_print": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "key_file": {
+      "project_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
-      "key_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "key_name_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "key_pair_name": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "public_key": {
+      "user_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
+      "roles": {
+        "block": {
+          "attributes": {
+            "code": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "name": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "type": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -98,8 +84,8 @@ const alicloudKeyPair = `{
   "version": 0
 }`
 
-func AlicloudKeyPairSchema() *tfjson.Schema {
+func AlicloudDataWorksProjectMemberSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudKeyPair), &result)
+	_ = json.Unmarshal([]byte(alicloudDataWorksProjectMember), &result)
 	return &result
 }

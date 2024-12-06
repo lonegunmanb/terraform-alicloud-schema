@@ -127,6 +127,16 @@ const alicloudArmsDispatchRule = `{
                 "list",
                 "string"
               ]
+            },
+            "notify_end_time": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "notify_start_time": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
             }
           },
           "block_types": {

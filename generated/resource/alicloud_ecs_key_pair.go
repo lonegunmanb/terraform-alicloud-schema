@@ -9,6 +9,11 @@ import (
 const alicloudEcsKeyPair = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "finger_print": {
         "computed": true,
         "description_kind": "plain",
@@ -67,7 +72,17 @@ const alicloudEcsKeyPair = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

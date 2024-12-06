@@ -65,6 +65,11 @@ const alicloudCsAutoscalingConfig = `{
         "optional": true,
         "type": "bool"
       },
+      "scaler_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "scan_interval": {
         "description_kind": "plain",
         "optional": true,

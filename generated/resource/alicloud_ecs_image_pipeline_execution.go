@@ -6,15 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudKeyPair = `{
+const alicloudEcsImagePipelineExecution = `{
   "block": {
     "attributes": {
       "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "finger_print": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -25,47 +20,16 @@ const alicloudKeyPair = `{
         "optional": true,
         "type": "string"
       },
-      "key_file": {
+      "image_pipeline_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "key_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "key_name_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "key_pair_name": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "public_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -98,8 +62,8 @@ const alicloudKeyPair = `{
   "version": 0
 }`
 
-func AlicloudKeyPairSchema() *tfjson.Schema {
+func AlicloudEcsImagePipelineExecutionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudKeyPair), &result)
+	_ = json.Unmarshal([]byte(alicloudEcsImagePipelineExecution), &result)
 	return &result
 }

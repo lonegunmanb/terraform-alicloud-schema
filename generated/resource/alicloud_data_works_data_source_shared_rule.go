@@ -6,17 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudKeyPair = `{
+const alicloudDataWorksDataSourceSharedRule = `{
   "block": {
     "attributes": {
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
       },
-      "finger_print": {
+      "data_source_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "data_source_shared_rule_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "env_type": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -25,47 +35,15 @@ const alicloudKeyPair = `{
         "optional": true,
         "type": "string"
       },
-      "key_file": {
+      "shared_user": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "key_name": {
-        "computed": true,
-        "deprecated": true,
+      "target_project_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "key_name_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "key_pair_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "public_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -81,11 +59,6 @@ const alicloudKeyPair = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -98,8 +71,8 @@ const alicloudKeyPair = `{
   "version": 0
 }`
 
-func AlicloudKeyPairSchema() *tfjson.Schema {
+func AlicloudDataWorksDataSourceSharedRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudKeyPair), &result)
+	_ = json.Unmarshal([]byte(alicloudDataWorksDataSourceSharedRule), &result)
 	return &result
 }

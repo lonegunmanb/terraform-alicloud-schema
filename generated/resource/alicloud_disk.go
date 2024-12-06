@@ -21,9 +21,19 @@ const alicloudDisk = `{
         "optional": true,
         "type": "string"
       },
+      "bursting_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "category": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "dedicated_block_storage_cluster_id": {
@@ -92,6 +102,12 @@ const alicloudDisk = `{
         "optional": true,
         "type": "string"
       },
+      "multi_attach": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "name": {
         "computed": true,
         "deprecated": true,
@@ -109,6 +125,16 @@ const alicloudDisk = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "provisioned_iops": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_id": {

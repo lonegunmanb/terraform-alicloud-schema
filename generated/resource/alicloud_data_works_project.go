@@ -9,15 +9,22 @@ import (
 const alicloudDataWorksProject = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "description": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      },
+      "dev_environment_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "dev_role_disabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "display_name": {
         "description_kind": "plain",
@@ -30,14 +37,20 @@ const alicloudDataWorksProject = `{
         "optional": true,
         "type": "string"
       },
-      "project_mode": {
+      "pai_task_enabled": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "bool"
       },
       "project_name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "status": {
@@ -45,6 +58,14 @@ const alicloudDataWorksProject = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
