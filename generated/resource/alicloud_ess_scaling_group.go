@@ -181,6 +181,11 @@ const alicloudEssScalingGroup = `{
         "optional": true,
         "type": "bool"
       },
+      "stop_instance_timeout": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

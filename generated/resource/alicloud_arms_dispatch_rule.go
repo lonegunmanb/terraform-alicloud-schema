@@ -169,6 +169,59 @@ const alicloudArmsDispatchRule = `{
         },
         "min_items": 1,
         "nesting_mode": "set"
+      },
+      "notify_template": {
+        "block": {
+          "attributes": {
+            "email_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "email_recover_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "email_recover_title": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "email_title": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "robot_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "sms_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "sms_recover_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "tts_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "tts_recover_content": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"

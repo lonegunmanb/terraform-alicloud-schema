@@ -6,33 +6,49 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenPrivateZone = `{
+const alicloudVpcIpamIpamPoolAllocation = `{
   "block": {
     "attributes": {
-      "access_region_id": {
+      "cidr": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "cen_id": {
+      "cidr_mask": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "host_region_id": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "host_vpc_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "ipam_pool_allocation_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ipam_pool_allocation_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ipam_pool_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {
@@ -54,6 +70,11 @@ const alicloudCenPrivateZone = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -66,8 +87,8 @@ const alicloudCenPrivateZone = `{
   "version": 0
 }`
 
-func AlicloudCenPrivateZoneSchema() *tfjson.Schema {
+func AlicloudVpcIpamIpamPoolAllocationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenPrivateZone), &result)
+	_ = json.Unmarshal([]byte(alicloudVpcIpamIpamPoolAllocation), &result)
 	return &result
 }

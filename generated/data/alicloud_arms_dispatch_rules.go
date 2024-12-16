@@ -62,7 +62,6 @@ const alicloudArmsDispatchRules = `{
             {
               "dispatch_rule_id": "string",
               "dispatch_rule_name": "string",
-              "dispatch_type": "string",
               "group_rules": [
                 "list",
                 [
@@ -128,6 +127,23 @@ const alicloudArmsDispatchRules = `{
                       ]
                     ],
                     "notify_start_time": "string"
+                  }
+                ]
+              ],
+              "notify_template": [
+                "list",
+                [
+                  "object",
+                  {
+                    "email_content": "string",
+                    "email_recover_content": "string",
+                    "email_recover_title": "string",
+                    "email_title": "string",
+                    "robot_content": "string",
+                    "sms_content": "string",
+                    "sms_recover_content": "string",
+                    "tts_content": "string",
+                    "tts_recover_content": "string"
                   }
                 ]
               ],

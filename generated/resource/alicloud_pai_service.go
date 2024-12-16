@@ -6,27 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenPrivateZone = `{
+const alicloudPaiService = `{
   "block": {
     "attributes": {
-      "access_region_id": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "cen_id": {
+      "develop": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "host_region_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "host_vpc_id": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -35,9 +25,33 @@ const alicloudCenPrivateZone = `{
         "optional": true,
         "type": "string"
       },
+      "labels": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "service_config": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "workspace_id": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -54,6 +68,11 @@ const alicloudCenPrivateZone = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -66,8 +85,8 @@ const alicloudCenPrivateZone = `{
   "version": 0
 }`
 
-func AlicloudCenPrivateZoneSchema() *tfjson.Schema {
+func AlicloudPaiServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenPrivateZone), &result)
+	_ = json.Unmarshal([]byte(alicloudPaiService), &result)
 	return &result
 }

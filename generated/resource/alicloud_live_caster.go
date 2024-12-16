@@ -6,12 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudKmsInstance = `{
+const alicloudLiveCaster = `{
   "block": {
     "attributes": {
-      "ca_certificate_chain_pem": {
-        "computed": true,
+      "auto_switch_urgent_config": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "auto_switch_urgent_on": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "callback_url": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "caster_name": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "create_time": {
@@ -19,12 +34,12 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "end_date": {
-        "computed": true,
+      "delay": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "force_delete_without_backup": {
+      "domain_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,125 +50,92 @@ const alicloudKmsInstance = `{
         "optional": true,
         "type": "string"
       },
-      "instance_name": {
-        "computed": true,
+      "norm_type": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "key_num": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "log": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "log_storage": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       },
       "payment_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "program_effect": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "program_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "record_config": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "product_version": {
+      "resource_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "renew_period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "renew_status": {
+      "side_output_url": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "secret_num": {
+      "side_output_url_list": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "spec": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
-      "vpc_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "vpc_num": {
+      "sync_groups_config": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "vswitch_ids": {
+      "tags": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
-          "list",
+          "map",
           "string"
         ]
       },
-      "zone_ids": {
+      "transcode_config": {
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "optional": true,
+        "type": "string"
+      },
+      "urgent_image_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "urgent_image_url": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "urgent_live_stream_url": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "urgent_material_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "bind_vpcs": {
-        "block": {
-          "attributes": {
-            "region_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "vpc_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "vpc_owner_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "vswitch_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -183,8 +165,8 @@ const alicloudKmsInstance = `{
   "version": 0
 }`
 
-func AlicloudKmsInstanceSchema() *tfjson.Schema {
+func AlicloudLiveCasterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudKmsInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudLiveCaster), &result)
 	return &result
 }

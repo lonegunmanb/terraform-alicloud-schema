@@ -272,6 +272,24 @@ const alicloudEssScalingConfiguration = `{
       }
     },
     "block_types": {
+      "custom_priorities": {
+        "block": {
+          "attributes": {
+            "instance_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "vswitch_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "data_disk": {
         "block": {
           "attributes": {
