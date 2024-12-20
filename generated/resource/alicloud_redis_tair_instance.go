@@ -125,6 +125,12 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "param_no_loose_sentinel_password_free_commands": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "param_repl_mode": {
         "computed": true,
         "description_kind": "plain",

@@ -86,6 +86,9 @@ const alicloudInstanceTypes = `{
               ],
               "cpu_core_count": "number",
               "eni_amount": "number",
+              "eni_ipv6_address_quantity": "number",
+              "eni_private_ip_address_quantity": "number",
+              "eni_quantity": "number",
               "family": "string",
               "gpu": [
                 "map",
@@ -96,9 +99,13 @@ const alicloudInstanceTypes = `{
                 "map",
                 "string"
               ],
+              "maximum_queue_number_per_eni": "number",
               "memory_size": "number",
               "nvme_support": "string",
-              "price": "string"
+              "price": "string",
+              "primary_eni_queue_number": "number",
+              "secondary_eni_queue_number": "number",
+              "total_eni_queue_quantity": "number"
             }
           ]
         ]

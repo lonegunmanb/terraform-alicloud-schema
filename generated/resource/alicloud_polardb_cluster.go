@@ -364,6 +364,12 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "strict_consistency": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "sub_category": {
         "computed": true,
         "description_kind": "plain",

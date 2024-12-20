@@ -455,6 +455,7 @@ func init() {
 	resources["alicloud_express_connect_grant_rule_to_cen"] = resource.AlicloudExpressConnectGrantRuleToCenSchema()  
 	resources["alicloud_express_connect_physical_connection"] = resource.AlicloudExpressConnectPhysicalConnectionSchema()  
 	resources["alicloud_express_connect_router_express_connect_router"] = resource.AlicloudExpressConnectRouterExpressConnectRouterSchema()  
+	resources["alicloud_express_connect_router_grant_association"] = resource.AlicloudExpressConnectRouterGrantAssociationSchema()  
 	resources["alicloud_express_connect_router_interface"] = resource.AlicloudExpressConnectRouterInterfaceSchema()  
 	resources["alicloud_express_connect_router_tr_association"] = resource.AlicloudExpressConnectRouterTrAssociationSchema()  
 	resources["alicloud_express_connect_router_vbr_child_instance"] = resource.AlicloudExpressConnectRouterVbrChildInstanceSchema()  

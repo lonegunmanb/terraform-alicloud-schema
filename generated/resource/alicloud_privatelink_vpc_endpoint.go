@@ -9,6 +9,12 @@ import (
 const alicloudPrivatelinkVpcEndpoint = `{
   "block": {
     "attributes": {
+      "address_ip_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "bandwidth": {
         "computed": true,
         "description_kind": "plain",
@@ -67,6 +73,11 @@ const alicloudPrivatelinkVpcEndpoint = `{
         "optional": true,
         "type": "bool"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -75,7 +86,7 @@ const alicloudPrivatelinkVpcEndpoint = `{
       },
       "security_group_ids": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "set",
           "string"

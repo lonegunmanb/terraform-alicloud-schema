@@ -9,6 +9,12 @@ import (
 const alicloudPrivatelinkVpcEndpointService = `{
   "block": {
     "attributes": {
+      "address_ip_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "auto_accept_connection": {
         "description_kind": "plain",
         "optional": true,
