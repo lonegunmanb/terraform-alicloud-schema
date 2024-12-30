@@ -39,6 +39,11 @@ const alicloudCloudFirewallInstances = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "payment_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "description_kind": "plain"

@@ -234,6 +234,11 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "number"
       },
+      "pg_bouncer_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "port": {
         "computed": true,
         "description_kind": "plain",
@@ -241,6 +246,12 @@ const alicloudDbInstance = `{
         "type": "string"
       },
       "private_ip_address": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "recovery_model": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -386,6 +397,11 @@ const alicloudDbInstance = `{
       },
       "tcp_connection_type": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tde_encryption_key": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

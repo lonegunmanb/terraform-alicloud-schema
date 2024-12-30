@@ -6,23 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerControlPolicyAttachment = `{
+const alicloudApigEnvironment = `{
   "block": {
     "attributes": {
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "environment_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "gateway_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_id": {
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "target_id": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
@@ -39,6 +50,11 @@ const alicloudResourceManagerControlPolicyAttachment = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -51,8 +67,8 @@ const alicloudResourceManagerControlPolicyAttachment = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerControlPolicyAttachmentSchema() *tfjson.Schema {
+func AlicloudApigEnvironmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerControlPolicyAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudApigEnvironment), &result)
 	return &result
 }

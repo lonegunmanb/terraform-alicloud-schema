@@ -6,23 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerControlPolicyAttachment = `{
+const alicloudMongodbPrivateSrvNetworkAddress = `{
   "block": {
     "attributes": {
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_id": {
+      "private_srv_connection_string_uri": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "target_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -51,8 +51,8 @@ const alicloudResourceManagerControlPolicyAttachment = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerControlPolicyAttachmentSchema() *tfjson.Schema {
+func AlicloudMongodbPrivateSrvNetworkAddressSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerControlPolicyAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudMongodbPrivateSrvNetworkAddress), &result)
 	return &result
 }

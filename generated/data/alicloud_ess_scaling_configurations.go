@@ -37,6 +37,27 @@ const alicloudEssScalingConfigurations = `{
               "id": "string",
               "image_id": "string",
               "instance_name": "string",
+              "instance_pattern_info": [
+                "list",
+                [
+                  "object",
+                  {
+                    "architectures": [
+                      "list",
+                      "string"
+                    ],
+                    "burstable_performance": "string",
+                    "cores": "number",
+                    "excluded_instance_types": [
+                      "list",
+                      "string"
+                    ],
+                    "instance_family_level": "string",
+                    "max_price": "number",
+                    "memory": "number"
+                  }
+                ]
+              ],
               "instance_type": "string",
               "internet_charge_type": "string",
               "internet_max_bandwidth_in": "number",

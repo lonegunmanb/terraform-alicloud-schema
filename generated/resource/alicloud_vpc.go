@@ -30,6 +30,12 @@ const alicloudVpc = `{
         "optional": true,
         "type": "string"
       },
+      "dns_hostname_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "dry_run": {
         "description_kind": "plain",
         "optional": true,
@@ -45,6 +51,11 @@ const alicloudVpc = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "ipv4_cidr_mask": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "ipv4_ipam_pool_id": {
         "description_kind": "plain",
@@ -88,6 +99,11 @@ const alicloudVpc = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -119,6 +135,11 @@ const alicloudVpc = `{
           "list",
           "string"
         ]
+      },
+      "secondary_cidr_mask": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "status": {
         "computed": true,

@@ -24,6 +24,12 @@ const alicloudSchedulerxNamespace = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "namespace_uid": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -35,7 +41,7 @@ const alicloudSchedulerxNamespace = `{
               "optional": true,
               "type": "string"
             },
-            "update": {
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

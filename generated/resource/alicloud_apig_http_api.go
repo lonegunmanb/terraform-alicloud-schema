@@ -6,50 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcPeerConnectionAccepter = `{
+const alicloudApigHttpApi = `{
   "block": {
     "attributes": {
-      "accepting_owner_uid": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "accepting_region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "accepting_vpc_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "bandwidth": {
-        "computed": true,
+      "base_path": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
       "description": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "dry_run": {
+      "http_api_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "force_delete": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -57,27 +30,13 @@ const alicloudVpcPeerConnectionAccepter = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "protocols": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "link_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "peer_connection_accepter_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "resource_group_id": {
         "computed": true,
@@ -85,14 +44,9 @@ const alicloudVpcPeerConnectionAccepter = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "type": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "vpc_id": {
-        "computed": true,
-        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -126,8 +80,8 @@ const alicloudVpcPeerConnectionAccepter = `{
   "version": 0
 }`
 
-func AlicloudVpcPeerConnectionAccepterSchema() *tfjson.Schema {
+func AlicloudApigHttpApiSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcPeerConnectionAccepter), &result)
+	_ = json.Unmarshal([]byte(alicloudApigHttpApi), &result)
 	return &result
 }

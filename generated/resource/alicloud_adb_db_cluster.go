@@ -99,6 +99,12 @@ const alicloudAdbDbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "kernel_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "kms_id": {
         "description_kind": "plain",
         "optional": true,
@@ -168,6 +174,11 @@ const alicloudAdbDbCluster = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "switch_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "tags": {
         "description_kind": "plain",

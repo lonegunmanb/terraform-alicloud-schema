@@ -50,6 +50,7 @@ const alicloudCloudFirewallInstance = `{
         "type": "string"
       },
       "fw_vpc_number": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

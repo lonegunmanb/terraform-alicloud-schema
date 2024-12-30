@@ -18,6 +18,7 @@ const alicloudWafv3Instances = `{
       "ids": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": [
           "list",
           "string"

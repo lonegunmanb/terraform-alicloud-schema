@@ -32,6 +32,11 @@ const alicloudEssNotification = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "time_zone": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "description_kind": "plain"

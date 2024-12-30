@@ -57,10 +57,21 @@ const alicloudVpcPeerConnection = `{
         "optional": true,
         "type": "string"
       },
+      "link_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "peer_connection_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_id": {

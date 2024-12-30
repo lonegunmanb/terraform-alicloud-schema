@@ -6,33 +6,42 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCrEeInstance = `{
+const alicloudSchedulerxAppGroup = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "app_name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "created_time": {
-        "computed": true,
-        "deprecated": true,
+      "app_type": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "custom_oss_bucket": {
+      "app_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "default_oss_bucket": {
+      "delete_jobs": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "end_time": {
-        "computed": true,
+      "enable_log": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "group_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -41,100 +50,45 @@ const alicloudCrEeInstance = `{
         "optional": true,
         "type": "string"
       },
-      "image_scanner": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "instance_endpoints": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "domains": [
-                "list",
-                [
-                  "object",
-                  {
-                    "domain": "string",
-                    "type": "string"
-                  }
-                ]
-              ],
-              "enable": "bool",
-              "endpoint_type": "string"
-            }
-          ]
-        ]
-      },
-      "instance_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "instance_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "kms_encrypted_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "kms_encryption_context": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "period": {
+      "max_concurrency": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "renew_period": {
+      "max_jobs": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "renewal_status": {
-        "computed": true,
+      "monitor_config_json": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
+      "monitor_contacts_json": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "namespace": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
+      },
+      "namespace_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "namespace_source": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "schedule_busy_workers": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {
@@ -167,8 +121,8 @@ const alicloudCrEeInstance = `{
   "version": 0
 }`
 
-func AlicloudCrEeInstanceSchema() *tfjson.Schema {
+func AlicloudSchedulerxAppGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCrEeInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudSchedulerxAppGroup), &result)
 	return &result
 }

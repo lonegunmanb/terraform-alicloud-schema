@@ -77,6 +77,7 @@ const alicloudEcsDisks = `{
               "enable_auto_snapshot": "bool",
               "enable_automated_snapshot_policy": "bool",
               "encrypted": "string",
+              "expiration_time": "string",
               "expired_time": "string",
               "id": "string",
               "image_id": "string",

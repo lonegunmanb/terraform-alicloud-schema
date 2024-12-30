@@ -6,23 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerControlPolicyAttachment = `{
+const alicloudOssBucketWorm = `{
   "block": {
     "attributes": {
+      "bucket": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_id": {
+      "retention_period_in_days": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "number"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "target_id": {
+      "worm_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -39,6 +55,11 @@ const alicloudResourceManagerControlPolicyAttachment = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -51,8 +72,8 @@ const alicloudResourceManagerControlPolicyAttachment = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerControlPolicyAttachmentSchema() *tfjson.Schema {
+func AlicloudOssBucketWormSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerControlPolicyAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketWorm), &result)
 	return &result
 }

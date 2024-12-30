@@ -35,6 +35,17 @@ const alicloudKmsKey = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "deletion_protection": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "deletion_protection_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "deletion_window_in_days": {
         "deprecated": true,
         "description_kind": "plain",

@@ -18,6 +18,17 @@ const alicloudAdbClusters = `{
             "object",
             {
               "auto_renew_period": "number",
+              "available_kernel_versions": [
+                "list",
+                [
+                  "object",
+                  {
+                    "expire_date": "string",
+                    "kernel_version": "string",
+                    "release_date": "string"
+                  }
+                ]
+              ],
               "charge_type": "string",
               "commodity_code": "string",
               "compute_resource": "string",
@@ -41,6 +52,7 @@ const alicloudAdbClusters = `{
               "expire_time": "string",
               "expired": "string",
               "id": "string",
+              "kernel_version": "string",
               "lock_mode": "string",
               "lock_reason": "string",
               "maintain_time": "string",
