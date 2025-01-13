@@ -25,6 +25,12 @@ const alicloudMongodbAccount = `{
         "sensitive": true,
         "type": "string"
       },
+      "character_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -47,6 +53,11 @@ const alicloudMongodbAccount = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

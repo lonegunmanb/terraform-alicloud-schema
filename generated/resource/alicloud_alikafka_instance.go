@@ -15,6 +15,12 @@ const alicloudAlikafkaInstance = `{
         "optional": true,
         "type": "string"
       },
+      "default_topic_partition_num": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "deploy_type": {
         "description_kind": "plain",
         "required": true,
@@ -40,6 +46,17 @@ const alicloudAlikafkaInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "enable_auto_group": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "enable_auto_topic": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "end_point": {
         "computed": true,
@@ -201,6 +218,15 @@ const alicloudAlikafkaInstance = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "vswitch_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "zone_id": {
         "computed": true,

@@ -45,6 +45,7 @@ const alicloudYundunBastionhostInstances = `{
           [
             "object",
             {
+              "bandwidth": "string",
               "description": "string",
               "id": "string",
               "instance_status": "string",
@@ -56,6 +57,7 @@ const alicloudYundunBastionhostInstances = `{
                 "list",
                 "string"
               ],
+              "storage": "string",
               "tags": [
                 "map",
                 "string"

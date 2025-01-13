@@ -38,6 +38,11 @@ const alicloudFcFunction = `{
         "optional": true,
         "type": "string"
       },
+      "function_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "function_id": {
         "computed": true,
         "description_kind": "plain",

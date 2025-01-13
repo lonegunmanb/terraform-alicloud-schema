@@ -45,6 +45,7 @@ const alicloudBastionhostInstances = `{
           [
             "object",
             {
+              "bandwidth": "string",
               "description": "string",
               "id": "string",
               "instance_status": "string",
@@ -56,6 +57,7 @@ const alicloudBastionhostInstances = `{
                 "list",
                 "string"
               ],
+              "storage": "string",
               "tags": [
                 "map",
                 "string"

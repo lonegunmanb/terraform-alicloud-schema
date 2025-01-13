@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceQueue = `{
+const alicloudDataWorksNetwork = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,11 +14,10 @@ const alicloudMessageServiceQueue = `{
         "description_kind": "plain",
         "type": "number"
       },
-      "delay_seconds": {
-        "computed": true,
+      "dw_resource_group_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -26,47 +25,20 @@ const alicloudMessageServiceQueue = `{
         "optional": true,
         "type": "string"
       },
-      "logging_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "maximum_message_size": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "message_retention_period": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "polling_wait_seconds": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "queue_name": {
+      "vpc_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "vswitch_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "visibility_timeout": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -82,11 +54,6 @@ const alicloudMessageServiceQueue = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -99,8 +66,8 @@ const alicloudMessageServiceQueue = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceQueueSchema() *tfjson.Schema {
+func AlicloudDataWorksNetworkSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceQueue), &result)
+	_ = json.Unmarshal([]byte(alicloudDataWorksNetwork), &result)
 	return &result
 }

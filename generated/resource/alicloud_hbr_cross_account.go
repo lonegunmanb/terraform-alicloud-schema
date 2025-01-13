@@ -6,60 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudImsOidcProvider = `{
+const alicloudHbrCrossAccount = `{
   "block": {
     "attributes": {
-      "arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "client_ids": {
+      "alias": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
+        "type": "number"
+      },
+      "cross_account_role_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "description": {
+      "cross_account_user_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "fingerprints": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "required": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "issuance_limit_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "issuer_url": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "oidc_provider_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -76,11 +49,6 @@ const alicloudImsOidcProvider = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -93,8 +61,8 @@ const alicloudImsOidcProvider = `{
   "version": 0
 }`
 
-func AlicloudImsOidcProviderSchema() *tfjson.Schema {
+func AlicloudHbrCrossAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudImsOidcProvider), &result)
+	_ = json.Unmarshal([]byte(alicloudHbrCrossAccount), &result)
 	return &result
 }

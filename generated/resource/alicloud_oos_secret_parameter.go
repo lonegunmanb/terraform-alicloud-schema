@@ -14,7 +14,17 @@ const alicloudOosSecretParameter = `{
         "optional": true,
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dkms_instance_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -42,6 +52,7 @@ const alicloudOosSecretParameter = `{
         "type": "string"
       },
       "tags": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -60,6 +71,31 @@ const alicloudOosSecretParameter = `{
         "required": true,
         "sensitive": true,
         "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

@@ -9,6 +9,17 @@ import (
 const alicloudMessageServiceTopic = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "enable_logging": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -16,6 +27,8 @@ const alicloudMessageServiceTopic = `{
         "type": "string"
       },
       "logging_enabled": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -25,6 +38,14 @@ const alicloudMessageServiceTopic = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "topic_name": {
         "description_kind": "plain",

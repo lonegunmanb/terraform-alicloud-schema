@@ -6,28 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAlbAscript = `{
+const alicloudCloudControlResource = `{
   "block": {
     "attributes": {
-      "ascript_name": {
+      "desire_attributes": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "sensitive": true,
         "type": "string"
-      },
-      "dry_run": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "ext_attribute_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -35,46 +21,29 @@ const alicloudAlbAscript = `{
         "optional": true,
         "type": "string"
       },
-      "listener_id": {
+      "product": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "position": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "script_content": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
+      "resource_attributes": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "resource_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "ext_attributes": {
-        "block": {
-          "attributes": {
-            "attribute_key": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "attribute_value": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -104,8 +73,8 @@ const alicloudAlbAscript = `{
   "version": 0
 }`
 
-func AlicloudAlbAscriptSchema() *tfjson.Schema {
+func AlicloudCloudControlResourceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAlbAscript), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudControlResource), &result)
 	return &result
 }

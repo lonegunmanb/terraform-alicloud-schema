@@ -150,7 +150,7 @@ const alicloudBastionhostInstance = `{
             },
             "password": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "sensitive": true,
               "type": "string"
             },
@@ -219,7 +219,7 @@ const alicloudBastionhostInstance = `{
             },
             "password": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "sensitive": true,
               "type": "string"
             },

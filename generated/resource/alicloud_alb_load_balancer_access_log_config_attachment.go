@@ -6,39 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudImsOidcProvider = `{
+const alicloudAlbLoadBalancerAccessLogConfigAttachment = `{
   "block": {
     "attributes": {
-      "arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "client_ids": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "fingerprints": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -46,18 +20,17 @@ const alicloudImsOidcProvider = `{
         "optional": true,
         "type": "string"
       },
-      "issuance_limit_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "issuer_url": {
+      "load_balancer_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "oidc_provider_name": {
+      "log_project": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "log_store": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -76,11 +49,6 @@ const alicloudImsOidcProvider = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -93,8 +61,8 @@ const alicloudImsOidcProvider = `{
   "version": 0
 }`
 
-func AlicloudImsOidcProviderSchema() *tfjson.Schema {
+func AlicloudAlbLoadBalancerAccessLogConfigAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudImsOidcProvider), &result)
+	_ = json.Unmarshal([]byte(alicloudAlbLoadBalancerAccessLogConfigAttachment), &result)
 	return &result
 }

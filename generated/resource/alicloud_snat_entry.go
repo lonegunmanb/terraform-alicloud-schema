@@ -9,6 +9,11 @@ import (
 const alicloudSnatEntry = `{
   "block": {
     "attributes": {
+      "eip_affinity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

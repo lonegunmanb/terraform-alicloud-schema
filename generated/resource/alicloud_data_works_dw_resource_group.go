@@ -6,28 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAlbAscript = `{
+const alicloudDataWorksDwResourceGroup = `{
   "block": {
     "attributes": {
-      "ascript_name": {
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "default_vpc_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "dry_run": {
+      "default_vswitch_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "ext_attribute_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -35,46 +35,58 @@ const alicloudAlbAscript = `{
         "optional": true,
         "type": "string"
       },
-      "listener_id": {
+      "payment_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "payment_duration_unit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "remark": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "position": {
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "script_content": {
+      "resource_group_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      },
+      "specification": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "ext_attributes": {
-        "block": {
-          "attributes": {
-            "attribute_key": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "attribute_value": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -104,8 +116,8 @@ const alicloudAlbAscript = `{
   "version": 0
 }`
 
-func AlicloudAlbAscriptSchema() *tfjson.Schema {
+func AlicloudDataWorksDwResourceGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAlbAscript), &result)
+	_ = json.Unmarshal([]byte(alicloudDataWorksDwResourceGroup), &result)
 	return &result
 }

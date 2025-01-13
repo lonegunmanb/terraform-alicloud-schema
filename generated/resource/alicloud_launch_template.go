@@ -26,6 +26,12 @@ const alicloudLaunchTemplate = `{
         "optional": true,
         "type": "number"
       },
+      "default_version_number": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "deployment_set_id": {
         "description_kind": "plain",
         "optional": true,
@@ -120,6 +126,11 @@ const alicloudLaunchTemplate = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "latest_version_number": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       },
       "launch_template_name": {
         "computed": true,
@@ -252,6 +263,11 @@ const alicloudLaunchTemplate = `{
           "map",
           "string"
         ]
+      },
+      "update_default_version_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "user_data": {
         "computed": true,

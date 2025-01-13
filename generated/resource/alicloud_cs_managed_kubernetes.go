@@ -179,6 +179,7 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "load_balancer_spec": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
@@ -373,6 +374,7 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "vswitch_ids": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -472,8 +474,9 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "worker_vswitch_ids": {
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "list",
           "string"
