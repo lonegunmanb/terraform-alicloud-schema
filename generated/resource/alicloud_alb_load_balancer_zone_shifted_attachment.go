@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterMulticastDomain = `{
+const alicloudAlbLoadBalancerZoneShiftedAttachment = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,9 +15,9 @@ const alicloudCenTransitRouterMulticastDomain = `{
         "optional": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
+      "load_balancer_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "status": {
@@ -25,46 +25,18 @@ const alicloudCenTransitRouterMulticastDomain = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transit_router_id": {
+      "vswitch_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "transit_router_multicast_domain_description": {
+      "zone_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_multicast_domain_name": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "options": {
-        "block": {
-          "attributes": {
-            "igmpv2_support": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -74,11 +46,6 @@ const alicloudCenTransitRouterMulticastDomain = `{
               "type": "string"
             },
             "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -94,8 +61,8 @@ const alicloudCenTransitRouterMulticastDomain = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterMulticastDomainSchema() *tfjson.Schema {
+func AlicloudAlbLoadBalancerZoneShiftedAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterMulticastDomain), &result)
+	_ = json.Unmarshal([]byte(alicloudAlbLoadBalancerZoneShiftedAttachment), &result)
 	return &result
 }

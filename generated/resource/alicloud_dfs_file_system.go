@@ -55,6 +55,11 @@ const alicloudDfsFileSystem = `{
         "optional": true,
         "type": "number"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "space_capacity": {
         "description_kind": "plain",
         "required": true,

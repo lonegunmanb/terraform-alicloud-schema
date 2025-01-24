@@ -19,15 +19,21 @@ const alicloudEssScalingGroups = `{
             {
               "active_capacity": "number",
               "active_scaling_configuration": "string",
+              "allocation_strategy": "string",
+              "az_balance": "bool",
               "cooldown_time": "number",
               "creation_time": "string",
               "db_instance_ids": [
                 "list",
                 "string"
               ],
+              "desired_capacity": "number",
+              "enable_desired_capacity": "bool",
               "group_deletion_protection": "bool",
+              "group_type": "string",
               "health_check_type": "string",
               "id": "string",
+              "init_capacity": "number",
               "launch_template_id": "string",
               "launch_template_version": "string",
               "lifecycle_state": "string",
@@ -35,21 +41,39 @@ const alicloudEssScalingGroups = `{
                 "list",
                 "string"
               ],
+              "max_instance_lifetime": "number",
               "max_size": "number",
               "min_size": "number",
               "modification_time": "string",
+              "monitor_group_id": "string",
+              "multi_az_policy": "string",
               "name": "string",
+              "on_demand_base_capacity": "number",
+              "on_demand_percentage_above_base_capacity": "number",
               "pending_capacity": "number",
+              "pending_wait_capacity": "number",
+              "protected_capacity": "number",
               "region_id": "string",
               "removal_policies": [
                 "list",
                 "string"
               ],
               "removing_capacity": "number",
+              "removing_wait_capacity": "number",
+              "resource_group_id": "string",
+              "scaling_policy": "string",
+              "spot_allocation_strategy": "string",
+              "spot_capacity": "number",
+              "spot_instance_pools": "number",
+              "spot_instance_remedy": "bool",
+              "standby_capacity": "number",
+              "stop_instance_timeout": "number",
+              "stopped_capacity": "number",
               "suspended_processes": [
                 "list",
                 "string"
               ],
+              "system_suspended": "bool",
               "tags": [
                 "map",
                 "string"

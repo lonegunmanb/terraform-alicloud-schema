@@ -10,7 +10,11 @@ const alicloudAlbListener = `{
   "block": {
     "attributes": {
       "access_log_record_customized_headers_enabled": {
-        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "ca_enabled": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -97,7 +101,7 @@ const alicloudAlbListener = `{
           "attributes": {
             "tracing_enabled": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "bool"
             },
             "tracing_sample": {
@@ -114,7 +118,7 @@ const alicloudAlbListener = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "acl_config": {
         "block": {
@@ -153,6 +157,19 @@ const alicloudAlbListener = `{
         "max_items": 1,
         "nesting_mode": "set"
       },
+      "ca_certificates": {
+        "block": {
+          "attributes": {
+            "certificate_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "certificates": {
         "block": {
           "attributes": {
@@ -164,8 +181,7 @@ const alicloudAlbListener = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "default_actions": {
         "block": {
@@ -192,19 +208,19 @@ const alicloudAlbListener = `{
                       "description_kind": "plain"
                     },
                     "min_items": 1,
-                    "nesting_mode": "set"
+                    "nesting_mode": "list"
                   }
                 },
                 "description_kind": "plain"
               },
               "max_items": 1,
-              "min_items": 1,
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "min_items": 1,
+        "nesting_mode": "list"
       },
       "quic_config": {
         "block": {
@@ -224,7 +240,7 @@ const alicloudAlbListener = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -318,6 +334,17 @@ const alicloudAlbListener = `{
               "optional": true,
               "type": "bool"
             },
+            "x_forwarded_for_host_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "x_forwarded_for_processing_mode": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "x_forwarded_for_proto_enabled": {
               "computed": true,
               "description_kind": "plain",
@@ -340,7 +367,7 @@ const alicloudAlbListener = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "xforwarded_for_config": {
         "block": {

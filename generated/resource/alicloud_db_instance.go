@@ -37,6 +37,11 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "bursting_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "ca_type": {
         "computed": true,
         "description_kind": "plain",

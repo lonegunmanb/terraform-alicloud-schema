@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterMulticastDomain = `{
+const alicloudMaxComputeTunnelQuotaTimer = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,55 +15,56 @@ const alicloudCenTransitRouterMulticastDomain = `{
         "optional": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transit_router_id": {
+      "nickname": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "transit_router_multicast_domain_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_multicast_domain_name": {
+      "time_zone": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "options": {
+      "quota_timer": {
         "block": {
           "attributes": {
-            "igmpv2_support": {
-              "computed": true,
+            "begin_time": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
+            },
+            "end_time": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "tunnel_quota_parameter": {
+              "block": {
+                "attributes": {
+                  "elastic_reserved_slot_num": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  },
+                  "slot_num": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {
@@ -94,8 +95,8 @@ const alicloudCenTransitRouterMulticastDomain = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterMulticastDomainSchema() *tfjson.Schema {
+func AlicloudMaxComputeTunnelQuotaTimerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterMulticastDomain), &result)
+	_ = json.Unmarshal([]byte(alicloudMaxComputeTunnelQuotaTimer), &result)
 	return &result
 }

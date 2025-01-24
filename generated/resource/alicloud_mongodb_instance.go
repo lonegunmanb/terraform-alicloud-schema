@@ -190,7 +190,7 @@ const alicloudMongodbInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": [
-          "set",
+          "list",
           [
             "object",
             {

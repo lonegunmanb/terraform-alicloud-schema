@@ -143,6 +143,14 @@ const alicloudFcv3Function = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "timeout": {
         "computed": true,
         "description_kind": "plain",

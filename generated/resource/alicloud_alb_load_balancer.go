@@ -26,7 +26,6 @@ const alicloudAlbLoadBalancer = `{
         "type": "string"
       },
       "bandwidth_package_id": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -37,6 +36,7 @@ const alicloudAlbLoadBalancer = `{
         "type": "string"
       },
       "deletion_protection_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -73,6 +73,11 @@ const alicloudAlbLoadBalancer = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -103,13 +108,15 @@ const alicloudAlbLoadBalancer = `{
         "block": {
           "attributes": {
             "log_project": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "log_store": {
+              "computed": true,
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },
@@ -117,6 +124,25 @@ const alicloudAlbLoadBalancer = `{
         },
         "max_items": 1,
         "nesting_mode": "set"
+      },
+      "deletion_protection_config": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "enabled_time": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       },
       "load_balancer_billing_config": {
         "block": {
@@ -131,19 +157,17 @@ const alicloudAlbLoadBalancer = `{
         },
         "max_items": 1,
         "min_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "modification_protection_config": {
         "block": {
           "attributes": {
             "reason": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "status": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -152,7 +176,7 @@ const alicloudAlbLoadBalancer = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {

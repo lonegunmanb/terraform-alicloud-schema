@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterMulticastDomain = `{
+const alicloudMaxComputeQuotaSchedule = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,55 +15,51 @@ const alicloudCenTransitRouterMulticastDomain = `{
         "optional": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transit_router_id": {
+      "nickname": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "transit_router_multicast_domain_description": {
+      "timezone": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_multicast_domain_name": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "options": {
+      "schedule_list": {
         "block": {
           "attributes": {
-            "igmpv2_support": {
-              "computed": true,
+            "plan": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "condition": {
+              "block": {
+                "attributes": {
+                  "at": {
+                    "description_kind": "plain",
+                    "required": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {
@@ -94,8 +90,8 @@ const alicloudCenTransitRouterMulticastDomain = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterMulticastDomainSchema() *tfjson.Schema {
+func AlicloudMaxComputeQuotaScheduleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterMulticastDomain), &result)
+	_ = json.Unmarshal([]byte(alicloudMaxComputeQuotaSchedule), &result)
 	return &result
 }

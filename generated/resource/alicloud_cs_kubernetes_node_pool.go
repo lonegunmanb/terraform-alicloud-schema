@@ -221,6 +221,12 @@ const alicloudCsKubernetesNodePool = `{
         "optional": true,
         "type": "string"
       },
+      "ram_role_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "rds_instances": {
         "description_kind": "plain",
         "optional": true,
@@ -483,12 +489,40 @@ const alicloudCsKubernetesNodePool = `{
                 "string"
               ]
             },
+            "cluster_dns": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "container_log_max_files": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "container_log_max_size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "container_log_max_workers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "container_log_monitor_interval": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "cpu_cfs_quota": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "cpu_cfs_quota_period": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -540,6 +574,16 @@ const alicloudCsKubernetesNodePool = `{
                 "bool"
               ]
             },
+            "image_gc_high_threshold_percent": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "image_gc_low_threshold_percent": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "kube_api_burst": {
               "description_kind": "plain",
               "optional": true,
@@ -559,6 +603,16 @@ const alicloudCsKubernetesNodePool = `{
               ]
             },
             "max_pods": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "memory_manager_policy": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "pod_pids_limit": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -590,6 +644,53 @@ const alicloudCsKubernetesNodePool = `{
                 "map",
                 "string"
               ]
+            },
+            "topology_manager_policy": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "reserved_memory": {
+              "block": {
+                "attributes": {
+                  "limits": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "map",
+                      "string"
+                    ]
+                  },
+                  "numa_node": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "tracing": {
+              "block": {
+                "attributes": {
+                  "endpoint": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "sampling_rate_per_million": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

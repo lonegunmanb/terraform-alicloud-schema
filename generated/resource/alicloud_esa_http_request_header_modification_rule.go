@@ -6,55 +6,61 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterMulticastDomain = `{
+const alicloudEsaHttpRequestHeaderModificationRule = `{
   "block": {
     "attributes": {
+      "config_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
+      "rule": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "transit_router_id": {
+      "rule_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "transit_router_multicast_domain_description": {
+      "site_version": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "transit_router_multicast_domain_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
-      "options": {
+      "request_header_modification": {
         "block": {
           "attributes": {
-            "igmpv2_support": {
-              "computed": true,
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "operation": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -62,7 +68,7 @@ const alicloudCenTransitRouterMulticastDomain = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -94,8 +100,8 @@ const alicloudCenTransitRouterMulticastDomain = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterMulticastDomainSchema() *tfjson.Schema {
+func AlicloudEsaHttpRequestHeaderModificationRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterMulticastDomain), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaHttpRequestHeaderModificationRule), &result)
 	return &result
 }

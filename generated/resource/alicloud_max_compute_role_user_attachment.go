@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcIpv4CidrBlock = `{
+const alicloudMaxComputeRoleUserAttachment = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,30 +15,20 @@ const alicloudVpcIpv4CidrBlock = `{
         "optional": true,
         "type": "string"
       },
-      "ipv4_ipam_pool_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "secondary_cidr_block": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "secondary_cidr_mask": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "vpc_id": {
+      "project_name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "role_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "user": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -55,11 +45,6 @@ const alicloudVpcIpv4CidrBlock = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -72,8 +57,8 @@ const alicloudVpcIpv4CidrBlock = `{
   "version": 0
 }`
 
-func AlicloudVpcIpv4CidrBlockSchema() *tfjson.Schema {
+func AlicloudMaxComputeRoleUserAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcIpv4CidrBlock), &result)
+	_ = json.Unmarshal([]byte(alicloudMaxComputeRoleUserAttachment), &result)
 	return &result
 }

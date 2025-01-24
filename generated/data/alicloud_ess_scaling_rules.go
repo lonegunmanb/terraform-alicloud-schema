@@ -54,10 +54,17 @@ const alicloudEssScalingRules = `{
               "adjustment_value": "number",
               "cooldown": "number",
               "id": "string",
+              "initial_max_size": "number",
+              "metric_name": "string",
               "min_adjustment_magnitude": "number",
               "name": "string",
+              "predictive_scaling_mode": "string",
+              "predictive_task_buffer_time": "number",
+              "predictive_value_behavior": "string",
+              "predictive_value_buffer": "number",
               "scaling_group_id": "string",
               "scaling_rule_ari": "string",
+              "target_value": "number",
               "type": "string"
             }
           ]

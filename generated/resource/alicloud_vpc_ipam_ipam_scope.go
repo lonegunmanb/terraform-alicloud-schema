@@ -45,6 +45,12 @@ const alicloudVpcIpamIpamScope = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

@@ -9,10 +9,21 @@ import (
 const alicloudAlbServerGroup = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "cross_zone_enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "health_check_template_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -62,6 +73,11 @@ const alicloudAlbServerGroup = `{
           "string"
         ]
       },
+      "upstream_keepalive_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "vpc_id": {
         "description_kind": "plain",
         "optional": true,
@@ -69,6 +85,27 @@ const alicloudAlbServerGroup = `{
       }
     },
     "block_types": {
+      "connection_drain_config": {
+        "block": {
+          "attributes": {
+            "connection_drain_enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "connection_drain_timeout": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "health_check_config": {
         "block": {
           "attributes": {
@@ -172,6 +209,11 @@ const alicloudAlbServerGroup = `{
               "optional": true,
               "type": "bool"
             },
+            "server_group_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
             "server_id": {
               "description_kind": "plain",
               "required": true,
@@ -194,6 +236,7 @@ const alicloudAlbServerGroup = `{
               "type": "string"
             },
             "weight": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -202,6 +245,27 @@ const alicloudAlbServerGroup = `{
           "description_kind": "plain"
         },
         "nesting_mode": "set"
+      },
+      "slow_start_config": {
+        "block": {
+          "attributes": {
+            "slow_start_duration": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "slow_start_enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       },
       "sticky_session_config": {
         "block": {
@@ -233,7 +297,7 @@ const alicloudAlbServerGroup = `{
           "description_kind": "plain"
         },
         "max_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -257,6 +321,25 @@ const alicloudAlbServerGroup = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "uch_config": {
+        "block": {
+          "attributes": {
+            "type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

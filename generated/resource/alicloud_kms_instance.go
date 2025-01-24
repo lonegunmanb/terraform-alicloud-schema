@@ -112,7 +112,7 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "required": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
@@ -120,7 +120,7 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "required": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       }

@@ -51,6 +51,11 @@ const alicloudMaxcomputeProject = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
