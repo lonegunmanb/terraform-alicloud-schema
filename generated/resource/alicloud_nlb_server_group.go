@@ -58,6 +58,11 @@ const alicloudNlbServerGroup = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -128,6 +133,11 @@ const alicloudNlbServerGroup = `{
               "optional": true,
               "type": "bool"
             },
+            "health_check_exp": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "health_check_http_code": {
               "computed": true,
               "description_kind": "plain",
@@ -142,6 +152,11 @@ const alicloudNlbServerGroup = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "health_check_req": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             },
             "health_check_type": {
               "computed": true,

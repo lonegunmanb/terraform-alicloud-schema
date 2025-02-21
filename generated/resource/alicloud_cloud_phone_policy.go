@@ -6,12 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudHbrPolicy = `{
+const alicloudCloudPhonePolicy = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "camera_redirect": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "clipboard": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,96 +27,76 @@ const alicloudHbrPolicy = `{
         "optional": true,
         "type": "string"
       },
-      "policy_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_type": {
+      "lock_resolution": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "policy_group_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resolution_height": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "resolution_width": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
-      "rules": {
+      "net_redirect_policy": {
         "block": {
           "attributes": {
-            "archive_days": {
+            "custom_proxy": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
-              "type": "number"
+              "type": "string"
             },
-            "backup_type": {
+            "host_addr": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "keep_latest_snapshots": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "replication_region_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "retention": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "rule_id": {
+            "net_redirect": {
               "computed": true,
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
-            "rule_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "schedule": {
+            "port": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "vault_id": {
+            "proxy_password": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            }
-          },
-          "block_types": {
-            "retention_rules": {
-              "block": {
-                "attributes": {
-                  "advanced_retention_type": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "retention": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "number"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "list"
+            },
+            "proxy_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "proxy_user_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -141,8 +128,8 @@ const alicloudHbrPolicy = `{
   "version": 0
 }`
 
-func AlicloudHbrPolicySchema() *tfjson.Schema {
+func AlicloudCloudPhonePolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudHbrPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudPhonePolicy), &result)
 	return &result
 }

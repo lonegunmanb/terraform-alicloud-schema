@@ -20,6 +20,11 @@ const alicloudAlbServerGroup = `{
         "optional": true,
         "type": "bool"
       },
+      "dry_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "health_check_template_id": {
         "description_kind": "plain",
         "optional": true,
@@ -30,6 +35,11 @@ const alicloudAlbServerGroup = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "ipv6_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "protocol": {
         "computed": true,
@@ -56,6 +66,11 @@ const alicloudAlbServerGroup = `{
       },
       "server_group_type": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "service_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

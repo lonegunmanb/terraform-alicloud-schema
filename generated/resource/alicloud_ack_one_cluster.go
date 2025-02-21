@@ -9,6 +9,12 @@ import (
 const alicloudAckOneCluster = `{
   "block": {
     "attributes": {
+      "argocd_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "cluster_name": {
         "computed": true,
         "description_kind": "plain",
@@ -79,6 +85,11 @@ const alicloudAckOneCluster = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

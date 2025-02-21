@@ -149,6 +149,12 @@ const alicloudCsManagedKubernetes = `{
         "optional": true,
         "type": "bool"
       },
+      "ip_stack": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "is_enterprise_security_group": {
         "computed": true,
         "description_kind": "plain",

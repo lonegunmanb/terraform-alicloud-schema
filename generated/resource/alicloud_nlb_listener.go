@@ -95,6 +95,11 @@ const alicloudNlbListener = `{
         "optional": true,
         "type": "bool"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "sec_sensor_enabled": {
         "computed": true,
         "description_kind": "plain",
@@ -133,6 +138,31 @@ const alicloudNlbListener = `{
       }
     },
     "block_types": {
+      "proxy_protocol_config": {
+        "block": {
+          "attributes": {
+            "proxy_protocol_config_private_link_ep_id_enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "proxy_protocol_config_private_link_eps_id_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "proxy_protocol_config_vpc_id_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

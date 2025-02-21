@@ -204,6 +204,34 @@ const alicloudAlbLoadBalancer = `{
       "zone_mappings": {
         "block": {
           "attributes": {
+            "address": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "allocation_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "eip_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "intranet_address": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ipv6_address": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
             "load_balancer_addresses": {
               "computed": true,
               "description_kind": "plain",
@@ -215,7 +243,18 @@ const alicloudAlbLoadBalancer = `{
                     "address": "string",
                     "allocation_id": "string",
                     "eip_type": "string",
-                    "ipv6_address": "string"
+                    "intranet_address": "string",
+                    "intranet_address_hc_status": "string",
+                    "ipv4_local_addresses": [
+                      "list",
+                      "string"
+                    ],
+                    "ipv6_address": "string",
+                    "ipv6_address_hc_status": "string",
+                    "ipv6_local_addresses": [
+                      "list",
+                      "string"
+                    ]
                   }
                 ]
               ]

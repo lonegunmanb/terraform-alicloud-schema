@@ -6,38 +6,71 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudTagPolicy = `{
+const alicloudEsaHttpResponseHeaderModificationRule = `{
   "block": {
     "attributes": {
+      "config_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_content": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "policy_desc": {
+      "rule": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "user_type": {
-        "computed": true,
+      "rule_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "site_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
+      "response_header_modification": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "operation": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -67,8 +100,8 @@ const alicloudTagPolicy = `{
   "version": 0
 }`
 
-func AlicloudTagPolicySchema() *tfjson.Schema {
+func AlicloudEsaHttpResponseHeaderModificationRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudTagPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaHttpResponseHeaderModificationRule), &result)
 	return &result
 }

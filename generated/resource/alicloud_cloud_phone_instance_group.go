@@ -6,39 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcFlowLog = `{
+const alicloudCloudPhoneInstanceGroup = `{
   "block": {
     "attributes": {
-      "aggregation_interval": {
-        "computed": true,
+      "amount": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "auto_pay": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "charge_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "business_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
+      "gpu_acceleration": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "flow_log_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "flow_log_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -46,69 +40,49 @@ const alicloudVpcFlowLog = `{
         "optional": true,
         "type": "string"
       },
-      "ip_version": {
-        "computed": true,
+      "image_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "instance_group_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "log_store_name": {
+      "instance_group_spec": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "project_name": {
+      "number_of_instances": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
+      "office_site_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
+      "period": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "number"
+      },
+      "period_unit": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "resource_type": {
+      "policy_group_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "traffic_path": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "traffic_type": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -142,8 +116,8 @@ const alicloudVpcFlowLog = `{
   "version": 0
 }`
 
-func AlicloudVpcFlowLogSchema() *tfjson.Schema {
+func AlicloudCloudPhoneInstanceGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcFlowLog), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudPhoneInstanceGroup), &result)
 	return &result
 }

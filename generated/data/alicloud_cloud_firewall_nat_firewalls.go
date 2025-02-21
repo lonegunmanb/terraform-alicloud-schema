@@ -6,20 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPrivatelinkVpcEndpoints = `{
+const alicloudCloudFirewallNatFirewalls = `{
   "block": {
     "attributes": {
-      "connection_status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_details": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "endpoints": {
+      "firewalls": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -27,25 +17,26 @@ const alicloudPrivatelinkVpcEndpoints = `{
           [
             "object",
             {
-              "bandwidth": "number",
-              "connection_status": "string",
-              "endpoint_business_status": "string",
-              "endpoint_description": "string",
-              "endpoint_domain": "string",
-              "endpoint_id": "string",
+              "ali_uid": "number",
               "id": "string",
-              "security_group_ids": [
+              "member_uid": "number",
+              "nat_gateway_id": "string",
+              "nat_gateway_name": "string",
+              "nat_route_entry_list": [
                 "list",
-                "string"
+                [
+                  "object",
+                  {
+                    "destination_cidr": "string",
+                    "nexthop_id": "string",
+                    "nexthop_type": "string",
+                    "route_table_id": "string"
+                  }
+                ]
               ],
-              "service_id": "string",
-              "service_name": "string",
-              "status": "string",
-              "tags": [
-                "map",
-                "string"
-              ],
-              "vpc_endpoint_name": "string",
+              "proxy_id": "string",
+              "proxy_name": "string",
+              "strict_mode": "number",
               "vpc_id": "string"
             }
           ]
@@ -66,43 +57,52 @@ const alicloudPrivatelinkVpcEndpoints = `{
           "string"
         ]
       },
-      "name_regex": {
+      "lang": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "names": {
-        "computed": true,
+      "member_uid": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
+        "optional": true,
+        "type": "number"
+      },
+      "nat_gateway_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "output_file": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "service_name": {
+      "page_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "page_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "proxy_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "proxy_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_no": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_endpoint_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -118,8 +118,8 @@ const alicloudPrivatelinkVpcEndpoints = `{
   "version": 0
 }`
 
-func AlicloudPrivatelinkVpcEndpointsSchema() *tfjson.Schema {
+func AlicloudCloudFirewallNatFirewallsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPrivatelinkVpcEndpoints), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallNatFirewalls), &result)
 	return &result
 }

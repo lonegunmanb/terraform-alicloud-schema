@@ -20,11 +20,15 @@ const alicloudEcsDeploymentSet = `{
         "type": "string"
       },
       "domain": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "granularity": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -41,6 +45,7 @@ const alicloudEcsDeploymentSet = `{
         "type": "string"
       },
       "strategy": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

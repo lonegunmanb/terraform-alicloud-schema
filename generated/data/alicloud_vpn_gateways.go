@@ -45,6 +45,7 @@ const alicloudVpnGateways = `{
               "resource_group_id": "string",
               "specification": "string",
               "ssl_connections": "number",
+              "ssl_vpn": "string",
               "ssl_vpn_internet_ip": "string",
               "status": "string",
               "tags": [
@@ -92,6 +93,11 @@ const alicloudVpnGateways = `{
         ]
       },
       "output_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ssl_vpn": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -100,6 +100,7 @@ const alicloudCsManagedKubernetesClusters = `{
         ]
       },
       "kube_config_file_prefix": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

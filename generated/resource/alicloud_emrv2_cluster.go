@@ -261,6 +261,16 @@ const alicloudEmrv2Cluster = `{
               "required": true,
               "type": "string"
             },
+            "system_disk_encrypted": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "system_disk_kms_key_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "vpc_id": {
               "description_kind": "plain",
               "required": true,

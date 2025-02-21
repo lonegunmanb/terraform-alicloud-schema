@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudTagPolicy = `{
+const alicloudCloudPhoneKeyPair = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,23 +15,12 @@ const alicloudTagPolicy = `{
         "optional": true,
         "type": "string"
       },
-      "policy_content": {
+      "key_pair_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "policy_desc": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "user_type": {
-        "computed": true,
+      "public_key_body": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -67,8 +56,8 @@ const alicloudTagPolicy = `{
   "version": 0
 }`
 
-func AlicloudTagPolicySchema() *tfjson.Schema {
+func AlicloudCloudPhoneKeyPairSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudTagPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudPhoneKeyPair), &result)
 	return &result
 }

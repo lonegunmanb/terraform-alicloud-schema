@@ -9,6 +9,11 @@ import (
 const alicloudAlbLoadBalancerSecurityGroupAttachment = `{
   "block": {
     "attributes": {
+      "dry_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -37,6 +42,11 @@ const alicloudAlbLoadBalancerSecurityGroupAttachment = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

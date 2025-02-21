@@ -6,39 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcFlowLog = `{
+const alicloudEsaRedirectRule = `{
   "block": {
     "attributes": {
-      "aggregation_interval": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "business_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "flow_log_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "flow_log_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -46,67 +20,47 @@ const alicloudVpcFlowLog = `{
         "optional": true,
         "type": "string"
       },
-      "ip_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "log_store_name": {
+      "reserve_query_string": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "project_name": {
+      "rule": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "site_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "status_code": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_id": {
+      "target_url": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "traffic_path": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "traffic_type": {
+      "type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -142,8 +96,8 @@ const alicloudVpcFlowLog = `{
   "version": 0
 }`
 
-func AlicloudVpcFlowLogSchema() *tfjson.Schema {
+func AlicloudEsaRedirectRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcFlowLog), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaRedirectRule), &result)
 	return &result
 }

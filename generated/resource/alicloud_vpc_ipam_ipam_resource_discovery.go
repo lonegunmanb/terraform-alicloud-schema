@@ -6,38 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcFlowLog = `{
+const alicloudVpcIpamIpamResourceDiscovery = `{
   "block": {
     "attributes": {
-      "aggregation_interval": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "business_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "flow_log_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "flow_log_name": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -46,21 +20,23 @@ const alicloudVpcFlowLog = `{
         "optional": true,
         "type": "string"
       },
-      "ip_version": {
-        "computed": true,
+      "ipam_resource_discovery_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "log_store_name": {
+      "ipam_resource_discovery_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "project_name": {
+      "operating_region_list": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "region_id": {
         "computed": true,
@@ -73,20 +49,9 @@ const alicloudVpcFlowLog = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -96,20 +61,6 @@ const alicloudVpcFlowLog = `{
           "map",
           "string"
         ]
-      },
-      "traffic_path": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "traffic_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
@@ -142,8 +93,8 @@ const alicloudVpcFlowLog = `{
   "version": 0
 }`
 
-func AlicloudVpcFlowLogSchema() *tfjson.Schema {
+func AlicloudVpcIpamIpamResourceDiscoverySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcFlowLog), &result)
+	_ = json.Unmarshal([]byte(alicloudVpcIpamIpamResourceDiscovery), &result)
 	return &result
 }

@@ -6,31 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudTagPolicy = `{
+const alicloudCloudPhoneInstance = `{
   "block": {
     "attributes": {
+      "android_instance_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "android_instance_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_content": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "policy_desc": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "policy_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "user_type": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -67,8 +56,8 @@ const alicloudTagPolicy = `{
   "version": 0
 }`
 
-func AlicloudTagPolicySchema() *tfjson.Schema {
+func AlicloudCloudPhoneInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudTagPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudPhoneInstance), &result)
 	return &result
 }
