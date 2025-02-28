@@ -6,20 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudEsaNetworkOptimization = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
       },
-      "endpoint": {
+      "grpc": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "filter_tag": {
+      "http2_origin": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,54 +30,48 @@ const alicloudMessageServiceSubscription = `{
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
-        "computed": true,
+      "rule": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "notify_strategy": {
-        "computed": true,
+      "rule_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "push_type": {
+      "rule_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "subscription_name": {
+      "site_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "number"
+      },
+      "site_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "smart_routing": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "topic_name": {
+      "upload_max_filesize": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "websocket": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "dlq_policy": {
-        "block": {
-          "attributes": {
-            "dead_letter_target_queue": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +101,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudEsaNetworkOptimizationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaNetworkOptimization), &result)
 	return &result
 }

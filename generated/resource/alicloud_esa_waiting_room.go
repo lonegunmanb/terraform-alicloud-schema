@@ -6,20 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudEsaWaitingRoom = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "endpoint": {
+      "cookie_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "filter_tag": {
+      "custom_page_html": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "disable_session_renewal_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,52 +35,95 @@ const alicloudMessageServiceSubscription = `{
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
-        "computed": true,
+      "json_response_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "notify_strategy": {
-        "computed": true,
+      "language": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "push_type": {
+      "new_users_per_minute": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "subscription_name": {
+      "queue_all_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "queuing_method": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "topic_name": {
+      "queuing_status_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "session_duration": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "status": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "total_active_users": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "waiting_room_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "waiting_room_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "waiting_room_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "dlq_policy": {
+      "host_name_and_path": {
         "block": {
           "attributes": {
-            "dead_letter_target_queue": {
+            "domain": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
-            "enabled": {
+            "path": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
+              "required": true,
+              "type": "string"
+            },
+            "subdomain": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -107,8 +155,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudEsaWaitingRoomSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaWaitingRoom), &result)
 	return &result
 }

@@ -82,6 +82,11 @@ const alicloudApiGatewayInstance = `{
         "optional": true,
         "type": "string"
       },
+      "skip_wait_switch": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

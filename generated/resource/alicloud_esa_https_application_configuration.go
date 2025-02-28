@@ -6,20 +6,60 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudEsaHttpsApplicationConfiguration = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "alt_svc": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "alt_svc_clear": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "alt_svc_ma": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "alt_svc_persist": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
       },
-      "endpoint": {
+      "hsts": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "filter_tag": {
+      "hsts_include_subdomains": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hsts_max_age": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hsts_preload": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "https_force": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "https_force_code": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,54 +70,33 @@ const alicloudMessageServiceSubscription = `{
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
-        "computed": true,
+      "rule": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "notify_strategy": {
-        "computed": true,
+      "rule_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "push_type": {
+      "rule_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "subscription_name": {
+      "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "topic_name": {
+      "site_version": {
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
-      "dlq_policy": {
-        "block": {
-          "attributes": {
-            "dead_letter_target_queue": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +126,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudEsaHttpsApplicationConfigurationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaHttpsApplicationConfiguration), &result)
 	return &result
 }

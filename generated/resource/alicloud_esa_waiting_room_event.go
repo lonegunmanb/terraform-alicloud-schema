@@ -6,38 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaSite = `{
+const alicloudEsaWaitingRoomEvent = `{
   "block": {
     "attributes": {
-      "access_type": {
+      "custom_page_html": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "add_client_geolocation_header": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "add_real_client_ip_header": {
+      "disable_session_renewal_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "cache_architecture_mode": {
-        "computed": true,
+      "end_time": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "coverage": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -46,45 +35,91 @@ const alicloudEsaSite = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "json_response_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "language": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "new_users_per_minute": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "ipv6_enable": {
-        "computed": true,
+      "pre_queue_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
+      "pre_queue_start_time": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "site_name": {
+      "queuing_method": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "site_version": {
+      "queuing_status_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "random_pre_queue_enable": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "session_duration": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "number"
       },
-      "status": {
-        "computed": true,
+      "start_time": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "tags": {
+      "status": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "total_active_users": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "waiting_room_event_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "waiting_room_event_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "waiting_room_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "waiting_room_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -117,8 +152,8 @@ const alicloudEsaSite = `{
   "version": 0
 }`
 
-func AlicloudEsaSiteSchema() *tfjson.Schema {
+func AlicloudEsaWaitingRoomEventSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaSite), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaWaitingRoomEvent), &result)
 	return &result
 }

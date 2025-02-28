@@ -6,20 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudEsaOriginRule = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
       },
-      "endpoint": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "filter_tag": {
+      "dns_record": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,54 +25,63 @@ const alicloudMessageServiceSubscription = `{
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
-        "computed": true,
+      "origin_host": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "notify_strategy": {
-        "computed": true,
+      "origin_http_port": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "push_type": {
+      "origin_https_port": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "subscription_name": {
+      "origin_scheme": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "topic_name": {
+      "origin_sni": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "range": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
+      },
+      "site_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
-      "dlq_policy": {
-        "block": {
-          "attributes": {
-            "dead_letter_target_queue": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +111,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudEsaOriginRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaOriginRule), &result)
 	return &result
 }

@@ -6,78 +6,47 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudEsaWaitingRoomRule = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "endpoint": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "filter_tag": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
+      "rule": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "status": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "waiting_room_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "waiting_room_rule_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "notify_strategy": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "push_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "subscription_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "topic_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
-      "dlq_policy": {
-        "block": {
-          "attributes": {
-            "dead_letter_target_queue": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -107,8 +76,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudEsaWaitingRoomRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaWaitingRoomRule), &result)
 	return &result
 }

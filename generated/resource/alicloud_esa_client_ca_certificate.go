@@ -6,31 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaSite = `{
+const alicloudEsaClientCaCertificate = `{
   "block": {
     "attributes": {
-      "access_type": {
+      "certificate": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "add_client_geolocation_header": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "add_real_client_ip_header": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cache_architecture_mode": {
+      "client_ca_cert_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "coverage": {
+      "client_ca_cert_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -46,45 +35,15 @@ const alicloudEsaSite = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "ipv6_enable": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "site_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "site_version": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "number"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -100,11 +59,6 @@ const alicloudEsaSite = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -117,8 +71,8 @@ const alicloudEsaSite = `{
   "version": 0
 }`
 
-func AlicloudEsaSiteSchema() *tfjson.Schema {
+func AlicloudEsaClientCaCertificateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaSite), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaClientCaCertificate), &result)
 	return &result
 }

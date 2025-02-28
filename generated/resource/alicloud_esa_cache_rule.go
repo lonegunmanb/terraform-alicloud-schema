@@ -6,33 +6,68 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudPhoneInstanceGroup = `{
+const alicloudEsaCacheRule = `{
   "block": {
     "attributes": {
-      "amount": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "auto_pay": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "auto_renew": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "charge_type": {
+      "additional_cacheable_ports": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "gpu_acceleration": {
+      "browser_cache_mode": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "browser_cache_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "bypass_cache": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cache_deception_armor": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cache_reserve_eligibility": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cache_rule_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "check_presence_cookie": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "check_presence_header": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "edge_cache_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "edge_cache_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "edge_status_code_cache_ttl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -40,52 +75,72 @@ const alicloudCloudPhoneInstanceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "image_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "instance_group_name": {
+      "include_cookie": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "instance_group_spec": {
+      "include_header": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "number_of_instances": {
+      "query_string": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "query_string_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "serve_stale": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "site_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "office_site_id": {
+      "sort_query_string_for_cache": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "period_unit": {
+      "user_device_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "policy_group_id": {
+      "user_geo": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "vswitch_id": {
+      "user_language": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -121,8 +176,8 @@ const alicloudCloudPhoneInstanceGroup = `{
   "version": 0
 }`
 
-func AlicloudCloudPhoneInstanceGroupSchema() *tfjson.Schema {
+func AlicloudEsaCacheRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudPhoneInstanceGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaCacheRule), &result)
 	return &result
 }

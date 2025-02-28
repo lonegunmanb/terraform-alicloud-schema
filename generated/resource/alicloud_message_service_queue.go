@@ -70,6 +70,30 @@ const alicloudMessageServiceQueue = `{
       }
     },
     "block_types": {
+      "dlq_policy": {
+        "block": {
+          "attributes": {
+            "dead_letter_target_queue": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "max_receive_count": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
