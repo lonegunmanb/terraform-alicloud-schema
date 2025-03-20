@@ -24,7 +24,15 @@ const alicloudEbsDiskReplicaGroup = `{
         "required": true,
         "type": "string"
       },
+      "disk_replica_group_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "group_name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,8 +43,31 @@ const alicloudEbsDiskReplicaGroup = `{
         "optional": true,
         "type": "string"
       },
-      "rpo": {
+      "one_shot": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "pair_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "resource_group_id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "reverse_replicate": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "rpo": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -54,7 +85,16 @@ const alicloudEbsDiskReplicaGroup = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {

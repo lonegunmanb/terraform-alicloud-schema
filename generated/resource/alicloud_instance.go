@@ -450,6 +450,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "system_disk_kms_key_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

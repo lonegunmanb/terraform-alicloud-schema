@@ -6,28 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionAntiBruteForceRule = `{
+const alicloudOssBucketStyle = `{
   "block": {
     "attributes": {
-      "anti_brute_force_rule_name": {
+      "bucket": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "default_rule": {
+      "category": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "fail_count": {
+      "content": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "forbidden_time": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "number"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -35,18 +36,10 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
         "optional": true,
         "type": "string"
       },
-      "span": {
+      "style_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
-      },
-      "uuid_list": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -79,8 +72,8 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionAntiBruteForceRuleSchema() *tfjson.Schema {
+func AlicloudOssBucketStyleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionAntiBruteForceRule), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketStyle), &result)
 	return &result
 }

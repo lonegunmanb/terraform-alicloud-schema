@@ -362,6 +362,11 @@ const alicloudLaunchTemplate = `{
       "network_interfaces": {
         "block": {
           "attributes": {
+            "delete_on_release": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "description": {
               "description_kind": "plain",
               "optional": true,

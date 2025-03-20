@@ -6,28 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionAntiBruteForceRule = `{
+const alicloudRocketmqAcl = `{
   "block": {
     "attributes": {
-      "anti_brute_force_rule_name": {
+      "actions": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "decision": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "default_rule": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "fail_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "forbidden_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
       },
       "id": {
         "computed": true,
@@ -35,18 +28,34 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
         "optional": true,
         "type": "string"
       },
-      "span": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "uuid_list": {
+      "ip_whitelists": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
-          "set",
+          "list",
           "string"
         ]
+      },
+      "resource_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "resource_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "username": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -79,8 +88,8 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionAntiBruteForceRuleSchema() *tfjson.Schema {
+func AlicloudRocketmqAclSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionAntiBruteForceRule), &result)
+	_ = json.Unmarshal([]byte(alicloudRocketmqAcl), &result)
 	return &result
 }

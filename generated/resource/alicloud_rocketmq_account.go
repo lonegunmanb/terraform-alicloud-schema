@@ -6,28 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionAntiBruteForceRule = `{
+const alicloudRocketmqAccount = `{
   "block": {
     "attributes": {
-      "anti_brute_force_rule_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "default_rule": {
+      "account_status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
-      },
-      "fail_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "forbidden_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -35,18 +21,20 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
         "optional": true,
         "type": "string"
       },
-      "span": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "uuid_list": {
+      "password": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
+      },
+      "username": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -79,8 +67,8 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionAntiBruteForceRuleSchema() *tfjson.Schema {
+func AlicloudRocketmqAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionAntiBruteForceRule), &result)
+	_ = json.Unmarshal([]byte(alicloudRocketmqAccount), &result)
 	return &result
 }

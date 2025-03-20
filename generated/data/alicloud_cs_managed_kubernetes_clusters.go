@@ -39,9 +39,22 @@ const alicloudCsManagedKubernetesClusters = `{
               "name": "string",
               "nat_gateway_id": "string",
               "pod_cidr": "string",
+              "rrsa_config": [
+                "list",
+                [
+                  "object",
+                  {
+                    "enabled": "bool",
+                    "ram_oidc_provider_arn": "string",
+                    "ram_oidc_provider_name": "string",
+                    "rrsa_oidc_issuer_url": "string"
+                  }
+                ]
+              ],
               "security_group_id": "string",
               "service_cidr": "string",
               "slb_internet_enabled": "bool",
+              "state": "string",
               "vpc_id": "string",
               "vswitch_ids": [
                 "list",

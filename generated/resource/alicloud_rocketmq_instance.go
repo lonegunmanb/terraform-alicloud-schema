@@ -47,6 +47,15 @@ const alicloudRocketmqInstance = `{
         "optional": true,
         "type": "string"
       },
+      "ip_whitelists": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "payment_type": {
         "description_kind": "plain",
         "required": true,
@@ -61,6 +70,11 @@ const alicloudRocketmqInstance = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "remark": {
@@ -104,6 +118,30 @@ const alicloudRocketmqInstance = `{
       }
     },
     "block_types": {
+      "acl_info": {
+        "block": {
+          "attributes": {
+            "acl_types": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "default_vpc_auth_free": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "network_info": {
         "block": {
           "attributes": {
@@ -146,6 +184,7 @@ const alicloudRocketmqInstance = `{
                     "type": "string"
                   },
                   "ip_whitelist": {
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": [
@@ -175,6 +214,7 @@ const alicloudRocketmqInstance = `{
                   },
                   "vswitch_id": {
                     "computed": true,
+                    "deprecated": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -232,9 +272,25 @@ const alicloudRocketmqInstance = `{
               "optional": true,
               "type": "number"
             },
+            "storage_encryption": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "storage_secret_key": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "support_auto_scaling": {
               "computed": true,
               "description_kind": "plain",
+              "type": "bool"
+            },
+            "trace_on": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "bool"
             }
           },

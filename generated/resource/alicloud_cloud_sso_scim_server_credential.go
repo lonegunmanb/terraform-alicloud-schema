@@ -9,7 +9,22 @@ import (
 const alicloudCloudSsoScimServerCredential = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "credential_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "credential_secret_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "credential_type": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -17,6 +32,11 @@ const alicloudCloudSsoScimServerCredential = `{
       "directory_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "expire_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "id": {

@@ -6,28 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionAntiBruteForceRule = `{
+const alicloudRamUserGroupAttachment = `{
   "block": {
     "attributes": {
-      "anti_brute_force_rule_name": {
+      "group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "default_rule": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "fail_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "forbidden_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
       },
       "id": {
         "computed": true,
@@ -35,18 +20,10 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
         "optional": true,
         "type": "string"
       },
-      "span": {
+      "user_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
-      },
-      "uuid_list": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -62,11 +39,6 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -79,8 +51,8 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionAntiBruteForceRuleSchema() *tfjson.Schema {
+func AlicloudRamUserGroupAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionAntiBruteForceRule), &result)
+	_ = json.Unmarshal([]byte(alicloudRamUserGroupAttachment), &result)
 	return &result
 }

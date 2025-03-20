@@ -41,6 +41,14 @@ const alicloudVpcGatewayEndpoint = `{
         "optional": true,
         "type": "string"
       },
+      "route_tables": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "service_name": {
         "description_kind": "plain",
         "required": true,

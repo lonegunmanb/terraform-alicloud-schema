@@ -9,9 +9,20 @@ import (
 const alicloudClickHouseDbCluster = `{
   "block": {
     "attributes": {
+      "allocate_public_connection": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "category": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "cold_storage": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "connection_string": {
@@ -87,7 +98,18 @@ const alicloudClickHouseDbCluster = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "public_connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "renewal_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

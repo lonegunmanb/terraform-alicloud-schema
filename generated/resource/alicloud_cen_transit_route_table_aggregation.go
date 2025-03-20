@@ -37,8 +37,16 @@ const alicloudCenTransitRouteTableAggregation = `{
       },
       "transit_route_table_aggregation_scope": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      },
+      "transit_route_table_aggregation_scope_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "transit_route_table_id": {
         "description_kind": "plain",
@@ -56,6 +64,11 @@ const alicloudCenTransitRouteTableAggregation = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

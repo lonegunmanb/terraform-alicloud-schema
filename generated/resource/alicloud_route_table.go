@@ -43,6 +43,12 @@ const alicloudRouteTable = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "route_propagation_enable": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "route_table_name": {
         "computed": true,
         "description_kind": "plain",

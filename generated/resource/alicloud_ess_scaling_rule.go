@@ -40,6 +40,11 @@ const alicloudEssScalingRule = `{
         "optional": true,
         "type": "number"
       },
+      "hybrid_monitor_namespace": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -53,6 +58,12 @@ const alicloudEssScalingRule = `{
         "type": "number"
       },
       "metric_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "metric_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -138,6 +149,54 @@ const alicloudEssScalingRule = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "hybrid_metrics": {
+        "block": {
+          "attributes": {
+            "expression": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "metric_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "statistic": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "dimensions": {
+              "block": {
+                "attributes": {
+                  "dimension_key": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "dimension_value": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "step_adjustment": {

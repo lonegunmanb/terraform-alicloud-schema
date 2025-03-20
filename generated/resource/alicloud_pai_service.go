@@ -25,14 +25,6 @@ const alicloudPaiService = `{
         "optional": true,
         "type": "string"
       },
-      "labels": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
       "region_id": {
         "computed": true,
         "description_kind": "plain",
@@ -48,6 +40,14 @@ const alicloudPaiService = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "workspace_id": {
         "description_kind": "plain",

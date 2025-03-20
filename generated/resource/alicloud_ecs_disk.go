@@ -98,6 +98,7 @@ const alicloudEcsDisk = `{
         "type": "string"
       },
       "kms_key_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

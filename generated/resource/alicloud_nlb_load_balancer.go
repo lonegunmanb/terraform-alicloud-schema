@@ -26,6 +26,11 @@ const alicloudNlbLoadBalancer = `{
         "optional": true,
         "type": "string"
       },
+      "cps": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -92,6 +97,17 @@ const alicloudNlbLoadBalancer = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_id": {
@@ -164,7 +180,6 @@ const alicloudNlbLoadBalancer = `{
               "type": "string"
             },
             "reason": {
-              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -218,10 +233,29 @@ const alicloudNlbLoadBalancer = `{
               "description_kind": "plain",
               "type": "string"
             },
+            "ipv4_local_addresses": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "ipv6_address": {
               "computed": true,
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
+            },
+            "ipv6_local_addresses": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
             },
             "private_ipv4_address": {
               "computed": true,
@@ -237,7 +271,6 @@ const alicloudNlbLoadBalancer = `{
             "status": {
               "computed": true,
               "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
             "vswitch_id": {

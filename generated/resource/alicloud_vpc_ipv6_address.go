@@ -9,6 +9,12 @@ import (
 const alicloudVpcIpv6Address = `{
   "block": {
     "attributes": {
+      "address_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -23,6 +29,7 @@ const alicloudVpcIpv6Address = `{
       "ipv6_address": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "ipv6_address_description": {

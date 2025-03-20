@@ -6,47 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionAntiBruteForceRule = `{
+const alicloudNlbLoadBalancerZoneShiftedAttachment = `{
   "block": {
     "attributes": {
-      "anti_brute_force_rule_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "default_rule": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "fail_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "forbidden_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "span": {
+      "load_balancer_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "uuid_list": {
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "vswitch_id": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
+      },
+      "zone_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -62,11 +49,6 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -79,8 +61,8 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionAntiBruteForceRuleSchema() *tfjson.Schema {
+func AlicloudNlbLoadBalancerZoneShiftedAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionAntiBruteForceRule), &result)
+	_ = json.Unmarshal([]byte(alicloudNlbLoadBalancerZoneShiftedAttachment), &result)
 	return &result
 }

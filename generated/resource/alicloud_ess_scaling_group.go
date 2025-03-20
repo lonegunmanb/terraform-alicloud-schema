@@ -20,6 +20,36 @@ const alicloudEssScalingGroup = `{
         "optional": true,
         "type": "bool"
       },
+      "capacity_options_compensate_with_on_demand": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "capacity_options_on_demand_base_capacity": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "capacity_options_on_demand_percentage_above_base_capacity": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "capacity_options_spot_auto_replace_on_demand": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "compensate_with_on_demand": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "container_group_id": {
         "description_kind": "plain",
         "optional": true,

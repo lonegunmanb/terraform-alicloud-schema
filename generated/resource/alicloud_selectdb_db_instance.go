@@ -9,6 +9,12 @@ import (
 const alicloudSelectdbDbInstance = `{
   "block": {
     "attributes": {
+      "admin_pass": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "cache_size": {
         "description_kind": "plain",
         "required": true,

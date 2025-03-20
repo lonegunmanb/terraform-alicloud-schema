@@ -6,47 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionAntiBruteForceRule = `{
+const alicloudThreatDetectionLogMeta = `{
   "block": {
     "attributes": {
-      "anti_brute_force_rule_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "default_rule": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "fail_count": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "forbidden_time": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "span": {
+      "log_meta_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
-      "uuid_list": {
+      "status": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -79,8 +56,8 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionAntiBruteForceRuleSchema() *tfjson.Schema {
+func AlicloudThreatDetectionLogMetaSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionAntiBruteForceRule), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionLogMeta), &result)
 	return &result
 }

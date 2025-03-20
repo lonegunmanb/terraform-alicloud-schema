@@ -234,6 +234,12 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "optimized_writes": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "period": {
         "description_kind": "plain",
         "optional": true,

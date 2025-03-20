@@ -20,8 +20,9 @@ const alicloudAdbDbClusterLakeVersion = `{
         "type": "string"
       },
       "compute_resource": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "connection_string": {
@@ -45,7 +46,17 @@ const alicloudAdbDbClusterLakeVersion = `{
         "required": true,
         "type": "string"
       },
+      "disk_encryption": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "enable_default_resource_group": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "enable_ssl": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -68,10 +79,15 @@ const alicloudAdbDbClusterLakeVersion = `{
       "expired": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "kms_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -91,9 +107,38 @@ const alicloudAdbDbClusterLakeVersion = `{
         "required": true,
         "type": "string"
       },
+      "period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "port": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "product_form": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "product_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "reserved_node_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "reserved_node_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "resource_group_id": {
@@ -129,8 +174,9 @@ const alicloudAdbDbClusterLakeVersion = `{
         "type": "string"
       },
       "storage_resource": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "vpc_id": {

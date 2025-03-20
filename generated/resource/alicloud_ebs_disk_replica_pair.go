@@ -10,15 +10,14 @@ const alicloudEbsDiskReplicaPair = `{
   "block": {
     "attributes": {
       "bandwidth": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
       },
       "description": {
         "description_kind": "plain",
@@ -45,18 +44,32 @@ const alicloudEbsDiskReplicaPair = `{
         "required": true,
         "type": "string"
       },
+      "disk_replica_pair_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "one_shot": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "pair_name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "payment_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -64,29 +77,34 @@ const alicloudEbsDiskReplicaPair = `{
       "period": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "period_unit": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "replica_pair_id": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "reverse_replicate": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "rpo": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "source_zone_id": {
         "description_kind": "plain",
@@ -97,6 +115,14 @@ const alicloudEbsDiskReplicaPair = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
