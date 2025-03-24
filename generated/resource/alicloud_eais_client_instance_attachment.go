@@ -6,21 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenInterRegionTrafficQosQueue = `{
+const alicloudEaisClientInstanceAttachment = `{
   "block": {
     "attributes": {
-      "bandwidth": {
+      "category": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "dscps": {
+      "client_instance_id": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "number"
-        ]
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "ei_instance_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -28,29 +36,20 @@ const alicloudCenInterRegionTrafficQosQueue = `{
         "optional": true,
         "type": "string"
       },
-      "inter_region_traffic_qos_queue_description": {
+      "instance_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "inter_region_traffic_qos_queue_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "remain_bandwidth_percent": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "status": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "traffic_qos_policy_id": {
+      "status": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
@@ -84,8 +83,8 @@ const alicloudCenInterRegionTrafficQosQueue = `{
   "version": 0
 }`
 
-func AlicloudCenInterRegionTrafficQosQueueSchema() *tfjson.Schema {
+func AlicloudEaisClientInstanceAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenInterRegionTrafficQosQueue), &result)
+	_ = json.Unmarshal([]byte(alicloudEaisClientInstanceAttachment), &result)
 	return &result
 }

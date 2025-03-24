@@ -17,12 +17,13 @@ const alicloudVpnGatewayVpnAttachments = `{
           [
             "object",
             {
+              "attach_type": "string",
               "bgp_config": [
                 "list",
                 [
                   "object",
                   {
-                    "local_asn": "string",
+                    "local_asn": "number",
                     "local_bgp_ip": "string",
                     "status": "string",
                     "tunnel_cidr": "string"
@@ -33,6 +34,9 @@ const alicloudVpnGatewayVpnAttachments = `{
               "create_time": "string",
               "customer_gateway_id": "string",
               "effect_immediately": "bool",
+              "enable_dpd": "bool",
+              "enable_nat_traversal": "bool",
+              "enable_tunnels_bgp": "bool",
               "health_check_config": [
                 "list",
                 [
@@ -56,7 +60,7 @@ const alicloudVpnGatewayVpnAttachments = `{
                   {
                     "ike_auth_alg": "string",
                     "ike_enc_alg": "string",
-                    "ike_lifetime": "string",
+                    "ike_lifetime": "number",
                     "ike_mode": "string",
                     "ike_pfs": "string",
                     "ike_version": "string",
@@ -74,7 +78,7 @@ const alicloudVpnGatewayVpnAttachments = `{
                   {
                     "ipsec_auth_alg": "string",
                     "ipsec_enc_alg": "string",
-                    "ipsec_lifetime": "string",
+                    "ipsec_lifetime": "number",
                     "ipsec_pfs": "string"
                   }
                 ]
@@ -82,7 +86,73 @@ const alicloudVpnGatewayVpnAttachments = `{
               "local_subnet": "string",
               "network_type": "string",
               "remote_subnet": "string",
+              "resource_group_id": "string",
               "status": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
+              "tunnel_options_specification": [
+                "set",
+                [
+                  "object",
+                  {
+                    "customer_gateway_id": "string",
+                    "enable_dpd": "bool",
+                    "enable_nat_traversal": "bool",
+                    "internet_ip": "string",
+                    "role": "string",
+                    "state": "string",
+                    "status": "string",
+                    "tunnel_bgp_config": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "bgp_status": "string",
+                          "local_asn": "number",
+                          "local_bgp_ip": "string",
+                          "peer_asn": "string",
+                          "peer_bgp_ip": "string",
+                          "tunnel_cidr": "string"
+                        }
+                      ]
+                    ],
+                    "tunnel_id": "string",
+                    "tunnel_ike_config": [
+                      "set",
+                      [
+                        "object",
+                        {
+                          "ike_auth_alg": "string",
+                          "ike_enc_alg": "string",
+                          "ike_lifetime": "number",
+                          "ike_mode": "string",
+                          "ike_pfs": "string",
+                          "ike_version": "string",
+                          "local_id": "string",
+                          "psk": "string",
+                          "remote_id": "string"
+                        }
+                      ]
+                    ],
+                    "tunnel_index": "number",
+                    "tunnel_ipsec_config": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "ipsec_auth_alg": "string",
+                          "ipsec_enc_alg": "string",
+                          "ipsec_lifetime": "number",
+                          "ipsec_pfs": "string"
+                        }
+                      ]
+                    ],
+                    "zone_no": "string"
+                  }
+                ]
+              ],
               "vpn_attachment_name": "string",
               "vpn_connection_id": "string"
             }
@@ -133,12 +203,6 @@ const alicloudVpnGatewayVpnAttachments = `{
         "type": "number"
       },
       "status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vpn_gateway_id": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

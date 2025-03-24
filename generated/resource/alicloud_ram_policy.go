@@ -14,6 +14,11 @@ const alicloudRamPolicy = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "default_version": {
         "computed": true,
         "description_kind": "plain",
@@ -62,10 +67,17 @@ const alicloudRamPolicy = `{
         "type": "string"
       },
       "rotate_strategy": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "type": {
         "computed": true,
@@ -118,7 +130,17 @@ const alicloudRamPolicy = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

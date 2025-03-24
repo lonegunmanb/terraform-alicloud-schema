@@ -6,17 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamAccessKey = `{
+const alicloudResourceManagerAutoGroupingRule = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "exclude_region_ids_scope": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "encrypted_secret": {
-        "computed": true,
+      "exclude_resource_group_ids_scope": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "exclude_resource_ids_scope": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "exclude_resource_types_scope": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -25,40 +35,63 @@ const alicloudRamAccessKey = `{
         "optional": true,
         "type": "string"
       },
-      "key_fingerprint": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "pgp_key": {
+      "region_ids_scope": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "secret": {
-        "computed": true,
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
-      },
-      "secret_file": {
+      "resource_group_ids_scope": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "resource_ids_scope": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "user_name": {
+      "resource_types_scope": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "rule_desc": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "rule_type": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "rule_contents": {
+        "block": {
+          "attributes": {
+            "auto_grouping_scope_condition": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "target_resource_group_condition": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -88,8 +121,8 @@ const alicloudRamAccessKey = `{
   "version": 0
 }`
 
-func AlicloudRamAccessKeySchema() *tfjson.Schema {
+func AlicloudResourceManagerAutoGroupingRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamAccessKey), &result)
+	_ = json.Unmarshal([]byte(alicloudResourceManagerAutoGroupingRule), &result)
 	return &result
 }

@@ -47,6 +47,7 @@ const alicloudPrivatelinkVpcEndpointZone = `{
         "type": "string"
       },
       "zone_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -6,21 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenInterRegionTrafficQosQueue = `{
+const alicloudEfloInvocation = `{
   "block": {
     "attributes": {
-      "bandwidth": {
+      "command_content": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "dscps": {
+      "command_id": {
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "list",
-          "number"
-        ]
+        "optional": true,
+        "type": "string"
+      },
+      "content_encoding": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "enable_parameter": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "frequency": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -28,29 +45,55 @@ const alicloudCenInterRegionTrafficQosQueue = `{
         "optional": true,
         "type": "string"
       },
-      "inter_region_traffic_qos_queue_description": {
+      "launcher": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "inter_region_traffic_qos_queue_name": {
+      "name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "remain_bandwidth_percent": {
+      "node_id_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "parameters": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "repeat_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "termination_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "timeout": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "status": {
-        "computed": true,
+      "username": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "traffic_qos_policy_id": {
+      "working_dir": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
@@ -84,8 +127,8 @@ const alicloudCenInterRegionTrafficQosQueue = `{
   "version": 0
 }`
 
-func AlicloudCenInterRegionTrafficQosQueueSchema() *tfjson.Schema {
+func AlicloudEfloInvocationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenInterRegionTrafficQosQueue), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloInvocation), &result)
 	return &result
 }

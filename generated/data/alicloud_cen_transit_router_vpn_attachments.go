@@ -18,18 +18,24 @@ const alicloudCenTransitRouterVpnAttachments = `{
             "object",
             {
               "auto_publish_route_enabled": "bool",
+              "cen_id": "string",
+              "charge_type": "string",
               "create_time": "string",
               "id": "string",
               "resource_type": "string",
               "status": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "transit_router_attachment_description": "string",
               "transit_router_attachment_id": "string",
               "transit_router_attachment_name": "string",
               "transit_router_id": "string",
               "vpn_id": "string",
-              "vpn_owner_id": "string",
+              "vpn_owner_id": "number",
               "zone": [
-                "list",
+                "set",
                 [
                   "object",
                   {
@@ -43,7 +49,7 @@ const alicloudCenTransitRouterVpnAttachments = `{
       },
       "cen_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -80,6 +86,19 @@ const alicloudCenTransitRouterVpnAttachments = `{
         "type": "string"
       },
       "status": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "transit_router_attachment_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

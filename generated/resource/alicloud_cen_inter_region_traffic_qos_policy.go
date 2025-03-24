@@ -9,6 +9,12 @@ import (
 const alicloudCenInterRegionTrafficQosPolicy = `{
   "block": {
     "attributes": {
+      "bandwidth_guarantee_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",

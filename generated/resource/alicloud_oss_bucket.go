@@ -417,6 +417,11 @@ const alicloudOssBucket = `{
       "server_side_encryption_rule": {
         "block": {
           "attributes": {
+            "kms_data_encryption": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "kms_master_key_id": {
               "description_kind": "plain",
               "optional": true,

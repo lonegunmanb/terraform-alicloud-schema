@@ -48,6 +48,47 @@ const alicloudApiGatewayGroup = `{
         "type": "string"
       }
     },
+    "block_types": {
+      "user_log_config": {
+        "block": {
+          "attributes": {
+            "jwt_claims": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "query_string": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "request_body": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "request_headers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "response_body": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "response_headers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      }
+    },
     "description_kind": "plain"
   },
   "version": 0

@@ -10,20 +10,36 @@ const alicloudCenTransitRouterVpnAttachment = `{
   "block": {
     "attributes": {
       "auto_publish_route_enabled": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "cen_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "charge_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {
@@ -51,7 +67,7 @@ const alicloudCenTransitRouterVpnAttachment = `{
       },
       "transit_router_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "vpn_id": {
@@ -101,7 +117,6 @@ const alicloudCenTransitRouterVpnAttachment = `{
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
         "nesting_mode": "set"
       }
     },

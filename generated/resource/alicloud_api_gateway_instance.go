@@ -45,6 +45,21 @@ const alicloudApiGatewayInstance = `{
         "optional": true,
         "type": "string"
       },
+      "ingress_vpc_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ingress_vpc_owner_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ingress_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instance_cidr": {
         "computed": true,
         "description_kind": "plain",

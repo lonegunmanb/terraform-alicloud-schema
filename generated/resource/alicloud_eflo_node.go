@@ -6,17 +6,37 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamAccessKey = `{
+const alicloudEfloNode = `{
   "block": {
     "attributes": {
+      "billing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "classify": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "computing_server": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "encrypted_secret": {
-        "computed": true,
+      "discount_level": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hpn_zone": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -25,23 +45,43 @@ const alicloudRamAccessKey = `{
         "optional": true,
         "type": "string"
       },
-      "key_fingerprint": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "pgp_key": {
+      "payment_ratio": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "secret": {
-        "computed": true,
+      "period": {
         "description_kind": "plain",
-        "sensitive": true,
+        "optional": true,
+        "type": "number"
+      },
+      "product_form": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "secret_file": {
+      "renew_period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "renewal_status": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "server_arch": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "stage_num": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -52,7 +92,15 @@ const alicloudRamAccessKey = `{
         "optional": true,
         "type": "string"
       },
-      "user_name": {
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "zone": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -88,8 +136,8 @@ const alicloudRamAccessKey = `{
   "version": 0
 }`
 
-func AlicloudRamAccessKeySchema() *tfjson.Schema {
+func AlicloudEfloNodeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamAccessKey), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloNode), &result)
 	return &result
 }

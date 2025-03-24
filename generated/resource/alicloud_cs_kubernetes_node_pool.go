@@ -49,7 +49,7 @@ const alicloudCsKubernetesNodePool = `{
       "desired_size": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
       "force_delete": {
         "description_kind": "plain",
@@ -186,12 +186,12 @@ const alicloudCsKubernetesNodePool = `{
       "on_demand_base_capacity": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
       "on_demand_percentage_above_base_capacity": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
       "password": {
         "description_kind": "plain",

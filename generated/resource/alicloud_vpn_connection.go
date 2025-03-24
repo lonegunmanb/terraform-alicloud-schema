@@ -332,6 +332,7 @@ const alicloudVpnConnection = `{
               "type": "string"
             },
             "role": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -431,6 +432,7 @@ const alicloudVpnConnection = `{
                     "type": "string"
                   },
                   "local_id": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -441,6 +443,7 @@ const alicloudVpnConnection = `{
                     "type": "string"
                   },
                   "remote_id": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
