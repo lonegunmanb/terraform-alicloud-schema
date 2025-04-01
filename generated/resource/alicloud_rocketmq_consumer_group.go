@@ -35,6 +35,16 @@ const alicloudRocketmqConsumerGroup = `{
         "required": true,
         "type": "string"
       },
+      "max_receive_tps": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "remark": {
         "description_kind": "plain",
         "optional": true,
@@ -50,6 +60,11 @@ const alicloudRocketmqConsumerGroup = `{
       "consume_retry_policy": {
         "block": {
           "attributes": {
+            "dead_letter_target_topic": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "max_retry_times": {
               "description_kind": "plain",
               "optional": true,

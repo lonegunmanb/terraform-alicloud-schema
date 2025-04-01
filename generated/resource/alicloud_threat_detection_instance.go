@@ -62,6 +62,16 @@ const alicloudThreatDetectionInstance = `{
         "optional": true,
         "type": "number"
       },
+      "post_paid_flag": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "post_pay_module_switch": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "rasp_count": {
         "description_kind": "plain",
         "optional": true,
@@ -80,6 +90,7 @@ const alicloudThreatDetectionInstance = `{
         "type": "string"
       },
       "renewal_status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -137,6 +148,11 @@ const alicloudThreatDetectionInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "subscription_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "threat_analysis": {
         "description_kind": "plain",
         "optional": true,
@@ -171,7 +187,7 @@ const alicloudThreatDetectionInstance = `{
       },
       "version_code": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "vul_count": {

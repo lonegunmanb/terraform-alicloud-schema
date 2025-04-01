@@ -6,13 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterRouteTableAssociation = `{
+const alicloudClickHouseEnterpriseDbClusterPublicEndpoint = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "connection_string_prefix": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,17 +25,7 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "transit_router_attachment_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "transit_router_route_table_id": {
+      "net_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -66,8 +61,8 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterRouteTableAssociationSchema() *tfjson.Schema {
+func AlicloudClickHouseEnterpriseDbClusterPublicEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterRouteTableAssociation), &result)
+	_ = json.Unmarshal([]byte(alicloudClickHouseEnterpriseDbClusterPublicEndpoint), &result)
 	return &result
 }

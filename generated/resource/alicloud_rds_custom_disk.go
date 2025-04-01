@@ -6,18 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsGrafanaWorkspace = `{
+const alicloudRdsCustomDisk = `{
   "block": {
     "attributes": {
-      "account_number": {
+      "auto_pay": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "aliyun_lang": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "auto_renew": {
         "description_kind": "plain",
@@ -29,35 +24,25 @@ const alicloudArmsGrafanaWorkspace = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "custom_account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "duration": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_edition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_name": {
+      "disk_category": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "disk_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dry_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -65,12 +50,22 @@ const alicloudArmsGrafanaWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "password": {
+      "instance_charge_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "pricing_cycle": {
+      "performance_level": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "period_unit": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -83,6 +78,15 @@ const alicloudArmsGrafanaWorkspace = `{
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "size": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "snapshot_id": {
+        "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
@@ -91,13 +95,15 @@ const alicloudArmsGrafanaWorkspace = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "type": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "zone_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -130,8 +136,8 @@ const alicloudArmsGrafanaWorkspace = `{
   "version": 0
 }`
 
-func AlicloudArmsGrafanaWorkspaceSchema() *tfjson.Schema {
+func AlicloudRdsCustomDiskSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsGrafanaWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudRdsCustomDisk), &result)
 	return &result
 }

@@ -6,13 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterRouteTableAssociation = `{
+const alicloudEsaCacheReserveInstance = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "auto_pay": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "cr_region": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,19 +35,24 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
         "optional": true,
         "type": "string"
       },
+      "payment_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "quota_gb": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "transit_router_attachment_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "transit_router_route_table_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -66,8 +86,8 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterRouteTableAssociationSchema() *tfjson.Schema {
+func AlicloudEsaCacheReserveInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterRouteTableAssociation), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaCacheReserveInstance), &result)
 	return &result
 }

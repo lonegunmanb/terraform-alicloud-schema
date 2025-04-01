@@ -64,6 +64,12 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "db_minor_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_node_class": {
         "description_kind": "plain",
         "required": true,

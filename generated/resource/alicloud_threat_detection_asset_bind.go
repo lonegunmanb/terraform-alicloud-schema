@@ -6,13 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterRouteTableAssociation = `{
+const alicloudThreatDetectionAssetBind = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "auth_version": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -20,19 +20,10 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
+      "uuid": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "transit_router_attachment_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "transit_router_route_table_id": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
@@ -66,8 +57,8 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterRouteTableAssociationSchema() *tfjson.Schema {
+func AlicloudThreatDetectionAssetBindSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterRouteTableAssociation), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionAssetBind), &result)
 	return &result
 }

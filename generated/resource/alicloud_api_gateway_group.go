@@ -46,6 +46,11 @@ const alicloudApiGatewayGroup = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "vpc_intranet_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {

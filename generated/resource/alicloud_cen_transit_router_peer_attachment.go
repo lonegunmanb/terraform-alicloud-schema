@@ -32,7 +32,7 @@ const alicloudCenTransitRouterPeerAttachment = `{
       },
       "cen_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "create_time": {
@@ -64,7 +64,12 @@ const alicloudCenTransitRouterPeerAttachment = `{
       },
       "peer_transit_router_region_id": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_type": {
@@ -89,6 +94,14 @@ const alicloudCenTransitRouterPeerAttachment = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "transit_router_attachment_description": {
         "description_kind": "plain",
         "optional": true,
@@ -100,11 +113,19 @@ const alicloudCenTransitRouterPeerAttachment = `{
         "type": "string"
       },
       "transit_router_attachment_name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "transit_router_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_peer_attachment_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

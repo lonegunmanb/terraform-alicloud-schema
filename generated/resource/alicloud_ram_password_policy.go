@@ -6,58 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsGrafanaWorkspace = `{
+const alicloudRamPasswordPolicy = `{
   "block": {
     "attributes": {
-      "account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "aliyun_lang": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "auto_renew": {
+      "hard_expiry": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "custom_account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "duration": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_edition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       },
       "id": {
         "computed": true,
@@ -65,39 +20,56 @@ const alicloudArmsGrafanaWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "password": {
+      "max_login_attemps": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "pricing_cycle": {
+      "max_password_age": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "region_id": {
+      "minimum_password_different_character": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "minimum_password_length": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "resource_group_id": {
-        "computed": true,
+      "password_not_contain_user_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
+      "password_reuse_prevention": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "number"
+      },
+      "require_lowercase_characters": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "require_numbers": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "require_symbols": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "require_uppercase_characters": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {
@@ -130,8 +102,8 @@ const alicloudArmsGrafanaWorkspace = `{
   "version": 0
 }`
 
-func AlicloudArmsGrafanaWorkspaceSchema() *tfjson.Schema {
+func AlicloudRamPasswordPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsGrafanaWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudRamPasswordPolicy), &result)
 	return &result
 }

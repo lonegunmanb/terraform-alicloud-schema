@@ -6,57 +6,75 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsGrafanaWorkspace = `{
+const alicloudEsaEdgeContainerApp = `{
   "block": {
     "attributes": {
-      "account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "aliyun_lang": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "auto_renew": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "custom_account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "duration": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_edition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_name": {
+      "edge_container_app_name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "health_check_fail_times": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_host": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_http_code": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_interval": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_method": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_port": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_succ_times": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_timeout": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_uri": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -65,39 +83,25 @@ const alicloudArmsGrafanaWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "password": {
+      "remarks": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "pricing_cycle": {
+      "service_port": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "target_port": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -113,11 +117,6 @@ const alicloudArmsGrafanaWorkspace = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -130,8 +129,8 @@ const alicloudArmsGrafanaWorkspace = `{
   "version": 0
 }`
 
-func AlicloudArmsGrafanaWorkspaceSchema() *tfjson.Schema {
+func AlicloudEsaEdgeContainerAppSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsGrafanaWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaEdgeContainerApp), &result)
 	return &result
 }

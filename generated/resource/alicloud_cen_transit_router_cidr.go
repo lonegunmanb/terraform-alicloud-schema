@@ -26,7 +26,6 @@ const alicloudCenTransitRouterCidr = `{
         "type": "string"
       },
       "publish_cidr_route": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

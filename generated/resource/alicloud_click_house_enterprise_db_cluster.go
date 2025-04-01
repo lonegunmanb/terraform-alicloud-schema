@@ -6,71 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsGrafanaWorkspace = `{
+const alicloudClickHouseEnterpriseDbCluster = `{
   "block": {
     "attributes": {
-      "account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "aliyun_lang": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "auto_renew": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "custom_account_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "duration": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_edition": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "grafana_workspace_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "password": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "pricing_cycle": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -80,8 +25,12 @@ const alicloudArmsGrafanaWorkspace = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
+      "scale_max": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "scale_min": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -91,16 +40,44 @@ const alicloudArmsGrafanaWorkspace = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "vpc_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "zone_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
+      "multi_zones": {
+        "block": {
+          "attributes": {
+            "vswitch_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "zone_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -130,8 +107,8 @@ const alicloudArmsGrafanaWorkspace = `{
   "version": 0
 }`
 
-func AlicloudArmsGrafanaWorkspaceSchema() *tfjson.Schema {
+func AlicloudClickHouseEnterpriseDbClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsGrafanaWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudClickHouseEnterpriseDbCluster), &result)
 	return &result
 }

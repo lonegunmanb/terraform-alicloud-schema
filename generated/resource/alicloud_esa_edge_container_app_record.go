@@ -6,13 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterRouteTableAssociation = `{
+const alicloudEsaEdgeContainerAppRecord = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "app_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,20 +25,16 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
+      "record_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "site_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "transit_router_attachment_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "transit_router_route_table_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -49,11 +50,6 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -66,8 +62,8 @@ const alicloudCenTransitRouterRouteTableAssociation = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterRouteTableAssociationSchema() *tfjson.Schema {
+func AlicloudEsaEdgeContainerAppRecordSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterRouteTableAssociation), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaEdgeContainerAppRecord), &result)
 	return &result
 }

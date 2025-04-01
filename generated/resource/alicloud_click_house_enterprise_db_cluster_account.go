@@ -6,12 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRocketmqTopic = `{
+const alicloudClickHouseEnterpriseDbClusterAccount = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "account": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "account_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -20,43 +35,49 @@ const alicloudRocketmqTopic = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "password": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "max_send_tps": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "message_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "remark": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "topic_name": {
-        "description_kind": "plain",
-        "required": true,
+        "sensitive": true,
         "type": "string"
       }
     },
     "block_types": {
+      "dml_auth_setting": {
+        "block": {
+          "attributes": {
+            "allow_databases": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "allow_dictionaries": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "ddl_authority": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            },
+            "dml_authority": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -86,8 +107,8 @@ const alicloudRocketmqTopic = `{
   "version": 0
 }`
 
-func AlicloudRocketmqTopicSchema() *tfjson.Schema {
+func AlicloudClickHouseEnterpriseDbClusterAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRocketmqTopic), &result)
+	_ = json.Unmarshal([]byte(alicloudClickHouseEnterpriseDbClusterAccount), &result)
 	return &result
 }

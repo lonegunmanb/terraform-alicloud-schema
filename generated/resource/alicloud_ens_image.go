@@ -39,6 +39,12 @@ const alicloudEnsImage = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "target_oss_region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
