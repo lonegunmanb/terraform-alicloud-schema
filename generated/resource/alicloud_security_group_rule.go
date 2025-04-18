@@ -67,6 +67,11 @@ const alicloudSecurityGroupRule = `{
         "required": true,
         "type": "string"
       },
+      "security_group_rule_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "source_group_owner_account": {
         "description_kind": "plain",
         "optional": true,

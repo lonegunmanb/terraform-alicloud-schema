@@ -53,7 +53,7 @@ const alicloudSelectdbDbClusters = `{
                     "is_dynamic": "number",
                     "is_user_modifiable": "number",
                     "name": "string",
-                    "optional": "number",
+                    "optional": "string",
                     "param_category": "string",
                     "value": "string"
                   }

@@ -73,6 +73,7 @@ const alicloudSelectdbDbInstance = `{
       "engine_minor_version": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "gmt_created": {
@@ -199,6 +200,8 @@ const alicloudSelectdbDbInstance = `{
         ]
       },
       "upgraded_engine_minor_version": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -25,6 +25,7 @@ const alicloudCsKubernetes = `{
       },
       "certificate_authority": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": [
           "map",
@@ -32,16 +33,19 @@ const alicloudCsKubernetes = `{
         ]
       },
       "client_cert": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "client_key": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "cluster_ca_cert": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -356,6 +360,11 @@ const alicloudCsKubernetes = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "skip_set_certificate_authority": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "slb_id": {
         "computed": true,

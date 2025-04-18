@@ -26,6 +26,7 @@ const alicloudNasFileSystem = `{
         "type": "string"
       },
       "encrypt_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -42,6 +43,16 @@ const alicloudNasFileSystem = `{
         "optional": true,
         "type": "string"
       },
+      "keytab": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "keytab_md5": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "kms_key_id": {
         "computed": true,
         "description_kind": "plain",
@@ -51,6 +62,11 @@ const alicloudNasFileSystem = `{
       "protocol_type": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_id": {
@@ -104,6 +120,22 @@ const alicloudNasFileSystem = `{
         "block": {
           "attributes": {
             "enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "options": {
+        "block": {
+          "attributes": {
+            "enable_oplock": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
@@ -140,6 +172,47 @@ const alicloudNasFileSystem = `{
             },
             "status": {
               "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "smb_acl": {
+        "block": {
+          "attributes": {
+            "enable_anonymous_access": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "encrypt_data": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "home_dir_path": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "reject_unencrypted_access": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "super_admin_sid": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

@@ -10,16 +10,19 @@ const alicloudCsServerlessKubernetes = `{
   "block": {
     "attributes": {
       "client_cert": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "client_key": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "cluster_ca_cert": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

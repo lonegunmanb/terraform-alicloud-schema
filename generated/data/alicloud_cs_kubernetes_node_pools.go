@@ -29,6 +29,11 @@ const alicloudCsKubernetesNodePools = `{
           "string"
         ]
       },
+      "node_pool_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "nodepools": {
         "computed": true,
         "description_kind": "plain",

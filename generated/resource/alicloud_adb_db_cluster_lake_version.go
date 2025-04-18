@@ -157,6 +157,16 @@ const alicloudAdbDbClusterLakeVersion = `{
         "optional": true,
         "type": "string"
       },
+      "secondary_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "secondary_zone_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "security_ips": {
         "computed": true,
         "description_kind": "plain",

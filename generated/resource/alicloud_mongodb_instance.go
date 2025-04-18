@@ -198,6 +198,7 @@ const alicloudMongodbInstance = `{
               "connection_port": "string",
               "network_type": "string",
               "replica_set_role": "string",
+              "role_id": "string",
               "vpc_cloud_instance_id": "string",
               "vpc_id": "string",
               "vswitch_id": "string"

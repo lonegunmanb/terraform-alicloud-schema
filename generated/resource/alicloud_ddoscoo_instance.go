@@ -32,6 +32,11 @@ const alicloudDdoscooInstance = `{
         "optional": true,
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "domain_count": {
         "description_kind": "plain",
         "required": true,
@@ -58,6 +63,11 @@ const alicloudDdoscooInstance = `{
       "ip": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "modify_type": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "name": {
@@ -103,6 +113,19 @@ const alicloudDdoscooInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -115,6 +138,11 @@ const alicloudDdoscooInstance = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

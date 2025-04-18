@@ -46,6 +46,11 @@ const alicloudVpc = `{
         "optional": true,
         "type": "bool"
       },
+      "force_delete": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -137,6 +142,7 @@ const alicloudVpc = `{
         ]
       },
       "secondary_cidr_mask": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -155,6 +161,12 @@ const alicloudVpc = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "system_route_table_route_propagation_enable": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "tags": {
         "description_kind": "plain",

@@ -6,33 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEnsDisk = `{
+const alicloudEfloExperimentPlan = `{
   "block": {
     "attributes": {
-      "category": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "disk_name": {
+      "external_params": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "encrypted": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "ens_region_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -40,31 +28,22 @@ const alicloudEnsDisk = `{
         "optional": true,
         "type": "string"
       },
-      "kms_key_id": {
+      "plan_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "payment_type": {
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "size": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "number"
-      },
-      "snapshot_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
       },
       "tags": {
         "description_kind": "plain",
@@ -73,6 +52,11 @@ const alicloudEnsDisk = `{
           "map",
           "string"
         ]
+      },
+      "template_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -105,8 +89,8 @@ const alicloudEnsDisk = `{
   "version": 0
 }`
 
-func AlicloudEnsDiskSchema() *tfjson.Schema {
+func AlicloudEfloExperimentPlanSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEnsDisk), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloExperimentPlan), &result)
 	return &result
 }

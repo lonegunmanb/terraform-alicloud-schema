@@ -6,32 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEnsDisk = `{
+const alicloudEsaScheduledPreloadExecution = `{
   "block": {
     "attributes": {
-      "category": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "disk_name": {
+      "end_time": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "encrypted": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "ens_region_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -40,23 +20,27 @@ const alicloudEnsDisk = `{
         "optional": true,
         "type": "string"
       },
-      "kms_key_id": {
+      "interval": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "scheduled_preload_execution_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "payment_type": {
+      "scheduled_preload_job_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "size": {
+      "slice_len": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       },
-      "snapshot_id": {
+      "start_time": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -65,14 +49,6 @@ const alicloudEnsDisk = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -105,8 +81,8 @@ const alicloudEnsDisk = `{
   "version": 0
 }`
 
-func AlicloudEnsDiskSchema() *tfjson.Schema {
+func AlicloudEsaScheduledPreloadExecutionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEnsDisk), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaScheduledPreloadExecution), &result)
 	return &result
 }

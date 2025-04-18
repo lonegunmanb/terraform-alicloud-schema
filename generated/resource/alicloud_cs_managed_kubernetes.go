@@ -25,6 +25,7 @@ const alicloudCsManagedKubernetes = `{
       },
       "certificate_authority": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": [
           "map",
@@ -32,16 +33,19 @@ const alicloudCsManagedKubernetes = `{
         ]
       },
       "client_cert": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "client_key": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "cluster_ca_cert": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -117,7 +121,7 @@ const alicloudCsManagedKubernetes = `{
         "type": "bool"
       },
       "encryption_provider_key": {
-        "description": "disk encryption key, only in ack-pro",
+        "description": "The ID of the Key Management Service (KMS) key that is used to encrypt Kubernetes Secrets.",
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -324,6 +328,11 @@ const alicloudCsManagedKubernetes = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "skip_set_certificate_authority": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "slb_id": {
         "computed": true,
