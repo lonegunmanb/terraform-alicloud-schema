@@ -38,6 +38,12 @@ const alicloudEssScalingGroup = `{
         "optional": true,
         "type": "number"
       },
+      "capacity_options_price_comparison_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "capacity_options_spot_auto_replace_on_demand": {
         "computed": true,
         "description_kind": "plain",

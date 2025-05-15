@@ -10,6 +10,15 @@ const alicloudResourceManagerAccount = `{
   "block": {
     "attributes": {
       "abandon_able_check_id": {
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "abandonable_check_id": {
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -32,6 +41,11 @@ const alicloudResourceManagerAccount = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "force_delete": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -59,6 +73,11 @@ const alicloudResourceManagerAccount = `{
         "optional": true,
         "type": "string"
       },
+      "resell_account_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_directory_id": {
         "computed": true,
         "description_kind": "plain",
@@ -80,6 +99,7 @@ const alicloudResourceManagerAccount = `{
       "type": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },

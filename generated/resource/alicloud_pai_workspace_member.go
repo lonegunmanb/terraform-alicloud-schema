@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcIpv4Gateway = `{
+const alicloudPaiWorkspaceMember = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,68 +14,31 @@ const alicloudVpcIpv4Gateway = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "dry_run": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "internet_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ipv4_gateway_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ipv4_gateway_id": {
+      "member_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "ipv4_gateway_name": {
+      "roles": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ipv4_gateway_route_table_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": [
-          "map",
+          "set",
           "string"
         ]
       },
-      "vpc_id": {
+      "user_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "workspace_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -111,8 +74,8 @@ const alicloudVpcIpv4Gateway = `{
   "version": 0
 }`
 
-func AlicloudVpcIpv4GatewaySchema() *tfjson.Schema {
+func AlicloudPaiWorkspaceMemberSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcIpv4Gateway), &result)
+	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceMember), &result)
 	return &result
 }

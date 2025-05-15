@@ -21,6 +21,11 @@ const alicloudEssScalingGroups = `{
               "active_scaling_configuration": "string",
               "allocation_strategy": "string",
               "az_balance": "bool",
+              "capacity_options_compensate_with_on_demand": "bool",
+              "capacity_options_on_demand_base_capacity": "number",
+              "capacity_options_on_demand_percentage_above_base_capacity": "number",
+              "capacity_options_spot_auto_replace_on_demand": "bool",
+              "compensate_with_on_demand": "bool",
               "cooldown_time": "number",
               "creation_time": "string",
               "db_instance_ids": [
@@ -35,6 +40,17 @@ const alicloudEssScalingGroups = `{
               "id": "string",
               "init_capacity": "number",
               "launch_template_id": "string",
+              "launch_template_override": [
+                "list",
+                [
+                  "object",
+                  {
+                    "instance_type": "string",
+                    "spot_price_limit": "number",
+                    "weighted_capacity": "number"
+                  }
+                ]
+              ],
               "launch_template_version": "string",
               "lifecycle_state": "string",
               "load_balancer_ids": [

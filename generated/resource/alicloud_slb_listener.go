@@ -10,9 +10,20 @@ const alicloudSlbListener = `{
   "block": {
     "attributes": {
       "acl_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "acl_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "acl_status": {
         "description_kind": "plain",
@@ -155,13 +166,11 @@ const alicloudSlbListener = `{
         "type": "number"
       },
       "lb_port": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "lb_protocol": {
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

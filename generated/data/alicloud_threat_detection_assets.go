@@ -17,9 +17,17 @@ const alicloudThreatDetectionAssets = `{
           [
             "object",
             {
+              "cluster_id": "string",
+              "cluster_name": "string",
               "create_time": "string",
               "id": "string",
-              "uuid": "string"
+              "instance_id": "string",
+              "instance_name": "string",
+              "internet_ip": "string",
+              "intranet_ip": "string",
+              "status": "string",
+              "uuid": "string",
+              "vpc_instance_id": "string"
             }
           ]
         ]

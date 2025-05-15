@@ -347,6 +347,12 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "standby_az": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

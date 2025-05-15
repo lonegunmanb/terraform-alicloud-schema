@@ -6,24 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcIpv4Gateway = `{
+const alicloudCloudFirewallIpsConfig = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "dry_run": {
+      "basic_rules": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
-      "enabled": {
-        "computed": true,
+      "cti_rules": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -31,54 +25,30 @@ const alicloudVpcIpv4Gateway = `{
         "optional": true,
         "type": "string"
       },
-      "internet_mode": {
+      "lang": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "ipv4_gateway_description": {
+      "max_sdl": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "ipv4_gateway_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "ipv4_gateway_name": {
+      "patch_rules": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "ipv4_gateway_route_table_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
+      "rule_class": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
+      "run_mode": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
@@ -111,8 +81,8 @@ const alicloudVpcIpv4Gateway = `{
   "version": 0
 }`
 
-func AlicloudVpcIpv4GatewaySchema() *tfjson.Schema {
+func AlicloudCloudFirewallIpsConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcIpv4Gateway), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallIpsConfig), &result)
 	return &result
 }

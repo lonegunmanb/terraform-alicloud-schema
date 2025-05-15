@@ -19,6 +19,11 @@ const alicloudAmqpExchange = `{
         "required": true,
         "type": "bool"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "exchange_name": {
         "description_kind": "plain",
         "required": true,
@@ -49,6 +54,36 @@ const alicloudAmqpExchange = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "x_delayed_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

@@ -20,6 +20,7 @@ const alicloudApiGatewayBackend = `{
         "type": "string"
       },
       "create_event_bridge_service_linked_role": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

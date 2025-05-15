@@ -25,6 +25,16 @@ const alicloudLindormInstance = `{
         "optional": true,
         "type": "string"
       },
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "auto_renew_period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cold_storage": {
         "computed": true,
         "description_kind": "plain",

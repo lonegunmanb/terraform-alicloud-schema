@@ -38,6 +38,7 @@ const alicloudKmsInstance = `{
       "instance_name": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "key_num": {

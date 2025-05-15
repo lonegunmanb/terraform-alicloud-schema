@@ -6,95 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAlbHealthCheckTemplate = `{
+const alicloudPaiWorkspaceModelVersion = `{
   "block": {
     "attributes": {
-      "dry_run": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "health_check_codes": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "health_check_connect_port": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "health_check_host": {
+      "approval_status": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "health_check_http_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "health_check_interval": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "health_check_method": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "health_check_path": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "health_check_protocol": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "health_check_template_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "health_check_timeout": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "healthy_threshold": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
+      "extra_info": {
         "description_kind": "plain",
         "optional": true,
         "type": [
@@ -102,14 +23,103 @@ const alicloudAlbHealthCheckTemplate = `{
           "string"
         ]
       },
-      "unhealthy_threshold": {
+      "format_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "framework_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "inference_spec": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "metrics": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "model_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "options": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "training_spec": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "uri": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "version_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "version_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
+      "labels": {
+        "block": {
+          "attributes": {
+            "key": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -139,8 +149,8 @@ const alicloudAlbHealthCheckTemplate = `{
   "version": 0
 }`
 
-func AlicloudAlbHealthCheckTemplateSchema() *tfjson.Schema {
+func AlicloudPaiWorkspaceModelVersionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAlbHealthCheckTemplate), &result)
+	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceModelVersion), &result)
 	return &result
 }

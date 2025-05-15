@@ -141,7 +141,7 @@ const alicloudEcsNetworkInterface = `{
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
@@ -151,7 +151,7 @@ const alicloudEcsNetworkInterface = `{
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
