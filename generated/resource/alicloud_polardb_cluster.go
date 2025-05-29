@@ -332,6 +332,24 @@ const alicloudPolardbCluster = `{
           "string"
         ]
       },
+      "serverless_rule_cpu_enlarge_threshold": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "serverless_rule_cpu_shrink_threshold": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "serverless_rule_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "serverless_steady_switch": {
         "description_kind": "plain",
         "optional": true,

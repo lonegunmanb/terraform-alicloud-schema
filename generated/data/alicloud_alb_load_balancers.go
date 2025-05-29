@@ -99,10 +99,25 @@ const alicloudAlbLoadBalancers = `{
                       [
                         "object",
                         {
-                          "address": "string"
+                          "address": "string",
+                          "allocation_id": "string",
+                          "eip_type": "string",
+                          "intranet_address": "string",
+                          "intranet_address_hc_status": "string",
+                          "ipv4_local_addresses": [
+                            "list",
+                            "string"
+                          ],
+                          "ipv6_address": "string",
+                          "ipv6_address_hc_status": "string",
+                          "ipv6_local_addresses": [
+                            "list",
+                            "string"
+                          ]
                         }
                       ]
                     ],
+                    "status": "string",
                     "vswitch_id": "string",
                     "zone_id": "string"
                   }

@@ -421,6 +421,11 @@ const alicloudInstance = `{
         "optional": true,
         "type": "string"
       },
+      "system_disk_bursting_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "system_disk_category": {
         "computed": true,
         "description_kind": "plain",
@@ -466,6 +471,11 @@ const alicloudInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "system_disk_provisioned_iops": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "system_disk_size": {
         "computed": true,
@@ -522,6 +532,11 @@ const alicloudInstance = `{
               "optional": true,
               "type": "string"
             },
+            "bursting_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "category": {
               "description_kind": "plain",
               "optional": true,
@@ -562,6 +577,11 @@ const alicloudInstance = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "provisioned_iops": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             },
             "size": {
               "description_kind": "plain",

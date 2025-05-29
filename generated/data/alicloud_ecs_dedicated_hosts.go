@@ -61,6 +61,18 @@ const alicloudEcsDedicatedHosts = `{
               "expired_time": "string",
               "gpu_spec": "string",
               "id": "string",
+              "instances": [
+                "list",
+                [
+                  "object",
+                  {
+                    "instance_id": "string",
+                    "instance_owner_id": "number",
+                    "instance_type": "string",
+                    "socket_id": "string"
+                  }
+                ]
+              ],
               "machine_id": "string",
               "network_attributes": [
                 "list",

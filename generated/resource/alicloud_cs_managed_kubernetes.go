@@ -262,6 +262,12 @@ const alicloudCsManagedKubernetes = `{
           "string"
         ]
       },
+      "profile": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "proxy_mode": {
         "description_kind": "plain",
         "optional": true,
@@ -533,6 +539,27 @@ const alicloudCsManagedKubernetes = `{
           },
           "description_kind": "plain"
         },
+        "nesting_mode": "list"
+      },
+      "audit_log_config": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "sls_project_name": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "delete_options": {
