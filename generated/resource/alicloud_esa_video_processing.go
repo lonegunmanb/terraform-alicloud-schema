@@ -6,66 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaSite = `{
+const alicloudEsaVideoProcessing = `{
   "block": {
     "attributes": {
-      "access_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "add_client_geolocation_header": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "add_real_client_ip_header": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cache_architecture_mode": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "cache_reserve_enable": {
+      "flv_seek_end": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "cache_reserve_instance_id": {
+      "flv_seek_start": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "case_insensitive": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "coverage": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "cross_border_optimization": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "development_mode": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "flatten_mode": {
+      "flv_video_seek_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -76,71 +35,50 @@ const alicloudEsaSite = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "mp4_seek_end": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "mp4_seek_start": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sequence": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "ipv6_enable": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ipv6_region": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "seo_bypass": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "site_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "site_name_exclusive": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "site_version": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tag_name": {
+      "video_seek_enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "version_management": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "block_types": {
@@ -173,8 +111,8 @@ const alicloudEsaSite = `{
   "version": 0
 }`
 
-func AlicloudEsaSiteSchema() *tfjson.Schema {
+func AlicloudEsaVideoProcessingSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaSite), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaVideoProcessing), &result)
 	return &result
 }
