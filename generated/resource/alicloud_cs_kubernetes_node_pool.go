@@ -86,13 +86,14 @@ const alicloudCsKubernetesNodePool = `{
         "type": "bool"
       },
       "instance_charge_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "instance_types": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "list",
           "string"
@@ -276,7 +277,7 @@ const alicloudCsKubernetesNodePool = `{
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
@@ -369,6 +370,12 @@ const alicloudCsKubernetesNodePool = `{
           "string"
         ]
       },
+      "type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "unschedulable": {
         "description_kind": "plain",
         "optional": true,
@@ -391,7 +398,7 @@ const alicloudCsKubernetesNodePool = `{
       },
       "vswitch_ids": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "list",
           "string"
@@ -476,6 +483,25 @@ const alicloudCsKubernetesNodePool = `{
           },
           "description_kind": "plain"
         },
+        "nesting_mode": "list"
+      },
+      "eflo_node_group": {
+        "block": {
+          "attributes": {
+            "cluster_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "group_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "kubelet_configuration": {

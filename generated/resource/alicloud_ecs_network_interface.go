@@ -155,6 +155,11 @@ const alicloudEcsNetworkInterface = `{
           "string"
         ]
       },
+      "source_dest_check": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

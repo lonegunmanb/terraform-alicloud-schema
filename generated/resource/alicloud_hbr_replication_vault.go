@@ -14,10 +14,26 @@ const alicloudHbrReplicationVault = `{
         "optional": true,
         "type": "string"
       },
+      "encrypt_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "kms_key_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "replication_source_region_id": {
@@ -45,6 +61,31 @@ const alicloudHbrReplicationVault = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

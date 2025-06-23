@@ -41,12 +41,18 @@ const alicloudCenTransitRouterRouteTablePropagations = `{
               "resource_id": "string",
               "resource_type": "string",
               "status": "string",
-              "transit_router_attachment_id": "string"
+              "transit_router_attachment_id": "string",
+              "transit_router_route_table_id": "string"
             }
           ]
         ]
       },
       "status": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "transit_router_attachment_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

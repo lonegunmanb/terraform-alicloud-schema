@@ -676,6 +676,7 @@ func init() {
 	resources["alicloud_message_service_endpoint"] = resource.AlicloudMessageServiceEndpointSchema()  
 	resources["alicloud_message_service_endpoint_acl"] = resource.AlicloudMessageServiceEndpointAclSchema()  
 	resources["alicloud_message_service_queue"] = resource.AlicloudMessageServiceQueueSchema()  
+	resources["alicloud_message_service_service"] = resource.AlicloudMessageServiceServiceSchema()  
 	resources["alicloud_message_service_subscription"] = resource.AlicloudMessageServiceSubscriptionSchema()  
 	resources["alicloud_message_service_topic"] = resource.AlicloudMessageServiceTopicSchema()  
 	resources["alicloud_mhub_app"] = resource.AlicloudMhubAppSchema()  

@@ -14,6 +14,17 @@ const alicloudRamRole = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "assume_role_policy_document": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -21,6 +32,7 @@ const alicloudRamRole = `{
       },
       "document": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -37,13 +49,16 @@ const alicloudRamRole = `{
         "type": "string"
       },
       "max_session_duration": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "ram_users": {
@@ -61,6 +76,12 @@ const alicloudRamRole = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "role_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "services": {
         "computed": true,
         "deprecated": true,
@@ -68,6 +89,14 @@ const alicloudRamRole = `{
         "optional": true,
         "type": [
           "set",
+          "string"
+        ]
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
           "string"
         ]
       },

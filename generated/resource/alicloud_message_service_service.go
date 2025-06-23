@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEventBridgeSlr = `{
+const alicloudMessageServiceService = `{
   "block": {
     "attributes": {
       "id": {
@@ -15,9 +15,9 @@ const alicloudEventBridgeSlr = `{
         "optional": true,
         "type": "string"
       },
-      "product_name": {
+      "status": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -26,11 +26,6 @@ const alicloudEventBridgeSlr = `{
         "block": {
           "attributes": {
             "create": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -46,8 +41,8 @@ const alicloudEventBridgeSlr = `{
   "version": 0
 }`
 
-func AlicloudEventBridgeSlrSchema() *tfjson.Schema {
+func AlicloudMessageServiceServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEventBridgeSlr), &result)
+	_ = json.Unmarshal([]byte(alicloudMessageServiceService), &result)
 	return &result
 }

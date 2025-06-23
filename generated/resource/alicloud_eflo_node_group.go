@@ -40,6 +40,17 @@ const alicloudEfloNodeGroup = `{
         "required": true,
         "type": "string"
       },
+      "key_pair_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "login_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "machine_type": {
         "description_kind": "plain",
         "required": true,

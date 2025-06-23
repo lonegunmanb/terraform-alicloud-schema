@@ -11,7 +11,7 @@ const alicloudRdsCustom = `{
     "attributes": {
       "amount": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "auto_pay": {
@@ -23,6 +23,11 @@ const alicloudRdsCustom = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "create_extra_param": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "create_mode": {
         "description_kind": "plain",
@@ -144,8 +149,18 @@ const alicloudRdsCustom = `{
           "string"
         ]
       },
+      "spot_strategy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "support_case": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -334,6 +334,11 @@ const alicloudEcsLaunchTemplate = `{
               "optional": true,
               "type": "bool"
             },
+            "kms_key_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "name": {
               "description_kind": "plain",
               "optional": true,
@@ -424,6 +429,11 @@ const alicloudEcsLaunchTemplate = `{
               "type": "bool"
             },
             "iops": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "kms_key_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
