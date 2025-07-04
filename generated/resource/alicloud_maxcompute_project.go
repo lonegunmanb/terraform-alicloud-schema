@@ -70,6 +70,12 @@ const alicloudMaxcomputeProject = `{
           "string"
         ]
       },
+      "three_tier_model": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "type": {
         "computed": true,
         "description_kind": "plain",
@@ -105,6 +111,11 @@ const alicloudMaxcomputeProject = `{
               "type": "bool"
             },
             "enable_decimal2": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "enable_dr": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"

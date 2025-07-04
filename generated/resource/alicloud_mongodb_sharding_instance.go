@@ -20,6 +20,12 @@ const alicloudMongodbShardingInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "backup_interval": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "backup_period": {
         "computed": true,
         "description_kind": "plain",
@@ -40,9 +46,19 @@ const alicloudMongodbShardingInstance = `{
         "optional": true,
         "type": "string"
       },
+      "db_instance_release_protection": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "engine_version": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "hidden_zone_id": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -114,6 +130,11 @@ const alicloudMongodbShardingInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "secondary_zone_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "security_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -128,6 +149,12 @@ const alicloudMongodbShardingInstance = `{
           "set",
           "string"
         ]
+      },
+      "snapshot_backup_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "storage_engine": {
         "computed": true,

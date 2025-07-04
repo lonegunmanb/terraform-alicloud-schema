@@ -318,6 +318,18 @@ const alicloudInstance = `{
         "optional": true,
         "type": "string"
       },
+      "private_pool_options_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "private_pool_options_match_criteria": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "public_ip": {
         "computed": true,
         "description_kind": "plain",

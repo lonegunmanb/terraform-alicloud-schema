@@ -846,6 +846,28 @@ const alicloudEmrv2Cluster = `{
               "min_items": 1,
               "nesting_mode": "set"
             },
+            "private_pool_options": {
+              "block": {
+                "attributes": {
+                  "match_criteria": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "private_pool_ids": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "set",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "set"
+            },
             "spot_bid_prices": {
               "block": {
                 "attributes": {

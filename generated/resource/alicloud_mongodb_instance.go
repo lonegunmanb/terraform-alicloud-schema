@@ -62,6 +62,11 @@ const alicloudMongodbInstance = `{
         "required": true,
         "type": "string"
       },
+      "db_instance_release_protection": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "db_instance_storage": {
         "description_kind": "plain",
         "required": true,
