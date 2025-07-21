@@ -14,6 +14,11 @@ const alicloudCloudSsoAccessAssignment = `{
         "required": true,
         "type": "string"
       },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "deprovision_strategy": {
         "description_kind": "plain",
         "optional": true,

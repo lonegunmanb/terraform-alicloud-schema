@@ -364,6 +364,20 @@ const alicloudEcsLaunchTemplate = `{
         },
         "nesting_mode": "set"
       },
+      "image_options": {
+        "block": {
+          "attributes": {
+            "login_as_non_root": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "network_interfaces": {
         "block": {
           "attributes": {

@@ -75,6 +75,11 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "number"
       },
+      "cold_data_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "connection_string": {
         "computed": true,
         "description_kind": "plain",
@@ -423,6 +428,25 @@ const alicloudDbInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "template_id_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "number"
+        ]
+      },
+      "templates": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "map",
+            "string"
+          ]
+        ]
       },
       "upgrade_db_instance_kernel_version": {
         "deprecated": true,

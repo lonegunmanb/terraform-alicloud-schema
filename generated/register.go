@@ -856,6 +856,7 @@ func init() {
 	resources["alicloud_rds_parameter_group"] = resource.AlicloudRdsParameterGroupSchema()  
 	resources["alicloud_rds_service_linked_role"] = resource.AlicloudRdsServiceLinkedRoleSchema()  
 	resources["alicloud_rds_upgrade_db_instance"] = resource.AlicloudRdsUpgradeDbInstanceSchema()  
+	resources["alicloud_rds_whitelist_template"] = resource.AlicloudRdsWhitelistTemplateSchema()  
 	resources["alicloud_realtime_compute_vvp_instance"] = resource.AlicloudRealtimeComputeVvpInstanceSchema()  
 	resources["alicloud_redis_tair_instance"] = resource.AlicloudRedisTairInstanceSchema()  
 	resources["alicloud_reserved_instance"] = resource.AlicloudReservedInstanceSchema()  

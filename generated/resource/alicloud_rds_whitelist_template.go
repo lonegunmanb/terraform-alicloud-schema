@@ -6,26 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCloudSsoUserAttachment = `{
+const alicloudRdsWhitelistTemplate = `{
   "block": {
     "attributes": {
-      "directory_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "user_id": {
+      "ip_white_list": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "template_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -44,6 +39,11 @@ const alicloudCloudSsoUserAttachment = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -56,8 +56,8 @@ const alicloudCloudSsoUserAttachment = `{
   "version": 0
 }`
 
-func AlicloudCloudSsoUserAttachmentSchema() *tfjson.Schema {
+func AlicloudRdsWhitelistTemplateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCloudSsoUserAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudRdsWhitelistTemplate), &result)
 	return &result
 }

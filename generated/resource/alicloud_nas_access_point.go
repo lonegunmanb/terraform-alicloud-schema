@@ -45,6 +45,11 @@ const alicloudNasAccessPoint = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "root_path": {
         "computed": true,
         "description_kind": "plain",
