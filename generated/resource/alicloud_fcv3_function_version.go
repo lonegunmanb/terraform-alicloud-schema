@@ -34,6 +34,11 @@ const alicloudFcv3FunctionVersion = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "version_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

@@ -6,18 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRouteEntry = `{
+const alicloudEsaOriginClientCertificate = `{
   "block": {
     "attributes": {
-      "description": {
+      "certificate": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "destination_cidrblock": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "hostnames": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -25,29 +33,29 @@ const alicloudRouteEntry = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "origin_client_certificate_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "origin_client_certificate_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "nexthop_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "nexthop_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "route_table_id": {
+      "private_key": {
         "description_kind": "plain",
         "required": true,
+        "sensitive": true,
         "type": "string"
       },
-      "router_id": {
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "status": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "type": "string"
       }
@@ -65,6 +73,11 @@ const alicloudRouteEntry = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -77,8 +90,8 @@ const alicloudRouteEntry = `{
   "version": 0
 }`
 
-func AlicloudRouteEntrySchema() *tfjson.Schema {
+func AlicloudEsaOriginClientCertificateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRouteEntry), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaOriginClientCertificate), &result)
 	return &result
 }

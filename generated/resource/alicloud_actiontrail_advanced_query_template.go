@@ -6,49 +6,28 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRouteEntry = `{
+const alicloudActiontrailAdvancedQueryTemplate = `{
   "block": {
     "attributes": {
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "destination_cidrblock": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "nexthop_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "nexthop_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "route_table_id": {
+      "simple_query": {
         "description_kind": "plain",
         "required": true,
+        "type": "bool"
+      },
+      "template_name": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "router_id": {
-        "computed": true,
-        "deprecated": true,
+      "template_sql": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -65,6 +44,11 @@ const alicloudRouteEntry = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -77,8 +61,8 @@ const alicloudRouteEntry = `{
   "version": 0
 }`
 
-func AlicloudRouteEntrySchema() *tfjson.Schema {
+func AlicloudActiontrailAdvancedQueryTemplateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRouteEntry), &result)
+	_ = json.Unmarshal([]byte(alicloudActiontrailAdvancedQueryTemplate), &result)
 	return &result
 }

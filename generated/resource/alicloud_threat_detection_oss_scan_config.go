@@ -23,6 +23,24 @@ const alicloudThreatDetectionOssScanConfig = `{
           "string"
         ]
       },
+      "decompress_max_file_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "decompress_max_layer": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "decryption_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "enable": {
         "description_kind": "plain",
         "required": true,
@@ -54,6 +72,11 @@ const alicloudThreatDetectionOssScanConfig = `{
           "set",
           "string"
         ]
+      },
+      "last_modified_start_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "oss_scan_config_name": {
         "description_kind": "plain",

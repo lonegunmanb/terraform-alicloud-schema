@@ -50,6 +50,33 @@ const alicloudThreatDetectionAntiBruteForceRule = `{
       }
     },
     "block_types": {
+      "protocol_type": {
+        "block": {
+          "attributes": {
+            "rdp": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "sql_server": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "ssh": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

@@ -6,25 +6,16 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionImageEventOperation = `{
+const alicloudEfloNodeGroupAttachment = `{
   "block": {
     "attributes": {
-      "conditions": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "event_key": {
+      "cluster_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "event_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "event_type": {
+      "hostname": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -35,30 +26,68 @@ const alicloudThreatDetectionImageEventOperation = `{
         "optional": true,
         "type": "string"
       },
-      "note": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "operation_code": {
+      "login_password": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "scenarios": {
+      "node_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "source": {
+      "node_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "user_data": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
+      "data_disk": {
+        "block": {
+          "attributes": {
+            "category": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete_with_node": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "performance_level": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -88,8 +117,8 @@ const alicloudThreatDetectionImageEventOperation = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionImageEventOperationSchema() *tfjson.Schema {
+func AlicloudEfloNodeGroupAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionImageEventOperation), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloNodeGroupAttachment), &result)
 	return &result
 }

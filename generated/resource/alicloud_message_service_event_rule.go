@@ -6,28 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudThreatDetectionImageEventOperation = `{
+const alicloudMessageServiceEventRule = `{
   "block": {
     "attributes": {
-      "conditions": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "event_key": {
+      "delivery_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "event_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "event_type": {
+      "event_types": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -35,30 +29,51 @@ const alicloudThreatDetectionImageEventOperation = `{
         "optional": true,
         "type": "string"
       },
-      "note": {
+      "match_rules": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "list",
+            [
+              "object",
+              {
+                "match_state": "string",
+                "name": "string",
+                "prefix": "string",
+                "suffix": "string"
+              }
+            ]
+          ]
+        ]
       },
-      "operation_code": {
+      "rule_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "scenarios": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
+      "endpoint": {
+        "block": {
+          "attributes": {
+            "endpoint_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "endpoint_value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -68,11 +83,6 @@ const alicloudThreatDetectionImageEventOperation = `{
               "type": "string"
             },
             "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -88,8 +98,8 @@ const alicloudThreatDetectionImageEventOperation = `{
   "version": 0
 }`
 
-func AlicloudThreatDetectionImageEventOperationSchema() *tfjson.Schema {
+func AlicloudMessageServiceEventRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudThreatDetectionImageEventOperation), &result)
+	_ = json.Unmarshal([]byte(alicloudMessageServiceEventRule), &result)
 	return &result
 }

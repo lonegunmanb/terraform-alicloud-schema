@@ -106,7 +106,6 @@ const alicloudFcv3Function = `{
       "layers": {
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": [
           "list",
           "string"
@@ -182,25 +181,21 @@ const alicloudFcv3Function = `{
             "checksum": {
               "description_kind": "plain",
               "optional": true,
-              "sensitive": true,
               "type": "string"
             },
             "oss_bucket_name": {
               "description_kind": "plain",
               "optional": true,
-              "sensitive": true,
               "type": "string"
             },
             "oss_object_name": {
               "description_kind": "plain",
               "optional": true,
-              "sensitive": true,
               "type": "string"
             },
             "zip_file": {
               "description_kind": "plain",
               "optional": true,
-              "sensitive": true,
               "type": "string"
             }
           },
@@ -493,6 +488,30 @@ const alicloudFcv3Function = `{
               },
               "max_items": 1,
               "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "invocation_restriction": {
+        "block": {
+          "attributes": {
+            "disable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "last_modified_time": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "reason": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
