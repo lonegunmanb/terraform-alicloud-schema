@@ -77,6 +77,11 @@ const alicloudFcv3Function = `{
         "optional": true,
         "type": "number"
       },
+      "instance_isolation_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "internet_access": {
         "computed": true,
         "description_kind": "plain",
@@ -125,6 +130,16 @@ const alicloudFcv3Function = `{
       "runtime": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "session_affinity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "session_affinity_config": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "state": {

@@ -28,7 +28,7 @@ const alicloudEfloNodeGroupAttachment = `{
       },
       "login_password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "node_group_id": {

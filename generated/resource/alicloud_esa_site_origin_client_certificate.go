@@ -6,34 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNasAccessGroup = `{
+const alicloudEsaSiteOriginClientCertificate = `{
   "block": {
     "attributes": {
-      "access_group_name": {
-        "computed": true,
+      "certificate": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "access_group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "file_system_type": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -42,23 +25,30 @@ const alicloudNasAccessGroup = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "private_key": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "site_origin_client_certificate_id": {
         "computed": true,
-        "deprecated": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "site_origin_client_certificate_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "region_id": {
+      "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "type": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -75,11 +65,6 @@ const alicloudNasAccessGroup = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -92,8 +77,8 @@ const alicloudNasAccessGroup = `{
   "version": 0
 }`
 
-func AlicloudNasAccessGroupSchema() *tfjson.Schema {
+func AlicloudEsaSiteOriginClientCertificateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNasAccessGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaSiteOriginClientCertificate), &result)
 	return &result
 }

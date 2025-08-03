@@ -9,7 +9,13 @@ import (
 const alicloudActiontrail = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "event_rw": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -24,6 +30,17 @@ const alicloudActiontrail = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "max_compute_project_arn": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "max_compute_write_role_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "mns_topic_arn": {
         "deprecated": true,
@@ -53,8 +70,12 @@ const alicloudActiontrail = `{
         "optional": true,
         "type": "string"
       },
-      "role_name": {
+      "region_id": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "role_name": {
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
@@ -94,6 +115,11 @@ const alicloudActiontrail = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

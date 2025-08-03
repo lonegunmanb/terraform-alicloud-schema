@@ -6,60 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNasAccessGroup = `{
+const alicloudEsaOriginProtection = `{
   "block": {
     "attributes": {
-      "access_group_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "access_group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "file_system_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "origin_converge": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "region_id": {
-        "computed": true,
+      "site_id": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "type": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -92,8 +56,8 @@ const alicloudNasAccessGroup = `{
   "version": 0
 }`
 
-func AlicloudNasAccessGroupSchema() *tfjson.Schema {
+func AlicloudEsaOriginProtectionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNasAccessGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaOriginProtection), &result)
 	return &result
 }

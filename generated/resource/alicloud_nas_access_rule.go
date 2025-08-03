@@ -41,6 +41,11 @@ const alicloudNasAccessRule = `{
         "optional": true,
         "type": "number"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "rw_access_type": {
         "computed": true,
         "description_kind": "plain",
