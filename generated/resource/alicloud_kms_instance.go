@@ -70,6 +70,7 @@ const alicloudKmsInstance = `{
         "type": "number"
       },
       "product_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -80,6 +81,12 @@ const alicloudKmsInstance = `{
         "type": "number"
       },
       "renew_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "renewal_period_unit": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -105,6 +105,14 @@ const alicloudMongodbInstance = `{
         "required": true,
         "type": "string"
       },
+      "global_security_group_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "hidden_zone_id": {
         "description_kind": "plain",
         "optional": true,

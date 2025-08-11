@@ -6,25 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudWafv3DefenseTemplate = `{
+const alicloudSslCertificatesServicePcaCertificate = `{
   "block": {
     "attributes": {
-      "defense_scene": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "defense_template_id": {
+      "algorithm": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
+        "optional": true,
+        "type": "string"
       },
-      "defense_template_name": {
+      "common_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "description": {
+      "country_code": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -35,38 +31,35 @@ const alicloudWafv3DefenseTemplate = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "locality": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_manager_resource_group_id": {
+      "organization": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "resources": {
+      "organization_unit": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
+      },
+      "state": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "status": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "template_origin": {
+      "years": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "template_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
@@ -82,11 +75,6 @@ const alicloudWafv3DefenseTemplate = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -99,8 +87,8 @@ const alicloudWafv3DefenseTemplate = `{
   "version": 0
 }`
 
-func AlicloudWafv3DefenseTemplateSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServicePcaCertificateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudWafv3DefenseTemplate), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCertificate), &result)
 	return &result
 }

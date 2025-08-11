@@ -50,6 +50,14 @@ const alicloudCsAutoscalingConfig = `{
         "optional": true,
         "type": "number"
       },
+      "priorities": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "recycle_node_deletion_enabled": {
         "description_kind": "plain",
         "optional": true,

@@ -19,6 +19,11 @@ const alicloudWafv3Domain = `{
         "required": true,
         "type": "string"
       },
+      "domain_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -33,12 +38,21 @@ const alicloudWafv3Domain = `{
       "resource_manager_resource_group_id": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -105,9 +119,26 @@ const alicloudWafv3Domain = `{
               "type": "bool"
             },
             "protection_resource": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "sm2_access_only": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "sm2_cert_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "sm2_enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "tls_version": {
               "description_kind": "plain",
@@ -138,6 +169,16 @@ const alicloudWafv3Domain = `{
         "block": {
           "attributes": {
             "backends": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "backup_backends": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -161,11 +202,13 @@ const alicloudWafv3Domain = `{
               "type": "bool"
             },
             "keepalive_requests": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
             "keepalive_timeout": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -199,6 +242,11 @@ const alicloudWafv3Domain = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "xff_proto": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             }
           },
           "block_types": {
@@ -218,7 +266,7 @@ const alicloudWafv3Domain = `{
                 },
                 "description_kind": "plain"
               },
-              "nesting_mode": "set"
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

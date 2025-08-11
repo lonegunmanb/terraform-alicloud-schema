@@ -20,6 +20,14 @@ const alicloudRosStackGroup = `{
         "optional": true,
         "type": "string"
       },
+      "capabilities": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -47,7 +55,19 @@ const alicloudRosStackGroup = `{
         "optional": true,
         "type": "string"
       },
+      "permission_model": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "region_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -67,7 +87,21 @@ const alicloudRosStackGroup = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "template_body": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "template_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -84,28 +118,52 @@ const alicloudRosStackGroup = `{
       }
     },
     "block_types": {
+      "auto_deployment": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "retain_stacks_on_account_removal": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "parameters": {
         "block": {
           "attributes": {
             "parameter_key": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             },
             "parameter_value": {
               "description_kind": "plain",
-              "optional": true,
+              "required": true,
               "type": "string"
             }
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

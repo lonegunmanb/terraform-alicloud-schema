@@ -126,6 +126,12 @@ const alicloudMseCluster = `{
           "string"
         ]
       },
+      "version_code": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vpc_id": {
         "computed": true,
         "description_kind": "plain",
