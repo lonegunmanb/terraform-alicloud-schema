@@ -85,6 +85,7 @@ const alicloudRdsCloneDbInstance = `{
         "type": "string"
       },
       "db_instance_description": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

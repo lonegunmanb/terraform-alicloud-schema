@@ -6,38 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCommonBandwidthPackage = `{
+const alicloudEfloEr = `{
   "block": {
     "attributes": {
-      "bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "bandwidth_package_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "deletion_protection": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "force": {
+      "er_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -46,34 +30,10 @@ const alicloudCommonBandwidthPackage = `{
         "optional": true,
         "type": "string"
       },
-      "internet_charge_type": {
+      "master_zone_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "isp": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "ratio": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       },
       "region_id": {
         "computed": true,
@@ -85,14 +45,6 @@ const alicloudCommonBandwidthPackage = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "security_protection_types": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "status": {
         "computed": true,
@@ -106,11 +58,6 @@ const alicloudCommonBandwidthPackage = `{
           "map",
           "string"
         ]
-      },
-      "zone": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       }
     },
     "block_types": {
@@ -143,8 +90,8 @@ const alicloudCommonBandwidthPackage = `{
   "version": 0
 }`
 
-func AlicloudCommonBandwidthPackageSchema() *tfjson.Schema {
+func AlicloudEfloErSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCommonBandwidthPackage), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloEr), &result)
 	return &result
 }
