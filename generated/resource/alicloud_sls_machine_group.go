@@ -6,20 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudSlsMachineGroup = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "endpoint": {
+      "group_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "filter_tag": {
+      "group_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,52 +25,38 @@ const alicloudMessageServiceSubscription = `{
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "notify_strategy": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "push_type": {
+      "machine_identify_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "sts_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "subscription_name": {
+      "machine_list": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "topic_name": {
+      "project_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "dlq_policy": {
+      "group_attribute": {
         "block": {
           "attributes": {
-            "dead_letter_target_queue": {
+            "external_name": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "enabled": {
+            "group_topic": {
               "description_kind": "plain",
               "optional": true,
-              "type": "bool"
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -95,11 +76,6 @@ const alicloudMessageServiceSubscription = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -112,8 +88,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudSlsMachineGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudSlsMachineGroup), &result)
 	return &result
 }

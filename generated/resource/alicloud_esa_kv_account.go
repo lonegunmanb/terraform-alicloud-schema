@@ -6,33 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerSharedTarget = `{
+const alicloudEsaKvAccount = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_share_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "target_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -61,8 +46,8 @@ const alicloudResourceManagerSharedTarget = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerSharedTargetSchema() *tfjson.Schema {
+func AlicloudEsaKvAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerSharedTarget), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaKvAccount), &result)
 	return &result
 }

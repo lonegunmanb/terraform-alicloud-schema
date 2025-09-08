@@ -6,20 +6,11 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceSubscription = `{
+const alicloudSlsLogtailConfig = `{
   "block": {
     "attributes": {
       "create_time": {
         "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "endpoint": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "filter_tag": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -30,52 +21,62 @@ const alicloudMessageServiceSubscription = `{
         "optional": true,
         "type": "string"
       },
-      "notify_content_format": {
+      "input_detail": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "input_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "last_modify_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "log_sample": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "logtail_config_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "notify_strategy": {
-        "computed": true,
+      "output_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "push_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "sts_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "subscription_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "topic_name": {
+      "project_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "dlq_policy": {
+      "output_detail": {
         "block": {
           "attributes": {
-            "dead_letter_target_queue": {
+            "endpoint": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "enabled": {
+            "logstore_name": {
               "description_kind": "plain",
               "optional": true,
-              "type": "bool"
+              "type": "string"
+            },
+            "region": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -95,11 +96,6 @@ const alicloudMessageServiceSubscription = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -112,8 +108,8 @@ const alicloudMessageServiceSubscription = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceSubscriptionSchema() *tfjson.Schema {
+func AlicloudSlsLogtailConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceSubscription), &result)
+	_ = json.Unmarshal([]byte(alicloudSlsLogtailConfig), &result)
 	return &result
 }

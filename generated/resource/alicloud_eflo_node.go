@@ -45,6 +45,11 @@ const alicloudEfloNode = `{
         "optional": true,
         "type": "string"
       },
+      "install_pai": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "payment_ratio": {
         "description_kind": "plain",
         "optional": true,

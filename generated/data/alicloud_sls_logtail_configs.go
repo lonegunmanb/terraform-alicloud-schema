@@ -6,10 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerAccounts = `{
+const alicloudSlsLogtailConfigs = `{
   "block": {
     "attributes": {
-      "accounts": {
+      "configs": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -17,30 +17,11 @@ const alicloudResourceManagerAccounts = `{
           [
             "object",
             {
-              "account_id": "string",
-              "account_name": "string",
-              "display_name": "string",
-              "folder_id": "string",
               "id": "string",
-              "join_method": "string",
-              "join_time": "string",
-              "modify_time": "string",
-              "payer_account_id": "string",
-              "resource_directory_id": "string",
-              "status": "string",
-              "tags": [
-                "map",
-                "string"
-              ],
-              "type": "string"
+              "logtail_config_name": "string"
             }
           ]
         ]
-      },
-      "enable_details": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -57,23 +38,48 @@ const alicloudResourceManagerAccounts = `{
           "string"
         ]
       },
+      "logstore_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "logtail_config_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "name_regex": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "names": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "offset": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
       "output_file": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
+      "project_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "tags": {
+      "size": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "number"
       }
     },
     "description_kind": "plain"
@@ -81,8 +87,8 @@ const alicloudResourceManagerAccounts = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerAccountsSchema() *tfjson.Schema {
+func AlicloudSlsLogtailConfigsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerAccounts), &result)
+	_ = json.Unmarshal([]byte(alicloudSlsLogtailConfigs), &result)
 	return &result
 }

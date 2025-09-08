@@ -35,6 +35,12 @@ const alicloudMongodbShardingInstance = `{
           "string"
         ]
       },
+      "backup_retention_period": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "backup_retention_policy_on_cluster_deletion": {
         "description_kind": "plain",
         "optional": true,
@@ -50,6 +56,12 @@ const alicloudMongodbShardingInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "enable_backup_log": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "engine_version": {
         "description_kind": "plain",
@@ -93,6 +105,24 @@ const alicloudMongodbShardingInstance = `{
           "map",
           "string"
         ]
+      },
+      "log_backup_retention_period": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "maintain_end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "maintain_start_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "name": {
         "description_kind": "plain",
@@ -162,6 +192,16 @@ const alicloudMongodbShardingInstance = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "ssl_action": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ssl_status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "storage_engine": {

@@ -32,6 +32,7 @@ const alicloudDdosbgpIp = `{
         "type": "string"
       },
       "resource_group_id": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -52,6 +53,11 @@ const alicloudDdosbgpIp = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

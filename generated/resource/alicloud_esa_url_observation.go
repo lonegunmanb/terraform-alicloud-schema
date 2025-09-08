@@ -6,13 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerResourceDirectory = `{
+const alicloudEsaUrlObservation = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -20,37 +20,19 @@ const alicloudResourceManagerResourceDirectory = `{
         "optional": true,
         "type": "string"
       },
-      "master_account_id": {
-        "computed": true,
+      "sdk_type": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "master_account_name": {
-        "computed": true,
+      "site_id": {
         "description_kind": "plain",
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
-      "member_account_display_name_sync_status": {
-        "computed": true,
+      "url": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "member_deletion_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "root_folder_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -84,8 +66,8 @@ const alicloudResourceManagerResourceDirectory = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerResourceDirectorySchema() *tfjson.Schema {
+func AlicloudEsaUrlObservationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerResourceDirectory), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaUrlObservation), &result)
 	return &result
 }

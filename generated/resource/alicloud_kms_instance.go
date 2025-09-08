@@ -106,6 +106,14 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "vpc_id": {
         "description_kind": "plain",
         "required": true,

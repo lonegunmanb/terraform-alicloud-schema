@@ -6,12 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerResourceDirectory = `{
+const alicloudDmsEnterpriseWorkspace = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "description": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -20,37 +20,19 @@ const alicloudResourceManagerResourceDirectory = `{
         "optional": true,
         "type": "string"
       },
-      "master_account_id": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "master_account_name": {
-        "computed": true,
+      "vpc_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "member_account_display_name_sync_status": {
-        "computed": true,
+      "workspace_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "member_deletion_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "root_folder_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -84,8 +66,8 @@ const alicloudResourceManagerResourceDirectory = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerResourceDirectorySchema() *tfjson.Schema {
+func AlicloudDmsEnterpriseWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerResourceDirectory), &result)
+	_ = json.Unmarshal([]byte(alicloudDmsEnterpriseWorkspace), &result)
 	return &result
 }

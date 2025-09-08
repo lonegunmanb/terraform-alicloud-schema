@@ -6,52 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerResourceDirectory = `{
+const alicloudEsaRoutineRelatedRecord = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "master_account_id": {
-        "computed": true,
+      "name": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "master_account_name": {
+      "record_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "number"
+      },
+      "record_name": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "member_account_display_name_sync_status": {
-        "computed": true,
+      "site_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "member_deletion_status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "root_folder_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -67,11 +49,6 @@ const alicloudResourceManagerResourceDirectory = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -84,8 +61,8 @@ const alicloudResourceManagerResourceDirectory = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerResourceDirectorySchema() *tfjson.Schema {
+func AlicloudEsaRoutineRelatedRecordSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerResourceDirectory), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaRoutineRelatedRecord), &result)
 	return &result
 }
