@@ -6,63 +6,44 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerHandshake = `{
+const alicloudEsaWafRuleset = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "expire_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "master_account_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "master_account_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "modify_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "note": {
+      "name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_directory_id": {
+      "phase": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "ruleset_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "site_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "target_entity": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "target_type": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
@@ -79,6 +60,11 @@ const alicloudResourceManagerHandshake = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -91,8 +77,8 @@ const alicloudResourceManagerHandshake = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerHandshakeSchema() *tfjson.Schema {
+func AlicloudEsaWafRulesetSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerHandshake), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaWafRuleset), &result)
 	return &result
 }

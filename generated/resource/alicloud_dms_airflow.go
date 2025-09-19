@@ -6,17 +6,32 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerHandshake = `{
+const alicloudDmsAirflow = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "airflow_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "expire_time": {
-        "computed": true,
+      "airflow_name": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "app_spec": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "dags_dir": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -25,42 +40,62 @@ const alicloudResourceManagerHandshake = `{
         "optional": true,
         "type": "string"
       },
-      "master_account_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "master_account_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "modify_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "note": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_directory_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "target_entity": {
+      "oss_bucket_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "target_type": {
+      "oss_path": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "plugins_dir": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "requirement_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "security_group_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "startup_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "worker_serverless_replicas": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "workspace_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "zone_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -79,6 +114,11 @@ const alicloudResourceManagerHandshake = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -91,8 +131,8 @@ const alicloudResourceManagerHandshake = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerHandshakeSchema() *tfjson.Schema {
+func AlicloudDmsAirflowSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerHandshake), &result)
+	_ = json.Unmarshal([]byte(alicloudDmsAirflow), &result)
 	return &result
 }

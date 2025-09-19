@@ -52,6 +52,11 @@ const alicloudMongodbShardingInstance = `{
         "optional": true,
         "type": "string"
       },
+      "cloud_disk_encryption_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "db_instance_release_protection": {
         "description_kind": "plain",
         "optional": true,
@@ -62,6 +67,23 @@ const alicloudMongodbShardingInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "encrypted": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "encryption_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encryptor_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "engine_version": {
         "description_kind": "plain",
@@ -167,6 +189,12 @@ const alicloudMongodbShardingInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": "number"
+      },
+      "role_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "secondary_zone_id": {
         "description_kind": "plain",

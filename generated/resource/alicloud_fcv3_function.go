@@ -122,6 +122,12 @@ const alicloudFcv3Function = `{
         "optional": true,
         "type": "number"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "role": {
         "description_kind": "plain",
         "optional": true,
@@ -196,6 +202,7 @@ const alicloudFcv3Function = `{
             "checksum": {
               "description_kind": "plain",
               "optional": true,
+              "sensitive": true,
               "type": "string"
             },
             "oss_bucket_name": {
@@ -469,6 +476,14 @@ const alicloudFcv3Function = `{
             "initializer": {
               "block": {
                 "attributes": {
+                  "command": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
                   "handler": {
                     "description_kind": "plain",
                     "optional": true,

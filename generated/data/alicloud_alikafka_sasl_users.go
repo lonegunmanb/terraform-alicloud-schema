@@ -15,6 +15,15 @@ const alicloudAlikafkaSaslUsers = `{
         "optional": true,
         "type": "string"
       },
+      "ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "instance_id": {
         "description_kind": "plain",
         "required": true,
@@ -46,7 +55,9 @@ const alicloudAlikafkaSaslUsers = `{
           [
             "object",
             {
+              "id": "string",
               "password": "string",
+              "type": "string",
               "username": "string"
             }
           ]

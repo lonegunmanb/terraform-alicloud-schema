@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerHandshake = `{
+const alicloudCloudSsoUserProvisioning = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,9 +14,24 @@ const alicloudResourceManagerHandshake = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "expire_time": {
-        "computed": true,
+      "deletion_strategy": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "directory_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "duplication_strategy": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -25,29 +40,14 @@ const alicloudResourceManagerHandshake = `{
         "optional": true,
         "type": "string"
       },
-      "master_account_id": {
-        "computed": true,
+      "principal_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "master_account_name": {
-        "computed": true,
+      "principal_type": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "modify_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "note": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_directory_id": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "status": {
@@ -55,7 +55,7 @@ const alicloudResourceManagerHandshake = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "target_entity": {
+      "target_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -64,6 +64,25 @@ const alicloudResourceManagerHandshake = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "user_provisioning_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "user_provisioning_statistics": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "failed_event_count": "number",
+              "gmt_latest_sync": "string"
+            }
+          ]
+        ]
       }
     },
     "block_types": {
@@ -79,6 +98,11 @@ const alicloudResourceManagerHandshake = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -91,8 +115,8 @@ const alicloudResourceManagerHandshake = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerHandshakeSchema() *tfjson.Schema {
+func AlicloudCloudSsoUserProvisioningSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerHandshake), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudSsoUserProvisioning), &result)
 	return &result
 }

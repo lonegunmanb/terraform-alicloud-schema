@@ -46,6 +46,11 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_type": {
         "computed": true,
         "description_kind": "plain",
@@ -124,7 +129,7 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {
