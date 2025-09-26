@@ -19,6 +19,12 @@ const alicloudApigGateway = `{
         "optional": true,
         "type": "string"
       },
+      "gateway_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -167,6 +173,29 @@ const alicloudApigGateway = `{
         },
         "max_items": 1,
         "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "zones": {
+        "block": {
+          "attributes": {
+            "name": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
+            "vswitch_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "zone_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       }
     },

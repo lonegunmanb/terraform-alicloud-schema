@@ -11,13 +11,24 @@ const alicloudSslCertificatesServiceCertificate = `{
     "attributes": {
       "cert": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "certificate_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "encrypt_cert": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encrypt_private_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "id": {
@@ -28,10 +39,12 @@ const alicloudSslCertificatesServiceCertificate = `{
       },
       "key": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "lang": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -42,6 +55,56 @@ const alicloudSslCertificatesServiceCertificate = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sign_cert": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sign_private_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

@@ -29,6 +29,11 @@ const alicloudVpcBgpNetwork = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
