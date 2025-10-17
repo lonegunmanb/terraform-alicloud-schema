@@ -9,6 +9,23 @@ import (
 const alicloudAdbResourceGroup = `{
   "block": {
     "attributes": {
+      "cluster_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cluster_size_resource": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "connection_string": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -18,6 +35,20 @@ const alicloudAdbResourceGroup = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "engine": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "engine_params": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "group_name": {
         "description_kind": "plain",
@@ -36,10 +67,43 @@ const alicloudAdbResourceGroup = `{
         "optional": true,
         "type": "string"
       },
-      "node_num": {
+      "max_cluster_count": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "max_compute_resource": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "min_cluster_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "min_compute_resource": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "node_num": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "port": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "update_time": {
         "computed": true,

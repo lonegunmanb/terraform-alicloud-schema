@@ -37,6 +37,12 @@ const alicloudDdoscooDomainResource = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "custom_headers": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "domain": {
         "description_kind": "plain",
         "required": true,

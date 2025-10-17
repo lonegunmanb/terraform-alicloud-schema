@@ -6,22 +6,21 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEfloNode = `{
+const alicloudPolardbZonalDbCluster = `{
   "block": {
     "attributes": {
-      "billing_cycle": {
+      "auto_renew_period": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "classify": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "computing_server": {
+      "cluster_latest_version": {
         "computed": true,
-        "deprecated": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "cluster_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -31,14 +30,65 @@ const alicloudEfloNode = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "discount_level": {
+      "creation_category": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "hpn_zone": {
+      "db_cluster_nodes_attributes": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "db_cluster_nodes_configs": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "db_cluster_nodes_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "db_minor_version": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "db_node_class": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "db_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "db_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ens_region_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -47,34 +97,7 @@ const alicloudEfloNode = `{
         "optional": true,
         "type": "string"
       },
-      "install_pai": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "machine_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_ratio": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "product_form": {
+      "pay_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -84,49 +107,44 @@ const alicloudEfloNode = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "renew_period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
       "renewal_status": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
+      "storage_pay_type": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "server_arch": {
+      "storage_space": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "stage_num": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
+      "storage_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "tags": {
+      "target_minor_version": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "zone": {
+      "used_time": {
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -160,8 +178,8 @@ const alicloudEfloNode = `{
   "version": 0
 }`
 
-func AlicloudEfloNodeSchema() *tfjson.Schema {
+func AlicloudPolardbZonalDbClusterSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEfloNode), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbZonalDbCluster), &result)
 	return &result
 }

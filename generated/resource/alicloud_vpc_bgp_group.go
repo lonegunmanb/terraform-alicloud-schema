@@ -19,12 +19,23 @@ const alicloudVpcBgpGroup = `{
         "optional": true,
         "type": "string"
       },
+      "clear_auth_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ip_version": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -45,6 +56,17 @@ const alicloudVpcBgpGroup = `{
       "peer_asn": {
         "description_kind": "plain",
         "required": true,
+        "type": "number"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "route_limit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "number"
       },
       "router_id": {

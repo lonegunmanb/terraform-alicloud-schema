@@ -110,7 +110,7 @@ const alicloudLindormInstanceV2 = `{
               "computed": true,
               "description_kind": "plain",
               "type": [
-                "list",
+                "set",
                 [
                   "object",
                   {
@@ -204,13 +204,13 @@ const alicloudLindormInstanceV2 = `{
                 },
                 "description_kind": "plain"
               },
-              "nesting_mode": "list"
+              "nesting_mode": "set"
             }
           },
           "description_kind": "plain"
         },
         "min_items": 1,
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {

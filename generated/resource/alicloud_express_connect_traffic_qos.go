@@ -25,10 +25,24 @@ const alicloudExpressConnectTrafficQos = `{
         "optional": true,
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {

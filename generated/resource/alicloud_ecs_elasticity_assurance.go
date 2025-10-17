@@ -15,6 +15,22 @@ const alicloudEcsElasticityAssurance = `{
         "optional": true,
         "type": "string"
       },
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_renew_period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "auto_renew_period_unit": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -76,7 +92,13 @@ const alicloudEcsElasticityAssurance = `{
         "optional": true,
         "type": "string"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -124,6 +146,11 @@ const alicloudEcsElasticityAssurance = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

@@ -21,6 +21,7 @@ const alicloudCommonBandwidthPackageAttachment = `{
         "type": "string"
       },
       "cancel_common_bandwidth_package_ip_bandwidth": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

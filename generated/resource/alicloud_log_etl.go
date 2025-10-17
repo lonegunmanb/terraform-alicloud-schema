@@ -84,6 +84,11 @@ const alicloudLogEtl = `{
           "string"
         ]
       },
+      "lang": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "last_modified_time": {
         "computed": true,
         "description_kind": "plain",
@@ -155,6 +160,14 @@ const alicloudLogEtl = `{
               "optional": true,
               "sensitive": true,
               "type": "string"
+            },
+            "datasets": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
             },
             "endpoint": {
               "description_kind": "plain",

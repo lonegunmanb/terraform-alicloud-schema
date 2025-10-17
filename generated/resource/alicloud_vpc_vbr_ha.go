@@ -9,6 +9,11 @@ import (
 const alicloudVpcVbrHa = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -28,6 +33,11 @@ const alicloudVpcVbrHa = `{
       "peer_vbr_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {
@@ -56,6 +66,11 @@ const alicloudVpcVbrHa = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
