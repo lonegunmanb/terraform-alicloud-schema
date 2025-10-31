@@ -24,6 +24,11 @@ const alicloudLindormInstanceV2 = `{
         "required": true,
         "type": "string"
       },
+      "auto_renew_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "auto_renewal": {
         "description_kind": "plain",
         "optional": true,
@@ -45,6 +50,11 @@ const alicloudLindormInstanceV2 = `{
         "optional": true,
         "type": "string"
       },
+      "duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -59,6 +69,11 @@ const alicloudLindormInstanceV2 = `{
       "payment_type": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "pricing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "primary_vswitch_id": {

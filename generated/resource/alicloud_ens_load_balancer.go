@@ -61,6 +61,7 @@ const alicloudEnsLoadBalancer = `{
         "block": {
           "attributes": {
             "ip": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -82,6 +83,7 @@ const alicloudEnsLoadBalancer = `{
               "type": "string"
             },
             "weight": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -89,7 +91,7 @@ const alicloudEnsLoadBalancer = `{
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {

@@ -10,6 +10,7 @@ const alicloudSaeApplication = `{
   "block": {
     "attributes": {
       "acr_assume_role_arn": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -458,6 +459,12 @@ const alicloudSaeApplication = `{
       "liveness_v2": {
         "block": {
           "attributes": {
+            "failure_threshold": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "initial_delay_seconds": {
               "computed": true,
               "description_kind": "plain",
@@ -722,6 +729,12 @@ const alicloudSaeApplication = `{
       "readiness_v2": {
         "block": {
           "attributes": {
+            "failure_threshold": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "initial_delay_seconds": {
               "computed": true,
               "description_kind": "plain",
@@ -729,6 +742,12 @@ const alicloudSaeApplication = `{
               "type": "number"
             },
             "period_seconds": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "success_threshold": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,

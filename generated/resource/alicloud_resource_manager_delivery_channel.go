@@ -6,22 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudOssBucketReplication = `{
+const alicloudResourceManagerDeliveryChannel = `{
   "block": {
     "attributes": {
-      "action": {
+      "delivery_channel_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "bucket": {
+      "delivery_channel_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "historical_object_replication": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -29,69 +24,15 @@ const alicloudOssBucketReplication = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "rule_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "sync_role": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "destination": {
+      "delivery_channel_filter": {
         "block": {
           "attributes": {
-            "bucket": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "location": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "transfer_type": {
+            "resource_types": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "min_items": 1,
-        "nesting_mode": "list"
-      },
-      "encryption_configuration": {
-        "block": {
-          "attributes": {
-            "replica_kms_key_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "prefix_set": {
-        "block": {
-          "attributes": {
-            "prefixes": {
-              "description_kind": "plain",
-              "required": true,
               "type": [
                 "list",
                 "string"
@@ -101,39 +42,43 @@ const alicloudOssBucketReplication = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "min_items": 1,
         "nesting_mode": "list"
       },
-      "progress": {
-        "block": {
-          "attributes": {
-            "historical_object": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "new_object": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
-      "rtc": {
+      "resource_change_delivery": {
         "block": {
           "attributes": {
             "enabled": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "bool"
-            },
-            "status": {
               "computed": true,
               "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "target_arn": {
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
+            },
+            "target_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "sls_properties": {
+              "block": {
+                "attributes": {
+                  "oversized_data_oss_target_arn": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
@@ -141,13 +86,41 @@ const alicloudOssBucketReplication = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "source_selection_criteria": {
+      "resource_snapshot_delivery": {
         "block": {
+          "attributes": {
+            "custom_expression": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delivery_time": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "enabled": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "target_arn": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "target_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
           "block_types": {
-            "sse_kms_encrypted_objects": {
+            "sls_properties": {
               "block": {
                 "attributes": {
-                  "status": {
+                  "oversized_data_oss_target_arn": {
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
@@ -167,7 +140,17 @@ const alicloudOssBucketReplication = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -183,8 +166,8 @@ const alicloudOssBucketReplication = `{
   "version": 0
 }`
 
-func AlicloudOssBucketReplicationSchema() *tfjson.Schema {
+func AlicloudResourceManagerDeliveryChannelSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudOssBucketReplication), &result)
+	_ = json.Unmarshal([]byte(alicloudResourceManagerDeliveryChannel), &result)
 	return &result
 }

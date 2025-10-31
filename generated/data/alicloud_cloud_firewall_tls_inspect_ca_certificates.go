@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,36 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEventBridgeEventSource = `{
+const alicloudCloudFirewallTlsInspectCaCertificates = `{
   "block": {
     "attributes": {
-      "description": {
+      "ca_cert_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "event_bus_name": {
+      "certificates": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "event_source_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "external_source_config": {
-        "description_kind": "plain",
-        "optional": true,
         "type": [
-          "map",
-          "string"
+          "list",
+          [
+            "object",
+            {
+              "ca_cert_id": "string",
+              "id": "string"
+            }
+          ]
         ]
-      },
-      "external_source_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       },
       "id": {
         "computed": true,
@@ -43,10 +34,29 @@ const alicloudEventBridgeEventSource = `{
         "optional": true,
         "type": "string"
       },
-      "linked_external_source": {
+      "ids": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "output_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "page_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "page_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "description_kind": "plain"
@@ -54,8 +64,8 @@ const alicloudEventBridgeEventSource = `{
   "version": 0
 }`
 
-func AlicloudEventBridgeEventSourceSchema() *tfjson.Schema {
+func AlicloudCloudFirewallTlsInspectCaCertificatesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEventBridgeEventSource), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallTlsInspectCaCertificates), &result)
 	return &result
 }

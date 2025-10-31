@@ -147,6 +147,19 @@ const alicloudGaEndpointGroup = `{
               "required": true,
               "type": "string"
             },
+            "vpc_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "vswitch_ids": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "weight": {
               "description_kind": "plain",
               "required": true,

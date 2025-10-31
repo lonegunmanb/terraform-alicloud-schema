@@ -110,6 +110,12 @@ const alicloudEsaCacheRule = `{
         "optional": true,
         "type": "string"
       },
+      "sequence": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "serve_stale": {
         "description_kind": "plain",
         "optional": true,

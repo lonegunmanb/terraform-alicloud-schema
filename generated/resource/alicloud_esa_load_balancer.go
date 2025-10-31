@@ -6,34 +6,31 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCmsSiteMonitor = `{
+const alicloudEsaLoadBalancer = `{
   "block": {
     "attributes": {
-      "address": {
+      "default_pools": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "agent_group": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "alert_ids": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": [
           "list",
-          "string"
+          "number"
         ]
       },
-      "create_time": {
-        "computed": true,
-        "deprecated": true,
+      "description": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "fallback_pool": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -41,74 +38,61 @@ const alicloudCmsSiteMonitor = `{
         "optional": true,
         "type": "string"
       },
-      "interval": {
+      "load_balancer_id": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "load_balancer_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_pools": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "options_json": {
-        "computed": true,
-        "deprecated": true,
+      "session_affinity": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "steering_policy": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "sub_region_pools": {
+        "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "task_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "task_state": {
+      "ttl": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "task_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "update_time": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
-      "custom_schedule": {
+      "adaptive_routing": {
         "block": {
           "attributes": {
-            "days": {
+            "failover_across_pools": {
               "description_kind": "plain",
               "optional": true,
-              "type": [
-                "list",
-                "number"
-              ]
-            },
-            "end_hour": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "start_hour": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "time_zone": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
+              "type": "bool"
             }
           },
           "description_kind": "plain"
@@ -116,128 +100,51 @@ const alicloudCmsSiteMonitor = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "isp_cities": {
+      "monitor": {
         "block": {
           "attributes": {
-            "city": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "isp": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "type": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
-      "option_json": {
-        "block": {
-          "attributes": {
-            "attempts": {
+            "consecutive_down": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "cookie": {
+            "consecutive_up": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "expected_codes": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "diagnosis_mtr": {
+            "follow_redirects": {
               "description_kind": "plain",
               "optional": true,
               "type": "bool"
-            },
-            "diagnosis_ping": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "dns_hijack_whitelist": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "dns_match_rule": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "dns_server": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "dns_type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "expect_value": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "failure_rate": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             },
             "header": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "http_method": {
+            "interval": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "method": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "is_base_encode": {
+            "monitoring_region": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
-              "type": "bool"
-            },
-            "match_rule": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "min_tls_version": {
-              "description_kind": "plain",
-              "optional": true,
               "type": "string"
             },
-            "password": {
-              "description_kind": "plain",
-              "optional": true,
-              "sensitive": true,
-              "type": "string"
-            },
-            "ping_num": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "ping_port": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "ping_type": {
+            "path": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -247,65 +154,112 @@ const alicloudCmsSiteMonitor = `{
               "optional": true,
               "type": "number"
             },
-            "request_content": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "request_format": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "response_content": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "response_format": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
             "timeout": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "user_name": {
+            "type": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             }
           },
-          "block_types": {
-            "assertions": {
-              "block": {
-                "attributes": {
-                  "operator": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "target": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "type": {
-                    "description_kind": "plain",
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "description_kind": "plain"
-              },
-              "nesting_mode": "list"
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "random_steering": {
+        "block": {
+          "attributes": {
+            "default_weight": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "pool_weights": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "map",
+                "string"
+              ]
             }
           },
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "rules": {
+        "block": {
+          "attributes": {
+            "overrides": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "rule": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "rule_enable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "rule_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "sequence": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "terminates": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "block_types": {
+            "fixed_response": {
+              "block": {
+                "attributes": {
+                  "content_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "location": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "message_body": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "status_code": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -337,8 +291,8 @@ const alicloudCmsSiteMonitor = `{
   "version": 0
 }`
 
-func AlicloudCmsSiteMonitorSchema() *tfjson.Schema {
+func AlicloudEsaLoadBalancerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCmsSiteMonitor), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaLoadBalancer), &result)
 	return &result
 }

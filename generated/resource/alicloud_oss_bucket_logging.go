@@ -20,6 +20,11 @@ const alicloudOssBucketLogging = `{
         "optional": true,
         "type": "string"
       },
+      "logging_role": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "target_bucket": {
         "description_kind": "plain",
         "required": true,

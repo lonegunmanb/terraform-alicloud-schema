@@ -111,6 +111,11 @@ const alicloudWafv3DefenseRule = `{
               "optional": true,
               "type": "string"
             },
+            "gray_status": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "mode": {
               "description_kind": "plain",
               "optional": true,
@@ -217,6 +222,30 @@ const alicloudWafv3DefenseRule = `{
               },
               "nesting_mode": "set"
             },
+            "gray_config": {
+              "block": {
+                "attributes": {
+                  "gray_rate": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "gray_sub_key": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "gray_target": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "rate_limit": {
               "block": {
                 "attributes": {
@@ -270,6 +299,80 @@ const alicloudWafv3DefenseRule = `{
                     },
                     "max_items": 1,
                     "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "time_config": {
+              "block": {
+                "attributes": {
+                  "time_scope": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "time_zone": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "block_types": {
+                  "time_periods": {
+                    "block": {
+                      "attributes": {
+                        "end": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        },
+                        "start": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "set"
+                  },
+                  "week_time_periods": {
+                    "block": {
+                      "attributes": {
+                        "day": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "block_types": {
+                        "day_periods": {
+                          "block": {
+                            "attributes": {
+                              "end": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              },
+                              "start": {
+                                "description_kind": "plain",
+                                "optional": true,
+                                "type": "number"
+                              }
+                            },
+                            "description_kind": "plain"
+                          },
+                          "nesting_mode": "set"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "set"
                   }
                 },
                 "description_kind": "plain"

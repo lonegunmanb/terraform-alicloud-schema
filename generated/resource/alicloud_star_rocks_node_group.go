@@ -6,23 +6,43 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcGatewayEndpoint = `{
+const alicloudStarRocksNodeGroup = `{
   "block": {
     "attributes": {
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "gateway_endpoint_descrption": {
+      "cu": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "gateway_endpoint_name": {
+      "disk_number": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
+      },
+      "duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "fast_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -30,29 +50,55 @@ const alicloudVpcGatewayEndpoint = `{
         "optional": true,
         "type": "string"
       },
-      "policy_document": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
+      "instance_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "route_tables": {
-        "computed": true,
+      "local_storage_instance_type": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       },
-      "service_name": {
+      "node_group_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "type": "string"
+      },
+      "node_group_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "pay_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "pricing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "promotion_option_no": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "resident_node_number": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "spec_type": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "status": {
@@ -60,18 +106,15 @@ const alicloudVpcGatewayEndpoint = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "storage_performance_level": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
+      },
+      "storage_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -104,8 +147,8 @@ const alicloudVpcGatewayEndpoint = `{
   "version": 0
 }`
 
-func AlicloudVpcGatewayEndpointSchema() *tfjson.Schema {
+func AlicloudStarRocksNodeGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcGatewayEndpoint), &result)
+	_ = json.Unmarshal([]byte(alicloudStarRocksNodeGroup), &result)
 	return &result
 }

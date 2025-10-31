@@ -6,35 +6,35 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEventBridgeEventSource = `{
+const alicloudPolardbZonalAccount = `{
   "block": {
     "attributes": {
-      "description": {
+      "account_description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "event_bus_name": {
+      "account_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "event_source_name": {
+      "account_password": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "external_source_config": {
+      "account_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "external_source_type": {
+      "db_cluster_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -42,11 +42,6 @@ const alicloudEventBridgeEventSource = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "linked_external_source": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       }
     },
     "description_kind": "plain"
@@ -54,8 +49,8 @@ const alicloudEventBridgeEventSource = `{
   "version": 0
 }`
 
-func AlicloudEventBridgeEventSourceSchema() *tfjson.Schema {
+func AlicloudPolardbZonalAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEventBridgeEventSource), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbZonalAccount), &result)
 	return &result
 }

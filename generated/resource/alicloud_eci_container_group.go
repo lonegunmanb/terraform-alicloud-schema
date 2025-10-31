@@ -47,6 +47,11 @@ const alicloudEciContainerGroup = `{
         "optional": true,
         "type": "string"
       },
+      "ephemeral_storage": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
