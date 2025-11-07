@@ -14,6 +14,17 @@ const alicloudAlikafkaTopic = `{
         "optional": true,
         "type": "bool"
       },
+      "configs": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -31,13 +42,24 @@ const alicloudAlikafkaTopic = `{
         "type": "bool"
       },
       "partition_num": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "remark": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "tags": {
@@ -59,6 +81,16 @@ const alicloudAlikafkaTopic = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

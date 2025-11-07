@@ -15,10 +15,20 @@ const alicloudEssScalingGroup = `{
         "optional": true,
         "type": "string"
       },
+      "auto_rebalance": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "az_balance": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "balance_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "capacity_options_compensate_with_on_demand": {
         "computed": true,

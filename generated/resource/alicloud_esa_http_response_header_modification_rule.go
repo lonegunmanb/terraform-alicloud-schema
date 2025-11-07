@@ -35,6 +35,12 @@ const alicloudEsaHttpResponseHeaderModificationRule = `{
         "optional": true,
         "type": "string"
       },
+      "sequence": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "site_id": {
         "description_kind": "plain",
         "required": true,
@@ -58,6 +64,12 @@ const alicloudEsaHttpResponseHeaderModificationRule = `{
             "operation": {
               "description_kind": "plain",
               "required": true,
+              "type": "string"
+            },
+            "type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "value": {

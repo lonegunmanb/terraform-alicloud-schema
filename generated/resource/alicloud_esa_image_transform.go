@@ -40,6 +40,12 @@ const alicloudEsaImageTransform = `{
         "optional": true,
         "type": "string"
       },
+      "sequence": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "site_id": {
         "description_kind": "plain",
         "required": true,

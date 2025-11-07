@@ -19,6 +19,31 @@ const alicloudEsaOriginRule = `{
         "optional": true,
         "type": "string"
       },
+      "follow302_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "follow302_max_tries": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "follow302_retain_args": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "follow302_retain_header": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "follow302_target_host": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -40,6 +65,16 @@ const alicloudEsaOriginRule = `{
         "optional": true,
         "type": "string"
       },
+      "origin_mtls": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "origin_read_timeout": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "origin_scheme": {
         "description_kind": "plain",
         "optional": true,
@@ -50,7 +85,17 @@ const alicloudEsaOriginRule = `{
         "optional": true,
         "type": "string"
       },
+      "origin_verify": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "range": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "range_chunk_size": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -69,6 +114,12 @@ const alicloudEsaOriginRule = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "sequence": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "site_id": {
         "description_kind": "plain",

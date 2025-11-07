@@ -64,6 +64,21 @@ const alicloudEsaHttpsApplicationConfiguration = `{
         "optional": true,
         "type": "string"
       },
+      "https_no_sni_deny": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "https_sni_verify": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "https_sni_whitelist": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -84,6 +99,12 @@ const alicloudEsaHttpsApplicationConfiguration = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "sequence": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "site_id": {
         "description_kind": "plain",

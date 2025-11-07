@@ -69,6 +69,10 @@ const alicloudRamPolicies = `{
               "name": "string",
               "policy_document": "string",
               "policy_name": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "type": "string",
               "update_date": "string",
               "user_name": "string",
@@ -81,6 +85,14 @@ const alicloudRamPolicies = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "type": {
         "description_kind": "plain",

@@ -67,9 +67,21 @@ const alicloudRamRoles = `{
               "document": "string",
               "id": "string",
               "name": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "update_date": "string"
             }
           ]
+        ]
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
         ]
       }
     },
