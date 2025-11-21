@@ -26,6 +26,7 @@ const alicloudMongodbAuditPolicy = `{
         "type": "string"
       },
       "storage_period": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -36,6 +37,11 @@ const alicloudMongodbAuditPolicy = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

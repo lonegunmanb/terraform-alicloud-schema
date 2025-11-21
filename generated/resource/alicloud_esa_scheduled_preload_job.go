@@ -43,7 +43,7 @@ const alicloudEsaScheduledPreloadJob = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "url_list": {
         "description_kind": "plain",

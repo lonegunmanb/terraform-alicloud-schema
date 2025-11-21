@@ -15,6 +15,12 @@ const alicloudExpressConnectRouterInterface = `{
         "type": "string"
       },
       "auto_pay": {
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_renew": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -58,6 +64,11 @@ const alicloudExpressConnectRouterInterface = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "fast_link_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "has_reservation_data": {
         "computed": true,
@@ -106,6 +117,8 @@ const alicloudExpressConnectRouterInterface = `{
         "type": "string"
       },
       "opposite_interface_id": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -147,6 +160,7 @@ const alicloudExpressConnectRouterInterface = `{
         "type": "string"
       },
       "payment_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -181,6 +195,12 @@ const alicloudExpressConnectRouterInterface = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "role": {
         "description_kind": "plain",
         "required": true,
@@ -194,7 +214,6 @@ const alicloudExpressConnectRouterInterface = `{
       "router_interface_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "router_interface_name": {
@@ -217,6 +236,14 @@ const alicloudExpressConnectRouterInterface = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "vpc_instance_id": {
         "computed": true,

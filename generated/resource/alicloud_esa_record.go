@@ -53,7 +53,7 @@ const alicloudEsaRecord = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "source_type": {
         "description_kind": "plain",

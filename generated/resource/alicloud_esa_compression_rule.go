@@ -54,7 +54,7 @@ const alicloudEsaCompressionRule = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "site_version": {
         "description_kind": "plain",

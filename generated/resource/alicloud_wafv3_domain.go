@@ -14,6 +14,11 @@ const alicloudWafv3Domain = `{
         "optional": true,
         "type": "string"
       },
+      "cname": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "domain": {
         "description_kind": "plain",
         "required": true,

@@ -33,7 +33,7 @@ const alicloudEsaOriginPool = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {
@@ -98,7 +98,6 @@ const alicloudEsaOriginPool = `{
                   "secret_key": {
                     "description_kind": "plain",
                     "optional": true,
-                    "sensitive": true,
                     "type": "string"
                   },
                   "version": {
@@ -115,7 +114,7 @@ const alicloudEsaOriginPool = `{
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {

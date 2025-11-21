@@ -9,6 +9,11 @@ import (
 const alicloudPolardbParameterGroup = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "db_type": {
         "description_kind": "plain",
         "required": true,
@@ -31,8 +36,16 @@ const alicloudPolardbParameterGroup = `{
         "type": "string"
       },
       "name": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "parameter_group_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -42,12 +55,12 @@ const alicloudPolardbParameterGroup = `{
           "attributes": {
             "param_name": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
             "param_value": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             }
           },

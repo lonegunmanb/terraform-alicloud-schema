@@ -6,45 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaCertificate = `{
+const alicloudWafv3DefenseResourceGroup = `{
   "block": {
     "attributes": {
-      "cas_id": {
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "cert_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cert_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "certificate": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "created_type": {
+      "group_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "domains": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "id": {
@@ -53,32 +25,18 @@ const alicloudEsaCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "private_key": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "site_id": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "type": {
-        "computed": true,
+      "resource_list": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -111,8 +69,8 @@ const alicloudEsaCertificate = `{
   "version": 0
 }`
 
-func AlicloudEsaCertificateSchema() *tfjson.Schema {
+func AlicloudWafv3DefenseResourceGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudWafv3DefenseResourceGroup), &result)
 	return &result
 }

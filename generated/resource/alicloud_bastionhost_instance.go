@@ -85,6 +85,11 @@ const alicloudBastionhostInstance = `{
           "string"
         ]
       },
+      "slave_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "storage": {
         "description_kind": "plain",
         "required": true,

@@ -20,6 +20,11 @@ const alicloudEssScalingConfiguration = `{
         "optional": true,
         "type": "string"
       },
+      "dedicated_host_cluster_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "deletion_protection": {
         "description_kind": "plain",
         "optional": true,
@@ -36,6 +41,11 @@ const alicloudEssScalingConfiguration = `{
         "type": "bool"
       },
       "host_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "http_endpoint": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -381,6 +391,14 @@ const alicloudEssScalingConfiguration = `{
               "optional": true,
               "type": "number"
             },
+            "cpu_architectures": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "excluded_instance_types": {
               "description_kind": "plain",
               "optional": true,
@@ -389,12 +407,51 @@ const alicloudEssScalingConfiguration = `{
                 "string"
               ]
             },
+            "gpu_specs": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "instance_categories": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "instance_family_level": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
+            "instance_type_families": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
             "max_price": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "maximum_cpu_core_count": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "maximum_gpu_amount": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "maximum_memory_size": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
@@ -403,6 +460,54 @@ const alicloudEssScalingConfiguration = `{
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "minimum_baseline_credit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_cpu_core_count": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_eni_ipv6_address_quantity": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_eni_private_ip_address_quantity": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_eni_quantity": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_gpu_amount": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_initial_credit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "minimum_memory_size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "physical_processor_models": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
             }
           },
           "description_kind": "plain"

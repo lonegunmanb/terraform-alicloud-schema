@@ -15,10 +15,36 @@ const alicloudLogStoreIndex = `{
         "optional": true,
         "type": "string"
       },
+      "log_reduce": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "log_reduce_black_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "log_reduce_white_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "logstore": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "max_text_len": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "project": {
         "description_kind": "plain",

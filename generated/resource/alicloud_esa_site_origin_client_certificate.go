@@ -34,7 +34,7 @@ const alicloudEsaSiteOriginClientCertificate = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "site_origin_client_certificate_id": {
         "computed": true,

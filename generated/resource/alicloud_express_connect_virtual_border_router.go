@@ -10,12 +10,12 @@ const alicloudExpressConnectVirtualBorderRouter = `{
   "block": {
     "attributes": {
       "associated_physical_connections": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "bandwidth": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -23,6 +23,11 @@ const alicloudExpressConnectVirtualBorderRouter = `{
       "circuit_code": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "description": {
@@ -37,7 +42,6 @@ const alicloudExpressConnectVirtualBorderRouter = `{
         "type": "number"
       },
       "enable_ipv6": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -49,7 +53,6 @@ const alicloudExpressConnectVirtualBorderRouter = `{
         "type": "string"
       },
       "include_cross_account_vbr": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -71,6 +74,12 @@ const alicloudExpressConnectVirtualBorderRouter = `{
         "type": "number"
       },
       "min_tx_interval": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "mtu": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -101,16 +110,35 @@ const alicloudExpressConnectVirtualBorderRouter = `{
         "required": true,
         "type": "string"
       },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "route_table_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "sitelink_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "vbr_owner_id": {
         "description_kind": "plain",
@@ -132,6 +160,16 @@ const alicloudExpressConnectVirtualBorderRouter = `{
       "timeouts": {
         "block": {
           "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "update": {
               "description_kind": "plain",
               "optional": true,

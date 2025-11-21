@@ -152,6 +152,11 @@ const alicloudDtsSynchronizationJob = `{
         "optional": true,
         "type": "string"
       },
+      "job_parameters": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "reserve": {
         "computed": true,
         "description_kind": "plain",

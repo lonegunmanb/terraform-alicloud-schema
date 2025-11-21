@@ -17,7 +17,12 @@ const alicloudExpressConnectGrantRuleToCen = `{
       "cen_owner_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,

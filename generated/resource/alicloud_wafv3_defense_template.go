@@ -40,6 +40,14 @@ const alicloudWafv3DefenseTemplate = `{
         "required": true,
         "type": "string"
       },
+      "resource_groups": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "resource_manager_resource_group_id": {
         "description_kind": "plain",
         "optional": true,

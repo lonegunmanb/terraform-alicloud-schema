@@ -6,27 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaClientCaCertificate = `{
+const alicloudEfloVpdGrantRule = `{
   "block": {
     "attributes": {
-      "certificate": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "er_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "client_ca_cert_id": {
-        "computed": true,
+      "grant_tenant_id": {
         "description_kind": "plain",
-        "type": "string"
-      },
-      "client_ca_cert_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -35,12 +30,12 @@ const alicloudEsaClientCaCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "site_id": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -71,8 +66,8 @@ const alicloudEsaClientCaCertificate = `{
   "version": 0
 }`
 
-func AlicloudEsaClientCaCertificateSchema() *tfjson.Schema {
+func AlicloudEfloVpdGrantRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaClientCaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloVpdGrantRule), &result)
 	return &result
 }
