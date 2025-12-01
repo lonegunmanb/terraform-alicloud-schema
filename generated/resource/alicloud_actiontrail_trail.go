@@ -14,8 +14,18 @@ const alicloudActiontrailTrail = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "data_event_trail_region": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "event_rw": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "event_selectors": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

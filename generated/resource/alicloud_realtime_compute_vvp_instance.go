@@ -41,6 +41,11 @@ const alicloudRealtimeComputeVvpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

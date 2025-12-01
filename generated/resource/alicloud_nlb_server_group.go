@@ -177,6 +177,7 @@ const alicloudNlbServerGroup = `{
               "type": "number"
             },
             "http_check_method": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

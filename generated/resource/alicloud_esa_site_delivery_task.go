@@ -43,7 +43,7 @@ const alicloudEsaSiteDeliveryTask = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "status": {
         "computed": true,

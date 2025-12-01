@@ -6,7 +6,7 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrail = `{
+const alicloudEfloHyperNode = `{
   "block": {
     "attributes": {
       "create_time": {
@@ -14,18 +14,7 @@ const alicloudActiontrail = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "data_event_trail_region": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "event_rw": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "event_selectors": {
+      "hpn_zone": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -36,48 +25,19 @@ const alicloudActiontrail = `{
         "optional": true,
         "type": "string"
       },
-      "is_organization_trail": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "max_compute_project_arn": {
+      "machine_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "max_compute_write_role_arn": {
-        "computed": true,
+      "payment_duration": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "mns_topic_arn": {
-        "deprecated": true,
+      "payment_type": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_bucket_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_key_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_write_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "region_id": {
@@ -85,36 +45,47 @@ const alicloudActiontrail = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "role_name": {
-        "deprecated": true,
+      "renewal_duration": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "sls_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_write_role_arn": {
+      "renewal_status": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "server_arch": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "stage_num": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "trail_name": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "trail_region": {
-        "computed": true,
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "zone_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -150,8 +121,8 @@ const alicloudActiontrail = `{
   "version": 0
 }`
 
-func AlicloudActiontrailSchema() *tfjson.Schema {
+func AlicloudEfloHyperNodeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrail), &result)
+	_ = json.Unmarshal([]byte(alicloudEfloHyperNode), &result)
 	return &result
 }

@@ -6,29 +6,45 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrail = `{
+const alicloudMilvusInstance = `{
   "block": {
     "attributes": {
+      "auto_backup": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "configuration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "data_event_trail_region": {
+      "db_admin_password": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "event_rw": {
-        "computed": true,
+      "db_version": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "event_selectors": {
+      "encrypted": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
+      },
+      "ha": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -36,48 +52,34 @@ const alicloudActiontrail = `{
         "optional": true,
         "type": "string"
       },
-      "is_organization_trail": {
+      "instance_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
-      "max_compute_project_arn": {
+      "kms_key_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "max_compute_write_role_arn": {
-        "computed": true,
+      "multi_zone_mode": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "mns_topic_arn": {
-        "deprecated": true,
+      "payment_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "payment_duration_unit": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "payment_type": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_bucket_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_key_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_write_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "region_id": {
@@ -85,42 +87,72 @@ const alicloudActiontrail = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "role_name": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_write_role_arn": {
+      "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "trail_name": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "trail_region": {
-        "computed": true,
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "zone_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
+      "components": {
+        "block": {
+          "attributes": {
+            "cu_num": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "cu_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "disk_size_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "replica": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            },
+            "type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -143,6 +175,24 @@ const alicloudActiontrail = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "vswitch_ids": {
+        "block": {
+          "attributes": {
+            "vsw_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "zone_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -150,8 +200,8 @@ const alicloudActiontrail = `{
   "version": 0
 }`
 
-func AlicloudActiontrailSchema() *tfjson.Schema {
+func AlicloudMilvusInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrail), &result)
+	_ = json.Unmarshal([]byte(alicloudMilvusInstance), &result)
 	return &result
 }

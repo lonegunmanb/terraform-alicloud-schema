@@ -6,29 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrail = `{
+const alicloudCloudFirewallPrivateDns = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "access_instance_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "data_event_trail_region": {
+      "access_instance_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "event_rw": {
-        "computed": true,
+      "domain_name_list": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "set",
+          "string"
+        ]
       },
-      "event_selectors": {
+      "firewall_type": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -36,87 +41,69 @@ const alicloudActiontrail = `{
         "optional": true,
         "type": "string"
       },
-      "is_organization_trail": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "max_compute_project_arn": {
+      "ip_protocol": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "max_compute_write_role_arn": {
-        "computed": true,
+      "member_uid": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "port": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "primary_dns": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "mns_topic_arn": {
-        "deprecated": true,
+      "primary_vswitch_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "primary_vswitch_ip": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "oss_bucket_name": {
+      "private_dns_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_no": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "standby_dns": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "oss_key_prefix": {
+      "standby_vswitch_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "oss_write_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "role_name": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_write_role_arn": {
-        "computed": true,
+      "standby_vswitch_ip": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "trail_name": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "trail_region": {
-        "computed": true,
+      "vpc_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -150,8 +137,8 @@ const alicloudActiontrail = `{
   "version": 0
 }`
 
-func AlicloudActiontrailSchema() *tfjson.Schema {
+func AlicloudCloudFirewallPrivateDnsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrail), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallPrivateDns), &result)
 	return &result
 }

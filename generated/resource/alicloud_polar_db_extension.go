@@ -6,13 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaRewriteUrlRule = `{
+const alicloudPolarDbExtension = `{
   "block": {
     "attributes": {
-      "config_id": {
+      "account_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "db_cluster_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "db_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "default_version": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
+        "type": "string"
+      },
+      "extension_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -20,53 +40,8 @@ const alicloudEsaRewriteUrlRule = `{
         "optional": true,
         "type": "string"
       },
-      "query_string": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "rewrite_query_string_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "rewrite_uri_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "rule": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "rule_enable": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "rule_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sequence": {
+      "installed_version": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "site_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "site_version": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "uri": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -102,8 +77,8 @@ const alicloudEsaRewriteUrlRule = `{
   "version": 0
 }`
 
-func AlicloudEsaRewriteUrlRuleSchema() *tfjson.Schema {
+func AlicloudPolarDbExtensionSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaRewriteUrlRule), &result)
+	_ = json.Unmarshal([]byte(alicloudPolarDbExtension), &result)
 	return &result
 }

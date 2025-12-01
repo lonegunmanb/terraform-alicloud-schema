@@ -23,7 +23,7 @@ const alicloudEsaOriginProtection = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {

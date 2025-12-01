@@ -83,7 +83,7 @@ const alicloudEsaWaitingRoomEvent = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "start_time": {
         "description_kind": "plain",

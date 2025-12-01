@@ -19,6 +19,7 @@ const alicloudResourceManagerAccounts = `{
             {
               "account_id": "string",
               "account_name": "string",
+              "deletion_status": "string",
               "display_name": "string",
               "folder_id": "string",
               "id": "string",
