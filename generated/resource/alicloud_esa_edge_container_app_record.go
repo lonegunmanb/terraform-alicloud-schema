@@ -34,7 +34,7 @@ const alicloudEsaEdgeContainerAppRecord = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {

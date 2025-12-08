@@ -74,7 +74,7 @@ const alicloudEsaHttpsBasicConfiguration = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "tls10": {
         "description_kind": "plain",

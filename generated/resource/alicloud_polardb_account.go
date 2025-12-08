@@ -14,6 +14,12 @@ const alicloudPolardbAccount = `{
         "optional": true,
         "type": "string"
       },
+      "account_lock_state": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "account_name": {
         "description_kind": "plain",
         "required": true,
@@ -21,11 +27,18 @@ const alicloudPolardbAccount = `{
       },
       "account_password": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "sensitive": true,
         "type": "string"
       },
+      "account_password_valid_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "account_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -53,6 +66,36 @@ const alicloudPolardbAccount = `{
           "map",
           "string"
         ]
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

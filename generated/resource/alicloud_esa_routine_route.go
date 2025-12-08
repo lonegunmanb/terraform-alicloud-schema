@@ -19,6 +19,12 @@ const alicloudEsaRoutineRoute = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "fallback": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -53,7 +59,7 @@ const alicloudEsaRoutineRoute = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {

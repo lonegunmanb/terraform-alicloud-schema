@@ -28,7 +28,7 @@ const alicloudEsaWaitingRoomRule = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "status": {
         "description_kind": "plain",

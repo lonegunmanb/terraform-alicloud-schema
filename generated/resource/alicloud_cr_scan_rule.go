@@ -6,26 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaOriginClientCertificate = `{
+const alicloudCrScanRule = `{
   "block": {
     "attributes": {
-      "certificate": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "hostnames": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -33,30 +20,55 @@ const alicloudEsaOriginClientCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "origin_client_certificate_id": {
-        "computed": true,
+      "instance_id": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "origin_client_certificate_name": {
+      "namespaces": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "private_key": {
+      "repo_names": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "repo_tag_filter_pattern": {
         "description_kind": "plain",
         "required": true,
-        "sensitive": true,
         "type": "string"
       },
-      "site_id": {
+      "rule_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
+      "scan_rule_id": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "scan_scope": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "scan_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "trigger_type": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -90,8 +102,8 @@ const alicloudEsaOriginClientCertificate = `{
   "version": 0
 }`
 
-func AlicloudEsaOriginClientCertificateSchema() *tfjson.Schema {
+func AlicloudCrScanRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaOriginClientCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudCrScanRule), &result)
 	return &result
 }

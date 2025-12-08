@@ -33,7 +33,7 @@ const alicloudEsaVersion = `{
       "site_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "site_version": {
         "computed": true,

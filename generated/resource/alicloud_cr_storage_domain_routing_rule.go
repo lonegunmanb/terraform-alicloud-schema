@@ -6,26 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaOriginClientCertificate = `{
+const alicloudCrStorageDomainRoutingRule = `{
   "block": {
     "attributes": {
-      "certificate": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "hostnames": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -33,34 +20,42 @@ const alicloudEsaOriginClientCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "origin_client_certificate_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "origin_client_certificate_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "private_key": {
-        "description_kind": "plain",
-        "required": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "site_id": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
+      "rule_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       }
     },
     "block_types": {
+      "routes": {
+        "block": {
+          "attributes": {
+            "endpoint_type": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "instance_domain": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "storage_domain": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -90,8 +85,8 @@ const alicloudEsaOriginClientCertificate = `{
   "version": 0
 }`
 
-func AlicloudEsaOriginClientCertificateSchema() *tfjson.Schema {
+func AlicloudCrStorageDomainRoutingRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaOriginClientCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudCrStorageDomainRoutingRule), &result)
 	return &result
 }
