@@ -6,13 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrailHistoryDeliveryJob = `{
+const alicloudRedisBackup = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "backup_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
+      },
+      "backup_retention_period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -20,14 +25,14 @@ const alicloudActiontrailHistoryDeliveryJob = `{
         "optional": true,
         "type": "string"
       },
+      "instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
-      },
-      "trail_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -44,6 +49,11 @@ const alicloudActiontrailHistoryDeliveryJob = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -56,8 +66,8 @@ const alicloudActiontrailHistoryDeliveryJob = `{
   "version": 0
 }`
 
-func AlicloudActiontrailHistoryDeliveryJobSchema() *tfjson.Schema {
+func AlicloudRedisBackupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrailHistoryDeliveryJob), &result)
+	_ = json.Unmarshal([]byte(alicloudRedisBackup), &result)
 	return &result
 }

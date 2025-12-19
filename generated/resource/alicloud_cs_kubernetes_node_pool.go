@@ -406,6 +406,20 @@ const alicloudCsKubernetesNodePool = `{
       }
     },
     "block_types": {
+      "auto_mode": {
+        "block": {
+          "attributes": {
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "data_disks": {
         "block": {
           "attributes": {
@@ -502,6 +516,95 @@ const alicloudCsKubernetesNodePool = `{
           "description_kind": "plain"
         },
         "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "instance_metadata_options": {
+        "block": {
+          "attributes": {
+            "http_tokens": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "instance_patterns": {
+        "block": {
+          "attributes": {
+            "cores": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "cpu_architectures": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "excluded_instance_types": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "instance_categories": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "instance_family_level": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "instance_type_families": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "max_cpu_cores": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "max_memory_size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "memory": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "min_cpu_cores": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "min_memory_size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "kubelet_configuration": {
@@ -662,6 +765,11 @@ const alicloudCsKubernetesNodePool = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "server_tls_bootstrap": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "system_reserved": {
               "description_kind": "plain",

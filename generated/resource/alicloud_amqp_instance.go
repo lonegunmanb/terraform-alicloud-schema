@@ -19,6 +19,12 @@ const alicloudAmqpInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "edition": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -75,6 +81,11 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "provisioned_capacity": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "queue_capacity": {
         "computed": true,
         "description_kind": "plain",
@@ -121,7 +132,6 @@ const alicloudAmqpInstance = `{
         "type": "bool"
       },
       "support_tracing": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

@@ -6,29 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSslCertificatesServicePcaCertificate = `{
+const alicloudEsaHttpIncomingResponseHeaderModificationRule = `{
   "block": {
     "attributes": {
-      "algorithm": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "alias_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "common_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "country_code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -36,52 +20,67 @@ const alicloudSslCertificatesServicePcaCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "locality": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization_unit": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
+      "rule": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "state": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
+      "rule_enable": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "years": {
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sequence": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "site_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "site_version": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "number"
       }
     },
     "block_types": {
+      "response_header_modification": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "operation": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -111,8 +110,8 @@ const alicloudSslCertificatesServicePcaCertificate = `{
   "version": 0
 }`
 
-func AlicloudSslCertificatesServicePcaCertificateSchema() *tfjson.Schema {
+func AlicloudEsaHttpIncomingResponseHeaderModificationRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaHttpIncomingResponseHeaderModificationRule), &result)
 	return &result
 }

@@ -6,26 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrail = `{
+const alicloudGpdbSupabaseProject = `{
   "block": {
     "attributes": {
+      "account_password": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "data_event_trail_region": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "event_rw": {
+      "disk_performance_level": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "event_selectors": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -36,48 +32,14 @@ const alicloudActiontrail = `{
         "optional": true,
         "type": "string"
       },
-      "is_organization_trail": {
+      "project_name": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "max_compute_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "max_compute_write_role_arn": {
-        "computed": true,
+      "project_spec": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "mns_topic_arn": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_bucket_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_key_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_write_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "region_id": {
@@ -85,39 +47,38 @@ const alicloudActiontrail = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "role_name": {
-        "deprecated": true,
+      "security_ip_list": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_write_role_arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "trail_name": {
+      "storage_size": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "trail_region": {
-        "computed": true,
+      "vswitch_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
+        "type": "string"
+      },
+      "zone_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -151,8 +112,8 @@ const alicloudActiontrail = `{
   "version": 0
 }`
 
-func AlicloudActiontrailSchema() *tfjson.Schema {
+func AlicloudGpdbSupabaseProjectSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrail), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbSupabaseProject), &result)
 	return &result
 }

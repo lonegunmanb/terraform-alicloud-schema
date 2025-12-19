@@ -6,44 +6,43 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudHologramInstance = `{
+const alicloudEhpcQueue = `{
   "block": {
     "attributes": {
-      "auto_pay": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "cold_storage_size": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "cpu": {
+      "cluster_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "duration": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "enable_ssl": {
+      "enable_scale_in": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "gateway_count": {
+      "enable_scale_out": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "bool"
+      },
+      "hostname_prefix": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "hostname_suffix": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -51,123 +50,136 @@ const alicloudHologramInstance = `{
         "optional": true,
         "type": "string"
       },
-      "initial_databases": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "instance_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "instance_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "leader_instance_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "pricing_cycle": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
+      "initial_count": {
         "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "scale_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "storage_size": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "tags": {
+      "inter_connect": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "max_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "min_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "queue_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_ids": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
+          "list",
           "string"
         ]
-      },
-      "zone_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "endpoints": {
+      "compute_nodes": {
         "block": {
           "attributes": {
-            "alternative_endpoints": {
-              "computed": true,
+            "auto_renew": {
               "description_kind": "plain",
-              "type": "string"
-            },
-            "enabled": {
-              "computed": true,
-              "description_kind": "plain",
+              "optional": true,
               "type": "bool"
             },
-            "endpoint": {
+            "auto_renew_period": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "duration": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "enable_ht": {
               "computed": true,
               "description_kind": "plain",
-              "type": "string"
+              "optional": true,
+              "type": "bool"
             },
-            "type": {
-              "computed": true,
+            "image_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "vpc_id": {
-              "computed": true,
+            "instance_charge_type": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "vpc_instance_id": {
-              "computed": true,
+            "instance_type": {
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
-            "vswitch_id": {
+            "period": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "period_unit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "spot_price_limit": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "spot_strategy": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             }
           },
+          "block_types": {
+            "system_disk": {
+              "block": {
+                "attributes": {
+                  "category": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "level": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "size": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -198,8 +210,8 @@ const alicloudHologramInstance = `{
   "version": 0
 }`
 
-func AlicloudHologramInstanceSchema() *tfjson.Schema {
+func AlicloudEhpcQueueSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudHologramInstance), &result)
+	_ = json.Unmarshal([]byte(alicloudEhpcQueue), &result)
 	return &result
 }

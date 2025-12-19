@@ -93,6 +93,11 @@ const alicloudEsaSite = `{
         "optional": true,
         "type": "string"
       },
+      "paused": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",

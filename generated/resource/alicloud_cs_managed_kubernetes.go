@@ -106,6 +106,7 @@ const alicloudCsManagedKubernetes = `{
         "type": "string"
       },
       "deletion_protection": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

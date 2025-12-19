@@ -24,6 +24,11 @@ const alicloudKmsInstances = `{
           "string"
         ]
       },
+      "instance_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instances": {
         "computed": true,
         "description_kind": "plain",
@@ -41,16 +46,6 @@ const alicloudKmsInstances = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "page_number": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "page_size": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "description_kind": "plain"

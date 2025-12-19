@@ -6,26 +6,40 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrail = `{
+const alicloudMongodbNode = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "data_event_trail_region": {
+      "account_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "event_rw": {
-        "computed": true,
+      "account_password": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "event_selectors": {
+      "auto_pay": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "business_info": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "effective_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "from_app": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -36,86 +50,48 @@ const alicloudActiontrail = `{
         "optional": true,
         "type": "string"
       },
-      "is_organization_trail": {
+      "node_class": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "node_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "node_storage": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "node_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "order_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "readonly_replicas": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "shard_direct": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "max_compute_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "max_compute_write_role_arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "mns_topic_arn": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_bucket_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_key_prefix": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "oss_write_role_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "role_name": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_project_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sls_write_role_arn": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "trail_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "trail_region": {
-        "computed": true,
+      "switch_time": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -151,8 +127,8 @@ const alicloudActiontrail = `{
   "version": 0
 }`
 
-func AlicloudActiontrailSchema() *tfjson.Schema {
+func AlicloudMongodbNodeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrail), &result)
+	_ = json.Unmarshal([]byte(alicloudMongodbNode), &result)
 	return &result
 }

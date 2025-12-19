@@ -20,6 +20,7 @@ const alicloudSchedulerxAppGroup = `{
         "type": "number"
       },
       "app_version": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -56,6 +57,7 @@ const alicloudSchedulerxAppGroup = `{
         "type": "number"
       },
       "max_jobs": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

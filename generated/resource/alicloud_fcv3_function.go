@@ -71,6 +71,11 @@ const alicloudFcv3Function = `{
         "optional": true,
         "type": "string"
       },
+      "idle_timeout": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "instance_concurrency": {
         "computed": true,
         "description_kind": "plain",
@@ -78,6 +83,7 @@ const alicloudFcv3Function = `{
         "type": "number"
       },
       "instance_isolation_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -139,6 +145,7 @@ const alicloudFcv3Function = `{
         "type": "string"
       },
       "session_affinity": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -292,31 +299,37 @@ const alicloudFcv3Function = `{
               "block": {
                 "attributes": {
                   "failure_threshold": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "http_get_url": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "initial_delay_seconds": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "period_seconds": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "success_threshold": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "timeout_seconds": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
@@ -415,26 +428,31 @@ const alicloudFcv3Function = `{
                     "type": "number"
                   },
                   "http_get_url": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "string"
                   },
                   "initial_delay_seconds": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "period_seconds": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "success_threshold": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
                   },
                   "timeout_seconds": {
+                    "computed": true,
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
@@ -701,11 +719,13 @@ const alicloudFcv3Function = `{
         "block": {
           "attributes": {
             "security_group_id": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
             "vpc_id": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"

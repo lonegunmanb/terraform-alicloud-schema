@@ -6,12 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrailHistoryDeliveryJob = `{
+const alicloudCsKubernetesPolicyInstance = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "action": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cluster_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -20,12 +25,28 @@ const alicloudActiontrailHistoryDeliveryJob = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
+      "instance_name": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
+        "type": "string"
       },
-      "trail_name": {
+      "namespaces": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "parameters": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "policy_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -44,6 +65,11 @@ const alicloudActiontrailHistoryDeliveryJob = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -56,8 +82,8 @@ const alicloudActiontrailHistoryDeliveryJob = `{
   "version": 0
 }`
 
-func AlicloudActiontrailHistoryDeliveryJobSchema() *tfjson.Schema {
+func AlicloudCsKubernetesPolicyInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrailHistoryDeliveryJob), &result)
+	_ = json.Unmarshal([]byte(alicloudCsKubernetesPolicyInstance), &result)
 	return &result
 }

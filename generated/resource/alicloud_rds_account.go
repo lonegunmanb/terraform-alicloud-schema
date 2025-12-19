@@ -34,6 +34,11 @@ const alicloudRdsAccount = `{
         "optional": true,
         "type": "string"
       },
+      "check_policy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "db_instance_id": {
         "computed": true,
         "description_kind": "plain",
@@ -96,6 +101,7 @@ const alicloudRdsAccount = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "type": {

@@ -6,12 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudActiontrailHistoryDeliveryJob = `{
+const alicloudPolardbGlobalSecurityIpGroup = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
+      "global_ip_group_name": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "global_ip_list": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -20,14 +25,9 @@ const alicloudActiontrailHistoryDeliveryJob = `{
         "optional": true,
         "type": "string"
       },
-      "status": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
-      },
-      "trail_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -44,6 +44,11 @@ const alicloudActiontrailHistoryDeliveryJob = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -56,8 +61,8 @@ const alicloudActiontrailHistoryDeliveryJob = `{
   "version": 0
 }`
 
-func AlicloudActiontrailHistoryDeliveryJobSchema() *tfjson.Schema {
+func AlicloudPolardbGlobalSecurityIpGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudActiontrailHistoryDeliveryJob), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbGlobalSecurityIpGroup), &result)
 	return &result
 }

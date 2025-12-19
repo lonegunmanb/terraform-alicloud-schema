@@ -249,6 +249,24 @@ const alicloudLindormInstanceV2 = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "white_ip_list": {
+        "block": {
+          "attributes": {
+            "group_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "ip_list": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

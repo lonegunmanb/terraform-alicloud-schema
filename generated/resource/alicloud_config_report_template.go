@@ -6,82 +6,70 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSslCertificatesServicePcaCertificate = `{
+const alicloudConfigReportTemplate = `{
   "block": {
     "attributes": {
-      "algorithm": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "alias_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "common_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "country_code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "locality": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization_unit": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
+      "report_file_formats": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "state": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
+      "report_granularity": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "years": {
+      "report_language": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "report_template_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "report_template_name": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
+      },
+      "subscription_frequency": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
+      "report_scope": {
+        "block": {
+          "attributes": {
+            "key": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "match_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -111,8 +99,8 @@ const alicloudSslCertificatesServicePcaCertificate = `{
   "version": 0
 }`
 
-func AlicloudSslCertificatesServicePcaCertificateSchema() *tfjson.Schema {
+func AlicloudConfigReportTemplateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudConfigReportTemplate), &result)
 	return &result
 }
