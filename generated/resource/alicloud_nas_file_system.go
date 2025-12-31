@@ -64,6 +64,20 @@ const alicloudNasFileSystem = `{
         "required": true,
         "type": "string"
       },
+      "redundancy_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "redundancy_vswitch_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "region_id": {
         "computed": true,
         "description_kind": "plain",

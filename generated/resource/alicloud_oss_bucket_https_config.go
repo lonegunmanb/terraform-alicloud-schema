@@ -35,6 +35,42 @@ const alicloudOssBucketHttpsConfig = `{
       }
     },
     "block_types": {
+      "cipher_suit": {
+        "block": {
+          "attributes": {
+            "custom_cipher_suite": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            },
+            "enable": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "strong_cipher_suite": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "tls13_custom_cipher_suite": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

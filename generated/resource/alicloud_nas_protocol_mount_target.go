@@ -6,30 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenBandwidthPackage = `{
+const alicloudNasProtocolMountTarget = `{
   "block": {
     "attributes": {
-      "auto_renew": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "cen_bandwidth_package_name": {
+      "access_group_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "charge_type": {
+      "create_time": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
       "description": {
@@ -37,32 +25,25 @@ const alicloudCenBandwidthPackage = `{
         "optional": true,
         "type": "string"
       },
-      "expired_time": {
+      "dry_run": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "export_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "geographic_region_a_id": {
-        "computed": true,
+      "file_system_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "fset_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "geographic_region_b_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_ids": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -70,28 +51,39 @@ const alicloudCenBandwidthPackage = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
+      "path": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "period": {
+      "protocol_service_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -124,8 +116,8 @@ const alicloudCenBandwidthPackage = `{
   "version": 0
 }`
 
-func AlicloudCenBandwidthPackageSchema() *tfjson.Schema {
+func AlicloudNasProtocolMountTargetSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenBandwidthPackage), &result)
+	_ = json.Unmarshal([]byte(alicloudNasProtocolMountTarget), &result)
 	return &result
 }

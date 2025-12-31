@@ -6,63 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenBandwidthPackage = `{
+const alicloudKmsValueAddedService = `{
   "block": {
     "attributes": {
-      "auto_renew": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "bandwidth": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "cen_bandwidth_package_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "charge_type": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "expired_time": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
-      },
-      "geographic_region_a_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_b_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_ids": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -70,17 +20,9 @@ const alicloudCenBandwidthPackage = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "payment_type": {
-        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "period": {
@@ -88,9 +30,29 @@ const alicloudCenBandwidthPackage = `{
         "optional": true,
         "type": "number"
       },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "renew_period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "renew_status": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "value_added_service": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -124,8 +86,8 @@ const alicloudCenBandwidthPackage = `{
   "version": 0
 }`
 
-func AlicloudCenBandwidthPackageSchema() *tfjson.Schema {
+func AlicloudKmsValueAddedServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenBandwidthPackage), &result)
+	_ = json.Unmarshal([]byte(alicloudKmsValueAddedService), &result)
 	return &result
 }

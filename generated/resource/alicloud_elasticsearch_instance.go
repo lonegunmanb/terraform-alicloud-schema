@@ -9,49 +9,75 @@ import (
 const alicloudElasticsearchInstance = `{
   "block": {
     "attributes": {
+      "arch_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "auto_renew_duration": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "client_node_amount": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "client_node_spec": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "data_node_amount": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "type": "string"
+      },
+      "data_node_amount": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "number"
       },
       "data_node_disk_encrypted": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "data_node_disk_performance_level": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "data_node_disk_size": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "data_node_disk_type": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "data_node_spec": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "description": {
@@ -66,16 +92,24 @@ const alicloudElasticsearchInstance = `{
         "type": "string"
       },
       "enable_kibana_private_network": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_kibana_public_network": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "enable_public": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "force": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -86,7 +120,15 @@ const alicloudElasticsearchInstance = `{
         "optional": true,
         "type": "string"
       },
+      "instance_category": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instance_charge_type": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -98,6 +140,7 @@ const alicloudElasticsearchInstance = `{
       },
       "kibana_node_spec": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -144,11 +187,20 @@ const alicloudElasticsearchInstance = `{
         ]
       },
       "master_node_disk_type": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "master_node_spec": {
+        "computed": true,
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "order_action_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -159,7 +211,14 @@ const alicloudElasticsearchInstance = `{
         "sensitive": true,
         "type": "string"
       },
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "period": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -179,6 +238,7 @@ const alicloudElasticsearchInstance = `{
         ]
       },
       "protocol": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -203,11 +263,13 @@ const alicloudElasticsearchInstance = `{
         ]
       },
       "renew_status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "renewal_duration_unit": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -240,6 +302,11 @@ const alicloudElasticsearchInstance = `{
           "string"
         ]
       },
+      "update_strategy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "version": {
         "description_kind": "plain",
         "required": true,
@@ -251,37 +318,176 @@ const alicloudElasticsearchInstance = `{
         "type": "string"
       },
       "warm_node_amount": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "warm_node_disk_encrypted": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
       "warm_node_disk_size": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "warm_node_disk_type": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "warm_node_spec": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "zone_count": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       }
     },
     "block_types": {
+      "client_node_configuration": {
+        "block": {
+          "attributes": {
+            "amount": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "spec": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "data_node_configuration": {
+        "block": {
+          "attributes": {
+            "amount": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk_encryption": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "disk_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "performance_level": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "spec": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "kibana_configuration": {
+        "block": {
+          "attributes": {
+            "amount": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "spec": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "master_configuration": {
+        "block": {
+          "attributes": {
+            "amount": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "spec": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -304,6 +510,40 @@ const alicloudElasticsearchInstance = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "warm_node_configuration": {
+        "block": {
+          "attributes": {
+            "amount": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "disk_encryption": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "disk_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "spec": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

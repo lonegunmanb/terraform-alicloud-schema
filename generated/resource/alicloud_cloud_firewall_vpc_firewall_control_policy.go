@@ -26,8 +26,21 @@ const alicloudCloudFirewallVpcFirewallControlPolicy = `{
       },
       "application_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
+      },
+      "application_name_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       },
       "description": {
         "description_kind": "plain",
@@ -82,6 +95,17 @@ const alicloudCloudFirewallVpcFirewallControlPolicy = `{
         "required": true,
         "type": "string"
       },
+      "domain_resolve_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "end_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "hit_times": {
         "computed": true,
         "description_kind": "plain",
@@ -118,7 +142,31 @@ const alicloudCloudFirewallVpcFirewallControlPolicy = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "repeat_days": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "number"
+        ]
+      },
+      "repeat_end_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "repeat_start_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "repeat_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "source": {
         "description_kind": "plain",
@@ -142,6 +190,11 @@ const alicloudCloudFirewallVpcFirewallControlPolicy = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "start_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "vpc_firewall_id": {
         "description_kind": "plain",

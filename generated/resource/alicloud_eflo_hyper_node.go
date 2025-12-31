@@ -9,9 +9,19 @@ import (
 const alicloudEfloHyperNode = `{
   "block": {
     "attributes": {
+      "cluster_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "hostname": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "hpn_zone": {
@@ -25,7 +35,18 @@ const alicloudEfloHyperNode = `{
         "optional": true,
         "type": "string"
       },
+      "login_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "machine_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "node_group_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -85,6 +106,21 @@ const alicloudEfloHyperNode = `{
           "string"
         ]
       },
+      "user_data": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "zone_id": {
         "description_kind": "plain",
         "optional": true,
@@ -92,6 +128,44 @@ const alicloudEfloHyperNode = `{
       }
     },
     "block_types": {
+      "data_disk": {
+        "block": {
+          "attributes": {
+            "bursting_enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "category": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete_with_node": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "performance_level": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "provisioned_iops": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "size": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

@@ -9,6 +9,17 @@ import (
 const alicloudNasFileset = `{
   "block": {
     "attributes": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "deletion_protection": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,
@@ -56,6 +67,11 @@ const alicloudNasFileset = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

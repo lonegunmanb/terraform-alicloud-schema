@@ -6,63 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenBandwidthPackage = `{
+const alicloudConfigAggregateRemediation = `{
   "block": {
     "attributes": {
-      "auto_renew": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "bandwidth": {
+      "aggregator_id": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
-      },
-      "cen_bandwidth_package_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "charge_type": {
-        "computed": true,
-        "deprecated": true,
+      "config_rule_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "expired_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "geographic_region_a_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_b_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_ids": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -70,27 +25,34 @@ const alicloudCenBandwidthPackage = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
+      "invoke_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "remediation_id": {
         "computed": true,
-        "deprecated": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "remediation_origin_params": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "remediation_source_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "payment_type": {
-        "computed": true,
+      "remediation_template_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "period": {
+      "remediation_type": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -124,8 +86,8 @@ const alicloudCenBandwidthPackage = `{
   "version": 0
 }`
 
-func AlicloudCenBandwidthPackageSchema() *tfjson.Schema {
+func AlicloudConfigAggregateRemediationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenBandwidthPackage), &result)
+	_ = json.Unmarshal([]byte(alicloudConfigAggregateRemediation), &result)
 	return &result
 }

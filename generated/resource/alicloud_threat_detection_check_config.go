@@ -6,63 +6,36 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenBandwidthPackage = `{
+const alicloudThreatDetectionCheckConfig = `{
   "block": {
     "attributes": {
-      "auto_renew": {
+      "configure": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cycle_days": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "number"
+        ]
+      },
+      "enable_add_check": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "bandwidth": {
+      "enable_auto_check": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "bool"
+      },
+      "end_time": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "number"
-      },
-      "cen_bandwidth_package_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "charge_type": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "expired_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "geographic_region_a_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_b_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "geographic_region_ids": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "set",
-          "string"
-        ]
       },
       "id": {
         "computed": true,
@@ -70,31 +43,44 @@ const alicloudCenBandwidthPackage = `{
         "optional": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "period": {
+      "start_time": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "status": {
-        "computed": true,
+      "system_config": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "bool"
+      },
+      "vendors": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {
+      "selected_checks": {
+        "block": {
+          "attributes": {
+            "check_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "section_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -124,8 +110,8 @@ const alicloudCenBandwidthPackage = `{
   "version": 0
 }`
 
-func AlicloudCenBandwidthPackageSchema() *tfjson.Schema {
+func AlicloudThreatDetectionCheckConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenBandwidthPackage), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionCheckConfig), &result)
 	return &result
 }

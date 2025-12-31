@@ -536,6 +536,33 @@ const alicloudInstance = `{
       }
     },
     "block_types": {
+      "cpu_options": {
+        "block": {
+          "attributes": {
+            "core_count": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "threads_per_core": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "topology_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "data_disks": {
         "block": {
           "attributes": {
