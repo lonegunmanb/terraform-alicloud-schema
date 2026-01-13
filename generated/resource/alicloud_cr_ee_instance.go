@@ -93,6 +93,11 @@ const alicloudCrEeInstance = `{
           "string"
         ]
       },
+      "namespace_quota": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "password": {
         "description_kind": "plain",
         "optional": true,
@@ -125,6 +130,11 @@ const alicloudCrEeInstance = `{
         "optional": true,
         "type": "string"
       },
+      "repo_quota": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -135,6 +145,11 @@ const alicloudCrEeInstance = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "vpc_quota": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {

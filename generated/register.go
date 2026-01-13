@@ -889,6 +889,7 @@ func init() {
 	resources["alicloud_ram_user_policy_attachment"] = resource.AlicloudRamUserPolicyAttachmentSchema()  
 	resources["alicloud_rdc_organization"] = resource.AlicloudRdcOrganizationSchema()  
 	resources["alicloud_rds_account"] = resource.AlicloudRdsAccountSchema()  
+	resources["alicloud_rds_ai_instance"] = resource.AlicloudRdsAiInstanceSchema()  
 	resources["alicloud_rds_backup"] = resource.AlicloudRdsBackupSchema()  
 	resources["alicloud_rds_clone_db_instance"] = resource.AlicloudRdsCloneDbInstanceSchema()  
 	resources["alicloud_rds_custom"] = resource.AlicloudRdsCustomSchema()  

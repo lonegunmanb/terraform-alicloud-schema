@@ -24,6 +24,11 @@ const alicloudDrdsPolardbxInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "dn_class": {
         "description_kind": "plain",
         "required": true,
@@ -34,8 +39,24 @@ const alicloudDrdsPolardbxInstance = `{
         "required": true,
         "type": "number"
       },
+      "engine_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "is_read_db_instance": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "primary_db_instance_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -43,6 +64,11 @@ const alicloudDrdsPolardbxInstance = `{
       "primary_zone": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_group_id": {

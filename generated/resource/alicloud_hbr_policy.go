@@ -89,6 +89,19 @@ const alicloudHbrPolicy = `{
             }
           },
           "block_types": {
+            "data_source_filters": {
+              "block": {
+                "attributes": {
+                  "source_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
             "retention_rules": {
               "block": {
                 "attributes": {
@@ -101,6 +114,29 @@ const alicloudHbrPolicy = `{
                     "description_kind": "plain",
                     "optional": true,
                     "type": "number"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            },
+            "tag_filters": {
+              "block": {
+                "attributes": {
+                  "key": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "value": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
                   }
                 },
                 "description_kind": "plain"

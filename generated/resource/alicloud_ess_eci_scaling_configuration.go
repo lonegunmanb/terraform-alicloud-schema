@@ -138,6 +138,11 @@ const alicloudEssEciScalingConfiguration = `{
         "optional": true,
         "type": "number"
       },
+      "override": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "ram_role_name": {
         "description_kind": "plain",
         "optional": true,

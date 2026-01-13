@@ -359,6 +359,24 @@ const alicloudMongodbShardingInstance = `{
         "min_items": 2,
         "nesting_mode": "list"
       },
+      "parameters": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "shard_list": {
         "block": {
           "attributes": {

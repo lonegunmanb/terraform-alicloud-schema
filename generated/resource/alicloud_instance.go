@@ -429,6 +429,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "system_disk_auto_snapshot_policy_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

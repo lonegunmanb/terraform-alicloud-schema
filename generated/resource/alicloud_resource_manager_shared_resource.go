@@ -20,9 +20,21 @@ const alicloudResourceManagerSharedResource = `{
         "optional": true,
         "type": "string"
       },
-      "resource_id": {
+      "permission_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "resource_arn": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "resource_share_id": {
@@ -31,8 +43,9 @@ const alicloudResourceManagerSharedResource = `{
         "type": "string"
       },
       "resource_type": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "status": {
@@ -51,6 +64,11 @@ const alicloudResourceManagerSharedResource = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

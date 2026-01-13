@@ -6,17 +6,39 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerResourceShare = `{
+const alicloudRdsAiInstance = `{
   "block": {
     "attributes": {
-      "allow_external_targets": {
+      "app_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "app_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "ca_type": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "create_time": {
-        "computed": true,
+      "dashboard_password": {
         "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "database_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "db_instance_name": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -25,70 +47,53 @@ const alicloudResourceManagerResourceShare = `{
         "optional": true,
         "type": "string"
       },
-      "permission_names": {
+      "initialize_with_existing_data": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "bool"
       },
-      "resource_arns": {
+      "public_endpoint_enabled": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "bool"
       },
-      "resource_group_id": {
-        "computed": true,
+      "public_network_access_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "server_cert": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_share_name": {
+      "server_key": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "resource_share_owner": {
-        "computed": true,
+      "ssl_enabled": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "targets": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
       }
     },
     "block_types": {
-      "resources": {
+      "auth_config_list": {
         "block": {
           "attributes": {
-            "resource_id": {
+            "name": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "resource_type": {
+            "value": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -96,7 +101,25 @@ const alicloudResourceManagerResourceShare = `{
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "list"
+        "nesting_mode": "set"
+      },
+      "storage_config_list": {
+        "block": {
+          "attributes": {
+            "name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
       },
       "timeouts": {
         "block": {
@@ -127,8 +150,8 @@ const alicloudResourceManagerResourceShare = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerResourceShareSchema() *tfjson.Schema {
+func AlicloudRdsAiInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerResourceShare), &result)
+	_ = json.Unmarshal([]byte(alicloudRdsAiInstance), &result)
 	return &result
 }
