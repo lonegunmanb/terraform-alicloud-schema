@@ -201,6 +201,16 @@ const alicloudWafv3Domain = `{
               "optional": true,
               "type": "bool"
             },
+            "http2_origin": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "http2_origin_max_concurrency": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
             "keepalive": {
               "description_kind": "plain",
               "optional": true,
@@ -222,6 +232,12 @@ const alicloudWafv3Domain = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            },
+            "max_body_size": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             },
             "read_timeout": {
               "description_kind": "plain",

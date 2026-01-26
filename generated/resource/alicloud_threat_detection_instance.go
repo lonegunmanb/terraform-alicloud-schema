@@ -67,7 +67,20 @@ const alicloudThreatDetectionInstance = `{
         "optional": true,
         "type": "number"
       },
+      "post_paid_host_auto_bind": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "post_paid_host_auto_bind_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "post_pay_module_switch": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -203,6 +216,75 @@ const alicloudThreatDetectionInstance = `{
       }
     },
     "block_types": {
+      "post_pay_module_switch_obj": {
+        "block": {
+          "attributes": {
+            "agentless": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "anti_ransomware": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "basic_service": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "cspm": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "ctdr": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "ctdr_storage": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "post_host": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "rasp": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "sdk": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "serverless": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "vul": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "web_lock": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

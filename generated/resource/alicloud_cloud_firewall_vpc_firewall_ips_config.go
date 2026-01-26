@@ -6,18 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSlsMachineGroup = `{
+const alicloudCloudFirewallVpcFirewallIpsConfig = `{
   "block": {
     "attributes": {
-      "group_name": {
+      "basic_rules": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "group_type": {
+      "enable_all_patch": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -25,45 +25,33 @@ const alicloudSlsMachineGroup = `{
         "optional": true,
         "type": "string"
       },
-      "machine_identify_type": {
+      "lang": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "machine_list": {
+      "member_uid": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_class": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "run_mode": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "number"
       },
-      "project_name": {
+      "vpc_firewall_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "group_attribute": {
-        "block": {
-          "attributes": {
-            "external_name": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "group_topic": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -73,6 +61,11 @@ const alicloudSlsMachineGroup = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -88,8 +81,8 @@ const alicloudSlsMachineGroup = `{
   "version": 0
 }`
 
-func AlicloudSlsMachineGroupSchema() *tfjson.Schema {
+func AlicloudCloudFirewallVpcFirewallIpsConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSlsMachineGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallVpcFirewallIpsConfig), &result)
 	return &result
 }

@@ -72,6 +72,11 @@ const alicloudWafv3DefenseRule = `{
               "optional": true,
               "type": "string"
             },
+            "auto_update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "bypass_regular_rules": {
               "description_kind": "plain",
               "optional": true,
@@ -97,6 +102,7 @@ const alicloudWafv3DefenseRule = `{
               ]
             },
             "cc_effect": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -110,6 +116,14 @@ const alicloudWafv3DefenseRule = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "codec_list": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "set",
+                "string"
+              ]
             },
             "gray_status": {
               "description_kind": "plain",
@@ -379,6 +393,49 @@ const alicloudWafv3DefenseRule = `{
               },
               "max_items": 1,
               "nesting_mode": "list"
+            },
+            "waf_base_config": {
+              "block": {
+                "attributes": {
+                  "rule_batch_operation_config": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "rule_type": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "block_types": {
+                  "rule_detail": {
+                    "block": {
+                      "attributes": {
+                        "rule_action": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "rule_id": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "rule_status": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "nesting_mode": "set"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
             }
           },
           "description_kind": "plain"

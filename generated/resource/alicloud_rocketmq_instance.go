@@ -268,6 +268,7 @@ const alicloudRocketmqInstance = `{
               "type": "string"
             },
             "send_receive_ratio": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"

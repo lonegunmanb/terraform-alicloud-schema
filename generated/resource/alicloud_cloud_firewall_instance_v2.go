@@ -6,53 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSslCertificatesServicePcaCertificate = `{
+const alicloudCloudFirewallInstanceV2 = `{
   "block": {
     "attributes": {
-      "algorithm": {
+      "cfw_log": {
         "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "alias_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "certificate_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "common_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "country_code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "crl_day": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "enable_crl": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "extended_key_usages": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
+      },
+      "end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -60,38 +31,59 @@ const alicloudSslCertificatesServicePcaCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "locality": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization_unit": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "parent_identifier": {
+      "modify_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "path_len_constraint": {
+      "payment_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "period": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "resource_group_id": {
+      "product_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "product_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "release_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "renewal_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "renewal_duration_unit": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "state": {
+      "renewal_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sdl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "spec": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -101,18 +93,10 @@ const alicloudSslCertificatesServicePcaCertificate = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
+      "user_status": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "years": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
+        "type": "string"
       }
     },
     "block_types": {
@@ -145,8 +129,8 @@ const alicloudSslCertificatesServicePcaCertificate = `{
   "version": 0
 }`
 
-func AlicloudSslCertificatesServicePcaCertificateSchema() *tfjson.Schema {
+func AlicloudCloudFirewallInstanceV2Schema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallInstanceV2), &result)
 	return &result
 }

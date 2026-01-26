@@ -6,64 +6,32 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSlsMachineGroup = `{
+const alicloudCloudFirewallVpcFirewallAclEngineMode = `{
   "block": {
     "attributes": {
-      "group_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "group_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "machine_identify_type": {
+      "member_uid": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "machine_list": {
+      "strict_mode": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "number"
       },
-      "project_name": {
+      "vpc_firewall_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "group_attribute": {
-        "block": {
-          "attributes": {
-            "external_name": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "group_topic": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -73,6 +41,11 @@ const alicloudSlsMachineGroup = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -88,8 +61,8 @@ const alicloudSlsMachineGroup = `{
   "version": 0
 }`
 
-func AlicloudSlsMachineGroupSchema() *tfjson.Schema {
+func AlicloudCloudFirewallVpcFirewallAclEngineModeSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSlsMachineGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallVpcFirewallAclEngineMode), &result)
 	return &result
 }

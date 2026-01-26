@@ -46,6 +46,7 @@ const alicloudSecurityGroup = `{
         "type": "string"
       },
       "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

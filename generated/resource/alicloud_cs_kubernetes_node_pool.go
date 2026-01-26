@@ -974,10 +974,28 @@ const alicloudCsKubernetesNodePool = `{
       "rolling_policy": {
         "block": {
           "attributes": {
+            "batch_interval": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "max_parallelism": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
+            },
+            "node_names": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "pause_policy": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -1120,6 +1138,40 @@ const alicloudCsKubernetesNodePool = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "upgrade_policy": {
+        "block": {
+          "attributes": {
+            "image_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "kubernetes_version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "runtime": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "runtime_version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "use_replace": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"

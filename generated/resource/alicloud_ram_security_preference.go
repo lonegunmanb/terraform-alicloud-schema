@@ -47,6 +47,7 @@ const alicloudRamSecurityPreference = `{
       },
       "enforce_mfa_for_login": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -63,6 +64,18 @@ const alicloudRamSecurityPreference = `{
         "type": "string"
       },
       "login_session_duration": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "max_idle_days_for_access_keys": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "max_idle_days_for_users": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

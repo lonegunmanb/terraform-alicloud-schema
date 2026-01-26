@@ -6,53 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSslCertificatesServicePcaCertificate = `{
+const alicloudAlikafkaScheduledScalingRule = `{
   "block": {
     "attributes": {
-      "algorithm": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "alias_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "certificate_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "common_name": {
+      "duration_minutes": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "country_code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "crl_day": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "number"
       },
-      "enable_crl": {
+      "enable": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "extended_key_usages": {
+      "first_scheduled_time": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "required": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -60,59 +30,48 @@ const alicloudSslCertificatesServicePcaCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "locality": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "organization": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "organization_unit": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "parent_identifier": {
+      "repeat_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "path_len_constraint": {
+      "reserved_pub_flow": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       },
-      "resource_group_id": {
-        "computed": true,
+      "reserved_sub_flow": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
-      "state": {
+      "rule_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "schedule_type": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "tags": {
+      "time_zone": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "weekly_types": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
+          "set",
           "string"
         ]
-      },
-      "years": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
       }
     },
     "block_types": {
@@ -145,8 +104,8 @@ const alicloudSslCertificatesServicePcaCertificate = `{
   "version": 0
 }`
 
-func AlicloudSslCertificatesServicePcaCertificateSchema() *tfjson.Schema {
+func AlicloudAlikafkaScheduledScalingRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudAlikafkaScheduledScalingRule), &result)
 	return &result
 }
