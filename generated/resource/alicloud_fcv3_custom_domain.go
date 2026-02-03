@@ -97,6 +97,57 @@ const alicloudFcv3CustomDomain = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "cors_config": {
+        "block": {
+          "attributes": {
+            "allow_credentials": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "allow_headers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "allow_methods": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "allow_origins": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "expose_headers": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "max_age": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "route_config": {
         "block": {
           "block_types": {

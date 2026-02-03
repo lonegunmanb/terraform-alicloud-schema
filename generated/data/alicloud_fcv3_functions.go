@@ -195,7 +195,13 @@ const alicloudFcv3Functions = `{
               "last_update_status_reason_code": "string",
               "layers": [
                 "list",
-                "string"
+                [
+                  "object",
+                  {
+                    "arn": "string",
+                    "size": "string"
+                  }
+                ]
               ],
               "log_config": [
                 "list",

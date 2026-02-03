@@ -14,6 +14,17 @@ const alicloudAlikafkaSaslAcl = `{
         "required": true,
         "type": "string"
       },
+      "acl_operation_types": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "acl_permission_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "acl_resource_name": {
         "description_kind": "plain",
         "required": true,
@@ -32,6 +43,7 @@ const alicloudAlikafkaSaslAcl = `{
       "host": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -49,6 +61,31 @@ const alicloudAlikafkaSaslAcl = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

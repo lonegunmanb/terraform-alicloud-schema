@@ -6,36 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMongodbAuditPolicy = `{
+const alicloudCloudMonitorServiceAgentConfig = `{
   "block": {
     "attributes": {
-      "audit_status": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "db_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "filter": {
-        "computed": true,
+      "enable_install_agent_new_ecs": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "storage_period": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       }
     },
     "block_types": {
@@ -68,8 +51,8 @@ const alicloudMongodbAuditPolicy = `{
   "version": 0
 }`
 
-func AlicloudMongodbAuditPolicySchema() *tfjson.Schema {
+func AlicloudCloudMonitorServiceAgentConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMongodbAuditPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudMonitorServiceAgentConfig), &result)
 	return &result
 }

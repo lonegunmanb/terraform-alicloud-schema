@@ -6,54 +6,52 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSslCertificatesServicePcaCertificate = `{
+const alicloudClickHouseEnterpriseDbClusterComputingGroup = `{
   "block": {
     "attributes": {
-      "algorithm": {
+      "computing_group_description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "computing_group_endpoint_names": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "alias_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "certificate_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "common_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "country_code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "crl_day": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "enable_crl": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "extended_key_usages": {
-        "description_kind": "plain",
-        "optional": true,
         "type": [
           "list",
           "string"
         ]
+      },
+      "computing_group_endpoints": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "computing_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "computing_group_public_endpoints": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "computing_group_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -61,56 +59,22 @@ const alicloudSslCertificatesServicePcaCertificate = `{
         "optional": true,
         "type": "string"
       },
-      "locality": {
+      "is_readonly": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "bool"
       },
-      "organization": {
+      "node_count": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "organization_unit": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "parent_identifier": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "path_len_constraint": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "number"
       },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "state": {
+      "node_scale_max": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "years": {
+      "node_scale_min": {
         "description_kind": "plain",
         "required": true,
         "type": "number"
@@ -146,8 +110,8 @@ const alicloudSslCertificatesServicePcaCertificate = `{
   "version": 0
 }`
 
-func AlicloudSslCertificatesServicePcaCertificateSchema() *tfjson.Schema {
+func AlicloudClickHouseEnterpriseDbClusterComputingGroupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCertificate), &result)
+	_ = json.Unmarshal([]byte(alicloudClickHouseEnterpriseDbClusterComputingGroup), &result)
 	return &result
 }

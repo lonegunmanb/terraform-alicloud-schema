@@ -104,6 +104,12 @@ const alicloudEhpcClusterV2 = `{
       "cluster_credentials": {
         "block": {
           "attributes": {
+            "key_pair_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            },
             "password": {
               "description_kind": "plain",
               "optional": true,

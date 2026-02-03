@@ -9,6 +9,38 @@ import (
 const alicloudDdoscooDomainResource = `{
   "block": {
     "attributes": {
+      "ai_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ai_template": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "black_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "bw_list_enable": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "cc_global_switch": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cert": {
         "description_kind": "plain",
         "optional": true,
@@ -18,6 +50,7 @@ const alicloudDdoscooDomainResource = `{
       "cert_identifier": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "cert_name": {
@@ -91,6 +124,14 @@ const alicloudDdoscooDomainResource = `{
         "description_kind": "plain",
         "required": true,
         "type": "number"
+      },
+      "white_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       }
     },
     "block_types": {

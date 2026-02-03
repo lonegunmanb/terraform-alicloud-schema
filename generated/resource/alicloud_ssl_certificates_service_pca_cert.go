@@ -6,73 +6,55 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudClickHouseEnterpriseDbCluster = `{
+const alicloudSslCertificatesServicePcaCert = `{
   "block": {
     "attributes": {
-      "category": {
-        "computed": true,
+      "after_time": {
         "description_kind": "plain",
-        "type": "string"
+        "optional": true,
+        "type": "number"
       },
-      "charge_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "computing_group_ids": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
+      "algorithm": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "endpoints": {
-        "computed": true,
+      "alias_name": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "computing_group_id": "string",
-              "connection_string": "string",
-              "endpoint_name": "string",
-              "ip_address": "string",
-              "net_type": "string",
-              "ports": [
-                "list",
-                [
-                  "object",
-                  {
-                    "port": "number",
-                    "protocol": "string"
-                  }
-                ]
-              ],
-              "status": "string",
-              "vpc_id": "string",
-              "vpc_instance_id": "string",
-              "vswitch_id": "string"
-            }
-          ]
-        ]
-      },
-      "engine_minor_version": {
-        "computed": true,
-        "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "before_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "common_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "country_code": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "custom_identifier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "days": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "enable_crl": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -80,32 +62,34 @@ const alicloudClickHouseEnterpriseDbCluster = `{
         "optional": true,
         "type": "string"
       },
-      "instance_network_type": {
-        "computed": true,
+      "immediately": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "locality": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "node_count": {
-        "computed": true,
+      "months": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "node_scale_max": {
-        "computed": true,
+      "organization": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "node_scale_min": {
-        "computed": true,
+      "organization_unit": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "region_id": {
-        "computed": true,
+      "parent_identifier": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "resource_group_id": {
@@ -114,14 +98,17 @@ const alicloudClickHouseEnterpriseDbCluster = `{
         "optional": true,
         "type": "string"
       },
-      "scale_max": {
-        "computed": true,
+      "san_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "scale_min": {
-        "computed": true,
+      "san_value": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "state": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -129,21 +116,7 @@ const alicloudClickHouseEnterpriseDbCluster = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
-      },
-      "storage_quota": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "storage_size": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "storage_type": {
-        "computed": true,
-        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tags": {
@@ -154,44 +127,18 @@ const alicloudClickHouseEnterpriseDbCluster = `{
           "string"
         ]
       },
-      "vpc_id": {
+      "upload_flag": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "vswitch_id": {
+      "years": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "zone_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       }
     },
     "block_types": {
-      "multi_zones": {
-        "block": {
-          "attributes": {
-            "vswitch_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "zone_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -221,8 +168,8 @@ const alicloudClickHouseEnterpriseDbCluster = `{
   "version": 0
 }`
 
-func AlicloudClickHouseEnterpriseDbClusterSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServicePcaCertSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudClickHouseEnterpriseDbCluster), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServicePcaCert), &result)
 	return &result
 }
