@@ -6,17 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudSlsScheduledSql = `{
+const alicloudCloudFirewallUserAlarmConfig = `{
   "block": {
     "attributes": {
-      "description": {
+      "alarm_lang": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -25,53 +20,53 @@ const alicloudSlsScheduledSql = `{
         "optional": true,
         "type": "string"
       },
-      "project": {
+      "lang": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "scheduled_sql_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
+      "use_default_contact": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "schedule": {
+      "alarm_config": {
         "block": {
           "attributes": {
-            "cron_expression": {
+            "alarm_hour": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "delay": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "interval": {
+            "alarm_notify": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "run_immediately": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "time_zone": {
+            "alarm_period": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "type": {
+            "alarm_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "alarm_value": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "alarm_week_day": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -79,97 +74,32 @@ const alicloudSlsScheduledSql = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
         "min_items": 1,
         "nesting_mode": "list"
       },
-      "scheduled_sql_configuration": {
+      "contact_config": {
         "block": {
           "attributes": {
-            "data_format": {
+            "email": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "dest_endpoint": {
+            "mobile_phone": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "dest_logstore": {
+            "name": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "dest_project": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "dest_role_arn": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "from_time": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "from_time_expr": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "max_retries": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "max_run_time_in_seconds": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "parameters": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "map",
-                "string"
-              ]
-            },
-            "resource_pool": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "role_arn": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "script": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "source_logstore": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "sql_type": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "to_time": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "to_time_expr": {
+            "status": {
+              "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -177,8 +107,26 @@ const alicloudSlsScheduledSql = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "min_items": 1,
+        "nesting_mode": "list"
+      },
+      "notify_config": {
+        "block": {
+          "attributes": {
+            "notify_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "notify_value": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -210,8 +158,8 @@ const alicloudSlsScheduledSql = `{
   "version": 0
 }`
 
-func AlicloudSlsScheduledSqlSchema() *tfjson.Schema {
+func AlicloudCloudFirewallUserAlarmConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudSlsScheduledSql), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallUserAlarmConfig), &result)
 	return &result
 }

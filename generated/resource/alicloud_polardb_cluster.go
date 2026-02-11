@@ -10,6 +10,7 @@ const alicloudPolardbCluster = `{
   "block": {
     "attributes": {
       "allow_shut_down": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -153,6 +154,14 @@ const alicloudPolardbCluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "global_security_group_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "hot_replica_mode": {
         "computed": true,
@@ -441,6 +450,7 @@ const alicloudPolardbCluster = `{
         "type": "string"
       },
       "vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

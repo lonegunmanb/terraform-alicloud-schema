@@ -14,6 +14,11 @@ const alicloudMongoInstances = `{
         "optional": true,
         "type": "string"
       },
+      "enable_details": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -72,6 +77,17 @@ const alicloudMongoInstances = `{
               "network_type": "string",
               "region_id": "string",
               "replication": "string",
+              "restore_ranges": [
+                "list",
+                [
+                  "object",
+                  {
+                    "restore_begin_time": "string",
+                    "restore_end_time": "string",
+                    "restore_type": "string"
+                  }
+                ]
+              ],
               "shards": [
                 "list",
                 [
@@ -108,6 +124,11 @@ const alicloudMongoInstances = `{
         ]
       },
       "output_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -20,6 +20,12 @@ const alicloudMongodbInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "auto_renew_duration": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "backup_interval": {
         "computed": true,
         "description_kind": "plain",
@@ -105,6 +111,12 @@ const alicloudMongodbInstance = `{
         "required": true,
         "type": "string"
       },
+      "force_encryption": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "global_security_group_list": {
         "description_kind": "plain",
         "optional": true,
@@ -129,6 +141,14 @@ const alicloudMongodbInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "key_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "kms_encrypted_password": {
         "description_kind": "plain",
@@ -231,6 +251,11 @@ const alicloudMongodbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "restore_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "retention_period": {
         "computed": true,
         "description_kind": "plain",
@@ -263,6 +288,11 @@ const alicloudMongodbInstance = `{
       },
       "snapshot_backup_type": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_db_instance_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -320,6 +350,23 @@ const alicloudMongodbInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "zone_infos": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "ins_name": "string",
+              "node_type": "string",
+              "role_id": "string",
+              "role_type": "string",
+              "zone_id": "string"
+            }
+          ]
+        ]
       }
     },
     "block_types": {

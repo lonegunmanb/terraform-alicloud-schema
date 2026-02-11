@@ -19,6 +19,16 @@ const alicloudCloudFirewallVpcCenTrFirewall = `{
         "optional": true,
         "type": "string"
       },
+      "firewall_eni_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "firewall_eni_vpc_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "firewall_name": {
         "description_kind": "plain",
         "required": true,
@@ -27,6 +37,11 @@ const alicloudCloudFirewallVpcCenTrFirewall = `{
       "firewall_subnet_cidr": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "firewall_vpc_attachment_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "firewall_vpc_cidr": {

@@ -6,41 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNetworkAclAttachment = `{
+const alicloudOssBucketArchiveDirectRead = `{
   "block": {
     "attributes": {
+      "bucket": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "enabled": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "network_acl_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "resources": {
-        "block": {
-          "attributes": {
-            "resource_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "resource_type": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -70,8 +56,8 @@ const alicloudNetworkAclAttachment = `{
   "version": 0
 }`
 
-func AlicloudNetworkAclAttachmentSchema() *tfjson.Schema {
+func AlicloudOssBucketArchiveDirectReadSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNetworkAclAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketArchiveDirectRead), &result)
 	return &result
 }

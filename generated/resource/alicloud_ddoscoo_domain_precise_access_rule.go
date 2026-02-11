@@ -6,31 +6,56 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNetworkAclAttachment = `{
+const alicloudDdoscooDomainPreciseAccessRule = `{
   "block": {
     "attributes": {
+      "action": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "domain": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "expires": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "network_acl_id": {
+      "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "resources": {
+      "condition": {
         "block": {
           "attributes": {
-            "resource_id": {
+            "content": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "resource_type": {
+            "field": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "header_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "match_method": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
@@ -70,8 +95,8 @@ const alicloudNetworkAclAttachment = `{
   "version": 0
 }`
 
-func AlicloudNetworkAclAttachmentSchema() *tfjson.Schema {
+func AlicloudDdoscooDomainPreciseAccessRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNetworkAclAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudDdoscooDomainPreciseAccessRule), &result)
 	return &result
 }

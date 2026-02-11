@@ -6,40 +6,68 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNetworkAclAttachment = `{
+const alicloudOssBucketOverwriteConfig = `{
   "block": {
     "attributes": {
+      "bucket": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "network_acl_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
       }
     },
     "block_types": {
-      "resources": {
+      "rule": {
         "block": {
           "attributes": {
-            "resource_id": {
+            "action": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
-            "resource_type": {
+            "id": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
+            },
+            "prefix": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "suffix": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "principals": {
+              "block": {
+                "attributes": {
+                  "principal": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
         },
-        "min_items": 1,
-        "nesting_mode": "set"
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -70,8 +98,8 @@ const alicloudNetworkAclAttachment = `{
   "version": 0
 }`
 
-func AlicloudNetworkAclAttachmentSchema() *tfjson.Schema {
+func AlicloudOssBucketOverwriteConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNetworkAclAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketOverwriteConfig), &result)
 	return &result
 }
