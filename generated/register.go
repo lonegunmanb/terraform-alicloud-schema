@@ -698,6 +698,7 @@ func init() {
 	resources["alicloud_lindorm_instance_v2"] = resource.AlicloudLindormInstanceV2Schema()  
 	resources["alicloud_lindorm_public_network"] = resource.AlicloudLindormPublicNetworkSchema()  
 	resources["alicloud_live_caster"] = resource.AlicloudLiveCasterSchema()  
+	resources["alicloud_live_domain"] = resource.AlicloudLiveDomainSchema()  
 	resources["alicloud_log_alert"] = resource.AlicloudLogAlertSchema()  
 	resources["alicloud_log_alert_resource"] = resource.AlicloudLogAlertResourceSchema()  
 	resources["alicloud_log_audit"] = resource.AlicloudLogAuditSchema()  

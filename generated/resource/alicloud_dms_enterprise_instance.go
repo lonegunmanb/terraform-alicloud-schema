@@ -134,6 +134,11 @@ const alicloudDmsEnterpriseInstance = `{
         "optional": true,
         "type": "string"
       },
+      "sell_trust": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "bool"
+      },
       "sid": {
         "description_kind": "plain",
         "optional": true,
@@ -177,6 +182,21 @@ const alicloudDmsEnterpriseInstance = `{
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "read": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

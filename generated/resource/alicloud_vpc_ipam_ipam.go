@@ -43,6 +43,11 @@ const alicloudVpcIpamIpam = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "public_default_scope_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "region_id": {
         "computed": true,
         "description_kind": "plain",

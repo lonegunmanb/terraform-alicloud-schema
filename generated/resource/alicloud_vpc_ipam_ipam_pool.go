@@ -68,6 +68,12 @@ const alicloudVpcIpamIpamPool = `{
         "required": true,
         "type": "string"
       },
+      "ipv6_isp": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "pool_region_id": {
         "description_kind": "plain",
         "optional": true,

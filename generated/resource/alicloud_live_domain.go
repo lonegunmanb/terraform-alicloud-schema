@@ -6,13 +6,27 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcIpamIpamPoolCidr = `{
+const alicloudLiveDomain = `{
   "block": {
     "attributes": {
-      "cidr": {
-        "computed": true,
+      "check_url": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "domain_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "domain_type": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -21,20 +35,36 @@ const alicloudVpcIpamIpamPoolCidr = `{
         "optional": true,
         "type": "string"
       },
-      "ipam_pool_id": {
+      "region": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "netmask_length": {
+      "resource_group_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "scope": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -67,8 +97,8 @@ const alicloudVpcIpamIpamPoolCidr = `{
   "version": 0
 }`
 
-func AlicloudVpcIpamIpamPoolCidrSchema() *tfjson.Schema {
+func AlicloudLiveDomainSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcIpamIpamPoolCidr), &result)
+	_ = json.Unmarshal([]byte(alicloudLiveDomain), &result)
 	return &result
 }
