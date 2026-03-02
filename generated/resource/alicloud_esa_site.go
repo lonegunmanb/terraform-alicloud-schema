@@ -24,6 +24,18 @@ const alicloudEsaSite = `{
         "optional": true,
         "type": "string"
       },
+      "ai_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ai_template": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "cache_architecture_mode": {
         "computed": true,
         "description_kind": "plain",
@@ -66,6 +78,12 @@ const alicloudEsaSite = `{
         "type": "string"
       },
       "flatten_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "global_mode": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -150,6 +150,11 @@ const alicloudElasticsearchInstance = `{
         "description_kind": "plain",
         "type": "number"
       },
+      "kibana_private_domain": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "kibana_private_security_group_id": {
         "description_kind": "plain",
         "optional": true,
