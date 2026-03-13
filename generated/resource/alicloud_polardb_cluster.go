@@ -135,6 +135,12 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "enable_dynamodb": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "encrypt_new_tables": {
         "description_kind": "plain",
         "optional": true,

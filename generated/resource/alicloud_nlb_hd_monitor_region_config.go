@@ -6,63 +6,26 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRdsBackup = `{
+const alicloudNlbHdMonitorRegionConfig = `{
   "block": {
     "attributes": {
-      "backup_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "backup_method": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "backup_retention_period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "backup_strategy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "backup_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "db_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "remove_from_state": {
+      "log_project": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "store_status": {
+      "metric_store": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -98,8 +61,8 @@ const alicloudRdsBackup = `{
   "version": 0
 }`
 
-func AlicloudRdsBackupSchema() *tfjson.Schema {
+func AlicloudNlbHdMonitorRegionConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRdsBackup), &result)
+	_ = json.Unmarshal([]byte(alicloudNlbHdMonitorRegionConfig), &result)
 	return &result
 }

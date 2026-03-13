@@ -11,6 +11,7 @@ const alicloudCsKubernetesAddon = `{
     "attributes": {
       "can_upgrade": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "bool"
       },
@@ -43,6 +44,7 @@ const alicloudCsKubernetesAddon = `{
       },
       "next_version": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "type": "string"
       },

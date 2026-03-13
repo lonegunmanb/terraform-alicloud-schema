@@ -54,6 +54,16 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "encryption_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "encryption_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "engine_version": {
         "computed": true,
         "description_kind": "plain",
@@ -193,6 +203,11 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "role_arn": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "secondary_zone_id": {
         "description_kind": "plain",
         "optional": true,
@@ -267,6 +282,12 @@ const alicloudRedisTairInstance = `{
         "type": "string"
       },
       "tair_instance_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tde_status": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

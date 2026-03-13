@@ -6,45 +6,43 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRdsBackup = `{
+const alicloudSlsLogtailPipelineConfig = `{
   "block": {
     "attributes": {
-      "backup_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "backup_method": {
-        "computed": true,
+      "aggregators": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "map",
+            "string"
+          ]
+        ]
       },
-      "backup_retention_period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "backup_strategy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "backup_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_instance_id": {
+      "config_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "db_name": {
+      "flushers": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "list",
+          [
+            "map",
+            "string"
+          ]
+        ]
+      },
+      "globals": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "id": {
         "computed": true,
@@ -52,20 +50,45 @@ const alicloudRdsBackup = `{
         "optional": true,
         "type": "string"
       },
-      "remove_from_state": {
+      "inputs": {
+        "description_kind": "plain",
+        "required": true,
+        "type": [
+          "list",
+          [
+            "map",
+            "string"
+          ]
+        ]
+      },
+      "log_sample": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       },
-      "store_status": {
-        "computed": true,
+      "processors": {
         "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          [
+            "map",
+            "string"
+          ]
+        ]
+      },
+      "project": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
+      },
+      "task": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -98,8 +121,8 @@ const alicloudRdsBackup = `{
   "version": 0
 }`
 
-func AlicloudRdsBackupSchema() *tfjson.Schema {
+func AlicloudSlsLogtailPipelineConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRdsBackup), &result)
+	_ = json.Unmarshal([]byte(alicloudSlsLogtailPipelineConfig), &result)
 	return &result
 }

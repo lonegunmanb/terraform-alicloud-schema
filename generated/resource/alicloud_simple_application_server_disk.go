@@ -6,45 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRdsBackup = `{
+const alicloudSimpleApplicationServerDisk = `{
   "block": {
     "attributes": {
-      "backup_id": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "backup_method": {
+      "disk_name": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "backup_retention_period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "backup_strategy": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "backup_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_instance_id": {
+      "disk_size": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "db_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -52,19 +30,19 @@ const alicloudRdsBackup = `{
         "optional": true,
         "type": "string"
       },
-      "remove_from_state": {
+      "instance_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "required": true,
+        "type": "string"
       },
-      "status": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "store_status": {
-        "computed": true,
+      "remark": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -98,8 +76,8 @@ const alicloudRdsBackup = `{
   "version": 0
 }`
 
-func AlicloudRdsBackupSchema() *tfjson.Schema {
+func AlicloudSimpleApplicationServerDiskSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRdsBackup), &result)
+	_ = json.Unmarshal([]byte(alicloudSimpleApplicationServerDisk), &result)
 	return &result
 }

@@ -89,6 +89,30 @@ const alicloudHbrPolicyBinding = `{
       "advanced_options": {
         "block": {
           "block_types": {
+            "oss_detail": {
+              "block": {
+                "attributes": {
+                  "ignore_archive_object": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "inventory_cleanup_policy": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "inventory_id": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
             "udm_detail": {
               "block": {
                 "attributes": {

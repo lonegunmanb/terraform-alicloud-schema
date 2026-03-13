@@ -9,8 +9,12 @@ import (
 const alicloudVpcNatIpCidr = `{
   "block": {
     "attributes": {
-      "dry_run": {
+      "create_time": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "dry_run": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -28,7 +32,7 @@ const alicloudVpcNatIpCidr = `{
       },
       "nat_ip_cidr": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "nat_ip_cidr_description": {
@@ -38,13 +42,38 @@ const alicloudVpcNatIpCidr = `{
       },
       "nat_ip_cidr_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      }
+    },
+    "block_types": {
+      "timeouts": {
+        "block": {
+          "attributes": {
+            "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "single"
       }
     },
     "description_kind": "plain"

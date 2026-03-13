@@ -9,6 +9,12 @@ import (
 const alicloudEcsNetworkInterface = `{
   "block": {
     "attributes": {
+      "delete_on_release": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "description": {
         "description_kind": "plain",
         "optional": true,

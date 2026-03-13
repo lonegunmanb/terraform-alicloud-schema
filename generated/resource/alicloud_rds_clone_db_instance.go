@@ -293,6 +293,14 @@ const alicloudRdsCloneDbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "tcp_connection_type": {
         "computed": true,
         "description_kind": "plain",
