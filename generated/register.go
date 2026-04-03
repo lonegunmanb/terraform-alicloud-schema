@@ -1485,6 +1485,7 @@ func init() {
 	dataSources["alicloud_enhanced_nat_available_zones"] = data.AlicloudEnhancedNatAvailableZonesSchema()  
 	dataSources["alicloud_ens_key_pairs"] = data.AlicloudEnsKeyPairsSchema()  
 	dataSources["alicloud_esa_sites"] = data.AlicloudEsaSitesSchema()  
+	dataSources["alicloud_esa_waf_rulesets"] = data.AlicloudEsaWafRulesetsSchema()  
 	dataSources["alicloud_ess_alarms"] = data.AlicloudEssAlarmsSchema()  
 	dataSources["alicloud_ess_lifecycle_hooks"] = data.AlicloudEssLifecycleHooksSchema()  
 	dataSources["alicloud_ess_notifications"] = data.AlicloudEssNotificationsSchema()  

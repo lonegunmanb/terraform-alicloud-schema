@@ -80,6 +80,24 @@ const alicloudResourceManagerResourceShare = `{
       }
     },
     "block_types": {
+      "resource_properties": {
+        "block": {
+          "attributes": {
+            "property": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "resource_arn": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "resources": {
         "block": {
           "attributes": {

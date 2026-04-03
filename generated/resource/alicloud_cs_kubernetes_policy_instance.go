@@ -10,6 +10,7 @@ const alicloudCsKubernetesPolicyInstance = `{
   "block": {
     "attributes": {
       "action": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

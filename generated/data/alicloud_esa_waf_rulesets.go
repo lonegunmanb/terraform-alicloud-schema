@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,80 +6,110 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudResourceManagerSharedResource = `{
+const alicloudEsaWafRulesets = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "permission_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "properties_resource_arn": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_arn": {
+      "ids": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       },
-      "resource_id": {
-        "computed": true,
+      "name_regex": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_property": {
+      "names": {
         "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "output_file": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_share_id": {
+      "phase": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "resource_type": {
+      "sets": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "fields": [
+                "list",
+                "string"
+              ],
+              "id": "string",
+              "name": "string",
+              "phase": "string",
+              "ruleset_id": "string",
+              "status": "string",
+              "target": "string",
+              "types": [
+                "list",
+                "string"
+              ],
+              "update_time": "string"
+            }
+          ]
+        ]
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "site_version": {
         "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "status": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "timeouts": {
+      "query_args": {
         "block": {
           "attributes": {
-            "create": {
+            "any_like": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "delete": {
+            "desc": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "name_like": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "update": {
+            "order_by": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -87,7 +117,8 @@ const alicloudResourceManagerSharedResource = `{
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "single"
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -95,8 +126,8 @@ const alicloudResourceManagerSharedResource = `{
   "version": 0
 }`
 
-func AlicloudResourceManagerSharedResourceSchema() *tfjson.Schema {
+func AlicloudEsaWafRulesetsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudResourceManagerSharedResource), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaWafRulesets), &result)
 	return &result
 }

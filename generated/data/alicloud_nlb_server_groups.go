@@ -33,6 +33,7 @@ const alicloudNlbServerGroups = `{
                       "list",
                       "string"
                     ],
+                    "health_check_http_version": "string",
                     "health_check_interval": "number",
                     "health_check_type": "string",
                     "health_check_url": "string",

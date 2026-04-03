@@ -85,6 +85,21 @@ const alicloudEsaCacheRule = `{
         "optional": true,
         "type": "string"
       },
+      "post_body_cache_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "post_body_size_limit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "post_cache": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "query_string": {
         "description_kind": "plain",
         "optional": true,

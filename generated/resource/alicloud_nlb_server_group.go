@@ -147,6 +147,12 @@ const alicloudNlbServerGroup = `{
                 "string"
               ]
             },
+            "health_check_http_version": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "health_check_interval": {
               "computed": true,
               "description_kind": "plain",

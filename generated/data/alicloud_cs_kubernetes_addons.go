@@ -21,7 +21,11 @@ const alicloudCsKubernetesAddons = `{
               "current_version": "string",
               "name": "string",
               "next_version": "string",
-              "required": "bool"
+              "required": "bool",
+              "supported_actions": [
+                "set",
+                "string"
+              ]
             }
           ]
         ]

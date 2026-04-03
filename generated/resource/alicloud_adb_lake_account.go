@@ -41,6 +41,15 @@ const alicloudAdbLakeAccount = `{
         "optional": true,
         "type": "string"
       },
+      "ram_user_list": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",

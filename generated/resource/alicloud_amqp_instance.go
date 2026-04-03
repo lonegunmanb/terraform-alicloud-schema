@@ -43,6 +43,12 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "listener_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "max_connections": {
         "computed": true,
         "description_kind": "plain",
@@ -110,6 +116,11 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "security_group_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "serverless_charge_type": {
         "description_kind": "plain",
         "optional": true,
@@ -141,6 +152,19 @@ const alicloudAmqpInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vswitch_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {

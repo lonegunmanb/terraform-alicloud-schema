@@ -10,7 +10,6 @@ const alicloudVpcNatIp = `{
   "block": {
     "attributes": {
       "dry_run": {
-        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -34,7 +33,7 @@ const alicloudVpcNatIp = `{
       },
       "nat_ip_cidr": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "nat_ip_cidr_id": {
@@ -73,6 +72,11 @@ const alicloudVpcNatIp = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
