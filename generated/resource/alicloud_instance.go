@@ -179,7 +179,6 @@ const alicloudInstance = `{
       },
       "io_optimized": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -353,6 +352,7 @@ const alicloudInstance = `{
       },
       "role_name": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -392,6 +392,12 @@ const alicloudInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "spot_interruption_behavior": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "spot_price_limit": {
         "computed": true,

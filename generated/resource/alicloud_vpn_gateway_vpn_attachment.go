@@ -326,6 +326,7 @@ const alicloudVpnGatewayVpnAttachment = `{
             "role": {
               "computed": true,
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
             },
             "state": {
