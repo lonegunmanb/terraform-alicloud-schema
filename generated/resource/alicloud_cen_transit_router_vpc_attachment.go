@@ -40,6 +40,12 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "optional": true,
         "type": "string"
       },
+      "order_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "payment_type": {
         "computed": true,
         "description_kind": "plain",

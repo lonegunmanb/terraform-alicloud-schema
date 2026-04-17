@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAlicloudCsApplicationSchema(t *testing.T) {
+func TestAlicloudCloudFirewallVpcFirewallControlPolicyOrderSchema(t *testing.T) {
 	defaultSchema := &tfjson.Schema{}
-	s := resource.AlicloudCsApplicationSchema()
+	s := resource.AlicloudCloudFirewallVpcFirewallControlPolicyOrderSchema()
 	assert.NotNil(t, s)
 	assert.NotEqual(t, defaultSchema, s)
 }

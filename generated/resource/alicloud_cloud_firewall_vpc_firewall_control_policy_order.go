@@ -6,22 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCsKubernetesAutoscaler = `{
+const alicloudCloudFirewallVpcFirewallControlPolicyOrder = `{
   "block": {
     "attributes": {
-      "cluster_id": {
+      "acl_uuid": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "cool_down_duration": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "defer_scale_in_duration": {
-        "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -30,42 +21,23 @@ const alicloudCsKubernetesAutoscaler = `{
         "optional": true,
         "type": "string"
       },
-      "use_ecs_ram_role_token": {
+      "lang": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "utilization": {
+      "order": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "vpc_firewall_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "nodepools": {
-        "block": {
-          "attributes": {
-            "id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "labels": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "taints": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 30,
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -90,14 +62,13 @@ const alicloudCsKubernetesAutoscaler = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudCsKubernetesAutoscalerSchema() *tfjson.Schema {
+func AlicloudCloudFirewallVpcFirewallControlPolicyOrderSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCsKubernetesAutoscaler), &result)
+	_ = json.Unmarshal([]byte(alicloudCloudFirewallVpcFirewallControlPolicyOrder), &result)
 	return &result
 }

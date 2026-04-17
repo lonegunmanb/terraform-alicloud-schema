@@ -111,6 +111,12 @@ const alicloudCsManagedKubernetes = `{
         "optional": true,
         "type": "bool"
       },
+      "disable_encryption": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "enable_rrsa": {
         "description_kind": "plain",
         "optional": true,

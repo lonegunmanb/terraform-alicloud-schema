@@ -6,27 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterVpnAttachment = `{
+const alicloudEsaCustomResponseCodeRule = `{
   "block": {
     "attributes": {
-      "auto_publish_route_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "cen_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "charge_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
+      "config_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -37,63 +20,47 @@ const alicloudCenTransitRouterVpnAttachment = `{
         "optional": true,
         "type": "string"
       },
-      "order_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "region_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transit_router_attachment_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_attachment_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_vpn_attachment_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vpn_id": {
+      "page_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "vpn_owner_id": {
-        "computed": true,
+      "return_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "rule": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "rule_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sequence": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "site_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "site_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -119,19 +86,6 @@ const alicloudCenTransitRouterVpnAttachment = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
-      },
-      "zone": {
-        "block": {
-          "attributes": {
-            "zone_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"
@@ -139,8 +93,8 @@ const alicloudCenTransitRouterVpnAttachment = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterVpnAttachmentSchema() *tfjson.Schema {
+func AlicloudEsaCustomResponseCodeRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterVpnAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaCustomResponseCodeRule), &result)
 	return &result
 }

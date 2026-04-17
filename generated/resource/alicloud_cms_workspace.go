@@ -6,22 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCsKubernetesAutoscaler = `{
+const alicloudCmsWorkspace = `{
   "block": {
     "attributes": {
-      "cluster_id": {
+      "create_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "cool_down_duration": {
+      "description": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "defer_scale_in_duration": {
+      "display_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -30,42 +30,23 @@ const alicloudCsKubernetesAutoscaler = `{
         "optional": true,
         "type": "string"
       },
-      "use_ecs_ram_role_token": {
+      "region_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "utilization": {
+      "sls_project": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "workspace_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "nodepools": {
-        "block": {
-          "attributes": {
-            "id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "labels": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "taints": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 30,
-        "nesting_mode": "set"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -90,14 +71,13 @@ const alicloudCsKubernetesAutoscaler = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudCsKubernetesAutoscalerSchema() *tfjson.Schema {
+func AlicloudCmsWorkspaceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCsKubernetesAutoscaler), &result)
+	_ = json.Unmarshal([]byte(alicloudCmsWorkspace), &result)
 	return &result
 }

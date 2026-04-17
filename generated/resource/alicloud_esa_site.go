@@ -11,7 +11,7 @@ const alicloudEsaSite = `{
     "attributes": {
       "access_type": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "add_client_geolocation_header": {
@@ -31,6 +31,24 @@ const alicloudEsaSite = `{
         "type": "string"
       },
       "ai_template": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "automatic_frequency_control_action_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "automatic_frequency_control_enable": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "automatic_frequency_control_level": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -116,6 +134,16 @@ const alicloudEsaSite = `{
         "optional": true,
         "type": "bool"
       },
+      "performance_data_collection_enable": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "real_client_ip_header_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -167,6 +195,198 @@ const alicloudEsaSite = `{
       }
     },
     "block_types": {
+      "site_waf_settings": {
+        "block": {
+          "block_types": {
+            "add_bot_protection_headers": {
+              "block": {
+                "attributes": {
+                  "enable": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "add_security_headers": {
+              "block": {
+                "attributes": {
+                  "enable": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "bandwidth_abuse_protection": {
+              "block": {
+                "attributes": {
+                  "action": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "id": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "number"
+                  },
+                  "status": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "bot_management": {
+              "block": {
+                "block_types": {
+                  "definite_bots": {
+                    "block": {
+                      "attributes": {
+                        "action": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "id": {
+                          "computed": true,
+                          "description_kind": "plain",
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "effect_on_static": {
+                    "block": {
+                      "attributes": {
+                        "enable": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "bool"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "js_detection": {
+                    "block": {
+                      "attributes": {
+                        "enable": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "bool"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "likely_bots": {
+                    "block": {
+                      "attributes": {
+                        "action": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "id": {
+                          "computed": true,
+                          "description_kind": "plain",
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "verified_bots": {
+                    "block": {
+                      "attributes": {
+                        "action": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "id": {
+                          "computed": true,
+                          "description_kind": "plain",
+                          "type": "number"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "client_ip_identifier": {
+              "block": {
+                "attributes": {
+                  "headers": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "mode": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "security_level": {
+              "block": {
+                "attributes": {
+                  "value": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

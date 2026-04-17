@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestAlicloudContainerClusterSchema(t *testing.T) {
+func TestAlicloudCmsWorkspaceSchema(t *testing.T) {
 	defaultSchema := &tfjson.Schema{}
-	s := resource.AlicloudContainerClusterSchema()
+	s := resource.AlicloudCmsWorkspaceSchema()
 	assert.NotNil(t, s)
 	assert.NotEqual(t, defaultSchema, s)
 }

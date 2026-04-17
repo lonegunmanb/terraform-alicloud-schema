@@ -129,8 +129,9 @@ const alicloudCloudFirewallVpcFirewallControlPolicy = `{
         "type": "string"
       },
       "order": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "proto": {

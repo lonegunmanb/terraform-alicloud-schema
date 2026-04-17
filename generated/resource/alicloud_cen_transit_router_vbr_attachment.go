@@ -15,8 +15,14 @@ const alicloudCenTransitRouterVbrAttachment = `{
         "type": "bool"
       },
       "cen_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "dry_run": {
@@ -28,6 +34,17 @@ const alicloudCenTransitRouterVbrAttachment = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "order_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "resource_type": {
