@@ -6,53 +6,18 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPaiWorkspaceWorkspace = `{
+const alicloudEcsDiskEncryptionByDefault = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "display_name": {
-        "computed": true,
+      "encrypted": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "env_types": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "bool"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "workspace_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       }
     },
@@ -86,8 +51,8 @@ const alicloudPaiWorkspaceWorkspace = `{
   "version": 0
 }`
 
-func AlicloudPaiWorkspaceWorkspaceSchema() *tfjson.Schema {
+func AlicloudEcsDiskEncryptionByDefaultSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudEcsDiskEncryptionByDefault), &result)
 	return &result
 }

@@ -6,32 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPaiWorkspaceWorkspace = `{
+const alicloudAlidnsCloudGtmMonitorTemplate = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
+      "evaluation_count": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "display_name": {
+      "extend_info": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "env_types": {
+      "failure_rate": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -39,24 +31,57 @@ const alicloudPaiWorkspaceWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
+      "interval": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "ip_version": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "protocol": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "remark": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "workspace_name": {
+      "timeout": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "isp_city_nodes": {
+        "block": {
+          "attributes": {
+            "city_code": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "isp_code": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -86,8 +111,8 @@ const alicloudPaiWorkspaceWorkspace = `{
   "version": 0
 }`
 
-func AlicloudPaiWorkspaceWorkspaceSchema() *tfjson.Schema {
+func AlicloudAlidnsCloudGtmMonitorTemplateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudAlidnsCloudGtmMonitorTemplate), &result)
 	return &result
 }

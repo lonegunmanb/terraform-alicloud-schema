@@ -6,32 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPaiWorkspaceWorkspace = `{
+const alicloudAlidnsCloudGtmInstanceConfig = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "display_name": {
-        "computed": true,
+      "address_pool_lb_strategy": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "env_types": {
+      "config_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "enable_status": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -39,21 +30,45 @@ const alicloudPaiWorkspaceWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
+      "instance_id": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "remark": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "schedule_host_name": {
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
-      "workspace_name": {
+      "schedule_rr_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "schedule_zone_mode": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "schedule_zone_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "sequence_lb_strategy_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ttl": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
       }
     },
     "block_types": {
@@ -86,8 +101,8 @@ const alicloudPaiWorkspaceWorkspace = `{
   "version": 0
 }`
 
-func AlicloudPaiWorkspaceWorkspaceSchema() *tfjson.Schema {
+func AlicloudAlidnsCloudGtmInstanceConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudAlidnsCloudGtmInstanceConfig), &result)
 	return &result
 }

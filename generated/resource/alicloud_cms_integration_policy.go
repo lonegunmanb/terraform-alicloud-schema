@@ -6,32 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPaiWorkspaceWorkspace = `{
+const alicloudCmsIntegrationPolicy = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "display_name": {
-        "computed": true,
+      "force": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "env_types": {
-        "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -39,24 +20,48 @@ const alicloudPaiWorkspaceWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
+      "integration_policy_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "status": {
+      "policy_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "workspace_name": {
+      "workspace": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "entity_group": {
+        "block": {
+          "attributes": {
+            "cluster_entity_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "cluster_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -86,8 +91,8 @@ const alicloudPaiWorkspaceWorkspace = `{
   "version": 0
 }`
 
-func AlicloudPaiWorkspaceWorkspaceSchema() *tfjson.Schema {
+func AlicloudCmsIntegrationPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudCmsIntegrationPolicy), &result)
 	return &result
 }

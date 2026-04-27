@@ -80,6 +80,17 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "collation": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "collect_stat_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "connection_string": {
         "computed": true,
         "description_kind": "plain",
@@ -169,6 +180,12 @@ const alicloudDbInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "force_encryption": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "force_restart": {
         "description_kind": "plain",
@@ -362,10 +379,22 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "ssl_certificate": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
       "ssl_connection_string": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "ssl_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "ssl_status": {
@@ -418,9 +447,32 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "tde_certificate": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "tde_db_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tde_encryption_key": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "tde_password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "tde_private_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "tde_status": {
@@ -447,6 +499,12 @@ const alicloudDbInstance = `{
             "string"
           ]
         ]
+      },
+      "time_zone": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "upgrade_db_instance_kernel_version": {
         "deprecated": true,

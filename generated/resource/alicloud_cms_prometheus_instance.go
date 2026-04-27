@@ -6,32 +6,38 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPaiWorkspaceWorkspace = `{
+const alicloudCmsPrometheusInstance = `{
   "block": {
     "attributes": {
+      "archive_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "auth_free_read_policy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "auth_free_write_policy": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "description": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "display_name": {
-        "computed": true,
+      "enable_auth_free_read": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "env_types": {
+      "enable_auth_free_write": {
         "description_kind": "plain",
-        "required": true,
-        "type": [
-          "set",
-          "string"
-        ]
+        "optional": true,
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -39,18 +45,28 @@ const alicloudPaiWorkspaceWorkspace = `{
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
+      "payment_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "prometheus_instance_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "storage_duration": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "workspace_name": {
+      "workspace": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -86,8 +102,8 @@ const alicloudPaiWorkspaceWorkspace = `{
   "version": 0
 }`
 
-func AlicloudPaiWorkspaceWorkspaceSchema() *tfjson.Schema {
+func AlicloudCmsPrometheusInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPaiWorkspaceWorkspace), &result)
+	_ = json.Unmarshal([]byte(alicloudCmsPrometheusInstance), &result)
 	return &result
 }

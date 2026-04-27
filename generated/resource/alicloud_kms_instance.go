@@ -19,6 +19,11 @@ const alicloudKmsInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "deletion_protection": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "end_date": {
         "computed": true,
         "description_kind": "plain",
