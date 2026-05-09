@@ -36,7 +36,7 @@ const alicloudCloudFirewallVpcCenTrFirewall = `{
       },
       "firewall_subnet_cidr": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "firewall_vpc_attachment_id": {
@@ -72,7 +72,7 @@ const alicloudCloudFirewallVpcCenTrFirewall = `{
       },
       "tr_attachment_master_cidr": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "tr_attachment_master_zone": {
@@ -82,7 +82,7 @@ const alicloudCloudFirewallVpcCenTrFirewall = `{
       },
       "tr_attachment_slave_cidr": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "tr_attachment_slave_zone": {

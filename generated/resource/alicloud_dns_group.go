@@ -21,6 +21,7 @@ const alicloudDnsGroup = `{
         "type": "string"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

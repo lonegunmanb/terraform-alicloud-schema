@@ -49,6 +49,7 @@ const alicloudCassandraBackupPlan = `{
         "type": "number"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

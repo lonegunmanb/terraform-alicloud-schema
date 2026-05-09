@@ -6,26 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEcdRamDirectory = `{
+const alicloudApiGatewayGroupPluginAttachment = `{
   "block": {
     "attributes": {
-      "desktop_access_type": {
-        "computed": true,
+      "group_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "enable_admin_access": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "enable_internet_access": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -33,23 +20,15 @@ const alicloudEcdRamDirectory = `{
         "optional": true,
         "type": "string"
       },
-      "ram_directory_name": {
+      "plugin_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "vswitch_ids": {
+      "stage_name": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
       }
     },
     "block_types": {
@@ -72,14 +51,13 @@ const alicloudEcdRamDirectory = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudEcdRamDirectorySchema() *tfjson.Schema {
+func AlicloudApiGatewayGroupPluginAttachmentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEcdRamDirectory), &result)
+	_ = json.Unmarshal([]byte(alicloudApiGatewayGroupPluginAttachment), &result)
 	return &result
 }

@@ -6,23 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEcdRamDirectory = `{
+const alicloudCmsPrometheusView = `{
   "block": {
     "attributes": {
-      "desktop_access_type": {
-        "computed": true,
+      "auth_free_read_policy": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "enable_admin_access": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "enable_internet_access": {
-        "computed": true,
+      "enable_auth_free_read": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -33,26 +30,52 @@ const alicloudEcdRamDirectory = `{
         "optional": true,
         "type": "string"
       },
-      "ram_directory_name": {
+      "prometheus_view_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "status": {
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "vswitch_ids": {
+      "version": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
+        "type": "string"
+      },
+      "workspace": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
+      "prometheus_instances": {
+        "block": {
+          "attributes": {
+            "prometheus_instance_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "region_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "user_id": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -65,6 +88,11 @@ const alicloudEcdRamDirectory = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -72,14 +100,13 @@ const alicloudEcdRamDirectory = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudEcdRamDirectorySchema() *tfjson.Schema {
+func AlicloudCmsPrometheusViewSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEcdRamDirectory), &result)
+	_ = json.Unmarshal([]byte(alicloudCmsPrometheusView), &result)
 	return &result
 }

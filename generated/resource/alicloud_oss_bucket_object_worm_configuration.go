@@ -6,53 +6,46 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMaxComputeTunnelQuotaTimer = `{
+const alicloudOssBucketObjectWormConfiguration = `{
   "block": {
     "attributes": {
+      "bucket_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "nickname": {
+      "object_worm_enabled": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "time_zone": {
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
-      "quota_timer": {
+      "rule": {
         "block": {
-          "attributes": {
-            "begin_time": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "end_time": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
           "block_types": {
-            "tunnel_quota_parameter": {
+            "default_retention": {
               "block": {
                 "attributes": {
-                  "elastic_reserved_slot_num": {
+                  "days": {
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
                     "type": "number"
                   },
-                  "slot_num": {
+                  "mode": {
                     "description_kind": "plain",
-                    "required": true,
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "years": {
+                    "description_kind": "plain",
+                    "optional": true,
                     "type": "number"
                   }
                 },
@@ -64,7 +57,8 @@ const alicloudMaxComputeTunnelQuotaTimer = `{
           },
           "description_kind": "plain"
         },
-        "nesting_mode": "set"
+        "max_items": 1,
+        "nesting_mode": "list"
       },
       "timeouts": {
         "block": {
@@ -90,14 +84,13 @@ const alicloudMaxComputeTunnelQuotaTimer = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudMaxComputeTunnelQuotaTimerSchema() *tfjson.Schema {
+func AlicloudOssBucketObjectWormConfigurationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMaxComputeTunnelQuotaTimer), &result)
+	_ = json.Unmarshal([]byte(alicloudOssBucketObjectWormConfiguration), &result)
 	return &result
 }

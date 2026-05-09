@@ -26,6 +26,7 @@ const alicloudCmsService = `{
         "type": "string"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

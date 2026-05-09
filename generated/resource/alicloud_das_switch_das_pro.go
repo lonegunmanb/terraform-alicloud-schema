@@ -58,6 +58,7 @@ const alicloudDasSwitchDasPro = `{
         "nesting_mode": "single"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

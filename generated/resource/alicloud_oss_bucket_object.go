@@ -81,6 +81,18 @@ const alicloudOssBucketObject = `{
         "optional": true,
         "type": "string"
       },
+      "object_worm_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "object_worm_retain_until_date": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "server_side_encryption": {
         "description_kind": "plain",
         "optional": true,

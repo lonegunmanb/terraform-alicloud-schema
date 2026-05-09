@@ -29,6 +29,7 @@ const alicloudRamGroupMembership = `{
         ]
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

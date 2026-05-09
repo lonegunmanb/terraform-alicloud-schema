@@ -69,6 +69,7 @@ const alicloudConfigDeliveryChannels = `{
         "type": "number"
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0

@@ -51,6 +51,7 @@ const alicloudCassandraZones = `{
         ]
       }
     },
+    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
