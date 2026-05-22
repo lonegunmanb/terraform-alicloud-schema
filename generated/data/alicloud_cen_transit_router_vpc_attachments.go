@@ -20,6 +20,16 @@ const alicloudCenTransitRouterVpcAttachments = `{
               "auto_publish_route_enabled": "bool",
               "cen_id": "string",
               "id": "string",
+              "options": [
+                "list",
+                [
+                  "object",
+                  {
+                    "appliance_mode_support": "string",
+                    "ipv6_support": "string"
+                  }
+                ]
+              ],
               "payment_type": "string",
               "resource_type": "string",
               "status": "string",

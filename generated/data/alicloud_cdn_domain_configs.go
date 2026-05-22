@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDbfsAutoSnapShotPolicies = `{
+const alicloudCdnDomainConfigs = `{
   "block": {
     "attributes": {
-      "auto_snap_shot_policies": {
+      "config_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "configs": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -17,26 +22,34 @@ const alicloudDbfsAutoSnapShotPolicies = `{
           [
             "object",
             {
-              "applied_dbfs_number": "number",
-              "create_time": "string",
-              "id": "string",
-              "last_modified": "string",
-              "policy_id": "string",
-              "policy_name": "string",
-              "repeat_weekdays": [
+              "config_id": "string",
+              "function_args": [
                 "list",
-                "string"
+                [
+                  "object",
+                  {
+                    "arg_name": "string",
+                    "arg_value": "string"
+                  }
+                ]
               ],
-              "retention_days": "number",
-              "status": "string",
-              "status_detail": "string",
-              "time_points": [
-                "list",
-                "string"
-              ]
+              "function_name": "string",
+              "id": "string",
+              "parent_id": "string",
+              "status": "string"
             }
           ]
         ]
+      },
+      "domain_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "function_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -71,25 +84,19 @@ const alicloudDbfsAutoSnapShotPolicies = `{
         "optional": true,
         "type": "string"
       },
-      "page_number": {
+      "status": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
-      },
-      "page_size": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudDbfsAutoSnapShotPoliciesSchema() *tfjson.Schema {
+func AlicloudCdnDomainConfigsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDbfsAutoSnapShotPolicies), &result)
+	_ = json.Unmarshal([]byte(alicloudCdnDomainConfigs), &result)
 	return &result
 }

@@ -6,16 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVpcIpv6Address = `{
+const alicloudPolardbBatchTask = `{
   "block": {
     "attributes": {
-      "address_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
+      "batch_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -26,48 +20,55 @@ const alicloudVpcIpv6Address = `{
         "optional": true,
         "type": "string"
       },
-      "ipv6_address": {
-        "computed": true,
+      "instance_ids": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ipv6_address_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "ipv6_address_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": [
-          "map",
+          "list",
           "string"
         ]
       },
-      "vswitch_id": {
+      "region_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "task_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "task_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "task_type": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       }
     },
     "block_types": {
+      "task_params": {
+        "block": {
+          "attributes": {
+            "skill_name": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "version": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -77,11 +78,6 @@ const alicloudVpcIpv6Address = `{
               "type": "string"
             },
             "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -97,8 +93,8 @@ const alicloudVpcIpv6Address = `{
   "version": 0
 }`
 
-func AlicloudVpcIpv6AddressSchema() *tfjson.Schema {
+func AlicloudPolardbBatchTaskSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVpcIpv6Address), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbBatchTask), &result)
 	return &result
 }

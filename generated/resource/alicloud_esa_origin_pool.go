@@ -10,6 +10,7 @@ const alicloudEsaOriginPool = `{
   "block": {
     "attributes": {
       "enabled": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -23,7 +24,7 @@ const alicloudEsaOriginPool = `{
       "origin_pool_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
+        "type": "string"
       },
       "origin_pool_name": {
         "description_kind": "plain",
@@ -63,7 +64,7 @@ const alicloudEsaOriginPool = `{
             "origin_id": {
               "computed": true,
               "description_kind": "plain",
-              "type": "number"
+              "type": "string"
             },
             "type": {
               "description_kind": "plain",

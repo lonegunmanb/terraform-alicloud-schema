@@ -6,10 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDbfsInstanceAttachment = `{
+const alicloudPolardbApplicationEndpoint = `{
   "block": {
     "attributes": {
-      "ecs_id": {
+      "application_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "endpoint_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -20,14 +25,9 @@ const alicloudDbfsInstanceAttachment = `{
         "optional": true,
         "type": "string"
       },
-      "instance_id": {
+      "net_type": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -51,14 +51,13 @@ const alicloudDbfsInstanceAttachment = `{
         "nesting_mode": "single"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudDbfsInstanceAttachmentSchema() *tfjson.Schema {
+func AlicloudPolardbApplicationEndpointSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDbfsInstanceAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbApplicationEndpoint), &result)
 	return &result
 }

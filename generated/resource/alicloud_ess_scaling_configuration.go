@@ -104,6 +104,7 @@ const alicloudEssScalingConfiguration = `{
         ]
       },
       "internet_charge_type": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

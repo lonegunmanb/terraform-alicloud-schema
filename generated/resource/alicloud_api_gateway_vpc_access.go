@@ -30,6 +30,11 @@ const alicloudApiGatewayVpcAccess = `{
         "required": true,
         "type": "number"
       },
+      "vpc_access_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "vpc_id": {
         "description_kind": "plain",
         "required": true,

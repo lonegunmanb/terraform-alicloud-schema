@@ -6,10 +6,20 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDbfsAutoSnapShotPolicies = `{
+const alicloudEsaHttpsBasicConfigurations = `{
   "block": {
     "attributes": {
-      "auto_snap_shot_policies": {
+      "config_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "config_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "configurations": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -17,23 +27,23 @@ const alicloudDbfsAutoSnapShotPolicies = `{
           [
             "object",
             {
-              "applied_dbfs_number": "number",
-              "create_time": "string",
+              "ciphersuite": "string",
+              "ciphersuite_group": "string",
+              "config_id": "string",
+              "config_type": "string",
+              "http2": "string",
+              "http3": "string",
+              "https": "string",
               "id": "string",
-              "last_modified": "string",
-              "policy_id": "string",
-              "policy_name": "string",
-              "repeat_weekdays": [
-                "list",
-                "string"
-              ],
-              "retention_days": "number",
-              "status": "string",
-              "status_detail": "string",
-              "time_points": [
-                "list",
-                "string"
-              ]
+              "ocsp_stapling": "string",
+              "rule": "string",
+              "rule_enable": "string",
+              "rule_name": "string",
+              "sequence": "number",
+              "tls10": "string",
+              "tls11": "string",
+              "tls12": "string",
+              "tls13": "string"
             }
           ]
         ]
@@ -71,25 +81,24 @@ const alicloudDbfsAutoSnapShotPolicies = `{
         "optional": true,
         "type": "string"
       },
-      "page_number": {
+      "rule_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "page_size": {
+      "site_id": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "required": true,
+        "type": "string"
       }
     },
-    "deprecated": true,
     "description_kind": "plain"
   },
   "version": 0
 }`
 
-func AlicloudDbfsAutoSnapShotPoliciesSchema() *tfjson.Schema {
+func AlicloudEsaHttpsBasicConfigurationsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDbfsAutoSnapShotPolicies), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaHttpsBasicConfigurations), &result)
 	return &result
 }

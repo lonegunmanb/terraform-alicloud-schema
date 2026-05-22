@@ -19,6 +19,16 @@ const alicloudApiGatewayApi = `{
         "required": true,
         "type": "string"
       },
+      "backend_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "backend_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "description": {
         "description_kind": "plain",
         "required": true,

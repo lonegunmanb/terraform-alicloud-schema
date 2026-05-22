@@ -22,7 +22,7 @@ const alicloudEssServerGroupAttachment = `{
       },
       "port": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       },
       "scaling_group_id": {
@@ -42,7 +42,7 @@ const alicloudEssServerGroupAttachment = `{
       },
       "weight": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "number"
       }
     },

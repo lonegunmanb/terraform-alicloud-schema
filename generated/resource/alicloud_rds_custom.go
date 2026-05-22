@@ -40,6 +40,7 @@ const alicloudRdsCustom = `{
         "type": "string"
       },
       "description": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -85,6 +86,12 @@ const alicloudRdsCustom = `{
         "optional": true,
         "type": "string"
       },
+      "instance_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "instance_type": {
         "description_kind": "plain",
         "required": true,
@@ -121,6 +128,12 @@ const alicloudRdsCustom = `{
         "type": "number"
       },
       "period_unit": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "private_ip_address": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -165,6 +178,11 @@ const alicloudRdsCustom = `{
         "optional": true,
         "type": "string"
       },
+      "system_disk_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,
@@ -179,6 +197,7 @@ const alicloudRdsCustom = `{
         "type": "string"
       },
       "zone_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

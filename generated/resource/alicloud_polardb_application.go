@@ -6,33 +6,43 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudCenTransitRouterVpcAttachment = `{
+const alicloudPolardbApplication = `{
   "block": {
     "attributes": {
-      "auto_publish_route_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "cen_id": {
+      "ai_db_cluster_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "create_time": {
-        "computed": true,
+      "application_type": {
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "dry_run": {
+      "architecture": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "auto_renew": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
       },
-      "force_delete": {
+      "component_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "db_cluster_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -40,98 +50,94 @@ const alicloudCenTransitRouterVpcAttachment = `{
         "optional": true,
         "type": "string"
       },
-      "order_type": {
-        "computed": true,
+      "model_api": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "payment_type": {
-        "computed": true,
+      "model_api_key": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "model_base_url": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "model_from": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "model_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "modify_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "pay_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "period": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "region_id": {
-        "computed": true,
         "description_kind": "plain",
+        "required": true,
         "type": "string"
       },
-      "resource_type": {
-        "computed": true,
+      "resource_group_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "route_table_association_enabled": {
-        "deprecated": true,
+      "security_ip_array_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
       },
-      "route_table_propagation_enabled": {
-        "deprecated": true,
+      "security_ip_list": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "transit_router_attachment_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_attachment_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "transit_router_attachment_name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_id": {
+      "upgrade_version": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "transit_router_vpc_attachment_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "transit_router_vpc_attachment_options": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "bool"
       },
       "vpc_id": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "vpc_owner_id": {
+      "vswitch_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "zone_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -139,17 +145,20 @@ const alicloudCenTransitRouterVpcAttachment = `{
       }
     },
     "block_types": {
-      "options": {
+      "components": {
         "block": {
           "attributes": {
-            "appliance_mode_support": {
-              "computed": true,
+            "component_class": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "ipv6_support": {
-              "computed": true,
+            "component_replica": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "component_type": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -157,7 +166,25 @@ const alicloudCenTransitRouterVpcAttachment = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
+        "nesting_mode": "list"
+      },
+      "parameters": {
+        "block": {
+          "attributes": {
+            "parameter_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "parameter_value": {
+              "description_kind": "plain",
+              "optional": true,
+              "sensitive": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -182,25 +209,6 @@ const alicloudCenTransitRouterVpcAttachment = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
-      },
-      "zone_mappings": {
-        "block": {
-          "attributes": {
-            "vswitch_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            },
-            "zone_id": {
-              "description_kind": "plain",
-              "required": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "min_items": 1,
-        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"
@@ -208,8 +216,8 @@ const alicloudCenTransitRouterVpcAttachment = `{
   "version": 0
 }`
 
-func AlicloudCenTransitRouterVpcAttachmentSchema() *tfjson.Schema {
+func AlicloudPolardbApplicationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudCenTransitRouterVpcAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbApplication), &result)
 	return &result
 }

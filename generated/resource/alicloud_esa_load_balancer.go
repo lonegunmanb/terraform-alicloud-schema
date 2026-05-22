@@ -14,7 +14,7 @@ const alicloudEsaLoadBalancer = `{
         "required": true,
         "type": [
           "list",
-          "number"
+          "string"
         ]
       },
       "description": {
@@ -30,7 +30,7 @@ const alicloudEsaLoadBalancer = `{
       "fallback_pool": {
         "description_kind": "plain",
         "required": true,
-        "type": "number"
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -41,7 +41,7 @@ const alicloudEsaLoadBalancer = `{
       "load_balancer_id": {
         "computed": true,
         "description_kind": "plain",
-        "type": "number"
+        "type": "string"
       },
       "load_balancer_name": {
         "description_kind": "plain",
