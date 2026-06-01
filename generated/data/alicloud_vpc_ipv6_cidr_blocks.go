@@ -1,4 +1,4 @@
-package resource
+package data
 
 import (
 	"encoding/json"
@@ -6,13 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDirectMailMailAddress = `{
+const alicloudVpcIpv6CidrBlocks = `{
   "block": {
     "attributes": {
-      "account_name": {
+      "blocks": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "id": "string",
+              "ipv6_cidr_block": "string"
+            }
+          ]
+        ]
       },
       "id": {
         "computed": true,
@@ -20,25 +29,23 @@ const alicloudDirectMailMailAddress = `{
         "optional": true,
         "type": "string"
       },
-      "password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "reply_address": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sendtype": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
+      "ids": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "output_file": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_id": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -47,8 +54,8 @@ const alicloudDirectMailMailAddress = `{
   "version": 0
 }`
 
-func AlicloudDirectMailMailAddressSchema() *tfjson.Schema {
+func AlicloudVpcIpv6CidrBlocksSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDirectMailMailAddress), &result)
+	_ = json.Unmarshal([]byte(alicloudVpcIpv6CidrBlocks), &result)
 	return &result
 }

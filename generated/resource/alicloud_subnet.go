@@ -33,6 +33,7 @@ const alicloudSubnet = `{
         "type": "string"
       },
       "enable_ipv6": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -55,6 +56,7 @@ const alicloudSubnet = `{
         "type": "number"
       },
       "is_default": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -81,6 +83,11 @@ const alicloudSubnet = `{
       },
       "vpc_id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "vpc_ipv6_cidr_block": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

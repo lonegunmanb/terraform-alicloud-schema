@@ -42,6 +42,7 @@ const alicloudVpc = `{
         "type": "bool"
       },
       "enable_ipv6": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
@@ -69,6 +70,7 @@ const alicloudVpc = `{
       },
       "ipv6_cidr_block": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -88,11 +90,14 @@ const alicloudVpc = `{
         ]
       },
       "ipv6_isp": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "is_default": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

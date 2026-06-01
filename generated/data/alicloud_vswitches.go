@@ -107,6 +107,7 @@ const alicloudVswitches = `{
               "cidr_block": "string",
               "creation_time": "string",
               "description": "string",
+              "enable_ipv6": "bool",
               "id": "string",
               "ipv6_cidr_block": "string",
               "is_default": "bool",

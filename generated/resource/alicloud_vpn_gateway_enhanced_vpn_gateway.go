@@ -6,37 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVswitch = `{
+const alicloudVpnGatewayEnhancedVpnGateway = `{
   "block": {
     "attributes": {
-      "availability_zone": {
-        "computed": true,
-        "deprecated": true,
+      "auto_propagate": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "cidr_block": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "type": "string"
+        "type": "number"
       },
       "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "enable_ipv6": {
-        "computed": true,
+      "disaster_recovery_vswitch_id": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "gateway_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -44,26 +40,7 @@ const alicloudVswitch = `{
         "optional": true,
         "type": "string"
       },
-      "ipv6_cidr_block": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "ipv6_cidr_block_mask": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "is_default": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
+      "network_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -82,24 +59,21 @@ const alicloudVswitch = `{
         ]
       },
       "vpc_id": {
-        "computed": true,
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "vpn_gateway_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "vpc_ipv6_cidr_block": {
+      "vpn_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "vswitch_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "zone_id": {
-        "computed": true,
+      "vswitch_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -135,8 +109,8 @@ const alicloudVswitch = `{
   "version": 0
 }`
 
-func AlicloudVswitchSchema() *tfjson.Schema {
+func AlicloudVpnGatewayEnhancedVpnGatewaySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVswitch), &result)
+	_ = json.Unmarshal([]byte(alicloudVpnGatewayEnhancedVpnGateway), &result)
 	return &result
 }

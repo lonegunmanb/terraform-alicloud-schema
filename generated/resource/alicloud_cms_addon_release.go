@@ -6,18 +6,32 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudVswitch = `{
+const alicloudCmsAddonRelease = `{
   "block": {
     "attributes": {
-      "availability_zone": {
+      "addon_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "addon_release_name": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "cidr_block": {
+      "addon_version": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "aliyun_lang": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "config": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -27,16 +41,16 @@ const alicloudVswitch = `{
         "description_kind": "plain",
         "type": "string"
       },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_ipv6": {
-        "computed": true,
+      "dry_run": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "env_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -44,61 +58,17 @@ const alicloudVswitch = `{
         "optional": true,
         "type": "string"
       },
-      "ipv6_cidr_block": {
+      "integration_policy_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "region_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "ipv6_cidr_block_mask": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "is_default": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vpc_ipv6_cidr_block": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vswitch_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "zone_id": {
+      "workspace": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -135,8 +105,8 @@ const alicloudVswitch = `{
   "version": 0
 }`
 
-func AlicloudVswitchSchema() *tfjson.Schema {
+func AlicloudCmsAddonReleaseSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudVswitch), &result)
+	_ = json.Unmarshal([]byte(alicloudCmsAddonRelease), &result)
 	return &result
 }
