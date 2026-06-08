@@ -249,6 +249,7 @@ func init() {
 	resources["alicloud_cloud_storage_gateway_storage_bundle"] = resource.AlicloudCloudStorageGatewayStorageBundleSchema()  
 	resources["alicloud_cloudauth_face_config"] = resource.AlicloudCloudauthFaceConfigSchema()  
 	resources["alicloud_cms_addon_release"] = resource.AlicloudCmsAddonReleaseSchema()  
+	resources["alicloud_cms_agg_task_group"] = resource.AlicloudCmsAggTaskGroupSchema()  
 	resources["alicloud_cms_alarm"] = resource.AlicloudCmsAlarmSchema()  
 	resources["alicloud_cms_alarm_contact"] = resource.AlicloudCmsAlarmContactSchema()  
 	resources["alicloud_cms_alarm_contact_group"] = resource.AlicloudCmsAlarmContactGroupSchema()  

@@ -107,6 +107,18 @@ const alicloudApiGatewayApi = `{
               "required": true,
               "type": "string"
             },
+            "content_type_category": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "content_type_value": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "function_base_url": {
               "description_kind": "plain",
               "optional": true,

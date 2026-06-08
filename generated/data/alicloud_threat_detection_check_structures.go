@@ -39,6 +39,11 @@ const alicloudThreatDetectionCheckStructures = `{
         "optional": true,
         "type": "string"
       },
+      "page_size": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "structures": {
         "computed": true,
         "description_kind": "plain",

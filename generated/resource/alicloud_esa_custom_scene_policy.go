@@ -10,8 +10,10 @@ const alicloudEsaCustomScenePolicy = `{
   "block": {
     "attributes": {
       "create_time": {
+        "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "custom_scene_policy_name": {
@@ -33,6 +35,12 @@ const alicloudEsaCustomScenePolicy = `{
       "site_ids": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "start_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "status": {

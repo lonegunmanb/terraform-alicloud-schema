@@ -70,6 +70,14 @@ const alicloudDdoscooDomainResource = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "custom_ciphers": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "custom_headers": {
         "computed": true,
         "description_kind": "plain",
@@ -124,6 +132,31 @@ const alicloudDdoscooDomainResource = `{
         "description_kind": "plain",
         "required": true,
         "type": "number"
+      },
+      "ssl13_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "ssl_ciphers": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "ssl_protocols": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tls13_custom_ciphers": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
       },
       "white_list": {
         "description_kind": "plain",

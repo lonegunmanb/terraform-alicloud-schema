@@ -24,6 +24,14 @@ const alicloudEsaClientCaCertificate = `{
         "optional": true,
         "type": "string"
       },
+      "client_ca_certificate_hostnames": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -56,6 +64,11 @@ const alicloudEsaClientCaCertificate = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
