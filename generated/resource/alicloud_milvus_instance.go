@@ -15,6 +15,11 @@ const alicloudMilvusInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "auto_pay": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "configuration": {
         "description_kind": "plain",
         "optional": true,

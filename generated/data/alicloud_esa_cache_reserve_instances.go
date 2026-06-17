@@ -6,9 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssNotifications = `{
+const alicloudEsaCacheReserveInstances = `{
   "block": {
     "attributes": {
+      "cache_reserve_instance_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -23,7 +28,7 @@ const alicloudEssNotifications = `{
           "string"
         ]
       },
-      "notifications": {
+      "instances": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -31,15 +36,15 @@ const alicloudEssNotifications = `{
           [
             "object",
             {
+              "cache_reserve_instance_id": "string",
+              "cr_region": "string",
+              "create_time": "string",
+              "expire_time": "string",
               "id": "string",
-              "message_encoding": "string",
-              "notification_arn": "string",
-              "notification_types": [
-                "set",
-                "string"
-              ],
-              "scaling_group_id": "string",
-              "time_zone": "string"
+              "payment_type": "string",
+              "period": "number",
+              "quota_gb": "number",
+              "status": "string"
             }
           ]
         ]
@@ -49,9 +54,19 @@ const alicloudEssNotifications = `{
         "optional": true,
         "type": "string"
       },
-      "scaling_group_id": {
+      "sort_by": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "string"
+      },
+      "sort_order": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -60,8 +75,8 @@ const alicloudEssNotifications = `{
   "version": 0
 }`
 
-func AlicloudEssNotificationsSchema() *tfjson.Schema {
+func AlicloudEsaCacheReserveInstancesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssNotifications), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaCacheReserveInstances), &result)
 	return &result
 }

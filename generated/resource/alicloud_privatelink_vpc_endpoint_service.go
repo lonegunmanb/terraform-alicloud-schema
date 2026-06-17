@@ -91,6 +91,15 @@ const alicloudPrivatelinkVpcEndpointService = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "supported_region_list": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

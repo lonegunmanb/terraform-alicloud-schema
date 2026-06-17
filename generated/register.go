@@ -1513,6 +1513,7 @@ func init() {
 	dataSources["alicloud_emrv2_clusters"] = data.AlicloudEmrv2ClustersSchema()  
 	dataSources["alicloud_enhanced_nat_available_zones"] = data.AlicloudEnhancedNatAvailableZonesSchema()  
 	dataSources["alicloud_ens_key_pairs"] = data.AlicloudEnsKeyPairsSchema()  
+	dataSources["alicloud_esa_cache_reserve_instances"] = data.AlicloudEsaCacheReserveInstancesSchema()  
 	dataSources["alicloud_esa_https_basic_configurations"] = data.AlicloudEsaHttpsBasicConfigurationsSchema()  
 	dataSources["alicloud_esa_network_optimizations"] = data.AlicloudEsaNetworkOptimizationsSchema()  
 	dataSources["alicloud_esa_origin_rules"] = data.AlicloudEsaOriginRulesSchema()  

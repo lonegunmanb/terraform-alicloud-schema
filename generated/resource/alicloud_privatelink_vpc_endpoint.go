@@ -30,6 +30,12 @@ const alicloudPrivatelinkVpcEndpoint = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "cross_region_bandwidth": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "dry_run": {
         "description_kind": "plain",
         "optional": true,
@@ -99,6 +105,12 @@ const alicloudPrivatelinkVpcEndpoint = `{
         "type": "string"
       },
       "service_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "service_region_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,

@@ -34,6 +34,11 @@ const alicloudEsaRoutineRelatedRecord = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "site_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

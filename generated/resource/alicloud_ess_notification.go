@@ -15,6 +15,11 @@ const alicloudEssNotification = `{
         "optional": true,
         "type": "string"
       },
+      "message_encoding": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "notification_arn": {
         "description_kind": "plain",
         "required": true,

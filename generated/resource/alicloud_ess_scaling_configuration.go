@@ -168,6 +168,20 @@ const alicloudEssScalingConfiguration = `{
         "optional": true,
         "type": "string"
       },
+      "resource_pool_options_private_pool_ids": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "resource_pool_options_strategy": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "role_name": {
         "description_kind": "plain",
         "optional": true,
@@ -561,6 +575,24 @@ const alicloudEssScalingConfiguration = `{
                 "list",
                 "string"
               ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
+      "resource_pool_options_private_pool_tags": {
+        "block": {
+          "attributes": {
+            "key": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
