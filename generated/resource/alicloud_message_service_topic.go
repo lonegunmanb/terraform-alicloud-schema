@@ -51,6 +51,12 @@ const alicloudMessageServiceTopic = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "topic_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {

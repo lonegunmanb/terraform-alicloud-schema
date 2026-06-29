@@ -6,9 +6,30 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAmqpInstances = `{
+const alicloudWafv3AddressBooks = `{
   "block": {
     "attributes": {
+      "books": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "address_book_id": "string",
+              "address_book_name": "string",
+              "address_book_type": "string",
+              "address_list": [
+                "set",
+                "string"
+              ],
+              "description": "string",
+              "id": "string"
+            }
+          ]
+        ]
+      },
       "enable_details": {
         "description_kind": "plain",
         "optional": true,
@@ -29,32 +50,10 @@ const alicloudAmqpInstances = `{
           "string"
         ]
       },
-      "instances": {
-        "computed": true,
+      "instance_id": {
         "description_kind": "plain",
-        "type": [
-          "list",
-          [
-            "object",
-            {
-              "create_time": "string",
-              "expire_time": "string",
-              "id": "string",
-              "instance_id": "string",
-              "instance_name": "string",
-              "instance_type": "string",
-              "payment_type": "string",
-              "private_end_point": "string",
-              "public_endpoint": "string",
-              "renewal_duration": "number",
-              "renewal_duration_unit": "string",
-              "renewal_status": "string",
-              "serverless_switch": "bool",
-              "status": "string",
-              "support_eip": "bool"
-            }
-          ]
-        ]
+        "required": true,
+        "type": "string"
       },
       "name_regex": {
         "description_kind": "plain",
@@ -73,11 +72,6 @@ const alicloudAmqpInstances = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
       }
     },
     "description_kind": "plain"
@@ -85,8 +79,8 @@ const alicloudAmqpInstances = `{
   "version": 0
 }`
 
-func AlicloudAmqpInstancesSchema() *tfjson.Schema {
+func AlicloudWafv3AddressBooksSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAmqpInstances), &result)
+	_ = json.Unmarshal([]byte(alicloudWafv3AddressBooks), &result)
 	return &result
 }

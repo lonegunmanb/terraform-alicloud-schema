@@ -19,10 +19,22 @@ const alicloudRdsCustomDisk = `{
         "optional": true,
         "type": "bool"
       },
+      "bursting_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "delete_with_instance": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "description": {
         "description_kind": "plain",
@@ -35,6 +47,7 @@ const alicloudRdsCustomDisk = `{
         "type": "string"
       },
       "disk_name": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -51,21 +64,31 @@ const alicloudRdsCustomDisk = `{
         "type": "string"
       },
       "instance_charge_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "instance_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "performance_level": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "period": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
       "period_unit": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -78,6 +101,7 @@ const alicloudRdsCustomDisk = `{
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "size": {
@@ -94,6 +118,14 @@ const alicloudRdsCustomDisk = `{
         "computed": true,
         "description_kind": "plain",
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "type": {
         "description_kind": "plain",

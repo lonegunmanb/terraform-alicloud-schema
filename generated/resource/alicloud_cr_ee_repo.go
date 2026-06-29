@@ -49,6 +49,12 @@ const alicloudCrEeRepo = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "tag_immutability": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "description_kind": "plain"

@@ -78,6 +78,11 @@ const alicloudInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "enable_high_density_mode": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "enable_jumbo_frame": {
         "computed": true,
         "description_kind": "plain",

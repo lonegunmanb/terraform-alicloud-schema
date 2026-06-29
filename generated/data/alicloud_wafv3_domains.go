@@ -29,6 +29,7 @@ const alicloudWafv3Domains = `{
             {
               "cname": "string",
               "domain": "string",
+              "domain_id": "string",
               "id": "string",
               "listen": [
                 "list",

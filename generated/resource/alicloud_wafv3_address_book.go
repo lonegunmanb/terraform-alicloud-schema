@@ -6,22 +6,33 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaRoutineRoute = `{
+const alicloudWafv3AddressBook = `{
   "block": {
     "attributes": {
-      "bypass": {
+      "address_book_id": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "address_book_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "config_id": {
-        "computed": true,
+      "address_book_type": {
         "description_kind": "plain",
-        "type": "number"
+        "required": true,
+        "type": "string"
       },
-      "fallback": {
-        "computed": true,
+      "address_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -32,33 +43,7 @@ const alicloudEsaRoutineRoute = `{
         "optional": true,
         "type": "string"
       },
-      "route_enable": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "route_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "routine_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "rule": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "sequence": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "site_id": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -94,8 +79,8 @@ const alicloudEsaRoutineRoute = `{
   "version": 0
 }`
 
-func AlicloudEsaRoutineRouteSchema() *tfjson.Schema {
+func AlicloudWafv3AddressBookSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaRoutineRoute), &result)
+	_ = json.Unmarshal([]byte(alicloudWafv3AddressBook), &result)
 	return &result
 }

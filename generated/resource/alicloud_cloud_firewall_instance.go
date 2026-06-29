@@ -14,6 +14,12 @@ const alicloudCloudFirewallInstance = `{
         "optional": true,
         "type": "number"
       },
+      "auto_asset_protection": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "band_width": {
         "description_kind": "plain",
         "optional": true,

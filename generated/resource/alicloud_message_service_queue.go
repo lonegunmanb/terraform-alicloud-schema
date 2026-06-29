@@ -54,6 +54,12 @@ const alicloudMessageServiceQueue = `{
         "required": true,
         "type": "string"
       },
+      "queue_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tags": {
         "description_kind": "plain",
         "optional": true,

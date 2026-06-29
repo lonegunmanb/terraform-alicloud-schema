@@ -225,6 +225,11 @@ const alicloudAlikafkaInstance = `{
         "optional": true,
         "type": "string"
       },
+      "vpc_sasl_domain_endpoint": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "vswitch_id": {
         "computed": true,
         "description_kind": "plain",

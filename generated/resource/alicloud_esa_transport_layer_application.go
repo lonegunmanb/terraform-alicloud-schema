@@ -15,6 +15,7 @@ const alicloudEsaTransportLayerApplication = `{
         "type": "number"
       },
       "cross_border_optimization": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -26,11 +27,13 @@ const alicloudEsaTransportLayerApplication = `{
         "type": "string"
       },
       "ip_access_rule": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "ipv6": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

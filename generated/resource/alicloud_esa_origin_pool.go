@@ -56,6 +56,12 @@ const alicloudEsaOriginPool = `{
               "optional": true,
               "type": "string"
             },
+            "ip_version_policy": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
             "name": {
               "description_kind": "plain",
               "optional": true,

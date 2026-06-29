@@ -126,6 +126,12 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "serverless_switch": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
@@ -146,6 +152,14 @@ const alicloudAmqpInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       },
       "tracing_storage_time": {
         "computed": true,
