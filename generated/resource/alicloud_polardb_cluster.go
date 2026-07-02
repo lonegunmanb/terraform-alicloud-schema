@@ -434,6 +434,12 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "target_minor_version": {
+        "description": "The target minor version of the cluster. Used during creation.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "tde_region": {
         "computed": true,
         "description_kind": "plain",

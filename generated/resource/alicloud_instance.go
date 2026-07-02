@@ -259,6 +259,7 @@ const alicloudInstance = `{
         "type": "number"
       },
       "network_card_index": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -266,6 +267,7 @@ const alicloudInstance = `{
       "network_interface_id": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "network_interface_traffic_mode": {
@@ -340,6 +342,7 @@ const alicloudInstance = `{
         "type": "string"
       },
       "queue_pair_number": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
@@ -391,6 +394,12 @@ const alicloudInstance = `{
           "set",
           "string"
         ]
+      },
+      "source_dest_check": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "spot_duration": {
         "computed": true,
@@ -718,6 +727,12 @@ const alicloudInstance = `{
                 "list",
                 "string"
               ]
+            },
+            "source_dest_check": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
             },
             "vswitch_id": {
               "computed": true,

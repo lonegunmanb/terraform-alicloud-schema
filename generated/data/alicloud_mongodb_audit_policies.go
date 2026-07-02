@@ -35,7 +35,10 @@ const alicloudMongodbAuditPolicies = `{
             {
               "audit_status": "string",
               "db_instance_id": "string",
-              "id": "string"
+              "hot_storage_period": "number",
+              "id": "string",
+              "service_type": "string",
+              "storage_period": "number"
             }
           ]
         ]

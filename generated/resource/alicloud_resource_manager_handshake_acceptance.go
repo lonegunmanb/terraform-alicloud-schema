@@ -6,30 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMongodbAuditPolicy = `{
+const alicloudResourceManagerHandshakeAcceptance = `{
   "block": {
     "attributes": {
-      "audit_status": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "expire_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "handshake_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "db_instance_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "filter": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "hot_storage_period": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
       },
       "id": {
         "computed": true,
@@ -37,17 +30,55 @@ const alicloudMongodbAuditPolicy = `{
         "optional": true,
         "type": "string"
       },
-      "service_type": {
+      "invited_account_real_name": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "storage_period": {
+      "master_account_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "number"
+        "type": "string"
+      },
+      "master_account_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "master_account_real_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "modify_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "note": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "resource_directory_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "target_entity": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "target_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {
@@ -63,11 +94,6 @@ const alicloudMongodbAuditPolicy = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -80,8 +106,8 @@ const alicloudMongodbAuditPolicy = `{
   "version": 0
 }`
 
-func AlicloudMongodbAuditPolicySchema() *tfjson.Schema {
+func AlicloudResourceManagerHandshakeAcceptanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMongodbAuditPolicy), &result)
+	_ = json.Unmarshal([]byte(alicloudResourceManagerHandshakeAcceptance), &result)
 	return &result
 }

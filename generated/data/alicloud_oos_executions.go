@@ -54,6 +54,10 @@ const alicloudOosExecutions = `{
               "status": "string",
               "status_message": "string",
               "status_reason": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "template_id": "string",
               "template_name": "string",
               "template_version": "string",

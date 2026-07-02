@@ -9,6 +9,13 @@ import (
 const alicloudPolardbAicluster = `{
   "block": {
     "attributes": {
+      "api_key": {
+        "computed": true,
+        "description": "The API key for accessing the AI cluster.",
+        "description_kind": "plain",
+        "sensitive": true,
+        "type": "string"
+      },
       "auto_renew": {
         "description": "Whether to enable auto-renewal.",
         "description_kind": "plain",
@@ -20,6 +27,12 @@ const alicloudPolardbAicluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "connection_string": {
+        "computed": true,
+        "description": "The connection string of the AI cluster endpoint.",
+        "description_kind": "plain",
+        "type": "string"
       },
       "db_cluster_description": {
         "description": "The description of the AI DB cluster.",
