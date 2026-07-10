@@ -39,6 +39,12 @@ const alicloudDrdsPolardbxInstance = `{
         "required": true,
         "type": "number"
       },
+      "dn_storage_space": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "engine_version": {
         "computed": true,
         "description_kind": "plain",
@@ -82,9 +88,35 @@ const alicloudDrdsPolardbxInstance = `{
         "optional": true,
         "type": "string"
       },
+      "specified_dn_scale": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "specified_dn_spec_map_json": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "storage_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "switch_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "switch_time_mode": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "tertiary_zone": {

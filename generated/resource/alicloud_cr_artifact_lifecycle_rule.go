@@ -6,54 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPolardbAccount = `{
+const alicloudCrArtifactLifecycleRule = `{
   "block": {
     "attributes": {
-      "account_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "account_lock_state": {
+      "artifact_lifecycle_rule_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "account_name": {
+      "auto": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "bool"
       },
-      "account_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "account_password_valid_time": {
+      "create_time": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "account_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_cluster_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dynamodb_auth_password": {
-        "computed": true,
-        "description": "The DynamoDB authentication password. Only available for DynamoDB account type.",
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -61,22 +30,44 @@ const alicloudPolardbAccount = `{
         "optional": true,
         "type": "string"
       },
-      "kms_encrypted_password": {
+      "instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "modified_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "namespace_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "kms_encryption_context": {
+      "repo_name": {
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
       },
-      "status": {
-        "computed": true,
+      "retention_tag_count": {
         "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "schedule_time": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "scope": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "tag_regexp": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -110,8 +101,8 @@ const alicloudPolardbAccount = `{
   "version": 0
 }`
 
-func AlicloudPolardbAccountSchema() *tfjson.Schema {
+func AlicloudCrArtifactLifecycleRuleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPolardbAccount), &result)
+	_ = json.Unmarshal([]byte(alicloudCrArtifactLifecycleRule), &result)
 	return &result
 }

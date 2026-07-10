@@ -32,6 +32,7 @@ const alicloudAlikafkaSaslAcls = `{
               "acl_resource_pattern_type": "string",
               "acl_resource_type": "string",
               "host": "string",
+              "id": "string",
               "username": "string"
             }
           ]

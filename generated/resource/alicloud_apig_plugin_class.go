@@ -6,53 +6,32 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPolardbAccount = `{
+const alicloudApigPluginClass = `{
   "block": {
     "attributes": {
-      "account_description": {
+      "alias": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "account_lock_state": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "account_name": {
+      "description": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "account_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "account_password_valid_time": {
+      "document": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "account_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_cluster_id": {
+      "execute_priority": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "number"
       },
-      "dynamodb_auth_password": {
-        "computed": true,
-        "description": "The DynamoDB authentication password. Only available for DynamoDB account type.",
+      "execute_stage": {
         "description_kind": "plain",
-        "sensitive": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -61,22 +40,44 @@ const alicloudPolardbAccount = `{
         "optional": true,
         "type": "string"
       },
-      "kms_encrypted_password": {
+      "plugin_class_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
-      },
-      "kms_encryption_context": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "supported_min_gateway_version": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "version": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "version_description": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "wasm_language": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "wasm_url": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
@@ -93,11 +94,6 @@ const alicloudPolardbAccount = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -110,8 +106,8 @@ const alicloudPolardbAccount = `{
   "version": 0
 }`
 
-func AlicloudPolardbAccountSchema() *tfjson.Schema {
+func AlicloudApigPluginClassSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPolardbAccount), &result)
+	_ = json.Unmarshal([]byte(alicloudApigPluginClass), &result)
 	return &result
 }

@@ -14,6 +14,11 @@ const alicloudCloudMonitorServiceMetricAlarmRules = `{
         "optional": true,
         "type": "string"
       },
+      "enable_details": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -28,6 +33,11 @@ const alicloudCloudMonitorServiceMetricAlarmRules = `{
           "list",
           "string"
         ]
+      },
+      "metric_alarm_rule_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "metric_name": {
         "description_kind": "plain",
@@ -144,6 +154,7 @@ const alicloudCloudMonitorServiceMetricAlarmRules = `{
                   }
                 ]
               ],
+              "metric_alarm_rule_id": "string",
               "metric_name": "string",
               "namespace": "string",
               "no_data_policy": "string",
@@ -172,6 +183,7 @@ const alicloudCloudMonitorServiceMetricAlarmRules = `{
               ],
               "resources": "string",
               "rule_name": "string",
+              "send_ok": "bool",
               "silence_time": "string",
               "source_type": "string",
               "status": "bool",

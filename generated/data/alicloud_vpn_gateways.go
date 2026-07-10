@@ -20,6 +20,11 @@ const alicloudVpnGateways = `{
         "optional": true,
         "type": "bool"
       },
+      "gateway_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "gateways": {
         "computed": true,
         "description_kind": "plain",

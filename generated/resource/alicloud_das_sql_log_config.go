@@ -6,54 +6,25 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPolardbAccount = `{
+const alicloudDasSqlLogConfig = `{
   "block": {
     "attributes": {
-      "account_description": {
+      "cold_retention": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "account_lock_state": {
+      "enable": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "account_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "account_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "sensitive": true,
-        "type": "string"
-      },
-      "account_password_valid_time": {
+      "hot_retention": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "account_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "db_cluster_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "dynamodb_auth_password": {
-        "computed": true,
-        "description": "The DynamoDB authentication password. Only available for DynamoDB account type.",
-        "description_kind": "plain",
-        "sensitive": true,
-        "type": "string"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -61,20 +32,34 @@ const alicloudPolardbAccount = `{
         "optional": true,
         "type": "string"
       },
-      "kms_encrypted_password": {
+      "instance_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "kms_encryption_context": {
+      "log_filter": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "request_enable": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "bool"
       },
-      "status": {
+      "retention": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "sql_log_visible_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "version": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
@@ -110,8 +95,8 @@ const alicloudPolardbAccount = `{
   "version": 0
 }`
 
-func AlicloudPolardbAccountSchema() *tfjson.Schema {
+func AlicloudDasSqlLogConfigSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPolardbAccount), &result)
+	_ = json.Unmarshal([]byte(alicloudDasSqlLogConfig), &result)
 	return &result
 }

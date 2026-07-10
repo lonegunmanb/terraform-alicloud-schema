@@ -9,6 +9,11 @@ import (
 const alicloudAmqpInstance = `{
   "block": {
     "attributes": {
+      "auth_model": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "auto_renew": {
         "description_kind": "plain",
         "optional": true,
