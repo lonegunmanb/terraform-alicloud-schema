@@ -6,41 +6,52 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsPrometheus = `{
+const alicloudSslCertificatesServiceCompany = `{
   "block": {
     "attributes": {
-      "archive_duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "cluster_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cluster_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cluster_type": {
+      "city": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "grafana_instance_id": {
+      "company_address": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "company_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "company_email": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "company_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "company_phone": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "company_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "number"
+      },
+      "country_code": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "department": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -49,44 +60,19 @@ const alicloudArmsPrometheus = `{
         "optional": true,
         "type": "string"
       },
-      "payment_type": {
-        "computed": true,
+      "lang": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "resource_group_id": {
-        "computed": true,
+      "post_code": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "security_group_id": {
+      "province": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sub_clusters_json": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vswitch_id": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       }
     },
@@ -120,8 +106,8 @@ const alicloudArmsPrometheus = `{
   "version": 0
 }`
 
-func AlicloudArmsPrometheusSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServiceCompanySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsPrometheus), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServiceCompany), &result)
 	return &result
 }

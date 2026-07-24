@@ -6,43 +6,12 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApigHttpApi = `{
+const alicloudGpdbApiKey = `{
   "block": {
     "attributes": {
-      "ai_protocols": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "base_path": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "deploy_configs": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
       "description": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "enable_auth": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "http_api_name": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
       "id": {
@@ -51,26 +20,25 @@ const alicloudApigHttpApi = `{
         "optional": true,
         "type": "string"
       },
-      "model_category": {
+      "key_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "protocols": {
+      "key_name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "service_ids": {
+        "description_kind": "plain",
+        "optional": true,
         "type": [
-          "list",
+          "set",
           "string"
         ]
       },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "type": {
+      "workspace_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -89,11 +57,6 @@ const alicloudApigHttpApi = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -106,8 +69,8 @@ const alicloudApigHttpApi = `{
   "version": 0
 }`
 
-func AlicloudApigHttpApiSchema() *tfjson.Schema {
+func AlicloudGpdbApiKeySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApigHttpApi), &result)
+	_ = json.Unmarshal([]byte(alicloudGpdbApiKey), &result)
 	return &result
 }

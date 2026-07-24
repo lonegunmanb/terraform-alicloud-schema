@@ -49,10 +49,22 @@ const alicloudCsServerlessKubernetes = `{
         "optional": true,
         "type": "bool"
       },
+      "disable_encryption": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "enable_rrsa": {
         "description_kind": "plain",
         "optional": true,
         "type": "bool"
+      },
+      "encryption_provider_key": {
+        "description": "The ID of the Key Management Service (KMS) key that is used to encrypt Kubernetes Secrets.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "endpoint_public_access_enabled": {
         "description_kind": "plain",
@@ -331,6 +343,11 @@ const alicloudCsServerlessKubernetes = `{
               "type": "string"
             },
             "delete": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"

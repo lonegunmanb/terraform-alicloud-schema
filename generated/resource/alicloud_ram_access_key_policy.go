@@ -6,41 +6,10 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudApigHttpApi = `{
+const alicloudRamAccessKeyPolicy = `{
   "block": {
     "attributes": {
-      "ai_protocols": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "base_path": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "deploy_configs": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "enable_auth": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "http_api_name": {
+      "access_key_policy": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -51,28 +20,14 @@ const alicloudApigHttpApi = `{
         "optional": true,
         "type": "string"
       },
-      "model_category": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "protocols": {
+      "user_access_key_id": {
         "description_kind": "plain",
         "required": true,
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "resource_group_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "type": {
+      "user_principal_name": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       }
     },
@@ -106,8 +61,8 @@ const alicloudApigHttpApi = `{
   "version": 0
 }`
 
-func AlicloudApigHttpApiSchema() *tfjson.Schema {
+func AlicloudRamAccessKeyPolicySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudApigHttpApi), &result)
+	_ = json.Unmarshal([]byte(alicloudRamAccessKeyPolicy), &result)
 	return &result
 }

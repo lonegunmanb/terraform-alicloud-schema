@@ -6,39 +6,15 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsPrometheus = `{
+const alicloudApigAiModelProvider = `{
   "block": {
     "attributes": {
-      "archive_duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "cluster_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cluster_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "cluster_type": {
+      "display_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "grafana_instance_id": {
+      "gateway_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
@@ -49,44 +25,32 @@ const alicloudArmsPrometheus = `{
         "optional": true,
         "type": "string"
       },
-      "payment_type": {
+      "model_count": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "resource_group_id": {
-        "computed": true,
+      "model_provider": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "security_group_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sub_clusters_json": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
+      "service_ids": {
         "description_kind": "plain",
         "optional": true,
         "type": [
-          "map",
+          "list",
           "string"
         ]
       },
-      "vpc_id": {
+      "source": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "vswitch_id": {
+      "update_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       }
     },
@@ -120,8 +84,8 @@ const alicloudArmsPrometheus = `{
   "version": 0
 }`
 
-func AlicloudArmsPrometheusSchema() *tfjson.Schema {
+func AlicloudApigAiModelProviderSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsPrometheus), &result)
+	_ = json.Unmarshal([]byte(alicloudApigAiModelProvider), &result)
 	return &result
 }

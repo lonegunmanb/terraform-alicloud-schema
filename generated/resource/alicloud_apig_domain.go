@@ -6,41 +6,48 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudArmsPrometheus = `{
+const alicloudApigDomain = `{
   "block": {
     "attributes": {
-      "archive_duration": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "cluster_id": {
-        "computed": true,
+      "ca_cert_identifier": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "cluster_name": {
-        "computed": true,
+      "cert_identifier": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "cluster_type": {
+      "client_ca_cert": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "domain_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "duration": {
+      "domain_scope": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "number"
+        "type": "string"
       },
-      "grafana_instance_id": {
+      "force_https": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
+        "type": "bool"
+      },
+      "gateway_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "http2_option": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
@@ -49,7 +56,12 @@ const alicloudArmsPrometheus = `{
         "optional": true,
         "type": "string"
       },
-      "payment_type": {
+      "m_tls_enabled": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "protocol": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -61,30 +73,12 @@ const alicloudArmsPrometheus = `{
         "optional": true,
         "type": "string"
       },
-      "security_group_id": {
+      "tls_max": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "sub_clusters_json": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "vswitch_id": {
+      "tls_min": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -113,6 +107,43 @@ const alicloudArmsPrometheus = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "tls_cipher_suites_config": {
+        "block": {
+          "attributes": {
+            "config_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "block_types": {
+            "tls_cipher_suite": {
+              "block": {
+                "attributes": {
+                  "name": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "support_versions": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -120,8 +151,8 @@ const alicloudArmsPrometheus = `{
   "version": 0
 }`
 
-func AlicloudArmsPrometheusSchema() *tfjson.Schema {
+func AlicloudApigDomainSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudArmsPrometheus), &result)
+	_ = json.Unmarshal([]byte(alicloudApigDomain), &result)
 	return &result
 }

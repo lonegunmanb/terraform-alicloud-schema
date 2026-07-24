@@ -102,6 +102,18 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "number"
       },
+      "maintain_end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "maintain_start_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "max_connections": {
         "computed": true,
         "description_kind": "plain",

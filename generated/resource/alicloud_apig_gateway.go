@@ -9,10 +9,41 @@ import (
 const alicloudApigGateway = `{
   "block": {
     "attributes": {
+      "create_from": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
+      },
+      "environments": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "alias": "string",
+              "environment_id": "string",
+              "name": "string"
+            }
+          ]
+        ]
+      },
+      "expire_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "gateway_edition": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "gateway_name": {
         "description_kind": "plain",
@@ -31,6 +62,44 @@ const alicloudApigGateway = `{
         "optional": true,
         "type": "string"
       },
+      "load_balancers": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "address": "string",
+              "address_ip_version": "string",
+              "address_type": "string",
+              "gateway_default": "bool",
+              "ipv4_addresses": [
+                "list",
+                "string"
+              ],
+              "ipv6_addresses": [
+                "list",
+                "string"
+              ],
+              "load_balancer_id": "string",
+              "mode": "string",
+              "ports": [
+                "list",
+                [
+                  "object",
+                  {
+                    "port": "number",
+                    "protocol": "string"
+                  }
+                ]
+              ],
+              "status": "string",
+              "type": "string"
+            }
+          ]
+        ]
+      },
       "payment_type": {
         "description_kind": "plain",
         "required": true,
@@ -41,6 +110,20 @@ const alicloudApigGateway = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "security_group": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "name": "string",
+              "security_group_id": "string"
+            }
+          ]
+        ]
       },
       "spec": {
         "description_kind": "plain",
@@ -59,6 +142,21 @@ const alicloudApigGateway = `{
           "map",
           "string"
         ]
+      },
+      "target_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "update_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "version": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       }
     },
     "block_types": {

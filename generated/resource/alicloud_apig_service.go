@@ -6,57 +6,51 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNatGateway = `{
+const alicloudApigService = `{
   "block": {
     "attributes": {
-      "availability_mode": {
+      "addresses": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "create_timestamp": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "dns_servers": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "express_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "bandwidth_package_ids": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "deletion_protection": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "description": {
+      "gateway_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "dry_run": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "eip_bind_mode": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "force": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "forward_table_ids": {
+      "health_status": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "icmp_reply_enabled": {
+      "healthy_panic_threshold": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -64,115 +58,136 @@ const alicloudNatGateway = `{
         "optional": true,
         "type": "string"
       },
-      "instance_charge_type": {
-        "computed": true,
-        "deprecated": true,
+      "namespace": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "internet_charge_type": {
+      "outlier_endpoints": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "nat_gateway_name": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "nat_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "network_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "payment_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "period": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "private_link_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "snat_table_ids": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "spec": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "specification": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
         "type": [
-          "map",
+          "list",
           "string"
         ]
       },
-      "vpc_id": {
+      "ports": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "string"
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "name": "string",
+              "port": "number",
+              "protocol": "string"
+            }
+          ]
+        ]
       },
-      "vswitch_id": {
+      "protocol": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "qualifier": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "runtime_detail_error_code": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "runtime_detail_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "service_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source_type": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "unhealthy_endpoints": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
+      },
+      "update_timestamp": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
       }
     },
     "block_types": {
-      "access_mode": {
+      "health_check_config": {
         "block": {
           "attributes": {
-            "mode_value": {
-              "computed": true,
+            "enable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "expected_statuses": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "healthy_threshold": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "http_host": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "tunnel_type": {
-              "computed": true,
+            "http_path": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "interval": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "protocol": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "timeout": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "unhealthy_threshold": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             }
           },
           "description_kind": "plain"
@@ -180,34 +195,38 @@ const alicloudNatGateway = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
-      "bandwidth_packages": {
+      "outlier_detection_config": {
         "block": {
           "attributes": {
-            "bandwidth": {
+            "base_ejection_time": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "ip_count": {
+            "enable": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
+            "failure_percentage_minimum_hosts": {
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "public_ip_addresses": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "zone": {
-              "computed": true,
+            "failure_percentage_threshold": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": "number"
+            },
+            "interval": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
             }
           },
           "description_kind": "plain"
         },
-        "max_items": 4,
+        "max_items": 1,
         "nesting_mode": "list"
       },
       "timeouts": {
@@ -239,8 +258,8 @@ const alicloudNatGateway = `{
   "version": 0
 }`
 
-func AlicloudNatGatewaySchema() *tfjson.Schema {
+func AlicloudApigServiceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNatGateway), &result)
+	_ = json.Unmarshal([]byte(alicloudApigService), &result)
 	return &result
 }
