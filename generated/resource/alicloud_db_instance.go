@@ -181,6 +181,12 @@ const alicloudDbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "force_delete": {
+        "description": "Used to forcibly delete a 'PrePaid' RDS instance. When set to true, the instance is converted to 'PostPaid' before deletion, which settles the remaining subscription period. Set this explicitly when you need to destroy a Subscription DB instance.",
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "force_encryption": {
         "computed": true,
         "description_kind": "plain",

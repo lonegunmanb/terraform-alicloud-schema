@@ -110,6 +110,12 @@ const alicloudDtsSynchronizationJob = `{
         "optional": true,
         "type": "string"
       },
+      "destination_endpoint_ssl": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "destination_endpoint_user_name": {
         "description_kind": "plain",
         "optional": true,
@@ -214,6 +220,12 @@ const alicloudDtsSynchronizationJob = `{
         "type": "string"
       },
       "source_endpoint_role": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source_endpoint_ssl": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

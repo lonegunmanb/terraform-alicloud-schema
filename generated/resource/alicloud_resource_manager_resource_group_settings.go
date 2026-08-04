@@ -6,49 +6,24 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaRoutine = `{
+const alicloudResourceManagerResourceGroupSettings = `{
   "block": {
     "attributes": {
-      "code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "code_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "deploy_env": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "latest_code_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
+      "resource_group_admin_setting_status": {
         "description_kind": "plain",
         "required": true,
-        "type": "string"
+        "type": "bool"
+      },
+      "resource_group_notification_setting_status": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       }
     },
     "block_types": {
@@ -81,8 +56,8 @@ const alicloudEsaRoutine = `{
   "version": 0
 }`
 
-func AlicloudEsaRoutineSchema() *tfjson.Schema {
+func AlicloudResourceManagerResourceGroupSettingsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaRoutine), &result)
+	_ = json.Unmarshal([]byte(alicloudResourceManagerResourceGroupSettings), &result)
 	return &result
 }

@@ -6,32 +6,17 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaRoutine = `{
+const alicloudEsaRoutineCodeDeployment = `{
   "block": {
     "attributes": {
-      "code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "code_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
+      "deployment_id": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "deploy_env": {
+      "env": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
       "id": {
@@ -40,18 +25,38 @@ const alicloudEsaRoutine = `{
         "optional": true,
         "type": "string"
       },
-      "latest_code_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
+      "routine_name": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "strategy": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
     "block_types": {
+      "code_versions": {
+        "block": {
+          "attributes": {
+            "code_version": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "percentage": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 2,
+        "min_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -61,11 +66,6 @@ const alicloudEsaRoutine = `{
               "type": "string"
             },
             "delete": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "update": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -81,8 +81,8 @@ const alicloudEsaRoutine = `{
   "version": 0
 }`
 
-func AlicloudEsaRoutineSchema() *tfjson.Schema {
+func AlicloudEsaRoutineCodeDeploymentSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaRoutine), &result)
+	_ = json.Unmarshal([]byte(alicloudEsaRoutineCodeDeployment), &result)
 	return &result
 }

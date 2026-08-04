@@ -6,15 +6,56 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPvtzZone = `{
+const alicloudSslCertificatesServiceCertificateApply = `{
   "block": {
     "attributes": {
-      "creation_time": {
+      "cert_identifier": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "dns_group": {
+      "certificate_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "certificate_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "csr": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "domain": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "domain_validation_list": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "cname": "string",
+              "cname_key": "string",
+              "domain": "string",
+              "root_domain": "string",
+              "validation_key": "string",
+              "validation_type": "string",
+              "validation_value": "string"
+            }
+          ]
+        ]
+      },
+      "generate_csr_method": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -26,68 +67,23 @@ const alicloudPvtzZone = `{
         "optional": true,
         "type": "string"
       },
-      "is_ptr": {
-        "computed": true,
+      "instance_id": {
         "description_kind": "plain",
-        "type": "bool"
-      },
-      "lang": {
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "name": {
-        "computed": true,
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "proxy_pattern": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "record_count": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "remark": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "resource_group_id": {
+      "key_algorithm": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "sync_status": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "update_time": {
+      "pending_result": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "user_client_ip": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "zone_name": {
+      "validation_method": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -107,37 +103,11 @@ const alicloudPvtzZone = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
         },
         "nesting_mode": "single"
-      },
-      "user_info": {
-        "block": {
-          "attributes": {
-            "region_ids": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": [
-                "set",
-                "string"
-              ]
-            },
-            "user_id": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "set"
       }
     },
     "description_kind": "plain"
@@ -145,8 +115,8 @@ const alicloudPvtzZone = `{
   "version": 0
 }`
 
-func AlicloudPvtzZoneSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServiceCertificateApplySchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPvtzZone), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServiceCertificateApply), &result)
 	return &result
 }

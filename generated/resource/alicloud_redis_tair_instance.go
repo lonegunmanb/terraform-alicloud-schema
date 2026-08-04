@@ -34,6 +34,15 @@ const alicloudRedisTairInstance = `{
         "optional": true,
         "type": "string"
       },
+      "config": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "connection_domain": {
         "computed": true,
         "description_kind": "plain",

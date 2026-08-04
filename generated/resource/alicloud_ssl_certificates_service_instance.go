@@ -6,92 +6,73 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudDtsMigrationJob = `{
+const alicloudSslCertificatesServiceInstance = `{
   "block": {
     "attributes": {
-      "checkpoint": {
+      "auto_reissue": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "data_initialization": {
+      "average_waiting_time": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "bool"
-      },
-      "data_synchronization": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "bool"
-      },
-      "db_list": {
-        "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "destination_endpoint_database_name": {
+      "brand": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "destination_endpoint_engine_name": {
+      "certificate_type": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "destination_endpoint_instance_id": {
+      "city": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "destination_endpoint_instance_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "destination_endpoint_ip": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "destination_endpoint_oracle_sid": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "destination_endpoint_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "destination_endpoint_port": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "destination_endpoint_region": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "destination_endpoint_ssl": {
+      "company_id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "destination_endpoint_user_name": {
+      "contact_id_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "set",
+          "number"
+        ]
+      },
+      "country_code": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "dts_instance_id": {
+      "csr": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
-      "dts_job_name": {
+      "domain": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "full_domain_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "generate_csr_method": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
@@ -103,95 +84,133 @@ const alicloudDtsMigrationJob = `{
         "optional": true,
         "type": "string"
       },
-      "instance_class": {
+      "instance_end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "instance_name": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "source_endpoint_database_name": {
+      "instance_start_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "number"
+      },
+      "instance_type": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
-      "source_endpoint_engine_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "source_endpoint_instance_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_instance_type": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "source_endpoint_ip": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_oracle_sid": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_owner_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_password": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_port": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_region": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_role": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "source_endpoint_ssl": {
+      "key_algorithm": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "source_endpoint_user_name": {
+      "order_end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "order_start_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "period": {
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "pricing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "product_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "province": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "resource_group_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "spec": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
+      "upgrade_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "validation_method": {
+        "computed": true,
+        "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "structure_initialization": {
+      "wildcard_domain_count": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
-        "type": "bool"
+        "type": "number"
       }
     },
     "block_types": {
+      "parameter": {
+        "block": {
+          "attributes": {
+            "code": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            },
+            "value": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {
             "create": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -212,8 +231,8 @@ const alicloudDtsMigrationJob = `{
   "version": 0
 }`
 
-func AlicloudDtsMigrationJobSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServiceInstanceSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudDtsMigrationJob), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServiceInstance), &result)
 	return &result
 }

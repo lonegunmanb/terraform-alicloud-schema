@@ -70,6 +70,7 @@ const alicloudEcsDisk = `{
       },
       "enable_auto_snapshot": {
         "computed": true,
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

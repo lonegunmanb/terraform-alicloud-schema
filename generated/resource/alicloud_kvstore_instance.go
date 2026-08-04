@@ -302,6 +302,12 @@ const alicloudKvstoreInstance = `{
         "optional": true,
         "type": "number"
       },
+      "replica_count": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "resource_group_id": {
         "computed": true,
         "description_kind": "plain",
@@ -356,6 +362,12 @@ const alicloudKvstoreInstance = `{
         "type": "number"
       },
       "slave_read_only_count": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "slave_replica_count": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

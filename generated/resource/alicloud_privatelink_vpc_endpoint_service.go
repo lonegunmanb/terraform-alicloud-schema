@@ -121,6 +121,31 @@ const alicloudPrivatelinkVpcEndpointService = `{
       }
     },
     "block_types": {
+      "resource": {
+        "block": {
+          "attributes": {
+            "resource_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "resource_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "zone_id": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 10,
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

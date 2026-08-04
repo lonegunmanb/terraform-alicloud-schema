@@ -16,6 +16,7 @@ const alicloudVpc = `{
         "type": "string"
       },
       "classic_link_enabled": {
+        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "bool"

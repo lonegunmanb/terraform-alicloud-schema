@@ -583,6 +583,64 @@ const alicloudCsManagedKubernetes = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "control_plane_endpoints_config": {
+        "block": {
+          "block_types": {
+            "internal_dns_config": {
+              "block": {
+                "attributes": {
+                  "bind_vpcs": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": [
+                      "list",
+                      "string"
+                    ]
+                  },
+                  "enabled": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
+            },
+            "load_balancers_config": {
+              "block": {
+                "attributes": {
+                  "endpoint": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "type": "string"
+                  },
+                  "endpoint_type": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "load_balancer_id": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "list"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "delete_options": {
         "block": {
           "attributes": {

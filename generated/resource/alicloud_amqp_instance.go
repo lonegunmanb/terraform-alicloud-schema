@@ -30,6 +30,12 @@ const alicloudAmqpInstance = `{
         "optional": true,
         "type": "string"
       },
+      "encrypted_instance": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -44,6 +50,11 @@ const alicloudAmqpInstance = `{
       },
       "instance_type": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "kms_key_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

@@ -6,18 +6,52 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudGwlbServerGroup = `{
+const alicloudPolardbDynamoTable = `{
   "block": {
     "attributes": {
-      "create_time": {
+      "account_auth": {
+        "computed": true,
+        "description": "The authentication password for PolarDB DynamoDB. If not set, it is resolved from the cluster's DynamoDB-type account automatically.",
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "account_name": {
+        "computed": true,
+        "description": "The account name for PolarDB DynamoDB authentication. If not set, it is resolved from the cluster's DynamoDB-type account automatically.",
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "arn": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "dry_run": {
+      "billing_mode": {
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "db_cluster_id": {
+        "description": "The ID of the PolarDB cluster where DynamoDB is enabled.",
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "endpoint": {
+        "description": "The PolarDB DynamoDB-compatible endpoint URL.",
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "hash_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -25,110 +59,66 @@ const alicloudGwlbServerGroup = `{
         "optional": true,
         "type": "string"
       },
-      "protocol": {
+      "range_key": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "resource_group_id": {
+      "read_capacity": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "number"
       },
-      "scheduler": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "server_failover_mode": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "server_group_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "server_group_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "status": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "vpc_id": {
+      "table_name": {
+        "description": "The name of the DynamoDB-compatible table.",
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "write_capacity": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {
-      "connection_drain_config": {
+      "attribute": {
         "block": {
           "attributes": {
-            "connection_drain_enabled": {
-              "computed": true,
+            "name": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
+              "required": true,
+              "type": "string"
             },
-            "connection_drain_timeout": {
-              "computed": true,
+            "type": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "number"
+              "required": true,
+              "type": "string"
             }
           },
+          "description": "List of attribute definitions for the table key schema and indexes.",
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
-      "health_check_config": {
+      "global_secondary_index": {
         "block": {
           "attributes": {
-            "health_check_connect_port": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "health_check_connect_timeout": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            },
-            "health_check_domain": {
+            "hash_key": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "health_check_enabled": {
-              "computed": true,
+            "name": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
+              "required": true,
+              "type": "string"
             },
-            "health_check_http_code": {
+            "non_key_attributes": {
               "description_kind": "plain",
               "optional": true,
               "type": [
@@ -136,31 +126,24 @@ const alicloudGwlbServerGroup = `{
                 "string"
               ]
             },
-            "health_check_interval": {
-              "computed": true,
+            "projection_type": {
               "description_kind": "plain",
-              "optional": true,
-              "type": "number"
+              "required": true,
+              "type": "string"
             },
-            "health_check_path": {
+            "range_key": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "health_check_protocol": {
-              "computed": true,
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "healthy_threshold": {
+            "read_capacity": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
               "type": "number"
             },
-            "unhealthy_threshold": {
+            "write_capacity": {
               "computed": true,
               "description_kind": "plain",
               "optional": true,
@@ -169,41 +152,32 @@ const alicloudGwlbServerGroup = `{
           },
           "description_kind": "plain"
         },
-        "max_items": 1,
-        "nesting_mode": "list"
+        "nesting_mode": "set"
       },
-      "servers": {
+      "local_secondary_index": {
         "block": {
           "attributes": {
-            "port": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "number"
-            },
-            "server_group_id": {
-              "computed": true,
-              "description_kind": "plain",
-              "type": "string"
-            },
-            "server_id": {
+            "name": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "server_ip": {
-              "computed": true,
+            "non_key_attributes": {
               "description_kind": "plain",
               "optional": true,
-              "type": "string"
+              "type": [
+                "list",
+                "string"
+              ]
             },
-            "server_type": {
+            "projection_type": {
               "description_kind": "plain",
               "required": true,
               "type": "string"
             },
-            "status": {
-              "computed": true,
+            "range_key": {
               "description_kind": "plain",
+              "required": true,
               "type": "string"
             }
           },
@@ -233,6 +207,25 @@ const alicloudGwlbServerGroup = `{
           "description_kind": "plain"
         },
         "nesting_mode": "single"
+      },
+      "ttl": {
+        "block": {
+          "attributes": {
+            "attribute_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "enabled": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
       }
     },
     "description_kind": "plain"
@@ -240,8 +233,8 @@ const alicloudGwlbServerGroup = `{
   "version": 0
 }`
 
-func AlicloudGwlbServerGroupSchema() *tfjson.Schema {
+func AlicloudPolardbDynamoTableSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudGwlbServerGroup), &result)
+	_ = json.Unmarshal([]byte(alicloudPolardbDynamoTable), &result)
 	return &result
 }

@@ -6,32 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaRoutine = `{
+const alicloudSslCertificatesServiceContact = `{
   "block": {
     "attributes": {
-      "code": {
+      "email": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "code_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "deploy_env": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
+        "sensitive": true,
         "type": "string"
       },
       "id": {
@@ -40,15 +21,30 @@ const alicloudEsaRoutine = `{
         "optional": true,
         "type": "string"
       },
-      "latest_code_version": {
-        "computed": true,
+      "idcard": {
         "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "mobile": {
+        "description_kind": "plain",
+        "required": true,
+        "sensitive": true,
         "type": "string"
       },
       "name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "webhook_list": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -81,8 +77,8 @@ const alicloudEsaRoutine = `{
   "version": 0
 }`
 
-func AlicloudEsaRoutineSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServiceContactSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaRoutine), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServiceContact), &result)
 	return &result
 }

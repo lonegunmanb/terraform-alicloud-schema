@@ -6,48 +6,36 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEsaRoutine = `{
+const alicloudMessageServiceAccountLogging = `{
   "block": {
     "attributes": {
-      "code": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "code_description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "deploy_env": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "latest_code_version": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "string"
-      },
-      "name": {
+      "log_enabled": {
         "description_kind": "plain",
         "required": true,
+        "type": "bool"
+      },
+      "log_store_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "message_trace_enabled": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "project_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       }
     },
@@ -81,8 +69,8 @@ const alicloudEsaRoutine = `{
   "version": 0
 }`
 
-func AlicloudEsaRoutineSchema() *tfjson.Schema {
+func AlicloudMessageServiceAccountLoggingSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEsaRoutine), &result)
+	_ = json.Unmarshal([]byte(alicloudMessageServiceAccountLogging), &result)
 	return &result
 }

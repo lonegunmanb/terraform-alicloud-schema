@@ -52,6 +52,12 @@ const alicloudGwlbListener = `{
           "map",
           "string"
         ]
+      },
+      "tcp_idle_timeout": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       }
     },
     "block_types": {

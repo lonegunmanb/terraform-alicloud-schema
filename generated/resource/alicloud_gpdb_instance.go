@@ -16,6 +16,17 @@ const alicloudGpdbInstance = `{
         "optional": true,
         "type": "string"
       },
+      "backup_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cache_storage_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "connection_string": {
         "computed": true,
         "description_kind": "plain",
@@ -100,6 +111,7 @@ const alicloudGpdbInstance = `{
         "type": "string"
       },
       "instance_spec": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -123,6 +135,7 @@ const alicloudGpdbInstance = `{
         "type": "number"
       },
       "master_node_num": {
+        "computed": true,
         "deprecated": true,
         "description_kind": "plain",
         "optional": true,
@@ -197,6 +210,17 @@ const alicloudGpdbInstance = `{
       },
       "serverless_mode": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "serverless_resource": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "src_db_instance_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
