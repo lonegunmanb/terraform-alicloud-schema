@@ -353,6 +353,36 @@ const alicloudCloudMonitorServiceMetricAlarmRule = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "targets": {
+        "block": {
+          "attributes": {
+            "arn": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "json_params": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "level": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "target_id": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 5,
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

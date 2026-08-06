@@ -50,6 +50,10 @@ const alicloudCrEeInstances = `{
               "repo_quota": "string",
               "repo_usage": "string",
               "specification": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "temp_username": "string",
               "vpc_endpoints": [
                 "list",
@@ -76,6 +80,14 @@ const alicloudCrEeInstances = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "description_kind": "plain"

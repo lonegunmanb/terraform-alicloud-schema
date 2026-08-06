@@ -6,37 +6,57 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudConfigAggregateConfigRule = `{
+const alicloudSslCertificatesServiceInstanceCertificate = `{
   "block": {
     "attributes": {
-      "aggregate_config_rule_name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "aggregator_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "config_rule_id": {
+      "algorithm": {
         "computed": true,
         "description_kind": "plain",
         "type": "string"
       },
-      "config_rule_trigger_types": {
+      "cert_identifier": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "certificate_id": {
         "description_kind": "plain",
         "required": true,
+        "type": "number"
+      },
+      "certificate_name": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
-      "description": {
+      "certificate_source": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "exclude_resource_ids_scope": {
+      "certificate_status": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "string"
+      },
+      "common_name": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "domain": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "exist_private_key": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "finger_print": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "id": {
@@ -45,89 +65,54 @@ const alicloudConfigAggregateConfigRule = `{
         "optional": true,
         "type": "string"
       },
-      "input_parameters": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "maximum_execution_frequency": {
+      "instance_id": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "region_ids_scope": {
+      "issuer": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "resource_group_ids_scope": {
+      "key_size": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
+        "type": "number"
+      },
+      "not_after": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "not_before": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "serial": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
-      "resource_types_scope": {
+      "subject_alternative_names": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": [
           "list",
           "string"
         ]
       },
-      "risk_level": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "source_identifier": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "source_owner": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "status": {
+      "using_product_list": {
         "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tag_key_scope": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tag_value_scope": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {
-      "exclude_tags_scope": {
-        "block": {
-          "attributes": {
-            "tag_key": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "tag_value": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -136,7 +121,7 @@ const alicloudConfigAggregateConfigRule = `{
               "optional": true,
               "type": "string"
             },
-            "update": {
+            "delete": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
@@ -152,8 +137,8 @@ const alicloudConfigAggregateConfigRule = `{
   "version": 0
 }`
 
-func AlicloudConfigAggregateConfigRuleSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServiceInstanceCertificateSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudConfigAggregateConfigRule), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServiceInstanceCertificate), &result)
 	return &result
 }

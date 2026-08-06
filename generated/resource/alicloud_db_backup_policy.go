@@ -90,6 +90,12 @@ const alicloudDbBackupPolicy = `{
         "optional": true,
         "type": "bool"
       },
+      "enable_pitr_protection": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "high_space_usage_protection": {
         "description_kind": "plain",
         "optional": true,
@@ -100,6 +106,12 @@ const alicloudDbBackupPolicy = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "inc_backup_interval": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "instance_id": {
         "description_kind": "plain",

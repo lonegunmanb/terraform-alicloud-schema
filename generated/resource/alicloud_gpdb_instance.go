@@ -141,6 +141,12 @@ const alicloudGpdbInstance = `{
         "optional": true,
         "type": "number"
       },
+      "minor_version": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "payment_type": {
         "computed": true,
         "description_kind": "plain",

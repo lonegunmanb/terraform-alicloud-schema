@@ -6,18 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssAlbServerGroupAttachment = `{
+const alicloudSslCertificatesServiceCertificateValidation = `{
   "block": {
     "attributes": {
-      "alb_server_group_id": {
+      "cert_identifier": {
+        "computed": true,
         "description_kind": "plain",
-        "required": true,
         "type": "string"
       },
-      "force_attach": {
+      "certificate_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "number"
+      },
+      "certificate_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -25,20 +30,18 @@ const alicloudEssAlbServerGroupAttachment = `{
         "optional": true,
         "type": "string"
       },
-      "port": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "number"
-      },
-      "scaling_group_id": {
+      "instance_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "weight": {
+      "validation_record_ids": {
         "description_kind": "plain",
-        "required": true,
-        "type": "number"
+        "optional": true,
+        "type": [
+          "list",
+          "string"
+        ]
       }
     },
     "block_types": {
@@ -66,8 +69,8 @@ const alicloudEssAlbServerGroupAttachment = `{
   "version": 0
 }`
 
-func AlicloudEssAlbServerGroupAttachmentSchema() *tfjson.Schema {
+func AlicloudSslCertificatesServiceCertificateValidationSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssAlbServerGroupAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudSslCertificatesServiceCertificateValidation), &result)
 	return &result
 }

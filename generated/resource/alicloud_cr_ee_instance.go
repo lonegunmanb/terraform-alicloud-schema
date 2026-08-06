@@ -146,6 +146,14 @@ const alicloudCrEeInstance = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
+      },
       "vpc_quota": {
         "description_kind": "plain",
         "optional": true,

@@ -420,6 +420,56 @@ const alicloudCsKubernetesNodePool = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "containerd_config": {
+        "block": {
+          "attributes": {
+            "ignore_image_defined_volume": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "insecure_registries": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "limit_core": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "limit_mem_lock": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "limit_no_file": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "max_concurrent_downloads": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "registry_mirrors": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "data_disks": {
         "block": {
           "attributes": {
