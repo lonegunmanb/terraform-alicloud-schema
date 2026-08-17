@@ -84,6 +84,12 @@ const alicloudVpnGatewayVpnAttachment = `{
           "string"
         ]
       },
+      "tunnel_bandwidth": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "vpn_attachment_name": {
         "description_kind": "plain",
         "optional": true,

@@ -240,6 +240,7 @@ const alicloudGpdbInstance = `{
       "status": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "storage_size": {

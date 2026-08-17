@@ -92,6 +92,7 @@ const alicloudVpnGatewayVpnAttachments = `{
                 "map",
                 "string"
               ],
+              "tunnel_bandwidth": "string",
               "tunnel_options_specification": [
                 "set",
                 [

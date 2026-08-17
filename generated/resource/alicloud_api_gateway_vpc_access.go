@@ -39,6 +39,11 @@ const alicloudApiGatewayVpcAccess = `{
         "description_kind": "plain",
         "required": true,
         "type": "string"
+      },
+      "vpc_target_host_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "description_kind": "plain"

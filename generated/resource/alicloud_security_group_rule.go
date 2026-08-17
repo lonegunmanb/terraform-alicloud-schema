@@ -73,6 +73,12 @@ const alicloudSecurityGroupRule = `{
         "type": "string"
       },
       "source_group_owner_account": {
+        "deprecated": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "source_group_owner_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

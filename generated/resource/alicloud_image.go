@@ -113,6 +113,11 @@ const alicloudImage = `{
           "map",
           "string"
         ]
+      },
+      "usable": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
       }
     },
     "block_types": {

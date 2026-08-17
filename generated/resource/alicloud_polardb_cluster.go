@@ -20,6 +20,11 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "number"
       },
+      "automatic_rotation": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "backup_retention_policy_on_cluster_deletion": {
         "computed": true,
         "description_kind": "plain",
@@ -134,6 +139,11 @@ const alicloudPolardbCluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "enable_automatic_rotation": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
       },
       "enable_dynamodb": {
         "computed": true,
@@ -289,6 +299,11 @@ const alicloudPolardbCluster = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "rotation_interval": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "scale_ap_ro_num_max": {

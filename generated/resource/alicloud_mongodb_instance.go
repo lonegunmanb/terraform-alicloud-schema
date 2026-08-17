@@ -388,6 +388,29 @@ const alicloudMongodbInstance = `{
         },
         "nesting_mode": "set"
       },
+      "security_ip_groups": {
+        "block": {
+          "attributes": {
+            "security_ip_group_attribute": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "security_ip_group_name": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            },
+            "security_ip_list": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "nesting_mode": "set"
+      },
       "timeouts": {
         "block": {
           "attributes": {

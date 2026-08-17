@@ -52,6 +52,12 @@ const alicloudHbrPolicy = `{
               "optional": true,
               "type": "string"
             },
+            "immutable": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "bool"
+            },
             "keep_latest_snapshots": {
               "description_kind": "plain",
               "optional": true,

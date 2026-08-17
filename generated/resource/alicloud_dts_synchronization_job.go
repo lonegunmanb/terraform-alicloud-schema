@@ -55,6 +55,16 @@ const alicloudDtsSynchronizationJob = `{
         "optional": true,
         "type": "string"
       },
+      "dest_primary_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dest_secondary_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "destination_endpoint_database_name": {
         "description_kind": "plain",
         "optional": true,
@@ -236,6 +246,16 @@ const alicloudDtsSynchronizationJob = `{
         "type": "string"
       },
       "source_endpoint_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_primary_vswitch_id": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "src_secondary_vswitch_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"

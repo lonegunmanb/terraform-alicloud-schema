@@ -6,26 +6,13 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudNasFileSystems = `{
+const alicloudCrArtifactSubscriptionRules = `{
   "block": {
     "attributes": {
-      "description_regex": {
+      "enable_details": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
-      },
-      "descriptions": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
-      },
-      "file_system_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -42,22 +29,27 @@ const alicloudNasFileSystems = `{
           "string"
         ]
       },
+      "instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "namespace_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "output_file": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "protocol_type": {
+      "repo_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "storage_type": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "systems": {
+      "rules": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -65,18 +57,26 @@ const alicloudNasFileSystems = `{
           [
             "object",
             {
-              "capacity": "number",
+              "accelerate": "bool",
+              "artifact_subscription_rule_id": "string",
               "create_time": "string",
-              "description": "string",
-              "encrypt_type": "number",
-              "file_system_type": "string",
               "id": "string",
-              "kms_key_id": "string",
-              "metered_size": "number",
-              "protocol_type": "string",
+              "instance_id": "string",
+              "modified_time": "string",
+              "namespace_name": "string",
+              "override": "bool",
+              "platform": [
+                "list",
+                "string"
+              ],
               "region_id": "string",
-              "storage_type": "string",
-              "zone_id": "string"
+              "repo_name": "string",
+              "source_domain": "string",
+              "source_namespace_name": "string",
+              "source_provider": "string",
+              "source_repo_name": "string",
+              "tag_count": "number",
+              "tag_regexp": "string"
             }
           ]
         ]
@@ -87,8 +87,8 @@ const alicloudNasFileSystems = `{
   "version": 0
 }`
 
-func AlicloudNasFileSystemsSchema() *tfjson.Schema {
+func AlicloudCrArtifactSubscriptionRulesSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudNasFileSystems), &result)
+	_ = json.Unmarshal([]byte(alicloudCrArtifactSubscriptionRules), &result)
 	return &result
 }
