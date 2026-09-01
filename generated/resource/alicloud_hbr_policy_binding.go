@@ -116,6 +116,11 @@ const alicloudHbrPolicyBinding = `{
             "udm_detail": {
               "block": {
                 "attributes": {
+                  "app_consistent": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
                   "destination_kms_key_id": {
                     "description_kind": "plain",
                     "optional": true,
@@ -129,6 +134,16 @@ const alicloudHbrPolicyBinding = `{
                       "string"
                     ]
                   },
+                  "enable_fs_freeze": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "enable_writers": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
                   "exclude_disk_id_list": {
                     "description_kind": "plain",
                     "optional": true,
@@ -136,6 +151,31 @@ const alicloudHbrPolicyBinding = `{
                       "list",
                       "string"
                     ]
+                  },
+                  "post_script_path": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "pre_script_path": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ram_role_name": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "snapshot_group": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "timeout_in_seconds": {
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
                   }
                 },
                 "description_kind": "plain"

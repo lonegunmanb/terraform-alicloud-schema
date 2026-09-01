@@ -6,29 +6,58 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPvtzUserVpcAuthorization = `{
+const alicloudEnsNetworkRouteTable = `{
   "block": {
     "attributes": {
-      "auth_channel": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "auth_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "authorized_user_id": {
+      "associate_type": {
         "description_kind": "plain",
         "required": true,
+        "type": "string"
+      },
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "is_default_gateway_route_table": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
+      "network_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "route_table_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "route_table_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "route_table_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       }
     },
@@ -45,6 +74,11 @@ const alicloudPvtzUserVpcAuthorization = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -57,8 +91,8 @@ const alicloudPvtzUserVpcAuthorization = `{
   "version": 0
 }`
 
-func AlicloudPvtzUserVpcAuthorizationSchema() *tfjson.Schema {
+func AlicloudEnsNetworkRouteTableSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPvtzUserVpcAuthorization), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsNetworkRouteTable), &result)
 	return &result
 }

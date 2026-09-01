@@ -14,6 +14,22 @@ const alicloudGwlbServerGroup = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "draining_servers": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          [
+            "object",
+            {
+              "server_id": "string",
+              "server_ip": "string",
+              "server_type": "string",
+              "status": "string"
+            }
+          ]
+        ]
+      },
       "dry_run": {
         "description_kind": "plain",
         "optional": true,

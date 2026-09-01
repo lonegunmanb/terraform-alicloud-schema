@@ -19,6 +19,12 @@ const alicloudFcv3CustomDomain = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "certificate_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",

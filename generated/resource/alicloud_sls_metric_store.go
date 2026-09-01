@@ -6,30 +6,29 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceQueue = `{
+const alicloudSlsMetricStore = `{
   "block": {
     "attributes": {
+      "append_meta": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
+      "auto_split": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
         "type": "number"
       },
-      "delay_seconds": {
+      "hot_ttl": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
-      },
-      "enable_sse": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "encryption_enabled": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -37,91 +36,90 @@ const alicloudMessageServiceQueue = `{
         "optional": true,
         "type": "string"
       },
-      "kms_key_id": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "logging_enabled": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "maximum_message_size": {
-        "computed": true,
+      "infrequent_access_ttl": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "message_retention_period": {
+      "last_modify_time": {
         "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "max_split_shard_count": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "polling_wait_seconds": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "queue_name": {
+      "metric_store_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "queue_type": {
+      "mode": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "sse_algorithm": {
-        "computed": true,
+      "project_name": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "sse_type": {
-        "computed": true,
+      "shard_count": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "string"
+        "required": true,
+        "type": "number"
       },
-      "tags": {
+      "ttl": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "visibility_timeout": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       }
     },
     "block_types": {
-      "dlq_policy": {
+      "encrypt_conf": {
         "block": {
           "attributes": {
-            "dead_letter_target_queue": {
+            "enable": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "bool"
+            },
+            "encrypt_type": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "max_receive_count": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
+            }
+          },
+          "block_types": {
+            "user_cmk_info": {
+              "block": {
+                "attributes": {
+                  "arn": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "cmk_key_id": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "region_id": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"
@@ -158,8 +156,8 @@ const alicloudMessageServiceQueue = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceQueueSchema() *tfjson.Schema {
+func AlicloudSlsMetricStoreSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceQueue), &result)
+	_ = json.Unmarshal([]byte(alicloudSlsMetricStore), &result)
 	return &result
 }

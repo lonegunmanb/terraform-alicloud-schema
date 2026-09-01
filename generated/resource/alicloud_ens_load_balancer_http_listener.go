@@ -6,30 +6,71 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudMessageServiceQueue = `{
+const alicloudEnsLoadBalancerHttpListener = `{
   "block": {
     "attributes": {
-      "create_time": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": "number"
-      },
-      "delay_seconds": {
+      "backend_server_port": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"
       },
-      "enable_sse": {
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "forward_port": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": "bool"
+        "type": "number"
       },
-      "encryption_enabled": {
+      "health_check": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_connect_port": {
         "computed": true,
         "description_kind": "plain",
-        "type": "bool"
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_domain": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_http_code": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_interval": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_method": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "health_check_timeout": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "health_check_uri": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "healthy_threshold": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "id": {
         "computed": true,
@@ -37,98 +78,54 @@ const alicloudMessageServiceQueue = `{
         "optional": true,
         "type": "string"
       },
-      "kms_key_id": {
-        "computed": true,
+      "idle_timeout": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "listener_forward": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "logging_enabled": {
+      "listener_port": {
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "maximum_message_size": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "number"
       },
-      "message_retention_period": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "polling_wait_seconds": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "number"
-      },
-      "queue_name": {
+      "load_balancer_id": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "queue_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sse_algorithm": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "sse_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
-      },
-      "visibility_timeout": {
-        "computed": true,
+      "request_timeout": {
         "description_kind": "plain",
         "optional": true,
         "type": "number"
+      },
+      "scheduler": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "unhealthy_threshold": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
+      "x_forwarded_for": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
-      "dlq_policy": {
-        "block": {
-          "attributes": {
-            "dead_letter_target_queue": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
-            },
-            "enabled": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "bool"
-            },
-            "max_receive_count": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "number"
-            }
-          },
-          "description_kind": "plain"
-        },
-        "max_items": 1,
-        "nesting_mode": "list"
-      },
       "timeouts": {
         "block": {
           "attributes": {
@@ -158,8 +155,8 @@ const alicloudMessageServiceQueue = `{
   "version": 0
 }`
 
-func AlicloudMessageServiceQueueSchema() *tfjson.Schema {
+func AlicloudEnsLoadBalancerHttpListenerSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudMessageServiceQueue), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsLoadBalancerHttpListener), &result)
 	return &result
 }

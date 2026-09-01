@@ -6,27 +6,41 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudPvtzUserVpcAuthorization = `{
+const alicloudEnsBucketLifecycle = `{
   "block": {
     "attributes": {
-      "auth_channel": {
+      "allow_same_action_overlap": {
         "description_kind": "plain",
         "optional": true,
-        "type": "string"
+        "type": "bool"
       },
-      "auth_type": {
-        "computed": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "authorized_user_id": {
+      "bucket_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
+      "expiration_days": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "id": {
         "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "prefix": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "rule_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "status": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -45,6 +59,11 @@ const alicloudPvtzUserVpcAuthorization = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
+            },
+            "update": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -57,8 +76,8 @@ const alicloudPvtzUserVpcAuthorization = `{
   "version": 0
 }`
 
-func AlicloudPvtzUserVpcAuthorizationSchema() *tfjson.Schema {
+func AlicloudEnsBucketLifecycleSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudPvtzUserVpcAuthorization), &result)
+	_ = json.Unmarshal([]byte(alicloudEnsBucketLifecycle), &result)
 	return &result
 }
