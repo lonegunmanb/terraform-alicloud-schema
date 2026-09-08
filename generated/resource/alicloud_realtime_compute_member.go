@@ -6,52 +6,34 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamUser = `{
+const alicloudRealtimeComputeMember = `{
   "block": {
     "attributes": {
-      "comments": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "email": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "force": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "mobile": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
+      "member": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "namespace": {
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "required": true,
+        "type": "string"
+      },
+      "resource_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "role": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -84,8 +66,8 @@ const alicloudRamUser = `{
   "version": 0
 }`
 
-func AlicloudRamUserSchema() *tfjson.Schema {
+func AlicloudRealtimeComputeMemberSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamUser), &result)
+	_ = json.Unmarshal([]byte(alicloudRealtimeComputeMember), &result)
 	return &result
 }

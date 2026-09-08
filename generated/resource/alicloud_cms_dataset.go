@@ -6,28 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamUser = `{
+const alicloudCmsDataset = `{
   "block": {
     "attributes": {
-      "comments": {
+      "create_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "dataset_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "description": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "email": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "force": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -35,23 +30,25 @@ const alicloudRamUser = `{
         "optional": true,
         "type": "string"
       },
-      "mobile": {
+      "region_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "name": {
+      "schema": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "update_time": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "workspace": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -84,8 +81,8 @@ const alicloudRamUser = `{
   "version": 0
 }`
 
-func AlicloudRamUserSchema() *tfjson.Schema {
+func AlicloudCmsDatasetSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamUser), &result)
+	_ = json.Unmarshal([]byte(alicloudCmsDataset), &result)
 	return &result
 }

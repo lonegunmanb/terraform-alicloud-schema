@@ -6,52 +6,19 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamUser = `{
+const alicloudThreatDetectionMonitorAccount = `{
   "block": {
     "attributes": {
-      "comments": {
+      "account_ids": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "email": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "force": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "mobile": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -84,8 +51,8 @@ const alicloudRamUser = `{
   "version": 0
 }`
 
-func AlicloudRamUserSchema() *tfjson.Schema {
+func AlicloudThreatDetectionMonitorAccountSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamUser), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionMonitorAccount), &result)
 	return &result
 }

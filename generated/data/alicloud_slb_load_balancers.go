@@ -49,6 +49,7 @@ const alicloudSlbLoadBalancers = `{
                 ]
               ],
               "bandwidth": "number",
+              "create_time": "string",
               "create_time_stamp": "number",
               "delete_protection": "string",
               "end_time": "string",

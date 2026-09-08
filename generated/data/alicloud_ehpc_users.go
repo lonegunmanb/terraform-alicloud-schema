@@ -6,9 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssScheduledTasks = `{
+const alicloudEhpcUsers = `{
   "block": {
     "attributes": {
+      "cluster_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -42,22 +47,7 @@ const alicloudEssScheduledTasks = `{
         "optional": true,
         "type": "string"
       },
-      "scaling_group_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "scheduled_action": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "scheduled_task_id": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "tasks": {
+      "users": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -65,19 +55,12 @@ const alicloudEssScheduledTasks = `{
           [
             "object",
             {
-              "description": "string",
+              "cluster_id": "string",
+              "group": "string",
+              "group_id": "string",
               "id": "string",
-              "launch_expiration_time": "number",
-              "launch_time": "string",
-              "max_value": "number",
-              "min_value": "number",
-              "name": "string",
-              "recurrence_end_time": "string",
-              "recurrence_type": "string",
-              "recurrence_value": "string",
-              "scaling_group_id": "string",
-              "scheduled_action": "string",
-              "task_enabled": "bool"
+              "user_id": "string",
+              "user_name": "string"
             }
           ]
         ]
@@ -88,8 +71,8 @@ const alicloudEssScheduledTasks = `{
   "version": 0
 }`
 
-func AlicloudEssScheduledTasksSchema() *tfjson.Schema {
+func AlicloudEhpcUsersSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssScheduledTasks), &result)
+	_ = json.Unmarshal([]byte(alicloudEhpcUsers), &result)
 	return &result
 }

@@ -60,6 +60,35 @@ const alicloudFcv3Functions = `{
                     ],
                     "image": "string",
                     "port": "number",
+                    "registry_config": [
+                      "list",
+                      [
+                        "object",
+                        {
+                          "cert_config": [
+                            "list",
+                            [
+                              "object",
+                              {
+                                "insecure": "bool",
+                                "root_ca_cert_base64": "string"
+                              }
+                            ]
+                          ],
+                          "network_config": [
+                            "list",
+                            [
+                              "object",
+                              {
+                                "security_group_id": "string",
+                                "vpc_id": "string",
+                                "vswitch_id": "string"
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ],
                     "resolved_image_uri": "string"
                   }
                 ]

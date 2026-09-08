@@ -6,28 +6,73 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamUser = `{
+const alicloudMongodbBackup = `{
   "block": {
     "attributes": {
-      "comments": {
+      "backup_db_names": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "backup_download_url": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "backup_end_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "backup_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "backup_intranet_download_url": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "backup_job_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "backup_method": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "display_name": {
+      "backup_mode": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
       },
-      "email": {
+      "backup_retention_period": {
         "description_kind": "plain",
         "optional": true,
+        "type": "number"
+      },
+      "backup_size": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "backup_start_time": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
-      "force": {
+      "backup_type": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
+        "type": "string"
+      },
+      "db_instance_id": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
       },
       "id": {
         "computed": true,
@@ -35,23 +80,10 @@ const alicloudRamUser = `{
         "optional": true,
         "type": "string"
       },
-      "mobile": {
+      "status": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
-      },
-      "name": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -67,11 +99,6 @@ const alicloudRamUser = `{
               "description_kind": "plain",
               "optional": true,
               "type": "string"
-            },
-            "update": {
-              "description_kind": "plain",
-              "optional": true,
-              "type": "string"
             }
           },
           "description_kind": "plain"
@@ -84,8 +111,8 @@ const alicloudRamUser = `{
   "version": 0
 }`
 
-func AlicloudRamUserSchema() *tfjson.Schema {
+func AlicloudMongodbBackupSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamUser), &result)
+	_ = json.Unmarshal([]byte(alicloudMongodbBackup), &result)
 	return &result
 }

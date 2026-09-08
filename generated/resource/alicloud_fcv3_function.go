@@ -339,6 +339,79 @@ const alicloudFcv3Function = `{
               },
               "max_items": 1,
               "nesting_mode": "list"
+            },
+            "registry_config": {
+              "block": {
+                "block_types": {
+                  "auth_config": {
+                    "block": {
+                      "attributes": {
+                        "password": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "sensitive": true,
+                          "type": "string"
+                        },
+                        "user_name": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "sensitive": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "cert_config": {
+                    "block": {
+                      "attributes": {
+                        "insecure": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "bool"
+                        },
+                        "root_ca_cert_base64": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  },
+                  "network_config": {
+                    "block": {
+                      "attributes": {
+                        "security_group_id": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "vpc_id": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        },
+                        "vswitch_id": {
+                          "description_kind": "plain",
+                          "optional": true,
+                          "type": "string"
+                        }
+                      },
+                      "description_kind": "plain"
+                    },
+                    "max_items": 1,
+                    "nesting_mode": "list"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "max_items": 1,
+              "nesting_mode": "list"
             }
           },
           "description_kind": "plain"

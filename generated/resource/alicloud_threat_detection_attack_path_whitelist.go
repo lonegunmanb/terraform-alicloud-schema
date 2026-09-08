@@ -6,55 +6,74 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudAlbAclEntryAttachment = `{
+const alicloudThreatDetectionAttackPathWhitelist = `{
   "block": {
     "attributes": {
-      "acl_id": {
-        "description_kind": "plain",
-        "required": true,
-        "type": "string"
-      },
-      "description": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "entry": {
-        "deprecated": true,
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
       "id": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "status": {
-        "computed": true,
+      "path_name": {
         "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "path_type": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "remark": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "whitelist_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "whitelist_type": {
+        "description_kind": "plain",
+        "required": true,
         "type": "string"
       }
     },
     "block_types": {
-      "entries": {
+      "attack_path_asset_list": {
         "block": {
           "attributes": {
-            "description": {
+            "asset_sub_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "asset_type": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": "number"
+            },
+            "instance_id": {
               "description_kind": "plain",
               "optional": true,
               "type": "string"
             },
-            "entry": {
+            "node_type": {
               "description_kind": "plain",
-              "required": true,
+              "optional": true,
               "type": "string"
             },
-            "status": {
-              "computed": true,
+            "region_id": {
               "description_kind": "plain",
+              "optional": true,
               "type": "string"
+            },
+            "vendor": {
+              "description_kind": "plain",
+              "required": true,
+              "type": "number"
             }
           },
           "description_kind": "plain"
@@ -90,8 +109,8 @@ const alicloudAlbAclEntryAttachment = `{
   "version": 0
 }`
 
-func AlicloudAlbAclEntryAttachmentSchema() *tfjson.Schema {
+func AlicloudThreatDetectionAttackPathWhitelistSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudAlbAclEntryAttachment), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionAttackPathWhitelist), &result)
 	return &result
 }

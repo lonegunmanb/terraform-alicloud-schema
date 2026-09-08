@@ -6,36 +6,22 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamUser = `{
+const alicloudRealtimeComputeSqlFile = `{
   "block": {
     "attributes": {
-      "comments": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "display_name": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "email": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "string"
-      },
-      "force": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
-      },
-      "id": {
+      "batch_mode": {
         "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "mobile": {
+      "description": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -45,13 +31,37 @@ const alicloudRamUser = `{
         "required": true,
         "type": "string"
       },
-      "tags": {
+      "namespace": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "parent_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
+        "type": "string"
+      },
+      "session_cluster_name": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "sql_file_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "sql_script": {
+        "description_kind": "plain",
+        "required": true,
+        "type": "string"
+      },
+      "workspace": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
@@ -84,8 +94,8 @@ const alicloudRamUser = `{
   "version": 0
 }`
 
-func AlicloudRamUserSchema() *tfjson.Schema {
+func AlicloudRealtimeComputeSqlFileSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamUser), &result)
+	_ = json.Unmarshal([]byte(alicloudRealtimeComputeSqlFile), &result)
 	return &result
 }

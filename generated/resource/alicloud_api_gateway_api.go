@@ -14,6 +14,12 @@ const alicloudApiGatewayApi = `{
         "description_kind": "plain",
         "type": "string"
       },
+      "app_code_auth_type": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "auth_type": {
         "description_kind": "plain",
         "required": true,

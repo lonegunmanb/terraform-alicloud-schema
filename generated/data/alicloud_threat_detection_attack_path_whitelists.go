@@ -6,9 +6,14 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudEssScheduledTasks = `{
+const alicloudThreatDetectionAttackPathWhitelists = `{
   "block": {
     "attributes": {
+      "enable_details": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "id": {
         "computed": true,
         "description_kind": "plain",
@@ -24,40 +29,32 @@ const alicloudEssScheduledTasks = `{
           "string"
         ]
       },
-      "name_regex": {
+      "lang": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
-      },
-      "names": {
-        "computed": true,
-        "description_kind": "plain",
-        "type": [
-          "list",
-          "string"
-        ]
       },
       "output_file": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "scaling_group_id": {
+      "path_name_desc": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "scheduled_action": {
+      "path_type": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "scheduled_task_id": {
+      "whitelist_name": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
-      "tasks": {
+      "whitelists": {
         "computed": true,
         "description_kind": "plain",
         "type": [
@@ -65,19 +62,27 @@ const alicloudEssScheduledTasks = `{
           [
             "object",
             {
-              "description": "string",
+              "attack_path_asset_list": [
+                "set",
+                [
+                  "object",
+                  {
+                    "asset_sub_type": "number",
+                    "asset_type": "number",
+                    "instance_id": "string",
+                    "node_type": "string",
+                    "region_id": "string",
+                    "vendor": "number"
+                  }
+                ]
+              ],
+              "attack_path_whitelist_id": "string",
               "id": "string",
-              "launch_expiration_time": "number",
-              "launch_time": "string",
-              "max_value": "number",
-              "min_value": "number",
-              "name": "string",
-              "recurrence_end_time": "string",
-              "recurrence_type": "string",
-              "recurrence_value": "string",
-              "scaling_group_id": "string",
-              "scheduled_action": "string",
-              "task_enabled": "bool"
+              "path_name": "string",
+              "path_type": "string",
+              "remark": "string",
+              "whitelist_name": "string",
+              "whitelist_type": "string"
             }
           ]
         ]
@@ -88,8 +93,8 @@ const alicloudEssScheduledTasks = `{
   "version": 0
 }`
 
-func AlicloudEssScheduledTasksSchema() *tfjson.Schema {
+func AlicloudThreatDetectionAttackPathWhitelistsSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudEssScheduledTasks), &result)
+	_ = json.Unmarshal([]byte(alicloudThreatDetectionAttackPathWhitelists), &result)
 	return &result
 }

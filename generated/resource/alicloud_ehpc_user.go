@@ -6,28 +6,23 @@ import (
 	tfjson "github.com/hashicorp/terraform-json"
 )
 
-const alicloudRamUser = `{
+const alicloudEhpcUser = `{
   "block": {
     "attributes": {
-      "comments": {
+      "cluster_id": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "display_name": {
+      "group": {
         "description_kind": "plain",
-        "optional": true,
+        "required": true,
         "type": "string"
       },
-      "email": {
+      "group_id": {
+        "computed": true,
         "description_kind": "plain",
-        "optional": true,
         "type": "string"
-      },
-      "force": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": "bool"
       },
       "id": {
         "computed": true,
@@ -35,23 +30,27 @@ const alicloudRamUser = `{
         "optional": true,
         "type": "string"
       },
-      "mobile": {
+      "key_pair_name": {
         "description_kind": "plain",
         "optional": true,
+        "sensitive": true,
         "type": "string"
       },
-      "name": {
+      "password": {
+        "description_kind": "plain",
+        "optional": true,
+        "sensitive": true,
+        "type": "string"
+      },
+      "user_id": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
+      "user_name": {
         "description_kind": "plain",
         "required": true,
         "type": "string"
-      },
-      "tags": {
-        "description_kind": "plain",
-        "optional": true,
-        "type": [
-          "map",
-          "string"
-        ]
       }
     },
     "block_types": {
@@ -84,8 +83,8 @@ const alicloudRamUser = `{
   "version": 0
 }`
 
-func AlicloudRamUserSchema() *tfjson.Schema {
+func AlicloudEhpcUserSchema() *tfjson.Schema {
 	var result tfjson.Schema
-	_ = json.Unmarshal([]byte(alicloudRamUser), &result)
+	_ = json.Unmarshal([]byte(alicloudEhpcUser), &result)
 	return &result
 }

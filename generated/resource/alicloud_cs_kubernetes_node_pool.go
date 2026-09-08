@@ -1021,6 +1021,31 @@ const alicloudCsKubernetesNodePool = `{
         "max_items": 1,
         "nesting_mode": "list"
       },
+      "resource_pool_options": {
+        "block": {
+          "attributes": {
+            "private_pool_ids": {
+              "description": "The list of private pool IDs, that is, the IDs of elasticity assurance services or capacity reservation services. Only Target mode private pool IDs can be passed in. The value of N ranges from 1 to 20.",
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
+            "strategy": {
+              "description": "The resource pool strategy used when launching instances. Default value: ` + "`" + `None` + "`" + `. Valid values: ` + "`" + `PrivatePoolFirst` + "`" + ` (private pool first; the specified private pools are used first when ` + "`" + `private_pool_ids` + "`" + ` is set, and it falls back to an Open type private pool or the public pool when unavailable), ` + "`" + `PrivatePoolOnly` + "`" + ` (private pool only; ` + "`" + `private_pool_ids` + "`" + ` is required and instances fail to start if the specified private pool does not have enough capacity), ` + "`" + `None` + "`" + ` (do not use the resource pool strategy).",
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description": "The resource pool and resource pool strategy used when launching instances. It only takes effect when creating PostPaid (pay-as-you-go) instances, and cannot be set together with ` + "`" + `private_pool_options` + "`" + `.",
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "rolling_policy": {
         "block": {
           "attributes": {

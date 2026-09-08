@@ -76,6 +76,10 @@ const alicloudExpressConnectVirtualBorderRouters = `{
               "recovery_time": "string",
               "route_table_id": "string",
               "status": "string",
+              "tags": [
+                "map",
+                "string"
+              ],
               "termination_time": "string",
               "type": "string",
               "virtual_border_router_id": "string",
@@ -90,6 +94,14 @@ const alicloudExpressConnectVirtualBorderRouters = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "tags": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": [
+          "map",
+          "string"
+        ]
       }
     },
     "block_types": {
