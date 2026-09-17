@@ -128,6 +128,7 @@ const alicloudSslCertificatesServicePcaCert = `{
         ]
       },
       "upload_flag": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "number"

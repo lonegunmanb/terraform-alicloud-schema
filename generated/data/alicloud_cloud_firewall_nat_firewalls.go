@@ -36,6 +36,8 @@ const alicloudCloudFirewallNatFirewalls = `{
               ],
               "proxy_id": "string",
               "proxy_name": "string",
+              "region_no": "string",
+              "status": "string",
               "strict_mode": "number",
               "vpc_id": "string"
             }

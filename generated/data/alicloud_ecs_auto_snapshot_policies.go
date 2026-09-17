@@ -50,12 +50,16 @@ const alicloudEcsAutoSnapshotPolicies = `{
           [
             "object",
             {
+              "association_type": "string",
               "auto_snapshot_policy_id": "string",
+              "auto_snapshot_policy_name": "string",
               "copied_snapshots_retention_days": "number",
+              "create_time": "string",
               "disk_nums": "number",
               "enable_cross_region_copy": "bool",
               "id": "string",
-              "name": "string",
+              "record_total": "number",
+              "region_id": "string",
               "repeat_weekdays": [
                 "list",
                 "string"
@@ -69,6 +73,16 @@ const alicloudEcsAutoSnapshotPolicies = `{
               "target_copy_regions": [
                 "list",
                 "string"
+              ],
+              "target_tags": [
+                "list",
+                [
+                  "object",
+                  {
+                    "tag_key": "string",
+                    "tag_value": "string"
+                  }
+                ]
               ],
               "time_points": [
                 "list",

@@ -9,6 +9,11 @@ import (
 const alicloudRealtimeComputeVvpInstance = `{
   "block": {
     "attributes": {
+      "auto_renew_duration": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "create_time": {
         "computed": true,
         "description_kind": "plain",
@@ -31,6 +36,18 @@ const alicloudRealtimeComputeVvpInstance = `{
         "type": "string"
       },
       "pricing_cycle": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "renew_status": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "renewal_duration_unit": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

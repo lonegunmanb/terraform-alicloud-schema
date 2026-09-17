@@ -36,6 +36,26 @@ const alicloudPolardbCluster = `{
         "optional": true,
         "type": "string"
       },
+      "cn_node_class": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "cn_node_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "cn_node_num": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "collector_status": {
         "computed": true,
         "description_kind": "plain",
@@ -78,7 +98,7 @@ const alicloudPolardbCluster = `{
       },
       "db_node_class": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": "string"
       },
       "db_node_count": {
@@ -139,6 +159,26 @@ const alicloudPolardbCluster = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "dn_node_class": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
+      "dn_node_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "set",
+          "string"
+        ]
+      },
+      "dn_node_num": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
       },
       "enable_automatic_rotation": {
         "description_kind": "plain",

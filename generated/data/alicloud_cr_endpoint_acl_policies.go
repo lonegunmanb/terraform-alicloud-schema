@@ -34,6 +34,11 @@ const alicloudCrEndpointAclPolicies = `{
         "required": true,
         "type": "string"
       },
+      "module_name": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "output_file": {
         "description_kind": "plain",
         "optional": true,

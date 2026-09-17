@@ -243,7 +243,6 @@ const alicloudKvstoreInstance = `{
       },
       "node_type": {
         "computed": true,
-        "deprecated": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

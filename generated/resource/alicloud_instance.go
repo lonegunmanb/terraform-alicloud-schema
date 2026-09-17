@@ -89,6 +89,12 @@ const alicloudInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "enable_network_encryption": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "expired_time": {
         "computed": true,
         "description_kind": "plain",

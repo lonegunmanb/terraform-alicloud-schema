@@ -9,6 +9,11 @@ import (
 const alicloudSnapshot = `{
   "block": {
     "attributes": {
+      "available": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "bool"
+      },
       "category": {
         "computed": true,
         "description_kind": "plain",
@@ -93,6 +98,11 @@ const alicloudSnapshot = `{
           "map",
           "string"
         ]
+      },
+      "wait_until": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
       }
     },
     "block_types": {
