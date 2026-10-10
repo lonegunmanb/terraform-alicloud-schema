@@ -59,6 +59,7 @@ const alicloudNasMountTarget = `{
         "type": "string"
       },
       "vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"

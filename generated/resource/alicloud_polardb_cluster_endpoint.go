@@ -82,6 +82,12 @@ const alicloudPolardbClusterEndpoint = `{
         "optional": true,
         "type": "string"
       },
+      "scc_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "ssl_auto_rotate": {
         "description_kind": "plain",
         "optional": true,

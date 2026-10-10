@@ -13,13 +13,11 @@ const alicloudEcdDesktopGroup = `{
         "computed": true,
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": "number"
       },
       "allow_buffer_count": {
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": "number"
       },
       "bundle_id": {
@@ -63,6 +61,7 @@ const alicloudEcdDesktopGroup = `{
         "type": "string"
       },
       "directory_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
@@ -74,7 +73,7 @@ const alicloudEcdDesktopGroup = `{
       },
       "end_user_ids": {
         "description_kind": "plain",
-        "required": true,
+        "optional": true,
         "type": [
           "list",
           "string"
@@ -147,6 +146,7 @@ const alicloudEcdDesktopGroup = `{
       "pay_type": {
         "computed": true,
         "description_kind": "plain",
+        "optional": true,
         "type": "string"
       },
       "policy_group_id": {
@@ -167,7 +167,6 @@ const alicloudEcdDesktopGroup = `{
       "scale_strategy_id": {
         "description_kind": "plain",
         "optional": true,
-        "sensitive": true,
         "type": "string"
       },
       "system_disk_category": {

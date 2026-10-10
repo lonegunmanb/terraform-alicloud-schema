@@ -572,6 +572,14 @@ const alicloudInstance = `{
       "cpu_options": {
         "block": {
           "attributes": {
+            "accelerators": {
+              "description_kind": "plain",
+              "optional": true,
+              "type": [
+                "list",
+                "string"
+              ]
+            },
             "core_count": {
               "computed": true,
               "description_kind": "plain",

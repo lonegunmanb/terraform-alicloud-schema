@@ -19,6 +19,8 @@ const alicloudGaAccelerators = `{
             {
               "accelerator_id": "string",
               "accelerator_name": "string",
+              "bandwidth": "number",
+              "bandwidth_billing_type": "string",
               "basic_bandwidth_package": [
                 "list",
                 [
@@ -46,6 +48,15 @@ const alicloudGaAccelerators = `{
               "dns_name": "string",
               "expired_time": "number",
               "id": "string",
+              "ip_set_config": [
+                "list",
+                [
+                  "object",
+                  {
+                    "access_mode": "string"
+                  }
+                ]
+              ],
               "payment_type": "string",
               "second_dns_name": "string",
               "spec": "string",

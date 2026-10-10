@@ -25,6 +25,12 @@ const alicloudGaAccelerator = `{
         "optional": true,
         "type": "bool"
       },
+      "bandwidth": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "bandwidth_billing_type": {
         "computed": true,
         "description_kind": "plain",
@@ -106,6 +112,21 @@ const alicloudGaAccelerator = `{
       }
     },
     "block_types": {
+      "ip_set_config": {
+        "block": {
+          "attributes": {
+            "access_mode": {
+              "computed": true,
+              "description_kind": "plain",
+              "optional": true,
+              "type": "string"
+            }
+          },
+          "description_kind": "plain"
+        },
+        "max_items": 1,
+        "nesting_mode": "list"
+      },
       "timeouts": {
         "block": {
           "attributes": {

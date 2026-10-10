@@ -34,10 +34,17 @@ const alicloudGaEndpointGroups = `{
                   "object",
                   {
                     "enable_clientip_preservation": "bool",
+                    "enable_proxy_protocol": "bool",
                     "endpoint": "string",
                     "probe_port": "number",
                     "probe_protocol": "string",
+                    "sub_address": "string",
                     "type": "string",
+                    "vpc_id": "string",
+                    "vswitch_ids": [
+                      "list",
+                      "string"
+                    ],
                     "weight": "number"
                   }
                 ]

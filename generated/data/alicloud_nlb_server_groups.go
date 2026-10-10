@@ -44,6 +44,7 @@ const alicloudNlbServerGroups = `{
                 ]
               ],
               "id": "string",
+              "ip_version_affinity_mode": "string",
               "preserve_client_ip_enabled": "bool",
               "protocol": "string",
               "related_load_balancer_ids": [

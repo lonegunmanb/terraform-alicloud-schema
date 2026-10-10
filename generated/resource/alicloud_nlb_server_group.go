@@ -46,6 +46,12 @@ const alicloudNlbServerGroup = `{
         "optional": true,
         "type": "string"
       },
+      "ip_version_affinity_mode": {
+        "computed": true,
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "preserve_client_ip_enabled": {
         "computed": true,
         "description_kind": "plain",

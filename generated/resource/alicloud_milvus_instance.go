@@ -20,6 +20,11 @@ const alicloudMilvusInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "auto_renew": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "configuration": {
         "description_kind": "plain",
         "optional": true,
@@ -46,6 +51,11 @@ const alicloudMilvusInstance = `{
         "optional": true,
         "type": "bool"
       },
+      "expire_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "string"
+      },
       "ha": {
         "description_kind": "plain",
         "optional": true,
@@ -62,14 +72,29 @@ const alicloudMilvusInstance = `{
         "required": true,
         "type": "string"
       },
+      "is_multi_az_storage": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "bool"
+      },
       "kms_key_id": {
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
+      "load_replicas": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "number"
+      },
       "multi_zone_mode": {
         "description_kind": "plain",
         "optional": true,
+        "type": "string"
+      },
+      "order_id": {
+        "computed": true,
+        "description_kind": "plain",
         "type": "string"
       },
       "payment_duration": {
@@ -87,6 +112,11 @@ const alicloudMilvusInstance = `{
         "required": true,
         "type": "string"
       },
+      "promotion_no": {
+        "description_kind": "plain",
+        "optional": true,
+        "type": "string"
+      },
       "region_id": {
         "computed": true,
         "description_kind": "plain",
@@ -97,6 +127,19 @@ const alicloudMilvusInstance = `{
         "description_kind": "plain",
         "optional": true,
         "type": "string"
+      },
+      "running_time": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": "number"
+      },
+      "security_group_ids": {
+        "computed": true,
+        "description_kind": "plain",
+        "type": [
+          "list",
+          "string"
+        ]
       },
       "status": {
         "computed": true,
@@ -143,6 +186,11 @@ const alicloudMilvusInstance = `{
               "optional": true,
               "type": "string"
             },
+            "pay_type": {
+              "computed": true,
+              "description_kind": "plain",
+              "type": "string"
+            },
             "replica": {
               "description_kind": "plain",
               "required": true,
@@ -152,6 +200,40 @@ const alicloudMilvusInstance = `{
               "description_kind": "plain",
               "required": true,
               "type": "string"
+            }
+          },
+          "block_types": {
+            "data_disk": {
+              "block": {
+                "attributes": {
+                  "enabled": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "bool"
+                  },
+                  "performance_level": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "size": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "number"
+                  },
+                  "storage_class": {
+                    "computed": true,
+                    "description_kind": "plain",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "description_kind": "plain"
+              },
+              "nesting_mode": "set"
             }
           },
           "description_kind": "plain"

@@ -113,11 +113,13 @@ const alicloudNasFileSystem = `{
         ]
       },
       "vpc_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
       },
       "vswitch_id": {
+        "computed": true,
         "description_kind": "plain",
         "optional": true,
         "type": "string"
